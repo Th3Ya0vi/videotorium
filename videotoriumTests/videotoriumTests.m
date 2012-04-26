@@ -7,6 +7,7 @@
 //
 
 #import "videotoriumTests.h"
+#import "VideotoriumClient.h"
 
 @implementation videotoriumTests
 
@@ -24,9 +25,10 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testClassExists
 {
-    STFail(@"Unit tests are not implemented yet in videotoriumTests");
+    VideotoriumClient *videotoriumClient = [[VideotoriumClient alloc] init];
+    STAssertTrue([videotoriumClient isKindOfClass:[VideotoriumClient class]], nil);
 }
 
 @end
