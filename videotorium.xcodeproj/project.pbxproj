@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2DEB06B91549703200AD0805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06B81549703200AD0805 /* UIKit.framework */; };
+		2DEB06BB1549703200AD0805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06BA1549703200AD0805 /* Foundation.framework */; };
+		2DEB06BD1549703200AD0805 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06BC1549703200AD0805 /* CoreGraphics.framework */; };
+		2DEB06C31549703200AD0805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB06C11549703200AD0805 /* InfoPlist.strings */; };
+		2DEB06C51549703200AD0805 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06C41549703200AD0805 /* main.m */; };
+		2DEB06C91549703200AD0805 /* VideotoriumAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */; };
+		2DEB06D11549703200AD0805 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06D01549703200AD0805 /* SenTestingKit.framework */; };
+		2DEB06D21549703200AD0805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06B81549703200AD0805 /* UIKit.framework */; };
+		2DEB06D31549703200AD0805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06BA1549703200AD0805 /* Foundation.framework */; };
+		2DEB06DB1549703300AD0805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB06D91549703300AD0805 /* InfoPlist.strings */; };
+		2DEB06DE1549703300AD0805 /* videotoriumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06DD1549703300AD0805 /* videotoriumTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DEB06D41549703200AD0805 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DEB06AB1549703200AD0805 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DEB06B31549703200AD0805;
+			remoteInfo = videotorium;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2DEB06B41549703200AD0805 /* videotorium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videotorium.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DEB06B81549703200AD0805 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2DEB06BA1549703200AD0805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2DEB06BC1549703200AD0805 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2DEB06C01549703200AD0805 /* videotorium-Info.plist */ = {isa = PBXFileReference; path = "videotorium-Info.plist"; sourceTree = "<group>"; };
+		2DEB06C21549703200AD0805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2DEB06C41549703200AD0805 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2DEB06C61549703200AD0805 /* videotorium-Prefix.pch */ = {isa = PBXFileReference; path = "videotorium-Prefix.pch"; sourceTree = "<group>"; };
+		2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */ = {isa = PBXFileReference; path = VideotoriumAppDelegate.h; sourceTree = "<group>"; };
+		2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideotoriumAppDelegate.m; sourceTree = "<group>"; };
+		2DEB06CF1549703200AD0805 /* videotoriumTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videotoriumTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DEB06D01549703200AD0805 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2DEB06D81549703300AD0805 /* videotoriumTests-Info.plist */ = {isa = PBXFileReference; path = "videotoriumTests-Info.plist"; sourceTree = "<group>"; };
+		2DEB06DA1549703300AD0805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2DEB06DC1549703300AD0805 /* videotoriumTests.h */ = {isa = PBXFileReference; path = videotoriumTests.h; sourceTree = "<group>"; };
+		2DEB06DD1549703300AD0805 /* videotoriumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = videotoriumTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DEB06B11549703200AD0805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB06B91549703200AD0805 /* UIKit.framework in Frameworks */,
+				2DEB06BB1549703200AD0805 /* Foundation.framework in Frameworks */,
+				2DEB06BD1549703200AD0805 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB06CB1549703200AD0805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB06D11549703200AD0805 /* SenTestingKit.framework in Frameworks */,
+				2DEB06D21549703200AD0805 /* UIKit.framework in Frameworks */,
+				2DEB06D31549703200AD0805 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DEB06A91549703200AD0805 = {
+			isa = PBXGroup;
+			children = (
+				2DEB06BE1549703200AD0805 /* videotorium */,
+				2DEB06D61549703200AD0805 /* videotoriumTests */,
+				2DEB06B71549703200AD0805 /* Frameworks */,
+				2DEB06B51549703200AD0805 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2DEB06B51549703200AD0805 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB06B41549703200AD0805 /* videotorium.app */,
+				2DEB06CF1549703200AD0805 /* videotoriumTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DEB06B71549703200AD0805 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB06B81549703200AD0805 /* UIKit.framework */,
+				2DEB06BA1549703200AD0805 /* Foundation.framework */,
+				2DEB06BC1549703200AD0805 /* CoreGraphics.framework */,
+				2DEB06D01549703200AD0805 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DEB06BE1549703200AD0805 /* videotorium */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */,
+				2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */,
+				2DEB06BF1549703200AD0805 /* Supporting Files */,
+			);
+			path = videotorium;
+			sourceTree = "<group>";
+		};
+		2DEB06BF1549703200AD0805 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB06C01549703200AD0805 /* videotorium-Info.plist */,
+				2DEB06C11549703200AD0805 /* InfoPlist.strings */,
+				2DEB06C41549703200AD0805 /* main.m */,
+				2DEB06C61549703200AD0805 /* videotorium-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2DEB06D61549703200AD0805 /* videotoriumTests */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB06DC1549703300AD0805 /* videotoriumTests.h */,
+				2DEB06DD1549703300AD0805 /* videotoriumTests.m */,
+				2DEB06D71549703300AD0805 /* Supporting Files */,
+			);
+			path = videotoriumTests;
+			sourceTree = "<group>";
+		};
+		2DEB06D71549703300AD0805 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB06D81549703300AD0805 /* videotoriumTests-Info.plist */,
+				2DEB06D91549703300AD0805 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2DEB06B31549703200AD0805 /* videotorium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DEB06E11549703300AD0805 /* Build configuration list for PBXNativeTarget "videotorium" */;
+			buildPhases = (
+				2DEB06B01549703200AD0805 /* Sources */,
+				2DEB06B11549703200AD0805 /* Frameworks */,
+				2DEB06B21549703200AD0805 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = videotorium;
+			productName = videotorium;
+			productReference = 2DEB06B41549703200AD0805 /* videotorium.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2DEB06CE1549703200AD0805 /* videotoriumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DEB06E41549703300AD0805 /* Build configuration list for PBXNativeTarget "videotoriumTests" */;
+			buildPhases = (
+				2DEB06CA1549703200AD0805 /* Sources */,
+				2DEB06CB1549703200AD0805 /* Frameworks */,
+				2DEB06CC1549703200AD0805 /* Resources */,
+				2DEB06CD1549703200AD0805 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DEB06D51549703200AD0805 /* PBXTargetDependency */,
+			);
+			name = videotoriumTests;
+			productName = videotoriumTests;
+			productReference = 2DEB06CF1549703200AD0805 /* videotoriumTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DEB06AB1549703200AD0805 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Videotorium;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 2DEB06AE1549703200AD0805 /* Build configuration list for PBXProject "videotorium" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2DEB06A91549703200AD0805;
+			productRefGroup = 2DEB06B51549703200AD0805 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DEB06B31549703200AD0805 /* videotorium */,
+				2DEB06CE1549703200AD0805 /* videotoriumTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2DEB06B21549703200AD0805 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB06C31549703200AD0805 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB06CC1549703200AD0805 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB06DB1549703300AD0805 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DEB06CD1549703200AD0805 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DEB06B01549703200AD0805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB06C51549703200AD0805 /* main.m in Sources */,
+				2DEB06C91549703200AD0805 /* VideotoriumAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB06CA1549703200AD0805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB06DE1549703300AD0805 /* videotoriumTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2DEB06D51549703200AD0805 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DEB06B31549703200AD0805 /* videotorium */;
+			targetProxy = 2DEB06D41549703200AD0805 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2DEB06C11549703200AD0805 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DEB06C21549703200AD0805 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2DEB06D91549703300AD0805 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DEB06DA1549703300AD0805 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2DEB06DF1549703300AD0805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		2DEB06E01549703300AD0805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2DEB06E21549703300AD0805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
+				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2DEB06E31549703300AD0805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
+				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2DEB06E51549703300AD0805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/videotorium.app/videotorium";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
+				INFOPLIST_FILE = "videotoriumTests/videotoriumTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2DEB06E61549703300AD0805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/videotorium.app/videotorium";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
+				INFOPLIST_FILE = "videotoriumTests/videotoriumTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DEB06AE1549703200AD0805 /* Build configuration list for PBXProject "videotorium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DEB06DF1549703300AD0805 /* Debug */,
+				2DEB06E01549703300AD0805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DEB06E11549703300AD0805 /* Build configuration list for PBXNativeTarget "videotorium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DEB06E21549703300AD0805 /* Debug */,
+				2DEB06E31549703300AD0805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2DEB06E41549703300AD0805 /* Build configuration list for PBXNativeTarget "videotoriumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DEB06E51549703300AD0805 /* Debug */,
+				2DEB06E61549703300AD0805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2DEB06AB1549703200AD0805 /* Project object */;
+}
