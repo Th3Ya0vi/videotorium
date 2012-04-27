@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VideotoriumRecording.h"
 
 @interface VideotoriumClient : NSObject
+
+- (VideotoriumRecording *)recordingWithID:(NSString *)ID;
 
 @end

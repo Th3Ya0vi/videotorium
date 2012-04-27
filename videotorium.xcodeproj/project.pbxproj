@@ -20,6 +20,8 @@
 		2DEB06DE1549703300AD0805 /* videotoriumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06DD1549703300AD0805 /* videotoriumTests.m */; };
 		2DEB06E9154970CF00AD0805 /* VideotoriumClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */; };
 		2DEB06EA154970CF00AD0805 /* VideotoriumClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */; };
+		2DEB06ED154AC82B00AD0805 /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */; };
+		2DEB06EE154AC82B00AD0805 /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		2DEB06DD1549703300AD0805 /* videotoriumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = videotoriumTests.m; sourceTree = "<group>"; };
 		2DEB06E7154970CF00AD0805 /* VideotoriumClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumClient.h; sourceTree = "<group>"; };
 		2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumClient.m; sourceTree = "<group>"; };
+		2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideotoriumRecording.h; path = videotorium/VideotoriumRecording.h; sourceTree = SOURCE_ROOT; };
+		2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideotoriumRecording.m; path = videotorium/VideotoriumRecording.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +116,11 @@
 			children = (
 				2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */,
 				2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */,
-				2DEB06BF1549703200AD0805 /* Supporting Files */,
 				2DEB06E7154970CF00AD0805 /* VideotoriumClient.h */,
 				2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */,
+				2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */,
+				2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */,
+				2DEB06BF1549703200AD0805 /* Supporting Files */,
 			);
 			path = videotorium;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 				2DEB06C51549703200AD0805 /* main.m in Sources */,
 				2DEB06C91549703200AD0805 /* VideotoriumAppDelegate.m in Sources */,
 				2DEB06E9154970CF00AD0805 /* VideotoriumClient.m in Sources */,
+				2DEB06ED154AC82B00AD0805 /* VideotoriumRecording.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +274,7 @@
 			files = (
 				2DEB06DE1549703300AD0805 /* videotoriumTests.m in Sources */,
 				2DEB06EA154970CF00AD0805 /* VideotoriumClient.m in Sources */,
+				2DEB06EE154AC82B00AD0805 /* VideotoriumRecording.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

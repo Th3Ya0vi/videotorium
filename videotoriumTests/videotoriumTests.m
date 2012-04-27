@@ -8,27 +8,39 @@
 
 #import "videotoriumTests.h"
 #import "VideotoriumClient.h"
+#import "VideotoriumRecording.h"
+
+@interface videotoriumTests ()
+
+@property (nonatomic, strong) VideotoriumClient *videotoriumClient;
+
+@end
 
 @implementation videotoriumTests
+
+@synthesize videotoriumClient = _videotoriumClient;
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+
+    self.videotoriumClient = [[VideotoriumClient alloc] init];
 }
 
 - (void)tearDown
-{
-    // Tear-down code here.
-    
+{    
     [super tearDown];
 }
 
 - (void)testClassExists
 {
-    VideotoriumClient *videotoriumClient = [[VideotoriumClient alloc] init];
-    STAssertTrue([videotoriumClient isKindOfClass:[VideotoriumClient class]], nil);
+    STAssertTrue([self.videotoriumClient isKindOfClass:[VideotoriumClient class]], nil);
+}
+
+- (void)testGetRecordingDetails
+{
+    VideotoriumRecording *recording = [self.videotoriumClient recordingWithID:@"2487"];
+    STAssertTrue([recording isKindOfClass:[VideotoriumRecording class]], nil);
 }
 
 @end

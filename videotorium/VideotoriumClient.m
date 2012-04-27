@@ -10,4 +10,10 @@
 
 @implementation VideotoriumClient
 
+- (VideotoriumRecording *)recordingWithID:(NSString *)ID
+{
+    VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
+    return recording;
+}
+
 @end
