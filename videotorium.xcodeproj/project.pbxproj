@@ -19,9 +19,9 @@
 		2DEB06DB1549703300AD0805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB06D91549703300AD0805 /* InfoPlist.strings */; };
 		2DEB06DE1549703300AD0805 /* videotoriumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06DD1549703300AD0805 /* videotoriumTests.m */; };
 		2DEB06E9154970CF00AD0805 /* VideotoriumClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */; };
-		2DEB06EA154970CF00AD0805 /* VideotoriumClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */; };
 		2DEB06ED154AC82B00AD0805 /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */; };
 		2DEB06EE154AC82B00AD0805 /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */; };
+		2DEB06EF154ACC3800AD0805 /* VideotoriumClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,8 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DEB06DE1549703300AD0805 /* videotoriumTests.m in Sources */,
-				2DEB06EA154970CF00AD0805 /* VideotoriumClient.m in Sources */,
 				2DEB06EE154AC82B00AD0805 /* VideotoriumRecording.m in Sources */,
+				2DEB06EF154ACC3800AD0805 /* VideotoriumClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
