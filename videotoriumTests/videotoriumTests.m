@@ -41,6 +41,8 @@
 {
     VideotoriumRecording *recording = [self.videotoriumClient recordingWithID:@"2487"];
     STAssertTrue([recording isKindOfClass:[VideotoriumRecording class]], nil);
+//    NSLog(@"%@", recording.response);
+    STAssertNotNil(recording.response, nil);
 }
 
 @end

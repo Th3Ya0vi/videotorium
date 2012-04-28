@@ -10,4 +10,6 @@
 
 @interface VideotoriumRecording : NSObject
 
+@property (nonatomic, strong) NSString *response;
+
 @end

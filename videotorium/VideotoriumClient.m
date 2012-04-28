@@ -13,6 +13,11 @@
 - (VideotoriumRecording *)recordingWithID:(NSString *)ID
 {
     VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
+    NSString *urlString = [NSString stringWithFormat:@"http://videotorium.hu/hu/recordings/details/%@", ID];
+    NSURL *url = [NSURL URLWithString:urlString];
+    recording.response = [NSString stringWithContentsOfURL:url
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:nil];
     return recording;
 }
 

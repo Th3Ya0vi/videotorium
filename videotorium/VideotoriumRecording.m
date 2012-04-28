@@ -10,4 +10,5 @@
 
 @implementation VideotoriumRecording
 
+@synthesize response = _response;
 @end
