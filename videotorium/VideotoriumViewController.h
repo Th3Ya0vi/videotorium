@@ -10,4 +10,6 @@
 
 @interface VideotoriumViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *movieView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @end
