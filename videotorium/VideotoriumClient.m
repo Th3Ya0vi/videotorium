@@ -25,7 +25,14 @@
 {
     VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
     NSString *urlString = [NSString stringWithFormat:@"http://videotorium.hu/hu/recordings/details/%@", ID];
-    recording.response = [self.dataSource contentsOfURL:urlString];
+    NSString *response = [self.dataSource contentsOfURL:urlString];
+    NSRange responseRange = NSMakeRange(0, [response length]);
+    recording.response = response;
+    NSRegularExpression *streamURLRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"<video[^>]*src=\"([^\"]*)\""
+                                                                                                options:NSRegularExpressionCaseInsensitive
+                                                                                                  error:NULL];
+    NSTextCheckingResult *match = [streamURLRegularExpression firstMatchInString:response options:0 range:responseRange];
+    if (match) recording.streamURL = [NSURL URLWithString:[response substringWithRange:[match rangeAtIndex:1]]];
     return recording;
 }
 

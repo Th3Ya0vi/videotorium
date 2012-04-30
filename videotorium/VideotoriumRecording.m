@@ -11,4 +11,6 @@
 @implementation VideotoriumRecording
 
 @synthesize response = _response;
+@synthesize streamURL = _streamURL;
+
 @end

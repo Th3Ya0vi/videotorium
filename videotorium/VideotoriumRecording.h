@@ -11,5 +11,6 @@
 @interface VideotoriumRecording : NSObject
 
 @property (nonatomic, strong) NSString *response;
+@property (nonatomic, strong) NSURL *streamURL;
 
 @end
