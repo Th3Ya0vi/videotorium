@@ -8,7 +8,6 @@
 
 #import "VideotoriumClient.h"
 #import "VideotoriumClientDataSourceUsingSynchronousRequest.h"
-#import "VideotoriumSlide.h"
 
 @implementation VideotoriumClient
 

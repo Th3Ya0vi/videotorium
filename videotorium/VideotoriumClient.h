@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VideotoriumRecording.h"
+#import "VideotoriumSlide.h"
 
 @protocol VideotoriumClientDataSource <NSObject>
 
