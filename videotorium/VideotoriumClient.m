@@ -8,6 +8,7 @@
 
 #import "VideotoriumClient.h"
 #import "VideotoriumClientDataSourceUsingSynchronousRequest.h"
+#import "VideotoriumSlide.h"
 
 @implementation VideotoriumClient
 
@@ -21,18 +22,34 @@
     return _dataSource;
 }
 
+- (NSString *)substringOf:(NSString *)string matching:(NSString *)pattern
+{
+    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
+    NSTextCheckingResult *match = [regexp firstMatchInString:string options:0 range:NSMakeRange(0, [string length])];
+    if (match) {
+        return [string  substringWithRange:[match rangeAtIndex:1]];
+    } else {
+        return nil;
+    }
+}
+
 - (VideotoriumRecording *)recordingWithID:(NSString *)ID
 {
     VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
-    NSString *urlString = [NSString stringWithFormat:@"http://videotorium.hu/hu/recordings/details/%@", ID];
-    NSString *response = [self.dataSource contentsOfURL:urlString];
-    NSRange responseRange = NSMakeRange(0, [response length]);
-    recording.response = response;
-    NSRegularExpression *streamURLRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"<video[^>]*src=\"([^\"]*)\""
-                                                                                                options:NSRegularExpressionCaseInsensitive
-                                                                                                  error:NULL];
-    NSTextCheckingResult *match = [streamURLRegularExpression firstMatchInString:response options:0 range:responseRange];
-    if (match) recording.streamURL = [NSURL URLWithString:[response substringWithRange:[match rangeAtIndex:1]]];
+    NSString *URLString = [NSString stringWithFormat:@"http://videotorium.hu/hu/recordings/details/%@", ID];
+    recording.response = [self.dataSource contentsOfURL:URLString];
+    recording.streamURL = [NSURL URLWithString:[self substringOf:recording.response matching:@"<video[^>]*src=\"([^\"]*)\""]];
+    
+    NSMutableArray *slides = [NSMutableArray array];
+    NSString *slidesURLPrefix = [self substringOf:recording.response matching:@"slides_imageFolder *= *'([^']*)'"];
+    NSString *slidesJSONString = [self substringOf:recording.response matching:@"slides_model *= *'([^']*)'"];
+    NSData *slidesJSONData = [slidesJSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *slidesJSONArray = [NSJSONSerialization JSONObjectWithData:slidesJSONData options:0 error:NULL];
+    for (NSDictionary *slideDictionary in slidesJSONArray) {
+        VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary URLPrefix:slidesURLPrefix];
+        [slides addObject:slide];
+    }
+    recording.slides = slides;
     return recording;
 }
 

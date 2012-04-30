@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSString *response;
 @property (nonatomic, strong) NSURL *streamURL;
+@property (nonatomic, strong) NSArray *slides; // array of VideotoriumSlide objects
 
 @end

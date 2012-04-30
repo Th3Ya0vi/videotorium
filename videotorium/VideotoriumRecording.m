@@ -12,5 +12,15 @@
 
 @synthesize response = _response;
 @synthesize streamURL = _streamURL;
+@synthesize slides = _slides;
+
+
+-(NSArray *)slides
+{
+    if (_slides == nil) {
+        _slides = [NSArray array];
+    }
+    return _slides;
+}
 
 @end

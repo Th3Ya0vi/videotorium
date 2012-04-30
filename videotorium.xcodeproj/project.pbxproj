@@ -28,6 +28,7 @@
 		2DEB06ED154AC82B00AD0805 /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */; };
 		2DEB06EE154AC82B00AD0805 /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */; };
 		2DEB06EF154ACC3800AD0805 /* VideotoriumClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */; };
+		2DFCBF1A154EC97A0091A021 /* VideotoriumSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCBF19154EC97A0091A021 /* VideotoriumSlide.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = VideotoriumRecording.h; path = videotorium/VideotoriumRecording.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = VideotoriumRecording.m; path = videotorium/VideotoriumRecording.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2DFCBF18154EC97A0091A021 /* VideotoriumSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSlide.h; sourceTree = "<group>"; };
+		2DFCBF19154EC97A0091A021 /* VideotoriumSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSlide.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */,
 				2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */,
 				2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */,
+				2DFCBF18154EC97A0091A021 /* VideotoriumSlide.h */,
+				2DFCBF19154EC97A0091A021 /* VideotoriumSlide.m */,
 				2DEB06BF1549703200AD0805 /* Supporting Files */,
 			);
 			path = videotorium;
@@ -296,6 +301,7 @@
 				2DEB06ED154AC82B00AD0805 /* VideotoriumRecording.m in Sources */,
 				2DD60204154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.m in Sources */,
 				2DC6F863154E8C5B00CDDA80 /* VideotoriumViewController.m in Sources */,
+				2DFCBF1A154EC97A0091A021 /* VideotoriumSlide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
