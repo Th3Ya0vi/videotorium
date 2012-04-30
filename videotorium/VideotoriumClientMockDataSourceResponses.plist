@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>http://videotorium.hu/hu/recordings/details/2487</key>
+	<string>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;hu&quot; xml:lang=&quot;hu&quot;&gt;
+&lt;head&gt;
+
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+  &lt;meta http-equiv=&quot;imagetoolbar&quot; content=&quot;no&quot; /&gt;
+  &lt;meta name=&quot;author&quot; content=&quot;Dots Amazing - www.dotsamazing.com&quot; /&gt;
+  &lt;meta name=&quot;MSSmartTagsPreventParsing&quot; content=&quot;true&quot; /&gt;
+  &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot; /&gt;  &lt;base href=&quot;http://videotorium.hu/&quot; /&gt;&lt;!--[if IE]&gt;&lt;/base&gt;&lt;![endif]--&gt;
+    &lt;title&gt;Módszerek, amelyek megváltoztatják a világot - A számítógépes szimuláció és optimalizáció jelentősége | videotorium.hu&lt;/title&gt;
+      
+&lt;meta property=&quot;og:url&quot;       content=&quot;http://videotorium.hu/hu/recordings/details/2487&quot;/&gt;
+&lt;meta property=&quot;og:site_name&quot; content=&quot;videotorium.hu&quot;/&gt;
+&lt;meta property=&quot;fb:admins&quot;    content=&quot;100000819810564&quot;/&gt;
+&lt;meta property=&quot;og:title&quot;     content=&quot;Módszerek, amelyek megváltoztatják a világot - A számítógépes szimuláció és optimalizáció jelentősége | videotorium.hu&quot;/&gt;
+&lt;meta property=&quot;og:image&quot;     content=&quot;http://static.videotorium.hu/files/recordings/487/2487/indexpics/400x250/2487_2483_20.jpg&quot;/&gt;
+&lt;meta property=&quot;og:type&quot;      content=&quot;video&quot;/&gt;
+
+  &lt;meta property=&quot;og:description&quot; content=&quot;Az előadásban bemutatjuk a Széchenyi István Egyetemen működő, Magyarország legnagyobb ipari matematikai nemzetközi kutatócsoportját.
+
+A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői a számítógépeket je...&quot;/&gt;
+
+  &lt;meta property=&quot;og:video&quot; content=&quot;http://videotorium.hu/flashv2/VideotoriumSharedPlayer.swf?media_json=http%3A%2F%2Fvideotorium.hu%2Fhu%2Frecordings%2Fgetplayerconfig%2F2483&quot;/&gt;
+  &lt;meta property=&quot;og:video:height&quot; content=&quot;303&quot;/&gt;
+  &lt;meta property=&quot;og:video:width&quot; content=&quot;398&quot;/&gt;
+  &lt;meta property=&quot;og:video:type&quot; content=&quot;application/x-shockwave-flash&quot;/&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+  var BASE_URI   = &apos;http://videotorium.hu/&apos;;
+  var STATIC_URI = &apos;http://static.videotorium.hu/&apos;;
+  var VERSION    = &apos;_v20120324&apos;;
+  var language   = &apos;hu&apos;;
+  &lt;/script&gt;
+  
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, maximum-scale=1.0&quot;/&gt;
+    
+  &lt;link rel=&quot;StyleSheet&quot; type=&quot;text/css&quot; href=&quot;http://videotorium.hu/hu/combine/css?url[]=css%2Fstyle_v20120324.css&amp;url[]=css%2Fjquery-ui-1.8.custom_v20120324.css&amp;url[]=css%2Fstyle_mobile_v20120324.css&quot; /&gt;
+
+  &lt;!--[if lte IE 7]&gt;
+  &lt;link rel=&quot;StyleSheet&quot; type=&quot;text/css&quot; href=&quot;http://static.videotorium.hu/css/style_ie_v20120324.css&quot; /&gt;
+  &lt;![endif]--&gt;
+  
+  &lt;!--[if lte IE 6]&gt;
+  &lt;link rel=&quot;StyleSheet&quot; type=&quot;text/css&quot; href=&quot;http://static.videotorium.hu/css/style_ie6_v20120324.css&quot; /&gt;
+  &lt;![endif]--&gt;
+
+  &lt;script type=&quot;text/javascript&quot; src=&quot;http://videotorium.hu/hu/combine/js?url[]=js%2Fjquery-1.5.1.min_v20120324.js&amp;url[]=js%2Fjquery-ui-1.8.custom.min_v20120324.js&amp;url[]=js%2Fjquery.scrollTo_v20120324.js&amp;url[]=js%2Ftools_v20120324.js&amp;url[]=http%3A%2F%2Fvideotorium.hu%2Fhu%2Ftools%2Flanguage&amp;url[]=js%2Fswfobject.full_v20120324.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;script type=&quot;text/javascript&quot;&gt;
+  
+  var $j = jQuery.noConflict();
+  setupDatepickerLanguage();
+  setupDOMReady();
+
+  &lt;/script&gt;
+
+
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;videotorium.hu Hírek és felvételek&quot; href=&quot;hu/rss&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;videotorium.hu Hírek&quot; href=&quot;hu/rss/news&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;videotorium.hu Felvételek&quot; href=&quot;hu/rss/recordings&quot; /&gt;
+  &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;http://static.videotorium.hu/images/mobileicon.png&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;pagecontainer&quot;&gt;
+    &lt;div id=&quot;wrap&quot;&gt;
+    &lt;div id=&quot;header&quot;&gt;
+      &lt;a id=&quot;logo&quot; href=&quot;http://videotorium.hu/&quot; title=&quot;Videotorium&quot; class=&quot;hu&quot;&gt;&lt;span&gt;&lt;/span&gt;Videotorium&lt;/a&gt;
+            &lt;div id=&quot;headersearch&quot;&gt;
+        &lt;form id=&quot;search&quot; method=&quot;get&quot; action=&quot;hu/search/all&quot;&gt;
+          &lt;input type=&quot;text&quot; name=&quot;q&quot; origval=&quot;gyorskeresés a felvételek között...&quot; value=&quot;gyorskeresés a felvételek között...&quot; /&gt;
+        &lt;/form&gt;
+        &lt;a href=&quot;hu/search/advanced&quot;&gt;Részletes keresés &amp;raquo;&lt;/a&gt;
+      &lt;/div&gt;
+            &lt;div id=&quot;headersearchlink&quot;&gt;&lt;a href=&quot;hu/search/all&quot;&gt;Keresés&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    
+      
+&lt;div id=&quot;menu&quot;&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;ul class=&quot;left&quot;&gt;
+      &lt;li class=&quot;first&quot;&gt;&lt;a href=&quot;http://videotorium.hu/&quot;&gt;Főoldal&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/categories&quot;&gt;Kategóriák&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/channels&quot;&gt;Csatornák&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/events&quot;&gt;Események&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/featured&quot;&gt;Ajánló&lt;/a&gt;&lt;/li&gt;
+      &lt;li id=&quot;menulive&quot;&gt;&lt;a href=&quot;hu/live/linkrouter&quot;&gt;Élő közvetítések&lt;/a&gt;&lt;/li&gt;
+      &lt;li id=&quot;menuaboutus&quot;&gt;&lt;a href=&quot;hu/contents/aboutus&quot;&gt;Magunkról&lt;/a&gt;&lt;/li&gt;    &lt;/ul&gt;
+    &lt;ul class=&quot;right&quot;&gt;
+            &lt;li class=&quot;first language&quot;&gt;&lt;a href=&quot;http://videotorium.hu/en/recordings/details/2487&quot;&gt;English&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;     
+      
+  &lt;div id=&quot;submenu&quot;&gt;
+    &lt;div class=&quot;wrap&quot;&gt;
+            &lt;ul class=&quot;right&quot;&gt;
+                                                                        &lt;li class=&quot;login&quot;&gt;&lt;a href=&quot;hu/users/login?welcome=1&amp;forward=http%3A%2F%2Fvideotorium.hu%2Fhu%2Frecordings%2Fdetails%2F2487&quot; class=&quot;ajaxlogin&quot;&gt;Belépés&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;last register&quot;&gt;&lt;a href=&quot;hu/users/signup&quot;&gt;Regisztráció&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+        
+        
+    &lt;div class=&quot;body&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4bd1a3767312366a&quot;&gt;&lt;/script&gt;
+&lt;div class=&quot;heading recording&quot;&gt;
+    &lt;h1&gt;Módszerek, amelyek megváltoztatják a világot - A számítógépes szimuláció és optimalizáció jelentősége&lt;/h1&gt;
+  
+    
+  &lt;div class=&quot;ratewidget&quot;&gt;
+    &lt;span class=&quot;spinner&quot;&gt;&lt;/span&gt;
+    &lt;h2&gt;&lt;span class=&quot;count&quot;&gt;1&lt;/span&gt; értékelés alapján:&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li class=&quot;full&quot;&gt;&lt;a href=&quot;hu/recordings/rate?recordid=2487&amp;rating=1&quot;&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;full&quot;&gt;&lt;a href=&quot;hu/recordings/rate?recordid=2487&amp;rating=2&quot;&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;full&quot;&gt;&lt;a href=&quot;hu/recordings/rate?recordid=2487&amp;rating=3&quot;&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;full&quot;&gt;&lt;a href=&quot;hu/recordings/rate?recordid=2487&amp;rating=4&quot;&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;full&quot;&gt;&lt;a href=&quot;hu/recordings/rate?recordid=2487&amp;rating=5&quot;&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;p&gt;
+    Dr. Horváth Zoltán
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;player&quot;&gt;
+  
+            &lt;div id=&quot;mobileplayercontainer&quot;&gt;
+        &lt;video x-webkit-airplay=&quot;allow&quot; controls alt=&quot;Módszerek, amelyek megváltoztatják a világot - A számítógépes szimuláció és optimalizáció jelentősége&quot; width=&quot;192&quot; height=&quot;144&quot; poster=&quot;http://static.videotorium.hu/files/recordings/487/2487/indexpics/192x144/2487_2483_20.jpg&quot; src=&quot;http://stream.videotorium.hu:1935/vtorium/_definst_/mp4:487/2487/2487_2483_mobile.mp4/playlist.m3u8?sessionid=i2kmtu98s810o3b1itn5p6u0b3_2487&quot;&gt;
+          &lt;a href=&quot;rtsp://stream.videotorium.hu/vtorium/_definst_/mp4:487/2487/2487_2483_mobile.mp4?sessionid=i2kmtu98s810o3b1itn5p6u0b3_2487&quot;&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/487/2487/indexpics/192x144/2487_2483_20.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;/video&gt;
+      &lt;/div&gt;
+        &lt;br/&gt;
+    
+  &lt;div id=&quot;playercontainer&quot;&gt;A felvételek megtekintéséhez az Adobe Flash Player szoftver egy újabb verziójára van szükség. Az Ön számítógépén egy régebbi változat található, vagy a lejátszó még nincs telepítve. &lt;a href=&quot;http://get.adobe.com/flashplayer/&quot;&gt;Kattintson ide az újabb változat telepítéséhez!&lt;/a&gt;&lt;/div&gt;
+  &lt;div id=&quot;playermenu&quot;&gt;
+        &lt;a href=&quot;#&quot; id=&quot;slidelist&quot;&gt;slidelista&lt;/a&gt;
+        &lt;ul&gt;
+            
+
+      
+
+            &lt;li id=&quot;downloadhu&quot;&gt;
+        &lt;a href=&quot;#&quot; id=&quot;downloadlink&quot;&gt;Letöltés&lt;/a&gt;
+        &lt;ul&gt;
+                              &lt;li&gt;&lt;a href=&quot;http://static.videotorium.hu/files/recordings/487/2487/2483,Modszerek_amelyek_megvaltoztatjak_a_vilagot_-_A_szamitogepes_szimulacio_es_optimalizacio_jelentosege.mp3&quot;&gt;Audió verzió&lt;/a&gt;&lt;/li&gt;
+                              &lt;li class=&quot;last&quot;&gt;
+            &lt;a href=&quot;http://static.videotorium.hu/files/recordings/487/2487/attached_documents/278.pdf/Sz%C3%A9chenyi_Tudom%C3%A1nyos_Est_HZ_2010_11_10.pdf&quot;&gt;
+              Széchenyi_Tudományos_... (pdf)
+            &lt;/a&gt;
+          &lt;/li&gt;
+                  &lt;/ul&gt;
+      &lt;/li&gt;
+                  &lt;li id=&quot;embedhu&quot;&gt;
+        &lt;a href=&quot;#&quot; id=&quot;embedlink&quot; data-embedid=&quot;2483&quot; data-embedheight=&quot;385&quot;&gt;Beágyazás&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;
+            A beágyazáshoz szükséges kód:&lt;br /&gt;
+            &lt;input type=&quot;text&quot; class=&quot;inputtext&quot; id=&quot;embed_code&quot; value=&quot;&amp;lt;iframe width=&amp;quot;480&amp;quot; height=&amp;quot;385&amp;quot; src=&amp;quot;http://videotorium.hu/hu/embed/2483.html&amp;quot; frameborder=&amp;quot;0&amp;quot; allowfullscreen=&amp;quot;allowfullscreen&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;&quot; /&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;noborder&quot;&gt;
+            &lt;b&gt;Beállítások:&lt;/b&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;noborder indent&quot;&gt;
+            &lt;label for=&quot;embed_autoplay&quot;&gt;Automatikus lejátszás&lt;/label&gt;&lt;br /&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;embed_autoplay&quot; id=&quot;embed_autoplay_no&quot; checked=&quot;checked&quot; value=&quot;no&quot; /&gt; &lt;label for=&quot;embed_autoplay_no&quot;&gt;nem&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;embed_autoplay&quot; id=&quot;embed_autoplay_yes&quot; value=&quot;yes&quot; /&gt; &lt;label for=&quot;embed_autoplay_yes&quot;&gt;igen&lt;/label&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;noborder indent&quot;&gt;
+            &lt;label for=&quot;embed_start&quot;&gt;Induljon ettől a pozíciótól:&lt;/label&gt;&lt;br /&gt;
+            &lt;input type=&quot;text&quot; class=&quot;inputtext&quot; value=&quot;00&quot; maxlength=&quot;2&quot; id=&quot;embed_start_h&quot; /&gt; óra
+            &lt;input type=&quot;text&quot; class=&quot;inputtext&quot; value=&quot;00&quot; maxlength=&quot;2&quot; id=&quot;embed_start_m&quot; /&gt; perc
+            &lt;input type=&quot;text&quot; class=&quot;inputtext&quot; value=&quot;00&quot; maxlength=&quot;2&quot; id=&quot;embed_start_s&quot; /&gt; mp
+          &lt;/li&gt;
+          &lt;li class=&quot;noborder indent&quot;&gt;
+            Beágyazás típusa&lt;br /&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;embed_type&quot; id=&quot;embed_type_script&quot; value=&quot;script&quot; /&gt; &lt;label for=&quot;embed_type_script&quot;&gt;script&lt;/label&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;embed_type&quot; id=&quot;embed_type_iframe&quot; checked=&quot;checked&quot; value=&quot;iframe&quot; /&gt; &lt;label for=&quot;embed_type_iframe&quot;&gt;iframe&lt;/label&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+            &lt;li id=&quot;sharehu&quot; class=&quot;addthis_toolbox&quot;&gt;
+        &lt;a href=&quot;#&quot; id=&quot;sharelink&quot;&gt;Megosztás&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a class=&quot;addthis_button_email&quot;&gt;Email&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;addthis_button_twitter&quot;&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;addthis_button_facebook&quot;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;addthis_button_myspace&quot;&gt;MySpace&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;addthis_button_iwiw&quot;&gt;iWiW&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;addthis_button_digg&quot;&gt;Digg&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;last&quot;&gt;&lt;a class=&quot;addthis_button_expanded&quot;&gt;Több...&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+          &lt;/ul&gt;
+    &lt;a name=&quot;playerbottom&quot;&gt;&amp;nbsp;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+flashdefaults.playervars.media_servers = &apos;[&quot;rtmp://stream.videotorium.hu:1935/vtorium/_definst_/?sessionid=i2kmtu98s810o3b1itn5p6u0b3_2487&quot;, &quot;rtmpt://stream.videotorium.hu:80/vtorium/_definst_/?sessionid=i2kmtu98s810o3b1itn5p6u0b3_2487&quot;]&apos;;
+
+  flashdefaults.playervars.media_image   = &apos;http://static.videotorium.hu/files/recordings/487/2487/indexpics/400x250/2487_2483_20.jpg&apos;;
+  flashdefaults.playervars.media_streams = &apos;[&quot;flv:487/2487/2487_2483.f4v&quot;, &quot;flv:487/2487/2487_2483_hq.f4v&quot;]&apos;;
+  
+    flashdefaults.playervars.recommendatory = &apos;[{&quot;title&quot;:&quot;Mikrochip-rendszerek%20%C3%BCtemei%2C%20metron%C3%B3m%20n%C3%A9lk%C3%BCl%20%E2%80%93%20A%20digit%C3%A1lis%20h%C3%A1l%C3%B3zatok%20%C3%BAj%20gener%C3%A1ci%C3%B3ja&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F3098%2CMikrochip-rendszerek_utemei_metronom_nelkul_A_digitalis_halozatok_uj_generacioja&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/98\/3098\/indexpics\/400x250\/3098_3024_3.jpg&quot;,&quot;duration&quot;:&quot;2785&quot;},{&quot;title&quot;:&quot;Intelligens%20sz%C3%A1m%C3%ADt%C3%A1si%20rendszerek%20I.&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2013%2CIntelligens_szamitasi_rendszerek_I.&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/13\/2013\/indexpics\/400x250\/2013_2013_5.jpg&quot;,&quot;duration&quot;:&quot;3690&quot;},{&quot;title&quot;:&quot;Az%20%C3%BAj%20alkotm%C3%A1ny%20%C3%A9s%20az%20alkotm%C3%A1ny%20stabilit%C3%A1sa&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2703%2CAz_uj_alkotmany_es_az_alkotmany_stabilitasa&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/703\/2703\/indexpics\/400x250\/2703_2640_7.jpg&quot;,&quot;duration&quot;:&quot;4193&quot;},{&quot;title&quot;:&quot;B%C5%B1n%20%C3%A9s%20b%C5%B1nh%C5%91d%C3%A9s%20%E2%80%93%20Nyomoz%C3%A1s%20%C3%A9s%20b%C3%BCntet%C3%A9s%20a%20k%C3%B6z%C3%A9pkorban&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F3096%2CBun_es_bunhodes_Nyomozas_es_buntetes_a_kozepkorban&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/96\/3096\/indexpics\/400x250\/3096_3022_12.jpg&quot;,&quot;duration&quot;:&quot;2733&quot;},{&quot;title&quot;:&quot;%C3%89gi%20sz%C3%ADn-j%C3%A1t%C3%A9k%20-%20A%20sziv%C3%A1rv%C3%A1ny%2C%20a%20holdudvar%2C%20a%20naplemente%20%C3%A9s%20a%20z%C3%B6ld%20villan%C3%A1s&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2565%2CEgi_szin-jatek_-_A_szivarvany_a_holdudvar_a_naplemente_es_a_zold_villanas&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/565\/2565\/indexpics\/400x250\/2565_2539_10.jpg&quot;,&quot;duration&quot;:&quot;4029&quot;},{&quot;title&quot;:&quot;A%20l%C3%A1thatatlan%20%C3%BCzenet%20-%20R%C3%A1di%C3%B3t%C3%A1vk%C3%B6zl%C3%A9s%20a%20mindennapok%20szolg%C3%A1lat%C3%A1ban&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2567%2CA_lathatatlan_uzenet_-_Radiotavkozles_a_mindennapok_szolgalataban&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/567\/2567\/indexpics\/400x250\/2567_2541_19.jpg&quot;,&quot;duration&quot;:&quot;3045&quot;},{&quot;title&quot;:&quot;Tudom%C3%A1ny%20Gy%C5%91rben%20Mindenkinek%202.%20szemeszter%20megnyit%C3%B3&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2055%2CTudomany_Gyorben_Mindenkinek_2._szemeszter_megnyito&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/55\/2055\/indexpics\/400x250\/2055_2055_9.jpg&quot;,&quot;duration&quot;:&quot;965&quot;},{&quot;title&quot;:&quot;Piaci%20kih%C3%ADv%C3%A1sok-%20marketing%20v%C3%A1laszok%20a%2021.%20sz%C3%A1zadban&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2594%2CPiaci_kihivasok-_marketing_valaszok_a_21._szazadban&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/594\/2594\/indexpics\/400x250\/2594_2552_13.jpg&quot;,&quot;duration&quot;:&quot;3227&quot;},{&quot;title&quot;:&quot;Biztons%C3%A1gosabb%20utak%20%E2%80%93%20Mit%20tehetnek%20a%20m%C3%A9rn%C3%B6k%C3%B6k%20az%20%C3%BAton%20l%C3%A9v%C5%91k%20biztons%C3%A1g%C3%A1%C3%A9rt%3F&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2992%2CBiztonsagosabb_utak_Mit_tehetnek_a_mernokok_az_uton_levok_biztonsagaert_&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/992\/2992\/indexpics\/400x250\/2992_2923_6.jpg&quot;,&quot;duration&quot;:&quot;3108&quot;},{&quot;title&quot;:&quot;Az%20Eur%C3%B3pai%20Uni%C3%B3%20el%C5%91tti%20kih%C3%ADv%C3%A1sok%20%C3%A9s%20a%20magyar%20eln%C3%B6ks%C3%A9g&quot;,&quot;url&quot;:&quot;hu%2Frecordings%2Fdetails%2F2647%2CAz_Europai_Unio_elotti_kihivasok_es_a_magyar_elnokseg&quot;,&quot;image&quot;:&quot;http:\/\/static.videotorium.hu\/files\/recordings\/647\/2647\/indexpics\/400x250\/2647_2588_5.jpg&quot;,&quot;duration&quot;:&quot;3668&quot;}]&apos;;
+  
+    flashdefaults.playervars.layout_showSlideList    = true;
+  flashdefaults.playervars.layout_videoOrientation = &apos;right&apos;;
+  flashdefaults.playervars.slides_imageFolder      = &apos;http://static.videotorium.hu/files/recordings/487/2487/slides/&apos;;
+  flashdefaults.playervars.slides_thumbnailFolder  = &apos;http://static.videotorium.hu/files/recordings/487/2487/slides/400x400/&apos;;
+  flashdefaults.playervars.slides_iconFolder       = &apos;http://static.videotorium.hu/files/recordings/487/2487/slides/150x150/&apos;;
+  flashdefaults.playervars.slides_model = &apos;[{&quot;timestamp&quot;:&quot;1&quot;,&quot;id&quot;:&quot;51687&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51687.jpg&quot;,&quot;image&quot;:&quot;51687.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;210&quot;,&quot;id&quot;:&quot;51688&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51688.jpg&quot;,&quot;image&quot;:&quot;51688.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;342&quot;,&quot;id&quot;:&quot;51689&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51689.jpg&quot;,&quot;image&quot;:&quot;51689.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;381&quot;,&quot;id&quot;:&quot;51690&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51690.jpg&quot;,&quot;image&quot;:&quot;51690.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;666&quot;,&quot;id&quot;:&quot;51691&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51691.jpg&quot;,&quot;image&quot;:&quot;51691.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;729&quot;,&quot;id&quot;:&quot;51692&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51692.jpg&quot;,&quot;image&quot;:&quot;51692.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;974&quot;,&quot;id&quot;:&quot;51693&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51693.jpg&quot;,&quot;image&quot;:&quot;51693.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;1550&quot;,&quot;id&quot;:&quot;51694&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51694.jpg&quot;,&quot;image&quot;:&quot;51694.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;1746&quot;,&quot;id&quot;:&quot;51695&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51695.jpg&quot;,&quot;image&quot;:&quot;51695.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;1997&quot;,&quot;id&quot;:&quot;51696&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51696.jpg&quot;,&quot;image&quot;:&quot;51696.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;2166&quot;,&quot;id&quot;:&quot;51697&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51697.jpg&quot;,&quot;image&quot;:&quot;51697.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;2351&quot;,&quot;id&quot;:&quot;51698&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51698.jpg&quot;,&quot;image&quot;:&quot;51698.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;2430&quot;,&quot;id&quot;:&quot;51699&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51699.jpg&quot;,&quot;image&quot;:&quot;51699.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;2541&quot;,&quot;id&quot;:&quot;51700&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51700.jpg&quot;,&quot;image&quot;:&quot;51700.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;2735&quot;,&quot;id&quot;:&quot;51701&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51701.jpg&quot;,&quot;image&quot;:&quot;51701.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;3226&quot;,&quot;id&quot;:&quot;51702&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51702.jpg&quot;,&quot;image&quot;:&quot;51702.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;3407&quot;,&quot;id&quot;:&quot;51703&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51703.jpg&quot;,&quot;image&quot;:&quot;51703.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;3497&quot;,&quot;id&quot;:&quot;51704&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51704.jpg&quot;,&quot;image&quot;:&quot;51704.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}},{&quot;timestamp&quot;:&quot;3502&quot;,&quot;id&quot;:&quot;51705&quot;,&quot;isChapter&quot;:0,&quot;thumbnail&quot;:&quot;51705.jpg&quot;,&quot;image&quot;:&quot;51705.jpg&quot;,&quot;captions&quot;:{&quot;english&quot;:&quot;&quot;,&quot;original&quot;:&quot;&quot;}}]&apos;;
+  
+
+
+
+flashdefaults.playervars.media_duration = &apos;3586&apos;;
+flashdefaults.playervars.media_title    = &apos;M%C3%B3dszerek%2C%20amelyek%20megv%C3%A1ltoztatj%C3%A1k%20a%20vil%C3%A1got%20-%20A%20sz%C3%A1m%C3%ADt%C3%B3g%C3%A9pes%20szimul%C3%A1ci%C3%B3%20%C3%A9s%20optimaliz%C3%A1ci%C3%B3%20jelent%C5%91s%C3%A9ge&apos;;
+
+flashdefaults.playervars.track_firstPlay = &apos;ht&apos; + &apos;tp://videotorium.hu/hu/embed/track/2483&apos;;
+
+flashdefaults.playervars.media_quickembed = &apos;&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;http://videotorium.hu/hu/embed/2483.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&apos;;
+
+swfobject.embedSWF(&apos;flashv2/VideotoriumPlayer_v20120324.swf&apos;, &apos;playercontainer&apos;, &apos;950&apos;, &apos;530&apos;, &apos;10.3.0&apos;, &apos;flash/swfobject/expressInstall.swf&apos;, flashdefaults.playervars, flashdefaults.params, playerLoaded );
+&lt;/script&gt;
+
+&lt;div id=&quot;description&quot;&gt;
+            &lt;div class=&quot;recordingdescription&quot;&gt;
+        &lt;h1&gt;Leírás&lt;/h1&gt;
+    &lt;p&gt;Az előadásban bemutatjuk a Széchenyi István Egyetemen működő, Magyarország legnagyobb ipari matematikai nemzetközi kutatócsoportját.
+
+A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői a számítógépeket jelentős és egyre nagyobb mértékben bevonják munkájukba komplex folyamatok valósághű szimulációjára, pl. bonyolult, költséges mérések kiváltására, majd a szimulációk alapján optimalizálásra. Mindehhez a mindenkor legkorszerűbb, állandóan változó hardvert, pl. szuperszámítógépeket kell használni, a programok és a mögöttük húzódó matematikai algoritmusok állandó fejlesztésével. Az előadásban a kutatócsoport kutatási és alkalmazási eredményeit mutatjuk be.
+ 
+&lt;/p&gt;
+    
+      &lt;/div&gt;
+  
+      
+  &lt;div class=&quot;box box_right recordingdetails&quot;&gt;
+    &lt;div class=&quot;box_topleft&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;box_top&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;box_topright&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;box_content&quot;&gt;
+
+    &lt;ul id=&quot;detailmenu&quot;&gt;
+      &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Alapadatok&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Közreműködők&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Csatolt állományok&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;last&quot;&gt;&lt;a href=&quot;#&quot;&gt;Copyright&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;basics left&quot;&gt;
+      &lt;div class=&quot;wrap left&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;h2&gt;Feltöltő:&lt;/h2&gt;
+            ivanyv
+          &lt;/li&gt;
+                    &lt;li&gt;
+            &lt;h2&gt;Felvétel ideje:&lt;/h2&gt;
+            2010. november 10.
+                        &lt;h2 class=&quot;margin-top&quot;&gt;Felvétel hossza:&lt;/h2&gt;
+            59p 46mp
+                      &lt;/li&gt;
+          &lt;li&gt;
+            &lt;h2&gt;Feltöltés ideje:&lt;/h2&gt;
+            2010. december 10.
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;wrap right&quot;&gt;
+        &lt;ul&gt;
+                    &lt;li&gt;
+            &lt;h2&gt;Címkék:&lt;/h2&gt;
+            széchenyi tudományos est, Széchenyi István Egyetem
+          &lt;/li&gt;
+                              &lt;li&gt;
+            &lt;h2&gt;Tudományterületi besorolás:&lt;/h2&gt;
+                          &lt;a href=&quot;hu/categories/details/557,Szamitogeptudomany&quot;&gt;Számítógéptudomány&lt;/a&gt;,                           &lt;a href=&quot;hu/categories/details/571,Matematika&quot;&gt;Matematika&lt;/a&gt;                      &lt;/li&gt;
+                    &lt;li&gt;
+            &lt;h2&gt;Megtekintések:&lt;/h2&gt;
+            543
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;contributors&quot;&gt;
+      &lt;div class=&quot;wrap&quot;&gt;
+        &lt;ul&gt;
+                  &lt;li&gt;
+                      &lt;h2&gt;&lt;a href=&quot;hu/contributors/details/1813,Dr._Horvath_Zoltan&quot;&gt;Dr. Horváth Zoltán&lt;/a&gt; (előadó)&lt;/h2&gt;
+                                &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;attachments&quot;&gt;
+      &lt;div class=&quot;wrap&quot;&gt;
+        &lt;ul&gt;
+                  &lt;li class=&quot;last&quot;&gt;
+            &lt;a href=&quot;http://static.videotorium.hu/files/recordings/487/2487/attached_documents/278.pdf/Sz%C3%A9chenyi_Tudom%C3%A1nyos_Est_HZ_2010_11_10.pdf&quot;&gt;
+              Széchenyi_Tudományos_Est_HZ_2010_11_10.pdf (pdf)
+            &lt;/a&gt;
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;copyright&quot;&gt;
+      &lt;p&gt;Minden jog fenntartva, SZE-Győr.&lt;/p&gt;
+    &lt;/div&gt;
+  
+
+    &lt;/div&gt;
+    &lt;div class=&quot;box_bottomleft&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;box_bottom&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;box_bottomright&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;/div&gt;
+
+
+&lt;div id=&quot;comments&quot;&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;div id=&quot;hider&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;span&gt;&lt;/span&gt;Hide/Show&lt;/a&gt;&lt;/div&gt;
+    &lt;div id=&quot;comments-wrap&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;#&quot;&gt;Kommentárok &lt;span&gt;(0)&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;
+      &lt;div class=&quot;wrap&quot;&gt;
+        &lt;ul&gt;
+                    &lt;li id=&quot;comments-none&quot; class=&quot;last&quot;&gt;Nincs még hozzászólás&lt;/li&gt;
+                            &lt;/ul&gt;
+        &lt;div id=&quot;comments-spinner&quot;&gt;&amp;nbsp;&lt;/div&gt;
+        &lt;div id=&quot;comments-more&quot; class=&quot;hidden&quot;&gt;
+          &lt;a href=&quot;hu/recordings/getcomments/2487&quot;&gt;további kommentárok&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;comments-needlogin&quot;&gt;
+    &lt;center&gt;&lt;a class=&quot;ajaxlogin&quot; href=&quot;hu/users/login?forward=http%3A%2F%2Fvideotorium.hu%2Fhu%2Frecordings%2Fdetails%2F2487&quot;&gt;Kommentáláshoz be kell jelentkezni&lt;/a&gt;&lt;/center&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;relatedvideos&quot;&gt;
+  &lt;h1&gt;Kapcsolódó felvételek&lt;/h1&gt;
+  &lt;ul&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/3098,Mikrochip-rendszerek_utemei_metronom_nelkul_A_digitalis_halozatok_uj_generacioja&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/98/3098/indexpics/300x140/3098_3024_3.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Prof. Keresztes Péter&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/3098,Mikrochip-rendszerek_utemei_metronom_nelkul_A_digitalis_halozatok_uj_generacioja&quot;&gt;Mikrochip-rendszerek ütemei, metronóm nélkül – A digitális hálózatok új generációja&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2013,Intelligens_szamitasi_rendszerek_I.&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/13/2013/indexpics/300x140/2013_2013_5.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Botzheim János&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2013,Intelligens_szamitasi_rendszerek_I.&quot;&gt;Intelligens számítási rendszerek I.&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2703,Az_uj_alkotmany_es_az_alkotmany_stabilitasa&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/703/2703/indexpics/300x140/2703_2640_7.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Dr. Patyi András&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2703,Az_uj_alkotmany_es_az_alkotmany_stabilitasa&quot;&gt;Az új alkotmány és az alkotmány stabilitása&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/3096,Bun_es_bunhodes_Nyomozas_es_buntetes_a_kozepkorban&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/96/3096/indexpics/300x140/3096_3022_12.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Dr. Barna Attila&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/3096,Bun_es_bunhodes_Nyomozas_es_buntetes_a_kozepkorban&quot;&gt;Bűn és bűnhődés – Nyomozás és büntetés a középkorban&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2565,Egi_szin-jatek_-_A_szivarvany_a_holdudvar_a_naplemente_es_a_zold_villanas&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/565/2565/indexpics/300x140/2565_2539_10.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Dr. Horváth András&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2565,Egi_szin-jatek_-_A_szivarvany_a_holdudvar_a_naplemente_es_a_zold_villanas&quot;&gt;Égi szín-játék - A szivárvány, a holdudvar, a naplemente és a zöld villanás&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2567,A_lathatatlan_uzenet_-_Radiotavkozles_a_mindennapok_szolgalataban&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/567/2567/indexpics/300x140/2567_2541_19.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Vári Péter&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2567,A_lathatatlan_uzenet_-_Radiotavkozles_a_mindennapok_szolgalataban&quot;&gt;A láthatatlan üzenet - Rádiótávközlés a mindennapok szolgálatában&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2055,Tudomany_Gyorben_Mindenkinek_2._szemeszter_megnyito&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/55/2055/indexpics/300x140/2055_2055_9.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Borkai Zsolt, Prof. Dr. Rechnitzer János, Dr. Dőry Tibor&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2055,Tudomany_Gyorben_Mindenkinek_2._szemeszter_megnyito&quot;&gt;Tudomány Győrben Mindenkinek 2. szemeszter megnyitó&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2594,Piaci_kihivasok-_marketing_valaszok_a_21._szazadban&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/594/2594/indexpics/300x140/2594_2552_13.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Prof. Józsa László&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2594,Piaci_kihivasok-_marketing_valaszok_a_21._szazadban&quot;&gt;Piaci kihívások- marketing válaszok a 21. században&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2992,Biztonsagosabb_utak_Mit_tehetnek_a_mernokok_az_uton_levok_biztonsagaert_&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/992/2992/indexpics/300x140/2992_2923_6.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Prof. Koren Csaba&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2992,Biztonsagosabb_utak_Mit_tehetnek_a_mernokok_az_uton_levok_biztonsagaert_&quot;&gt;Biztonságosabb utak – Mit tehetnek a mérnökök az úton lévők biztonságáért?&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+        &lt;li&gt;
+        &lt;a href=&quot;hu/recordings/details/2647,Az_Europai_Unio_elotti_kihivasok_es_a_magyar_elnokseg&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/647/2647/indexpics/300x140/2647_2588_5.jpg&quot;/&gt;&lt;/a&gt;
+        &lt;h3&gt;Prof. Losoncz Miklós&lt;/h3&gt;
+        &lt;h2&gt;&lt;a href=&quot;hu/recordings/details/2647,Az_Europai_Unio_elotti_kihivasok_es_a_magyar_elnokseg&quot;&gt;Az Európai Unió előtti kihívások és a magyar elnökség&lt;/a&gt;&lt;/h2&gt;
+        &lt;h3&gt;&lt;/h3&gt;
+    &lt;/li&gt;
+      &lt;/ul&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;    &lt;div id=&quot;footer&quot;&gt;
+      
+      &lt;div id=&quot;logocontainer&quot;&gt;
+        &lt;a href=&quot;http://videotorium.hu/&quot; id=&quot;footerlogo&quot;&gt;&lt;span&gt;&lt;/span&gt;Videotorium&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div id=&quot;copyrightcontainer&quot;&gt;
+        &lt;p&gt;
+                    &lt;a href=&quot;http://www.niif.hu&quot;&gt;&lt;b&gt;&amp;copy; 2010-2012 NIIF Intézet, www.niif.hu&lt;/b&gt;&lt;/a&gt;&lt;br/&gt;
+          Minden jog fenntartva.&lt;br /&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;logos&quot;&gt;
+        &lt;a href=&quot;http://www.nfu.hu&quot; id=&quot;ujmagyarlogo&quot;&gt;&lt;span&gt;&lt;/span&gt;Új Magyarország Fejlesztési Terv&lt;/a&gt;
+        &lt;a href=&quot;http://www.niif.hu&quot; id=&quot;niiflogo&quot;&gt;&lt;span&gt;&lt;/span&gt;Nemzeti Információs Infrastruktúra Fejlesztési Intézet&lt;/a&gt;
+        &lt;a href=&quot;http://www.nfu.hu&quot; id=&quot;tamoplogo&quot;&gt;&lt;span&gt;&lt;/span&gt;TÁMOP 4.1.3 - Társadalmi Megújulás Operatív Program&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;footerlist&quot;&gt;
+        &lt;p&gt;
+          A fejlesztést az Új Magyarország Fejlesztési Terv (ÚMFT) 
+          TÁMOP 4.1.3 program részeként a 
+          &lt;a href=&quot;http://www.niif.hu&quot;&gt;Nemzeti Információs Infrastruktúra
+          Fejlesztési Intézet (NIIF Intézet)&lt;/a&gt; valósítja meg.
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;ul id=&quot;contactlink&quot;&gt;
+                &lt;li id=&quot;footercontactlink&quot;&gt;&lt;a href=&quot;hu/contact/send?code=qC7T3IDKSJN5STJgo85Lhjq2Yp%2BWaT5270mLX00qvz8%3D&quot;&gt;Kapcsolatfelvétel, hibabejelentés, észrevételek&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;footerenablemobile&quot;&gt;&lt;a href=&quot;hu/index/mobile?status=enable&amp;forward=http%3A%2F%2Fvideotorium.hu%2Fhu%2Frecordings%2Fdetails%2F2487&quot;&gt;Mobilkészülékekre optimalizált változat&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;footeruserstos&quot;&gt;&lt;a href=&quot;hu/contents/userstos&quot;&gt;Adatkezelési hozzájárulás&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;footerrecordingstos&quot;&gt;&lt;a href=&quot;hu/contents/recordingstos&quot;&gt;Felhasználási hozzájárulás&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+              &lt;ul id=&quot;mobilefooterlist&quot;&gt;
+          &lt;li id=&quot;disablemobile&quot;&gt;
+            &lt;a href=&quot;hu/index/mobile?status=disable&amp;forward=http%3A%2F%2Fvideotorium.hu%2Fhu%2Frecordings%2Fdetails%2F2487&quot;&gt;Teljes verzió&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li id=&quot;changelanguage&quot;&gt;
+                          &lt;a href=&quot;http://videotorium.hu/en/recordings/details/2487&quot;&gt;English&lt;/a&gt;
+                      &lt;/li&gt;
+          &lt;li id=&quot;mobilelogin&quot;&gt;
+            &lt;a href=&quot;hu/index/mobile?status=disable&amp;forward=users%2Flogin&quot;&gt;Belépés&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+          &lt;/div&gt;
+  &lt;/div&gt;&lt;/div&gt;
+&lt;div id=&quot;footerbg&quot;&gt;
+&lt;/div&gt;
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+  var _gaq = _gaq || [];
+  _gaq.push([&apos;_setAccount&apos;, &apos;UA-16658651-1&apos;]);
+  _gaq.push([&apos;_trackPageview&apos;]);
+
+  (function() {
+    var ga = document.createElement(&apos;script&apos;); ga.type = &apos;text/javascript&apos;; ga.async = true;
+    ga.src = (&apos;https:&apos; == document.location.protocol ? &apos;https://ssl&apos; : &apos;http://www&apos;) + &apos;.google-analytics.com/ga.js&apos;;
+    var s = document.getElementsByTagName(&apos;script&apos;)[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</string>
+</dict>
+</plist>

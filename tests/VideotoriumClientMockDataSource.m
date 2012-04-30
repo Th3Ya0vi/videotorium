@@ -12,7 +12,9 @@
 
 - (NSString *)contentsOfURL:(NSString *)urlString
 {
-    return @"";
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"VideotoriumClientMockDataSourceResponses" ofType:@"plist"];
+    NSDictionary *responses = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    return [responses objectForKey:urlString];
 }
 
 @end
