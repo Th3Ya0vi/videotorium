@@ -10,4 +10,9 @@
 
 @implementation VideotoriumClientMockDataSource
 
+- (NSString *)contentsOfURL:(NSString *)urlString
+{
+    return @"";
+}
+
 @end

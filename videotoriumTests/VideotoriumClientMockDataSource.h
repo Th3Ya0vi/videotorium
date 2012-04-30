@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VideotoriumClient.h"
 
-@interface VideotoriumClientMockDataSource : NSObject
+@interface VideotoriumClientMockDataSource : NSObject <VideotoriumClientDataSource>
 
 @end

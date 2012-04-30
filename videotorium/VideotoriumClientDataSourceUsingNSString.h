@@ -11,6 +11,4 @@
 
 @interface VideotoriumClientDataSourceUsingNSString : NSObject <VideotoriumClientDataSource>
 
-- (NSString *)contentsOfURL:(NSString *)urlString;
-
 @end

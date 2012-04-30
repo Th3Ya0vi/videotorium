@@ -124,8 +124,6 @@
 				2DEB06E7154970CF00AD0805 /* VideotoriumClient.h */,
 				2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */,
 				2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */,
-				2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */,
-				2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */,
 				2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */,
 				2DEB06BF1549703200AD0805 /* Supporting Files */,
 			);
@@ -160,6 +158,8 @@
 		2DEB06D71549703300AD0805 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */,
+				2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */,
 				2DEB06D81549703300AD0805 /* videotoriumTests-Info.plist */,
 				2DEB06D91549703300AD0805 /* InfoPlist.strings */,
 			);

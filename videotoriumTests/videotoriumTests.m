@@ -8,6 +8,7 @@
 
 #import "videotoriumTests.h"
 #import "VideotoriumClient.h"
+#import "VideotoriumClientMockDataSource.h"
 #import "VideotoriumRecording.h"
 
 @interface videotoriumTests ()
@@ -25,6 +26,7 @@
     [super setUp];
 
     self.videotoriumClient = [[VideotoriumClient alloc] init];
+    self.videotoriumClient.dataSource = [[VideotoriumClientMockDataSource alloc] init];
 }
 
 - (void)tearDown
