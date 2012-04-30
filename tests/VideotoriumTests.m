@@ -1,23 +1,23 @@
 //
-//  videotoriumTests.m
-//  videotoriumTests
+//  VideotoriumTests.m
+//  VideotoriumTests
 //
 //  Created by Zsombor Nagy on 2012.04.26..
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
-#import "videotoriumTests.h"
+#import "VideotoriumTests.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumClientMockDataSource.h"
 #import "VideotoriumRecording.h"
 
-@interface videotoriumTests ()
+@interface VideotoriumTests ()
 
 @property (nonatomic, strong) VideotoriumClient *videotoriumClient;
 
 @end
 
-@implementation videotoriumTests
+@implementation VideotoriumTests
 
 @synthesize videotoriumClient = _videotoriumClient;
 
