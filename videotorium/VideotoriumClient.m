@@ -3,12 +3,23 @@
 //  videotorium
 //
 //  Created by Zsombor Nagy on 2012.04.26..
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
 #import "VideotoriumClient.h"
+#import "VideotoriumClientDataSourceUsingNSString.h"
 
 @implementation VideotoriumClient
+
+@synthesize dataSource = _dataSource;
+
+- (id <VideotoriumClientDataSource>)dataSource
+{
+    if (_dataSource == nil) {
+        _dataSource = [[VideotoriumClientDataSourceUsingNSString alloc] init];
+    }
+    return _dataSource;
+}
 
 - (VideotoriumRecording *)recordingWithID:(NSString *)ID
 {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D46903A154E5AF500E4E69F /* VideotoriumClientMockDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */; };
+		2DD60204154E579000907702 /* VideotoriumClientDataSourceUsingNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD60203154E579000907702 /* VideotoriumClientDataSourceUsingNSString.m */; };
 		2DEB06B91549703200AD0805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06B81549703200AD0805 /* UIKit.framework */; };
 		2DEB06BB1549703200AD0805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06BA1549703200AD0805 /* Foundation.framework */; };
 		2DEB06BD1549703200AD0805 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06BC1549703200AD0805 /* CoreGraphics.framework */; };
@@ -35,26 +37,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideotoriumClientMockDataSource.h; path = videotoriumTests/VideotoriumClientMockDataSource.h; sourceTree = SOURCE_ROOT; };
+		2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideotoriumClientMockDataSource.m; path = videotoriumTests/VideotoriumClientMockDataSource.m; sourceTree = SOURCE_ROOT; };
+		2DD60202154E579000907702 /* VideotoriumClientDataSourceUsingNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VideotoriumClientDataSourceUsingNSString.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2DD60203154E579000907702 /* VideotoriumClientDataSourceUsingNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumClientDataSourceUsingNSString.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DEB06B41549703200AD0805 /* videotorium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videotorium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEB06B81549703200AD0805 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2DEB06BA1549703200AD0805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DEB06BC1549703200AD0805 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2DEB06C01549703200AD0805 /* videotorium-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "videotorium-Info.plist"; sourceTree = "<group>"; };
 		2DEB06C21549703200AD0805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2DEB06C41549703200AD0805 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2DEB06C41549703200AD0805 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DEB06C61549703200AD0805 /* videotorium-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "videotorium-Prefix.pch"; sourceTree = "<group>"; };
-		2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideotoriumAppDelegate.h; sourceTree = "<group>"; };
-		2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideotoriumAppDelegate.m; sourceTree = "<group>"; };
+		2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VideotoriumAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DEB06CF1549703200AD0805 /* videotoriumTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videotoriumTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEB06D01549703200AD0805 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2DEB06D81549703300AD0805 /* videotoriumTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "videotoriumTests-Info.plist"; sourceTree = "<group>"; };
 		2DEB06DA1549703300AD0805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2DEB06DC1549703300AD0805 /* videotoriumTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = videotoriumTests.h; sourceTree = "<group>"; };
-		2DEB06DD1549703300AD0805 /* videotoriumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = videotoriumTests.m; sourceTree = "<group>"; };
-		2DEB06E7154970CF00AD0805 /* VideotoriumClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumClient.h; sourceTree = "<group>"; };
-		2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumClient.m; sourceTree = "<group>"; };
-		2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideotoriumRecording.h; path = videotorium/VideotoriumRecording.h; sourceTree = SOURCE_ROOT; };
-		2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideotoriumRecording.m; path = videotorium/VideotoriumRecording.m; sourceTree = SOURCE_ROOT; };
+		2DEB06DC1549703300AD0805 /* videotoriumTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = videotoriumTests.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2DEB06DD1549703300AD0805 /* videotoriumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = videotoriumTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2DEB06E7154970CF00AD0805 /* VideotoriumClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VideotoriumClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = VideotoriumRecording.h; path = videotorium/VideotoriumRecording.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = VideotoriumRecording.m; path = videotorium/VideotoriumRecording.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 				2DEB06B51549703200AD0805 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		2DEB06B51549703200AD0805 /* Products */ = {
 			isa = PBXGroup;
@@ -114,11 +121,11 @@
 		2DEB06BE1549703200AD0805 /* videotorium */ = {
 			isa = PBXGroup;
 			children = (
-				2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */,
-				2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */,
 				2DEB06E7154970CF00AD0805 /* VideotoriumClient.h */,
 				2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */,
 				2DEB06EB154AC82B00AD0805 /* VideotoriumRecording.h */,
+				2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */,
+				2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */,
 				2DEB06EC154AC82B00AD0805 /* VideotoriumRecording.m */,
 				2DEB06BF1549703200AD0805 /* Supporting Files */,
 			);
@@ -128,6 +135,10 @@
 		2DEB06BF1549703200AD0805 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */,
+				2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */,
+				2DD60202154E579000907702 /* VideotoriumClientDataSourceUsingNSString.h */,
+				2DD60203154E579000907702 /* VideotoriumClientDataSourceUsingNSString.m */,
 				2DEB06C01549703200AD0805 /* videotorium-Info.plist */,
 				2DEB06C11549703200AD0805 /* InfoPlist.strings */,
 				2DEB06C41549703200AD0805 /* main.m */,
@@ -202,6 +213,7 @@
 			attributes = {
 				CLASSPREFIX = Videotorium;
 				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 2DEB06AE1549703200AD0805 /* Build configuration list for PBXProject "videotorium" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -265,6 +277,7 @@
 				2DEB06C91549703200AD0805 /* VideotoriumAppDelegate.m in Sources */,
 				2DEB06E9154970CF00AD0805 /* VideotoriumClient.m in Sources */,
 				2DEB06ED154AC82B00AD0805 /* VideotoriumRecording.m in Sources */,
+				2DD60204154E579000907702 /* VideotoriumClientDataSourceUsingNSString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +288,7 @@
 				2DEB06DE1549703300AD0805 /* videotoriumTests.m in Sources */,
 				2DEB06EE154AC82B00AD0805 /* VideotoriumRecording.m in Sources */,
 				2DEB06EF154ACC3800AD0805 /* VideotoriumClient.m in Sources */,
+				2D46903A154E5AF500E4E69F /* VideotoriumClientMockDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +444,7 @@
 				2DEB06E31549703300AD0805 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2DEB06E41549703300AD0805 /* Build configuration list for PBXNativeTarget "videotoriumTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +453,7 @@
 				2DEB06E61549703300AD0805 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
