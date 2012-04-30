@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "VideotoriumClient.h"
 
-@interface VideotoriumClientDataSourceUsingNSString : NSObject <VideotoriumClientDataSource>
+@interface VideotoriumClientDataSourceUsingSynchronousRequest : NSObject <VideotoriumClientDataSource>
 
 @end

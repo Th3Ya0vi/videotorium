@@ -7,7 +7,7 @@
 //
 
 #import "VideotoriumClient.h"
-#import "VideotoriumClientDataSourceUsingNSString.h"
+#import "VideotoriumClientDataSourceUsingSynchronousRequest.h"
 
 @implementation VideotoriumClient
 
@@ -16,7 +16,7 @@
 - (id <VideotoriumClientDataSource>)dataSource
 {
     if (_dataSource == nil) {
-        _dataSource = [[VideotoriumClientDataSourceUsingNSString alloc] init];
+        _dataSource = [[VideotoriumClientDataSourceUsingSynchronousRequest alloc] init];
     }
     return _dataSource;
 }
