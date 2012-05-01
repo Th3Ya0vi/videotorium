@@ -21,7 +21,6 @@
 
 @implementation VideotoriumViewController
 
-@synthesize movieView = _movieView;
 @synthesize slideImageView = _slideImageView;
 @synthesize moviePlayerController = _moviePlayerController;
 @synthesize timer = _timer;
@@ -34,18 +33,26 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
 
     VideotoriumClient *client = [[VideotoriumClient alloc] init];
-    self.recording = [client recordingWithID:@"2487"];
+    self.recording = [client recordingWithID:@"4092"];
+    self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recording.streamURL];
+    self.slideImageView = [[UIImageView alloc] init];
+    self.slideImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self layout];
+    [self.view addSubview:self.moviePlayerController.view];    
+    [self.view addSubview:self.slideImageView];    \
+    [self.moviePlayerController play];
 }
 
-- (IBAction)presentMovie {
-    [self.moviePlayerController.view removeFromSuperview];
-    [self.moviePlayerController stop];
-
-    self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recording.streamURL];
-    
-    [self.moviePlayerController.view setFrame:self.movieView.bounds];
-    [self.movieView addSubview:self.moviePlayerController.view];
-    [self.moviePlayerController play];
+- (void)layout {
+    CGFloat width = self.view.bounds.size.width;
+    CGFloat height = self.view.bounds.size.height;
+    if (UIInterfaceOrientationIsLandscape([self interfaceOrientation])) {
+        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, width/2, height/2)];
+        [self.slideImageView setFrame:CGRectMake(width/2, 0, width/2, height/2)];
+    } else {
+        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, width, height/2)];
+        [self.slideImageView setFrame:CGRectMake(0, height/2, width, height/2)];        
+    }
 }
 
 - (void)updateSlide
@@ -69,7 +76,6 @@
 - (void)viewDidUnload
 {
     [self.timer invalidate];
-    [self setMovieView:nil];
     [self setSlideImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -82,7 +88,7 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    [self.moviePlayerController.view setFrame:self.movieView.bounds];
+    [self layout];
 }
 
 @end
