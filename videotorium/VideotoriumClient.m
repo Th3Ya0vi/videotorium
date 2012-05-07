@@ -13,6 +13,9 @@
 
 @synthesize dataSource = _dataSource;
 
+//#define VIDEOTORIUM_BASE_URL @"http://localhost/"
+#define VIDEOTORIUM_BASE_URL @"http://videotorium.hu/hu/recordings/details/"
+
 - (id <VideotoriumClientDataSource>)dataSource
 {
     if (_dataSource == nil) {
@@ -36,7 +39,7 @@
 - (VideotoriumRecording *)recordingWithID:(NSString *)ID
 {
     VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
-    NSString *URLString = [NSString stringWithFormat:@"http://videotorium.hu/hu/recordings/details/%@", ID];
+    NSString *URLString = [NSString stringWithFormat:@"%@%@", VIDEOTORIUM_BASE_URL, ID];
     recording.response = [self.dataSource contentsOfURL:URLString];
     if (recording.response == nil) return nil;
     recording.streamURL = [NSURL URLWithString:[self substringOf:recording.response matching:@"<video[^>]*src=\"([^\"]*)\""]];
@@ -48,6 +51,7 @@
     NSArray *slidesJSONArray = [NSJSONSerialization JSONObjectWithData:slidesJSONData options:0 error:NULL];
     for (NSDictionary *slideDictionary in slidesJSONArray) {
         VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary URLPrefix:slidesURLPrefix];
+        NSLog(@"%@", slide);
         [slides addObject:slide];
     }
     recording.slides = slides;
