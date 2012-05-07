@@ -22,4 +22,9 @@
     return slide;
 }
 
+- (NSString *)debugDescription
+{
+    return [NSString stringWithFormat:@"VideotoriumSlide (timestamp: %.0f, URL: %@)", self.timestamp, self.URL];
+}
+
 @end
