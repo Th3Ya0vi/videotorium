@@ -13,7 +13,10 @@
 @interface VideotoriumPlayerViewController ()
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
+@property (nonatomic, strong) UIImageView *slideImageView;
+
 @property (nonatomic, strong) NSTimer *timer;
+
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
 
@@ -21,8 +24,11 @@
 
 @implementation VideotoriumPlayerViewController
 
-@synthesize slideImageView = _slideImageView;
+@synthesize recordingID = _recordingID;
+
 @synthesize moviePlayerController = _moviePlayerController;
+@synthesize slideImageView = _slideImageView;
+
 @synthesize timer = _timer;
 @synthesize recordingDetails = _recordingDetails;
 @synthesize currentSlide = _currentSlide;
@@ -31,17 +37,38 @@
 {
     [super viewDidLoad];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
+    self.recordingID = @"2487";
+}
 
-    VideotoriumClient *client = [[VideotoriumClient alloc] init];
-    client.videotoriumBaseURL = @"http://localhost/";
-    self.recordingDetails = [client detailsWithID:@"2487"];
-    self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
-    self.slideImageView = [[UIImageView alloc] init];
-    self.slideImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self layout];
-    [self.view addSubview:self.moviePlayerController.view];    
-    [self.view addSubview:self.slideImageView];    \
-    [self.moviePlayerController play];
+- (void)setRecordingID:(NSString *)recordingID
+{
+    if (self.moviePlayerController != nil) {
+        [self.moviePlayerController stop];
+        [self.moviePlayerController.view removeFromSuperview];
+        self.moviePlayerController = nil;
+    }
+    if (self.slideImageView != nil) {
+        [self.slideImageView removeFromSuperview];
+        self.slideImageView = nil;
+    }
+    self.recordingDetails = nil;
+    dispatch_queue_t getDetailsQueue = dispatch_queue_create("get recording details", NULL);
+    dispatch_async(getDetailsQueue, ^{
+        VideotoriumClient *client = [[VideotoriumClient alloc] init];
+        client.videotoriumBaseURL = @"http://localhost/";
+        VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recordingDetails = recordingDetails;
+            self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
+            self.slideImageView = [[UIImageView alloc] init];
+            self.slideImageView.contentMode = UIViewContentModeScaleAspectFit;
+            [self layout];
+            [self.view addSubview:self.moviePlayerController.view];    
+            [self.view addSubview:self.slideImageView];    \
+            [self.moviePlayerController play];        
+        });
+    });
+    dispatch_release(getDetailsQueue);
 }
 
 - (void)layout {
@@ -58,6 +85,7 @@
 
 - (void)updateSlide
 {
+    if (self.moviePlayerController == nil) return;
     NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
     VideotoriumSlide *slideToShow = nil;
     for (VideotoriumSlide *slide in self.recordingDetails.slides) {
@@ -66,11 +94,9 @@
             slideToShow = slide;
         }
     }
-    if (slideToShow != nil) {
-        if (![slideToShow isEqual:self.currentSlide]) {
-            self.currentSlide = slideToShow;
-            self.slideImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.currentSlide.URL]];
-        }
+    if (![slideToShow isEqual:self.currentSlide]) {
+        self.currentSlide = slideToShow;
+        self.slideImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.currentSlide.URL]];
     }
 }
 
