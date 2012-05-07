@@ -52,7 +52,7 @@
         self.slideImageView = nil;
     }
     self.recordingDetails = nil;
-    dispatch_queue_t getDetailsQueue = dispatch_queue_create("get recording details", NULL);
+    dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);
     dispatch_async(getDetailsQueue, ^{
         VideotoriumClient *client = [[VideotoriumClient alloc] init];
         client.videotoriumBaseURL = @"http://localhost/";
@@ -64,7 +64,7 @@
             self.slideImageView.contentMode = UIViewContentModeScaleAspectFit;
             [self layout];
             [self.view addSubview:self.moviePlayerController.view];    
-            [self.view addSubview:self.slideImageView];    \
+            [self.view addSubview:self.slideImageView];
             [self.moviePlayerController play];        
         });
     });
@@ -96,7 +96,16 @@
     }
     if (![slideToShow isEqual:self.currentSlide]) {
         self.currentSlide = slideToShow;
-        self.slideImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.currentSlide.URL]];
+        dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
+        dispatch_async(downloadSlideQueue, ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.currentSlide == slideToShow) {
+	                self.slideImageView.image = [UIImage imageWithData:imageData];
+                }
+            });
+        });
+        dispatch_release(downloadSlideQueue);
     }
 }
 
