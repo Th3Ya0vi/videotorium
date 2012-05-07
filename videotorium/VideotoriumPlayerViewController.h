@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideotoriumViewController : UIViewController
+@interface VideotoriumPlayerViewController : UIViewController
 
 @property (strong, nonatomic) UIImageView *slideImageView;
 @end

@@ -6,11 +6,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--Videotorium View Controller-->
+        <!--Videotorium Player View Controller-->
         <scene sceneID="XEz-40-OBc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRl-U5-mec" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="tUe-ba-nWi" customClass="VideotoriumViewController" sceneMemberID="viewController">
+                <viewController id="tUe-ba-nWi" customClass="VideotoriumPlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9te-BG-LEk">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

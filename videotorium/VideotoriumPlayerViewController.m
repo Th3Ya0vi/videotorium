@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
-#import "VideotoriumViewController.h"
+#import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface VideotoriumViewController ()
+@interface VideotoriumPlayerViewController ()
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
 @property (nonatomic, strong) NSTimer *timer;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation VideotoriumViewController
+@implementation VideotoriumPlayerViewController
 
 @synthesize slideImageView = _slideImageView;
 @synthesize moviePlayerController = _moviePlayerController;
@@ -33,7 +33,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
 
     VideotoriumClient *client = [[VideotoriumClient alloc] init];
-    self.recording = [client recordingWithID:@"4092"];
+    self.recording = [client recordingWithID:@"2487"];
     self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recording.streamURL];
     self.slideImageView = [[UIImageView alloc] init];
     self.slideImageView.contentMode = UIViewContentModeScaleAspectFit;
