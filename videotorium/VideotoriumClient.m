@@ -47,14 +47,15 @@
     NSMutableArray *slides = [NSMutableArray array];
     NSString *slidesURLPrefix = [self substringOf:recording.response matching:@"slides_imageFolder *= *'([^']*)'"];
     NSString *slidesJSONString = [self substringOf:recording.response matching:@"slides_model *= *'([^']*)'"];
-    NSData *slidesJSONData = [slidesJSONString dataUsingEncoding:NSUTF8StringEncoding];
-    NSArray *slidesJSONArray = [NSJSONSerialization JSONObjectWithData:slidesJSONData options:0 error:NULL];
-    for (NSDictionary *slideDictionary in slidesJSONArray) {
-        VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary URLPrefix:slidesURLPrefix];
-        NSLog(@"%@", slide);
-        [slides addObject:slide];
+    if (slidesJSONString != nil) {
+        NSData *slidesJSONData = [slidesJSONString dataUsingEncoding:NSUTF8StringEncoding];
+        NSArray *slidesJSONArray = [NSJSONSerialization JSONObjectWithData:slidesJSONData options:0 error:NULL];
+        for (NSDictionary *slideDictionary in slidesJSONArray) {
+            VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary URLPrefix:slidesURLPrefix];
+            [slides addObject:slide];
+        }
+        recording.slides = slides;        
     }
-    recording.slides = slides;
     return recording;
 }
 
