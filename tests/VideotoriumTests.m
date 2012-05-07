@@ -9,7 +9,7 @@
 #import "VideotoriumTests.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumClientMockDataSource.h"
-#import "VideotoriumRecording.h"
+#import "VideotoriumRecordingDetails.h"
 #import "VideotoriumSlide.h"
 
 @interface VideotoriumTests ()
@@ -37,14 +37,14 @@
 
 - (void)testGetRecordingStreamURL
 {
-    VideotoriumRecording *recording = [self.videotoriumClient recordingWithID:@"2487"];
+    VideotoriumRecordingDetails *recording = [self.videotoriumClient detailsWithID:@"2487"];
     NSURL *expectedURL = [NSURL URLWithString:@"http://stream.videotorium.hu:1935/vtorium/_definst_/mp4:487/2487/2487_2483_mobile.mp4/playlist.m3u8?sessionid=i2kmtu98s810o3b1itn5p6u0b3_2487"];
     STAssertEqualObjects(expectedURL, recording.streamURL, nil);
 }
 
 - (void)testGetArrayOfSlides
 {
-    VideotoriumRecording *recording = [self.videotoriumClient recordingWithID:@"2487"];
+    VideotoriumRecordingDetails *recording = [self.videotoriumClient detailsWithID:@"2487"];
     NSArray *slides = recording.slides;
     STAssertEquals([slides count], (NSUInteger)19, nil);
 }

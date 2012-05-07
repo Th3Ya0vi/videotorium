@@ -36,17 +36,17 @@
     }
 }
 
-- (VideotoriumRecording *)recordingWithID:(NSString *)ID
+- (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID
 {
-    VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
+    VideotoriumRecordingDetails *details = [[VideotoriumRecordingDetails alloc] init];
     NSString *URLString = [NSString stringWithFormat:@"%@%@", VIDEOTORIUM_BASE_URL, ID];
-    recording.response = [self.dataSource contentsOfURL:URLString];
-    if (recording.response == nil) return nil;
-    recording.streamURL = [NSURL URLWithString:[self substringOf:recording.response matching:@"<video[^>]*src=\"([^\"]*)\""]];
+    details.response = [self.dataSource contentsOfURL:URLString];
+    if (details.response == nil) return nil;
+    details.streamURL = [NSURL URLWithString:[self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""]];
     
     NSMutableArray *slides = [NSMutableArray array];
-    NSString *slidesURLPrefix = [self substringOf:recording.response matching:@"slides_imageFolder *= *'([^']*)'"];
-    NSString *slidesJSONString = [self substringOf:recording.response matching:@"slides_model *= *'([^']*)'"];
+    NSString *slidesURLPrefix = [self substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
+    NSString *slidesJSONString = [self substringOf:details.response matching:@"slides_model *= *'([^']*)'"];
     if (slidesJSONString != nil) {
         NSData *slidesJSONData = [slidesJSONString dataUsingEncoding:NSUTF8StringEncoding];
         NSArray *slidesJSONArray = [NSJSONSerialization JSONObjectWithData:slidesJSONData options:0 error:NULL];
@@ -54,9 +54,9 @@
             VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary URLPrefix:slidesURLPrefix];
             [slides addObject:slide];
         }
-        recording.slides = slides;        
+        details.slides = slides;        
     }
-    return recording;
+    return details;
 }
 
 @end

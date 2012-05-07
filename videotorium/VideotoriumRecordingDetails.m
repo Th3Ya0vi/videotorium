@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
-#import "VideotoriumRecording.h"
+#import "VideotoriumRecordingDetails.h"
 
-@implementation VideotoriumRecording
+@implementation VideotoriumRecordingDetails
 
 @synthesize response = _response;
 @synthesize streamURL = _streamURL;

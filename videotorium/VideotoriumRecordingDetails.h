@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VideotoriumRecording : NSObject
+@interface VideotoriumRecordingDetails : NSObject
 
 @property (nonatomic, strong) NSString *response;
 @property (nonatomic, strong) NSURL *streamURL;

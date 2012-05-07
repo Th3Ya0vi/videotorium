@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) VideotoriumRecording *recording;
+@property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
 
 @end
@@ -24,7 +24,7 @@
 @synthesize slideImageView = _slideImageView;
 @synthesize moviePlayerController = _moviePlayerController;
 @synthesize timer = _timer;
-@synthesize recording = _recording;
+@synthesize recordingDetails = _recordingDetails;
 @synthesize currentSlide = _currentSlide;
 
 - (void)viewDidLoad
@@ -33,8 +33,8 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
 
     VideotoriumClient *client = [[VideotoriumClient alloc] init];
-    self.recording = [client recordingWithID:@"2487"];
-    self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recording.streamURL];
+    self.recordingDetails = [client detailsWithID:@"2487"];
+    self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
     self.slideImageView = [[UIImageView alloc] init];
     self.slideImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self layout];
@@ -59,7 +59,7 @@
 {
     NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
     VideotoriumSlide *slideToShow = nil;
-    for (VideotoriumSlide *slide in self.recording.slides) {
+    for (VideotoriumSlide *slide in self.recordingDetails.slides) {
         if ((slide.timestamp < currentPlaybackTime) &&
             (slide.timestamp > slideToShow.timestamp)) {
             slideToShow = slide;

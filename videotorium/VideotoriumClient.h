@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VideotoriumRecording.h"
+#import "VideotoriumRecordingDetails.h"
 #import "VideotoriumSlide.h"
 
 @protocol VideotoriumClientDataSource <NSObject>
@@ -21,6 +21,6 @@
 
 @property (nonatomic, strong) id <VideotoriumClientDataSource> dataSource;
 
-- (VideotoriumRecording *)recordingWithID:(NSString *)ID;
+- (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID;
 
 @end
