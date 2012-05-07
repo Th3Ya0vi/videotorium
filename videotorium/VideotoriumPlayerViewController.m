@@ -33,6 +33,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
 
     VideotoriumClient *client = [[VideotoriumClient alloc] init];
+    client.videotoriumBaseURL = @"http://localhost/";
     self.recordingDetails = [client detailsWithID:@"2487"];
     self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
     self.slideImageView = [[UIImageView alloc] init];

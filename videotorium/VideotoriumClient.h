@@ -20,6 +20,7 @@
 @interface VideotoriumClient : NSObject
 
 @property (nonatomic, strong) id <VideotoriumClientDataSource> dataSource;
+@property (nonatomic, strong) NSString *videotoriumBaseURL;
 
 - (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID;
 

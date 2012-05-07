@@ -12,9 +12,15 @@
 @implementation VideotoriumClient
 
 @synthesize dataSource = _dataSource;
+@synthesize videotoriumBaseURL = _videotoriumBaseURL;
 
-//#define VIDEOTORIUM_BASE_URL @"http://localhost/"
-#define VIDEOTORIUM_BASE_URL @"http://videotorium.hu/hu/recordings/details/"
+- (NSString *)videotoriumBaseURL
+{
+    if (_videotoriumBaseURL == nil) {
+        _videotoriumBaseURL = @"http://videotorium.hu/hu/recordings/details/";
+    }
+    return _videotoriumBaseURL;
+}
 
 - (id <VideotoriumClientDataSource>)dataSource
 {
@@ -39,7 +45,7 @@
 - (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID
 {
     VideotoriumRecordingDetails *details = [[VideotoriumRecordingDetails alloc] init];
-    NSString *URLString = [NSString stringWithFormat:@"%@%@", VIDEOTORIUM_BASE_URL, ID];
+    NSString *URLString = [NSString stringWithFormat:@"%@%@", self.videotoriumBaseURL, ID];
     details.response = [self.dataSource contentsOfURL:URLString];
     if (details.response == nil) return nil;
     details.streamURL = [NSURL URLWithString:[self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""]];
