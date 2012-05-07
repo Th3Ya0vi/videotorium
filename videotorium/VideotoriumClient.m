@@ -23,6 +23,7 @@
 
 - (NSString *)substringOf:(NSString *)string matching:(NSString *)pattern
 {
+    if (string == nil) return nil;
     NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
     NSTextCheckingResult *match = [regexp firstMatchInString:string options:0 range:NSMakeRange(0, [string length])];
     if (match) {
@@ -37,6 +38,7 @@
     VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
     NSString *URLString = [NSString stringWithFormat:@"http://videotorium.hu/hu/recordings/details/%@", ID];
     recording.response = [self.dataSource contentsOfURL:URLString];
+    if (recording.response == nil) return nil;
     recording.streamURL = [NSURL URLWithString:[self substringOf:recording.response matching:@"<video[^>]*src=\"([^\"]*)\""]];
     
     NSMutableArray *slides = [NSMutableArray array];

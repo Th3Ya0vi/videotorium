@@ -19,6 +19,7 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request
                                          returningResponse:&response
                                                      error:NULL];
+    if (data == nil) return nil;
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
