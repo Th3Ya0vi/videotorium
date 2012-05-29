@@ -23,4 +23,10 @@
     return _slides;
 }
 
+- (NSString *)debugDescription
+{
+    return [NSString stringWithFormat:@"VideotoriumRecordingDetails (streamURL: %@, number of slides: %@)", self.streamURL, [self.slides count]];
+}
+
+
 @end
