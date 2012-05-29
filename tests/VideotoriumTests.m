@@ -9,6 +9,7 @@
 #import "VideotoriumTests.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumClientMockDataSource.h"
+#import "VideotoriumRecording.h"
 #import "VideotoriumRecordingDetails.h"
 #import "VideotoriumSlide.h"
 
@@ -59,6 +60,21 @@
     NSURL *expectedURL = [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/487/2487/slides/51687.jpg"];
     STAssertEqualObjects(slide.URL, expectedURL, nil);
     STAssertEquals(slide.timestamp, (NSTimeInterval)1, nil);
+}
+
+- (void)testSearchResults
+{
+    NSArray *results = [self.videotoriumClient recordingsMatchingString:@"cucc"];
+    STAssertEquals([results count], (NSUInteger)10, nil);
+    VideotoriumRecording *recording31;
+    for (VideotoriumRecording *recording in results) {
+        if ([recording.ID isEqual:@"31"]) {
+            recording31 = recording;
+        }
+    }
+    STAssertNotNil(recording31, @"No recording with ID 31 found among the results");
+    STAssertEqualObjects(recording31.title, @"Alapvető szimmetriák kísérleti ellenőrzése a CERN-ben", nil);
+    STAssertEqualObjects(recording31.indexPictureURL, [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/31/31/indexpics/192x144/31_31_13.jpg"], nil);
 }
 
 @end

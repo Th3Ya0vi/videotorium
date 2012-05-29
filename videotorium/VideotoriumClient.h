@@ -23,5 +23,6 @@
 @property (nonatomic, strong) NSString *videotoriumBaseURL;
 
 - (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID;
+- (NSArray *)recordingsMatchingString:(NSString *)searchString; // array of VideotoriumRecording objects
 
 @end

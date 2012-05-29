@@ -476,5 +476,811 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
 
 &lt;/body&gt;
 &lt;/html&gt;</string>
+	<key>http://videotorium.hu/hu/search/all?q=cucc</key>
+	<string>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;hu&quot; xml:lang=&quot;hu&quot;&gt;
+&lt;head&gt;
+
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+  &lt;meta http-equiv=&quot;imagetoolbar&quot; content=&quot;no&quot; /&gt;
+  &lt;meta name=&quot;author&quot; content=&quot;Dots Amazing - www.dotsamazing.com&quot; /&gt;
+  &lt;meta name=&quot;MSSmartTagsPreventParsing&quot; content=&quot;true&quot; /&gt;
+  &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot; /&gt;  &lt;base href=&quot;http://videotorium.hu/&quot; /&gt;&lt;!--[if IE]&gt;&lt;/base&gt;&lt;![endif]--&gt;
+    &lt;title&gt;Keresés a felvételek között | videotorium.hu&lt;/title&gt;
+  &lt;meta property=&quot;og:url&quot;       content=&quot;http://videotorium.hu/hu/search/all?q=cucc&quot;/&gt;
+&lt;meta property=&quot;og:site_name&quot; content=&quot;videotorium.hu&quot;/&gt;
+&lt;meta property=&quot;fb:admins&quot;    content=&quot;100000819810564&quot;/&gt;
+&lt;meta property=&quot;og:title&quot;     content=&quot;Keresés a felvételek között | videotorium.hu&quot;/&gt;
+
+  &lt;meta property=&quot;og:description&quot; content=&quot;Tudomány egyenes adásban&quot;/&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+  var BASE_URI   = &apos;http://videotorium.hu/&apos;;
+  var STATIC_URI = &apos;http://static.videotorium.hu/&apos;;
+  var VERSION    = &apos;_v20120518&apos;;
+  var language   = &apos;hu&apos;;
+  &lt;/script&gt;
+  
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, maximum-scale=1.0&quot;/&gt;
+    
+  &lt;link rel=&quot;StyleSheet&quot; type=&quot;text/css&quot; href=&quot;http://videotorium.hu/hu/combine/css?url[]=css%2Fstyle_v20120518.css&amp;url[]=css%2Fjquery-ui-1.8.custom_v20120518.css&amp;url[]=css%2Fstyle_mobile_v20120518.css&quot; /&gt;
+
+  &lt;!--[if lte IE 7]&gt;
+  &lt;link rel=&quot;StyleSheet&quot; type=&quot;text/css&quot; href=&quot;http://static.videotorium.hu/css/style_ie_v20120518.css&quot; /&gt;
+  &lt;![endif]--&gt;
+  
+  &lt;!--[if lte IE 6]&gt;
+  &lt;link rel=&quot;StyleSheet&quot; type=&quot;text/css&quot; href=&quot;http://static.videotorium.hu/css/style_ie6_v20120518.css&quot; /&gt;
+  &lt;![endif]--&gt;
+
+  &lt;script type=&quot;text/javascript&quot; src=&quot;http://videotorium.hu/hu/combine/js?url[]=js%2Fjquery-1.5.1.min_v20120518.js&amp;url[]=js%2Fjquery-ui-1.8.custom.min_v20120518.js&amp;url[]=js%2Fjquery.scrollTo_v20120518.js&amp;url[]=js%2Ftools_v20120518.js&amp;url[]=http%3A%2F%2Fvideotorium.hu%2Fhu%2Ftools%2Flanguage&amp;url[]=js%2Fswfobject.full_v20120518.js&quot;&gt;&lt;/script&gt;
+  
+  &lt;script type=&quot;text/javascript&quot;&gt;
+  
+  var $j = jQuery.noConflict();
+  setupDatepickerLanguage();
+  setupDOMReady();
+
+  &lt;/script&gt;
+
+
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;videotorium.hu Hírek és felvételek&quot; href=&quot;hu/rss&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;videotorium.hu Hírek&quot; href=&quot;hu/rss/news&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;videotorium.hu Felvételek&quot; href=&quot;hu/rss/recordings&quot; /&gt;
+  &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;http://static.videotorium.hu/images/mobileicon.png&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;pagecontainer&quot;&gt;
+    &lt;div id=&quot;wrap&quot;&gt;
+    &lt;div id=&quot;header&quot;&gt;
+      &lt;a id=&quot;logo&quot; href=&quot;http://videotorium.hu/&quot; title=&quot;Videotorium&quot; class=&quot;hu&quot;&gt;&lt;span&gt;&lt;/span&gt;Videotorium&lt;/a&gt;
+            &lt;div id=&quot;headersearch&quot;&gt;
+        &lt;form id=&quot;search&quot; method=&quot;get&quot; action=&quot;hu/search/all&quot;&gt;
+          &lt;input type=&quot;text&quot; name=&quot;q&quot; origval=&quot;gyorskeresés a felvételek között...&quot; value=&quot;cucc&quot; /&gt;
+        &lt;/form&gt;
+        &lt;a href=&quot;hu/search/advanced?q=cucc&quot;&gt;Részletes keresés &amp;raquo;&lt;/a&gt;
+      &lt;/div&gt;
+            &lt;div id=&quot;headersearchlink&quot;&gt;&lt;a href=&quot;hu/search/all&quot;&gt;Keresés&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    
+      
+&lt;div id=&quot;menu&quot;&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;ul class=&quot;left&quot;&gt;
+      &lt;li class=&quot;first&quot;&gt;&lt;a href=&quot;http://videotorium.hu/&quot;&gt;Főoldal&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/categories&quot;&gt;Kategóriák&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/channels&quot;&gt;Csatornák&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/events&quot;&gt;Események&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;hu/featured&quot;&gt;Ajánló&lt;/a&gt;&lt;/li&gt;
+      &lt;li id=&quot;menulive&quot;&gt;&lt;a href=&quot;hu/live/linkrouter&quot;&gt;Élő közvetítések&lt;/a&gt;&lt;/li&gt;
+      &lt;li id=&quot;menuaboutus&quot;&gt;&lt;a href=&quot;hu/contents/aboutus&quot;&gt;Magunkról&lt;/a&gt;&lt;/li&gt;    &lt;/ul&gt;
+    &lt;ul class=&quot;right&quot;&gt;
+            &lt;li class=&quot;first language&quot;&gt;&lt;a href=&quot;http://videotorium.hu/en/search/all?q=cucc&quot;&gt;English&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;     
+      
+  &lt;div id=&quot;submenu&quot;&gt;
+    &lt;div class=&quot;wrap&quot;&gt;
+            &lt;ul class=&quot;right&quot;&gt;
+                                                                        &lt;li class=&quot;login&quot;&gt;&lt;a href=&quot;hu/users/login?welcome=1&amp;forward=http%3A%2F%2Fvideotorium.hu%2Fhu%2Fsearch%2Fall%3Fq%3Dcucc&quot;&gt;Belépés&lt;/a&gt;&lt;/li&gt;
+        &lt;li class=&quot;last register&quot;&gt;&lt;a href=&quot;hu/users/signup&quot;&gt;Regisztráció&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+        
+        
+    &lt;div class=&quot;body&quot;&gt;
+
+
+      
+
+
+&lt;div class=&quot;heading&quot;&gt;
+  &lt;h1&gt;Keresés&lt;/h1&gt;
+  
+  &lt;form id=&quot;searchsubform&quot; method=&quot;get&quot; action=&quot;hu/search/all&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;q&quot; origval=&quot;gyorskeresés a felvételek között...&quot; value=&quot;cucc&quot; class=&quot;inputtext&quot;/&gt;
+    &lt;select name=&quot;target&quot;&gt;
+      &lt;option value=&quot;all&quot; selected=&quot;selected&quot;&gt;Keresés a felvételek/csatornák/események között&lt;/option&gt;
+      &lt;option value=&quot;recordings&quot;&gt;Keresés a felvételek között&lt;/option&gt;
+      &lt;option value=&quot;channels&quot;&gt;Keresés a csatornák/események között&lt;/option&gt;
+      &lt;option value=&quot;contributors&quot;&gt;Keresés közreműködők között&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Keresés&quot;/&gt;
+  &lt;/form&gt;
+  
+  &lt;ul class=&quot;searchlist&quot;&gt;
+    
+    &lt;li class=&quot;active first&quot;&gt;
+      &lt;span class=&quot;searchinfo&quot;&gt;
+        &lt;a href=&quot;hu/search/all?q=cucc&quot;&gt;Keresés a felvételek/csatornák/események között&lt;/a&gt;
+         -   &amp;quot;&lt;a href=&quot;http://videotorium.hu/hu/search/recordings?q=cucc&quot; title=&quot;Keresett kifejezés&quot;&gt;cucc&lt;/a&gt;&amp;quot;
+ - &lt;/span&gt;&lt;b&gt;11&lt;/b&gt; találat 
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&quot;searchinfo&quot;&gt;
+        &lt;a href=&quot;hu/search/recordings?q=cucc&quot;&gt;Keresés a felvételek között&lt;/a&gt;
+            &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&quot;searchinfo&quot;&gt;
+        &lt;a href=&quot;hu/search/channels?q=cucc&quot;&gt;Keresés a csatornák/események között&lt;/a&gt;
+            &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&quot;searchinfo&quot;&gt;
+        &lt;a href=&quot;hu/search/contributors?q=cucc&quot;&gt;Keresés közreműködők között&lt;/a&gt;
+            &lt;/li&gt;
+    &lt;li id=&quot;gosearchadvanced&quot;&gt;
+      &lt;a href=&quot;hu/search/advanced?q=cucc&quot;&gt;Részletes keresés&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;      
+&lt;div class=&quot;help fullwidth&quot;&gt;
+  &lt;h1&gt;Súgó&lt;/h1&gt;
+  &lt;p&gt;Ön az egyszerű keresést használja. A kereső alapesetben a felvételek, a csatornák/események és a közreműködők (pl. szerzők, előadók) adatbázisában egyidőben keres. A &quot;Keresés a felvételek között&quot; valamint a &quot;Keresés a csatornák/események között&quot; szűrőkkel a keresés eredményét a felvételekre vagy a csatornákra/eseményekre szűkítheti. A közreműködő személyek adatbázisában a &quot;Keresés közreműködők között&quot; szűrési feltétellel kereshet.&lt;/p&gt;
+&lt;p&gt;Használja a &lt;a href=&quot;http://videotorium.hu/hu/search/advanced&quot;&gt;&quot;Részletes kereső&quot;&lt;/a&gt; funkciót a bonyolultabb keresési feltételek megfogalmazásához!&lt;br /&gt;
+&amp;#160;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;sorter channels&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;h2&gt;&lt;a href=&quot;hu/search/all?q=cucc&amp;order=relevancy&amp;start=&amp;perpage=&quot;&gt;Relevancia szerint &lt;img src=&quot;http://static.videotorium.hu/images/arrow_up_red.png&quot; /&gt;&lt;/a&gt;&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;hu/search/all?q=cucc&amp;order=relevancy_desc&amp;start=&amp;perpage=&quot;&gt;Relevancia szerint &lt;img src=&quot;http://static.videotorium.hu/images/arrow_down.png&quot; /&gt;&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;h2&gt;&lt;a href=&quot;hu/search/all?q=cucc&amp;order=recordedtime&amp;start=&amp;perpage=&quot;&gt;Kezdés/felvétel dátuma szerint &lt;img src=&quot;http://static.videotorium.hu/images/arrow_up.png&quot; /&gt;&lt;/a&gt;&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;hu/search/all?q=cucc&amp;order=recordedtime_desc&amp;start=&amp;perpage=&quot;&gt;Kezdés/felvétel dátuma szerint &lt;img src=&quot;http://static.videotorium.hu/images/arrow_down.png&quot; /&gt;&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;        
+&lt;div class=&quot;widepager&quot;&gt;&lt;ul&gt; &lt;li class=&quot;currentpage&quot;&gt;1&lt;/li&gt;   &lt;li&gt;&lt;a  id=&quot;pgr10&quot; href=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=10&amp;amp;perpage=10&quot;&gt;2&lt;/a&gt;&lt;/li&gt;   &lt;li&gt;&lt;form action=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=0&amp;amp;perpage=10&quot; method=&quot;post&quot;&gt;&lt;select name=&quot;perpage&quot; onchange=&quot;this.form.submit();&quot;&gt;&lt;option  value=&quot;5&quot;&gt;5&lt;/option&gt;&lt;option selected=&quot;selected&quot; value=&quot;10&quot;&gt;10&lt;/option&gt;&lt;option  value=&quot;20&quot;&gt;20&lt;/option&gt;&lt;option  value=&quot;50&quot;&gt;50&lt;/option&gt;&lt;option  value=&quot;100&quot;&gt;100&lt;/option&gt;&lt;/select&gt; tétel/oldal&lt;/form&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel=&quot;next&quot; class=&quot;next&quot; id=&quot;pgr10&quot; href=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=10&amp;amp;perpage=10&quot;&gt;következő oldal&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+  &lt;ul class=&quot;recordinglist channellist&quot;&gt;
+
+  
+    
+
+    
+  &lt;li class=&quot;first&quot;&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/31,Alapveto_szimmetriak_kiserleti_ellenorzese_a_CERN-ben&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/31/31/indexpics/192x144/31_31_13.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/31,Alapveto_szimmetriak_kiserleti_ellenorzese_a_CERN-ben&quot;&gt;Alapvető szimmetriák kísérleti ellenőrzése a CERN-ben&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/10,A_CERN_es_a_magyar_reszecskefizikusok&quot;&gt;
+              A CERN és a magyar részecskefizikusok&lt;/a&gt;,
+            ünnepi tudományos ülés
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2004. szeptember 22.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;647&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/31,Alapveto_szimmetriak_kiserleti_ellenorzese_a_CERN-ben?start=0h7m32s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/31/31/slides/150x150/297.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;7p 32mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/426,Szabad_szoftveres_eszkozok_halozati_forgalom_elemzesere_II.&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/426/426/indexpics/192x144/426_426_20.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/426,Szabad_szoftveres_eszkozok_halozati_forgalom_elemzesere_II.&quot;&gt;Szabad szoftveres eszközök hálózati forgalom elemzésére II.&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/71,IPSZILON_szeminarium&quot;&gt;
+              IPSZILON szeminárium&lt;/a&gt;,
+            Szeminárium
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2007. október 10.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;242&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/426,Szabad_szoftveres_eszkozok_halozati_forgalom_elemzesere_II.?start=0h27m0s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/426/426/slides/150x150/7412.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;27p&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/428,Drupal_II.&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/428/428/indexpics/192x144/428_428_9.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/428,Drupal_II.&quot;&gt;Drupal II.&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/72,IPSZILON_szeminarium&quot;&gt;
+              IPSZILON szeminárium&lt;/a&gt;,
+            Szeminárium
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2007. december 12.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;754&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/428,Drupal_II.?start=0h17m41s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/428/428/slides/150x150/7677.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;17p 41mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                                        &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/428,Drupal_II.?start=1h24m58s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/428/428/slides/150x150/7712.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;1ó 24p 58mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/438,Mit_adhatunk_&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/438/438/indexpics/192x144/438_438_6.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/438,Mit_adhatunk_&quot;&gt;Mit adhatunk?&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/74,Networkshop_2008_konferencia&quot;&gt;
+              Networkshop 2008 konferencia&lt;/a&gt;,
+            Konferencia
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2008. március 17.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;373&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/438,Mit_adhatunk_?start=0h19m18s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/438/438/slides/150x150/8025.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;19p 18mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/955,Establishing_new_techniques_to_prevent_buffer_overflow_network_intrusions&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/955/955/indexpics/192x144/955_955_8.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/955,Establishing_new_techniques_to_prevent_buffer_overflow_network_intrusions&quot;&gt;Establishing new techniques to prevent buffer overflow network intrusions&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/135,NETTIES_2004_Konferencia&quot;&gt;
+              NETTIES 2004 Konferencia&lt;/a&gt;,
+            Konferencia
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2004. október 28.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;357&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/955,Establishing_new_techniques_to_prevent_buffer_overflow_network_intrusions?start=0h14m47s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/955/955/slides/150x150/20831.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;14p 47mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                                        &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/955,Establishing_new_techniques_to_prevent_buffer_overflow_network_intrusions?start=0h18m15s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/955/955/slides/150x150/20835.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;18p 15mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/1800,Buzanemesitesi_informacios_rendszer&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/800/1800/indexpics/192x144/1800_1800_9.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/1800,Buzanemesitesi_informacios_rendszer&quot;&gt;Búzanemesítési információs rendszer&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/225,Networkshop_2007_konferencia&quot;&gt;
+              Networkshop 2007 konferencia&lt;/a&gt;,
+            Konferencia
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2007. április 12.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;549&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/1800,Buzanemesitesi_informacios_rendszer?start=0h22m19s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/800/1800/slides/150x150/37573.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;22p 19mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/1822,Spambiznisz_-_a_keretlen_levelek_utja_a_tamadotol_az_aldozatig&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/822/1822/indexpics/192x144/1822_1822_14.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/1822,Spambiznisz_-_a_keretlen_levelek_utja_a_tamadotol_az_aldozatig&quot;&gt;Spambiznisz - a kéretlen levelek útja a támadótól az áldozatig&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/225,Networkshop_2007_konferencia&quot;&gt;
+              Networkshop 2007 konferencia&lt;/a&gt;,
+            Konferencia
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2007. április 12.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;299&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/1822,Spambiznisz_-_a_keretlen_levelek_utja_a_tamadotol_az_aldozatig?start=0h17m31s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/822/1822/slides/150x150/38132.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;17p 31mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/2864,Internetes_kommunikacios_eszkozok_az_Orszagos_Szechenyi_Konyvtarban&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/864/2864/indexpics/192x144/2864_2800_6.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/2864,Internetes_kommunikacios_eszkozok_az_Orszagos_Szechenyi_Konyvtarban&quot;&gt;Internetes kommunikációs eszközök az Országos Széchényi Könyvtárban&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/379,Networkshop_2011_konferencia&quot;&gt;
+              Networkshop 2011 konferencia&lt;/a&gt;,
+            Konferencia
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2011. április 28.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;54&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/2864,Internetes_kommunikacios_eszkozok_az_Orszagos_Szechenyi_Konyvtarban?start=0h21m9s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/864/2864/slides/150x150/54012.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;21p 9mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/2925,E-papir_kiserletek_a_hazai_kozoktatasban&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/925/2925/indexpics/192x144/2925_2867_6.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/2925,E-papir_kiserletek_a_hazai_kozoktatasban&quot;&gt;E-papír kísérletek a hazai közoktatásban&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/379,Networkshop_2011_konferencia&quot;&gt;
+              Networkshop 2011 konferencia&lt;/a&gt;,
+            Konferencia
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2011. április 28.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;53&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/2925,E-papir_kiserletek_a_hazai_kozoktatasban?start=0h17m28s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/925/2925/slides/150x150/53682.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;17p 28mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+    
+
+    
+  &lt;li&gt;
+    &lt;div class=&quot;recordingpic&quot;&gt;
+      &lt;a href=&quot;hu/recordings/details/3006,RFID_Emissions_Track_and_NFC_Emissions_Display&quot;&gt;&lt;span class=&quot;playpic&quot;&gt;&lt;/span&gt;&lt;img src=&quot;http://static.videotorium.hu/files/recordings/6/3006/indexpics/192x144/3006_2941_9.jpg&quot;/&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;recordingcontent&quot;&gt;
+      &lt;h1&gt;&lt;a href=&quot;hu/recordings/details/3006,RFID_Emissions_Track_and_NFC_Emissions_Display&quot;&gt;RFID Emissions Track and NFC Emissions Display&lt;/a&gt;&lt;/h1&gt;
+                  &lt;div class=&quot;recordingevents&quot;&gt;
+        
+        &lt;ul&gt;
+                  &lt;li&gt;
+            &lt;a href=&quot;hu/events/details/399,Internet_of_Things_Konferencia&quot;&gt;
+              Internet of Things Konferencia&lt;/a&gt;,
+            Konferencia
+          &lt;/li&gt;
+                &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+            
+      &lt;div class=&quot;recordinginfo&quot;&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Felvétel ideje:&lt;/span&gt; &lt;span&gt;2011. május 16.&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;bold&quot;&gt;Megtekintések:&lt;/span&gt; &lt;span&gt;18&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;div class=&quot;ratewidget&quot; nojs=&quot;1&quot;&gt;
+              &lt;div class=&quot;bold left&quot;&gt;Értékelés:&lt;/div&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;3&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;4&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a&gt;&lt;span&gt;&lt;/span&gt;5&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+                &lt;div class=&quot;recordingslides&quot;&gt;
+          &lt;h3&gt;Találatok a fóliákon:&lt;/h3&gt;
+                              &lt;div class=&quot;slide&quot;&gt;
+            &lt;a href=&quot;hu/recordings/details/3006,RFID_Emissions_Track_and_NFC_Emissions_Display?start=0h4m25s&quot;&gt;
+              &lt;img src=&quot;http://static.videotorium.hu/files/recordings/6/3006/slides/150x150/55703.jpg&quot; width=&quot;100&quot;/&gt;
+              &lt;span&gt;4p 25mp&lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+                            &lt;/div&gt;
+              &lt;/div&gt;
+      
+            &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+
+
+  
+  
+
+  &lt;/ul&gt;
+&lt;div class=&quot;widepager&quot;&gt;&lt;ul&gt; &lt;li class=&quot;currentpage&quot;&gt;1&lt;/li&gt;   &lt;li&gt;&lt;a  id=&quot;pgr10&quot; href=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=10&amp;amp;perpage=10&quot;&gt;2&lt;/a&gt;&lt;/li&gt;   &lt;li&gt;&lt;form action=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=0&amp;amp;perpage=10&quot; method=&quot;post&quot;&gt;&lt;select name=&quot;perpage&quot; onchange=&quot;this.form.submit();&quot;&gt;&lt;option  value=&quot;5&quot;&gt;5&lt;/option&gt;&lt;option selected=&quot;selected&quot; value=&quot;10&quot;&gt;10&lt;/option&gt;&lt;option  value=&quot;20&quot;&gt;20&lt;/option&gt;&lt;option  value=&quot;50&quot;&gt;50&lt;/option&gt;&lt;option  value=&quot;100&quot;&gt;100&lt;/option&gt;&lt;/select&gt; tétel/oldal&lt;/form&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel=&quot;next&quot; class=&quot;next&quot; id=&quot;pgr10&quot; href=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=10&amp;amp;perpage=10&quot;&gt;következő oldal&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+
+
+    &lt;/div&gt;    &lt;div id=&quot;footer&quot;&gt;
+      
+      &lt;div id=&quot;logocontainer&quot;&gt;
+        &lt;a href=&quot;http://videotorium.hu/&quot; id=&quot;footerlogo&quot;&gt;&lt;span&gt;&lt;/span&gt;Videotorium&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div id=&quot;copyrightcontainer&quot;&gt;
+        &lt;p&gt;
+                    &lt;a href=&quot;http://www.niif.hu&quot;&gt;&lt;b&gt;&amp;copy; 2010-2012 NIIF Intézet, www.niif.hu&lt;/b&gt;&lt;/a&gt;&lt;br/&gt;
+          Minden jog fenntartva.&lt;br /&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;logos&quot;&gt;
+        &lt;a href=&quot;http://www.nfu.hu&quot; id=&quot;ujmagyarlogo&quot;&gt;&lt;span&gt;&lt;/span&gt;Új Magyarország Fejlesztési Terv&lt;/a&gt;
+        &lt;a href=&quot;http://www.niif.hu&quot; id=&quot;niiflogo&quot;&gt;&lt;span&gt;&lt;/span&gt;Nemzeti Információs Infrastruktúra Fejlesztési Intézet&lt;/a&gt;
+        &lt;a href=&quot;http://www.nfu.hu&quot; id=&quot;tamoplogo&quot;&gt;&lt;span&gt;&lt;/span&gt;TÁMOP 4.1.3 - Társadalmi Megújulás Operatív Program&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;footerlist&quot;&gt;
+        &lt;p&gt;
+          A fejlesztést az Új Magyarország Fejlesztési Terv (ÚMFT) 
+          TÁMOP 4.1.3 program részeként a 
+          &lt;a href=&quot;http://www.niif.hu&quot;&gt;Nemzeti Információs Infrastruktúra
+          Fejlesztési Intézet (NIIF Intézet)&lt;/a&gt; valósítja meg.
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;ul id=&quot;contactlink&quot;&gt;
+                &lt;li id=&quot;footercontactlink&quot;&gt;&lt;a href=&quot;hu/contact/send?code=qC7T3IDKSJN5STJgo85Lhjq2Yp%2BWaT5270mLX00qvz8%3D&quot;&gt;Kapcsolatfelvétel, hibabejelentés, észrevételek&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;footerenablemobile&quot;&gt;&lt;a href=&quot;hu/index/mobile?status=enable&amp;forward=http%3A%2F%2Fvideotorium.hu%2Fhu%2Fsearch%2Fall%3Fq%3Dcucc&quot;&gt;Mobilkészülékekre optimalizált változat&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;footeruserstos&quot;&gt;&lt;a href=&quot;hu/contents/userstos&quot;&gt;Adatkezelési hozzájárulás&lt;/a&gt;&lt;/li&gt;
+        &lt;li id=&quot;footerrecordingstos&quot;&gt;&lt;a href=&quot;hu/contents/recordingstos&quot;&gt;Felhasználási hozzájárulás&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+              &lt;ul id=&quot;mobilefooterlist&quot;&gt;
+          &lt;li id=&quot;disablemobile&quot;&gt;
+            &lt;a href=&quot;hu/index/mobile?status=disable&amp;forward=http%3A%2F%2Fvideotorium.hu%2Fhu%2Fsearch%2Fall%3Fq%3Dcucc&quot;&gt;Teljes verzió&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li id=&quot;changelanguage&quot;&gt;
+                          &lt;a href=&quot;http://videotorium.hu/en/search/all?q=cucc&quot;&gt;English&lt;/a&gt;
+                      &lt;/li&gt;
+          &lt;li id=&quot;mobilelogin&quot;&gt;
+            &lt;a href=&quot;hu/index/mobile?status=disable&amp;forward=users%2Flogin&quot;&gt;Belépés&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+          &lt;/div&gt;
+  &lt;/div&gt;&lt;/div&gt;
+&lt;div id=&quot;footerbg&quot;&gt;
+&lt;/div&gt;
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+  var _gaq = _gaq || [];
+  _gaq.push([&apos;_setAccount&apos;, &apos;UA-16658651-1&apos;]);
+  _gaq.push([&apos;_trackPageview&apos;]);
+
+  (function() {
+    var ga = document.createElement(&apos;script&apos;); ga.type = &apos;text/javascript&apos;; ga.async = true;
+    ga.src = (&apos;https:&apos; == document.location.protocol ? &apos;https://ssl&apos; : &apos;http://www&apos;) + &apos;.google-analytics.com/ga.js&apos;;
+    var s = document.getElementsByTagName(&apos;script&apos;)[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</string>
 </dict>
 </plist>
