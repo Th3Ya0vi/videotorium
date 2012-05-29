@@ -55,7 +55,6 @@
     dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);
     dispatch_async(getDetailsQueue, ^{
         VideotoriumClient *client = [[VideotoriumClient alloc] init];
-        client.videotoriumBaseURL = @"http://localhost/";
         VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recordingDetails = recordingDetails;
