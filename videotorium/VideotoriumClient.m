@@ -37,10 +37,12 @@
 - (NSArray *)substringsOf:(NSString *)string matching:(NSString *)pattern
 {
     NSMutableArray *results = [NSMutableArray array];
-    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
-    NSArray *matches = [regexp matchesInString:string options:0 range:NSMakeRange(0, [string length])];
-    for (NSTextCheckingResult *match in matches) {
-        [results addObject:[string substringWithRange:[match rangeAtIndex:1]]];
+    if (string) {
+        NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
+        NSArray *matches = [regexp matchesInString:string options:0 range:NSMakeRange(0, [string length])];
+        for (NSTextCheckingResult *match in matches) {
+            [results addObject:[string substringWithRange:[match rangeAtIndex:1]]];
+        }        
     }
     return results;
 }
