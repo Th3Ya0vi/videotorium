@@ -74,8 +74,8 @@
     CGFloat width = self.view.bounds.size.width;
     CGFloat height = self.view.bounds.size.height;
     if (UIInterfaceOrientationIsLandscape([self interfaceOrientation])) {
-        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, width/3, height/3)];
-        [self.slideImageView setFrame:CGRectMake(width/3, height/3, 2*width/3, 2*height/3)];
+        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, width, height/2)];
+        [self.slideImageView setFrame:CGRectMake(0, height/2, width, height/2)];
     } else {
         [self.moviePlayerController.view setFrame:CGRectMake(0, 0, width, height/2)];
         [self.slideImageView setFrame:CGRectMake(0, height/2, width, height/2)];        
