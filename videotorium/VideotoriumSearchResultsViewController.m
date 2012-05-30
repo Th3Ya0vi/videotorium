@@ -46,7 +46,7 @@
     dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
     dispatch_async(getSearchResultsQueue, ^{
         VideotoriumClient *client = [[VideotoriumClient alloc] init];
-        NSArray *recordings = [client recordingsMatchingString:@"cucc"];
+        NSArray *recordings = [client recordingsMatchingString:@"networkshop"];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recordings = recordings;
         });
