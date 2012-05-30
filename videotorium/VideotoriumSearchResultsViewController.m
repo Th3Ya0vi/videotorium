@@ -42,9 +42,15 @@
 
     self.clearsSelectionOnViewWillAppear = NO;
     
-    VideotoriumClient *client = [[VideotoriumClient alloc] init];
-    NSArray *recordings = [client recordingsMatchingString:@"cucc"];
-    self.recordings = recordings;
+    dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
+    dispatch_async(getSearchResultsQueue, ^{
+        VideotoriumClient *client = [[VideotoriumClient alloc] init];
+        NSArray *recordings = [client recordingsMatchingString:@"cucc"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recordings = recordings;
+        });
+    });
+    dispatch_release(getSearchResultsQueue);
 }
 
 - (void)viewDidUnload
@@ -71,9 +77,14 @@
     
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     cell.textLabel.text = recording.title;
-    NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
-    cell.imageView.image = [UIImage imageWithData:imageData];
-
+    dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
+    dispatch_async(getIndexPictureQueue, ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.imageView.image = [UIImage imageWithData:imageData];
+        });
+    });
+    dispatch_release(getIndexPictureQueue);
     return cell;
 }
 
