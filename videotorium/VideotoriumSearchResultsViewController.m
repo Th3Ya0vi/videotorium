@@ -68,7 +68,11 @@
     static NSString *CellIdentifier = @"Recording Title And Picture";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    cell.textLabel.text = [[self.recordings objectAtIndex:indexPath.row] title];
+    VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
+    cell.textLabel.text = recording.title;
+    NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
+    cell.imageView.image = [UIImage imageWithData:imageData];
+
     return cell;
 }
 
