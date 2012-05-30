@@ -476,7 +476,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
 
 &lt;/body&gt;
 &lt;/html&gt;</string>
-	<key>http://videotorium.hu/hu/search/all?q=cucc</key>
+	<key>http://videotorium.hu/hu/search/all?perpage=100&amp;q=cucc</key>
 	<string>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;hu&quot; xml:lang=&quot;hu&quot;&gt;
 &lt;head&gt;
@@ -569,10 +569,12 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
         &lt;li class=&quot;last register&quot;&gt;&lt;a href=&quot;hu/users/signup&quot;&gt;Regisztráció&lt;/a&gt;&lt;/li&gt;
               &lt;/ul&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
+  &lt;/div&gt;
+
         
         
-    &lt;div class=&quot;body&quot;&gt;
+    &lt;div class=&quot;body&quot;&gt;
+
 
 
       
@@ -647,7 +649,8 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
 &lt;/div&gt;
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;        
 &lt;div class=&quot;widepager&quot;&gt;&lt;ul&gt; &lt;li class=&quot;currentpage&quot;&gt;1&lt;/li&gt;   &lt;li&gt;&lt;a  id=&quot;pgr10&quot; href=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=10&amp;amp;perpage=10&quot;&gt;2&lt;/a&gt;&lt;/li&gt;   &lt;li&gt;&lt;form action=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=0&amp;amp;perpage=10&quot; method=&quot;post&quot;&gt;&lt;select name=&quot;perpage&quot; onchange=&quot;this.form.submit();&quot;&gt;&lt;option  value=&quot;5&quot;&gt;5&lt;/option&gt;&lt;option selected=&quot;selected&quot; value=&quot;10&quot;&gt;10&lt;/option&gt;&lt;option  value=&quot;20&quot;&gt;20&lt;/option&gt;&lt;option  value=&quot;50&quot;&gt;50&lt;/option&gt;&lt;option  value=&quot;100&quot;&gt;100&lt;/option&gt;&lt;/select&gt; tétel/oldal&lt;/form&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel=&quot;next&quot; class=&quot;next&quot; id=&quot;pgr10&quot; href=&quot;hu/search/all?q=cucc&amp;amp;order=relevancy&amp;amp;direction=&amp;start=10&amp;amp;perpage=10&quot;&gt;következő oldal&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
-  &lt;ul class=&quot;recordinglist channellist&quot;&gt;
+  &lt;ul class=&quot;recordinglist channellist&quot;&gt;
+
 
   
     

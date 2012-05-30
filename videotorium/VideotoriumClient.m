@@ -16,7 +16,7 @@
 @synthesize videotoriumBaseURL = _videotoriumBaseURL;
 
 #define DETAILS_URL @"recordings/details/"
-#define SEARCH_URL @"search/all?q="
+#define SEARCH_URL @"search/all?perpage=100&q="
 
 - (NSString *)videotoriumBaseURL
 {
