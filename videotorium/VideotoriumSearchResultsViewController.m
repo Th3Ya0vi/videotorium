@@ -78,6 +78,7 @@
     
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     cell.title.text = recording.title;
+    cell.indexPicture.image = [UIImage imageNamed:@"videotorium_logo.png"];
     dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
     dispatch_async(getIndexPictureQueue, ^{
         NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
