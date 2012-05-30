@@ -10,6 +10,7 @@
 #import "VideotoriumClient.h"
 #import "VideotoriumRecording.h"
 #import "VideotoriumPlayerViewController.h"
+#import "VideotoriumSearchResultsCell.h"
 
 @interface VideotoriumSearchResultsViewController ()
 
@@ -73,15 +74,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Recording Title And Picture";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    VideotoriumSearchResultsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
-    cell.textLabel.text = recording.title;
+    cell.title.text = recording.title;
     dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
     dispatch_async(getIndexPictureQueue, ^{
         NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
         dispatch_async(dispatch_get_main_queue(), ^{
-            cell.imageView.image = [UIImage imageWithData:imageData];
+            cell.indexPicture.image = [UIImage imageWithData:imageData];
         });
     });
     dispatch_release(getIndexPictureQueue);
