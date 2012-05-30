@@ -9,6 +9,7 @@
 #import "VideotoriumSearchResultsViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumRecording.h"
+#import "VideotoriumPlayerViewController.h"
 
 @interface VideotoriumSearchResultsViewController ()
 
@@ -74,6 +75,15 @@
     cell.imageView.image = [UIImage imageWithData:imageData];
 
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
+    VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
+    detailViewController.RecordingID = recording.ID;
 }
 
 @end

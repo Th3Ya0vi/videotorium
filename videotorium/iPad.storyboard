@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="tUe-ba-nWi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="aLK-gI-pXH">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Split View Controller-->
+        <scene sceneID="cQf-Xj-wqu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9p-OA-SQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <splitViewController id="aLK-gI-pXH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <connections>
+                        <segue destination="LW0-SS-B8x" kind="relationship" relationship="masterViewController" id="o34-cg-eyn"/>
+                        <segue destination="tUe-ba-nWi" kind="relationship" relationship="detailViewController" id="eou-IF-OfP"/>
+                    </connections>
+                </splitViewController>
+            </objects>
+            <point key="canvasLocation" x="-2927" y="19"/>
+        </scene>
         <!--Videotorium Search Results View Controller-->
         <scene sceneID="G9D-D5-nvU">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whK-zF-zu0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="LW0-SS-B8x" customClass="VideotoriumSearchResultsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Gt-gq-U6F">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="832"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Title And Picture" textLabel="jtg-2J-723" imageView="g9g-ju-aG9" rowHeight="56" style="IBUITableViewCellStyleDefault" id="Sk6-7L-ngP">
-                                <rect key="frame" x="0.0" y="22" width="768" height="56"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="748" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="55"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jtg-2J-723">
-                                            <rect key="frame" x="68" y="0.0" width="670" height="55"/>
+                                            <rect key="frame" x="68" y="0.0" width="222" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -46,7 +60,7 @@
                     </tableView>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="-762" y="116"/>
+            <point key="canvasLocation" x="-1690" y="-824"/>
         </scene>
         <!--Videotorium Player View Controller-->
         <scene sceneID="XEz-40-OBc">
@@ -60,7 +74,7 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="105" y="-151"/>
+            <point key="canvasLocation" x="-1735" y="417"/>
         </scene>
     </scenes>
     <resources>

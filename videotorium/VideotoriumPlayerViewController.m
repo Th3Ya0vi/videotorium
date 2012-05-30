@@ -37,7 +37,7 @@
 {
     [super viewDidLoad];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
-    self.recordingID = @"2487";
+//    self.recordingID = @"2487";
 }
 
 - (void)setRecordingID:(NSString *)recordingID
