@@ -61,7 +61,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recordingDetails = recordingDetails;
             self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
-            self.moviePlayerController.view.frame = self.moviePlayerView.frame;
+            self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
+            self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             [self.moviePlayerView addSubview:self.moviePlayerController.view];
             [self.moviePlayerController play];        
         });
@@ -113,9 +114,6 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (self.moviePlayerController) {
-        self.moviePlayerController.view.frame = self.moviePlayerView.frame;        
-    }
 }
 
 @end
