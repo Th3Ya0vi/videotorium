@@ -27,6 +27,7 @@
 
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
+@property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
 
 @end
 
@@ -49,16 +50,7 @@
 
 @synthesize recordingDetails = _recordingDetails;
 @synthesize currentSlide = _currentSlide;
-
-- (void)moviePlayerDidExitFullscreen:(NSNotification *)notification
-{
-    // Set the split view controller's frame which can be wrong because of orienation changes during fullscreen video playback
-    self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
-    // Remove the bar button if we ended up in landscape (we don't get the normal behaviour in this case)
-    if (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])) {
-        self.splitViewBarButtonItem = nil;
-    };
-}
+@synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
@@ -72,10 +64,6 @@
     [super viewDidLoad];
     self.splitViewController.delegate = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(moviePlayerDidExitFullscreen:)
-                                                 name:MPMoviePlayerDidExitFullscreenNotification
-                                               object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
@@ -171,6 +159,24 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
+                                duration:(NSTimeInterval)duration
+{
+    self.wasFullscreenBeforeOrientationChange = self.moviePlayerController.fullscreen;
+    if (self.wasFullscreenBeforeOrientationChange) {
+        self.moviePlayerController.fullscreen = NO;
+        self.splitViewController.view.hidden = YES;
+    }
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if (self.wasFullscreenBeforeOrientationChange) {
+        self.moviePlayerController.fullscreen = YES;
+        self.splitViewController.view.hidden = NO;
+    }
 }
 
 #pragma mark - Split view controller delegate
