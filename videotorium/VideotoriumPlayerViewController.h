@@ -11,4 +11,5 @@
 @interface VideotoriumPlayerViewController : UIViewController
 
 @property (nonatomic, strong) NSString *recordingID;
+
 @end
