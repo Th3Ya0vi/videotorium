@@ -12,8 +12,10 @@
 
 @interface VideotoriumPlayerViewController ()
 
+@property (nonatomic, strong) IBOutlet UIImageView *slideImageView;
+@property (nonatomic, strong) IBOutlet UIView *moviePlayerView;
+
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
-@property (nonatomic, strong) UIImageView *slideImageView;
 
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -26,10 +28,13 @@
 
 @synthesize recordingID = _recordingID;
 
-@synthesize moviePlayerController = _moviePlayerController;
 @synthesize slideImageView = _slideImageView;
+@synthesize moviePlayerView = _moviePlayerView;
+
+@synthesize moviePlayerController = _moviePlayerController;
 
 @synthesize timer = _timer;
+
 @synthesize recordingDetails = _recordingDetails;
 @synthesize currentSlide = _currentSlide;
 
@@ -37,7 +42,6 @@
 {
     [super viewDidLoad];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
-//    self.recordingID = @"2487";
 }
 
 - (void)setRecordingID:(NSString *)recordingID
@@ -47,10 +51,6 @@
         [self.moviePlayerController.view removeFromSuperview];
         self.moviePlayerController = nil;
     }
-    if (self.slideImageView != nil) {
-        [self.slideImageView removeFromSuperview];
-        self.slideImageView = nil;
-    }
     self.recordingDetails = nil;
     dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);
     dispatch_async(getDetailsQueue, ^{
@@ -59,59 +59,44 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recordingDetails = recordingDetails;
             self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
-            self.slideImageView = [[UIImageView alloc] init];
-            self.slideImageView.contentMode = UIViewContentModeScaleAspectFit;
-            [self layout];
-            [self.view addSubview:self.moviePlayerController.view];    
-            [self.view addSubview:self.slideImageView];
+            self.moviePlayerController.view.frame = self.moviePlayerView.frame;
+            [self.moviePlayerView addSubview:self.moviePlayerController.view];
             [self.moviePlayerController play];        
         });
     });
     dispatch_release(getDetailsQueue);
 }
 
-- (void)layout {
-    CGFloat width = self.view.bounds.size.width;
-    CGFloat height = self.view.bounds.size.height;
-    if (UIInterfaceOrientationIsLandscape([self interfaceOrientation])) {
-        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, width, height/2)];
-        [self.slideImageView setFrame:CGRectMake(0, height/2, width, height/2)];
-    } else {
-        [self.moviePlayerController.view setFrame:CGRectMake(0, 0, width, height/2)];
-        [self.slideImageView setFrame:CGRectMake(0, height/2, width, height/2)];        
-    }
-}
-
 - (void)updateSlide
 {
-    if (self.moviePlayerController == nil) return;
-    NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
-    VideotoriumSlide *slideToShow = nil;
-    for (VideotoriumSlide *slide in self.recordingDetails.slides) {
-        if ((slide.timestamp < currentPlaybackTime) &&
-            (slide.timestamp > slideToShow.timestamp)) {
-            slideToShow = slide;
+    if (self.moviePlayerController) {
+        NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
+        VideotoriumSlide *slideToShow = nil;
+        for (VideotoriumSlide *slide in self.recordingDetails.slides) {
+            if ((slide.timestamp < currentPlaybackTime) &&
+                (slide.timestamp > slideToShow.timestamp)) {
+                slideToShow = slide;
+            }
         }
-    }
-    if (![slideToShow isEqual:self.currentSlide]) {
-        self.currentSlide = slideToShow;
-        dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
-        dispatch_async(downloadSlideQueue, ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.currentSlide == slideToShow) {
-	                self.slideImageView.image = [UIImage imageWithData:imageData];
-                }
+        if (![slideToShow isEqual:self.currentSlide]) {
+            self.currentSlide = slideToShow;
+            dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
+            dispatch_async(downloadSlideQueue, ^{
+                NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (self.currentSlide == slideToShow) {
+                        self.slideImageView.image = [UIImage imageWithData:imageData];
+                    }
+                });
             });
-        });
-        dispatch_release(downloadSlideQueue);
+            dispatch_release(downloadSlideQueue);
+        }        
     }
 }
 
 - (void)viewDidUnload
 {
     [self.timer invalidate];
-    [self setSlideImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -123,7 +108,9 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    [self layout];
+    if (self.moviePlayerController) {
+        self.moviePlayerController.view.frame = self.moviePlayerView.frame;        
+    }
 }
 
 @end
