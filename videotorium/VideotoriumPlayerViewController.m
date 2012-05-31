@@ -50,6 +50,10 @@
 {
     // Set the split view controller's frame which can be wrong because of orienation changes during fullscreen video playback
     self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
+    // Remove the bar button if we ended up in landscape (we don't get the normal behaviour in this case)
+    if (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])) {
+        self.splitViewBarButtonItem = nil;
+    };
 }
 
 - (void)viewDidLoad
