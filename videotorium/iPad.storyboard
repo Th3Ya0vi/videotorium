@@ -81,7 +81,7 @@
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="2Gr-DQ-ATz">
                                 <rect key="frame" x="138" y="60" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -119,6 +119,12 @@
                             <view contentMode="scaleToFill" id="YvY-Iq-No2">
                                 <rect key="frame" x="0.0" y="44" width="768" height="384"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="xHb-jk-lmH">
+                                        <rect key="frame" x="366" y="173" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="wIT-X3-Sxx">
@@ -130,6 +136,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="xHb-jk-lmH" id="DDL-kI-4ey"/>
                         <outlet property="moviePlayerView" destination="YvY-Iq-No2" id="aFG-uh-bPg"/>
                         <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
                         <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
@@ -146,6 +153,7 @@
         <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>

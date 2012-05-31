@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *slideImageView;
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -35,6 +36,7 @@
 @synthesize slideImageView = _slideImageView;
 @synthesize moviePlayerView = _moviePlayerView;
 @synthesize toolbar = _toolbar;
+@synthesize activityIndicator = _activityIndicator;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -56,6 +58,13 @@
     };
 }
 
+- (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
+{
+    if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
+        [self.activityIndicator stopAnimating];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -63,7 +72,12 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(moviePlayerDidExitFullscreen:)
-                                                 name:MPMoviePlayerDidExitFullscreenNotification object:nil];
+                                                 name:MPMoviePlayerDidExitFullscreenNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayerLoadStateDidChange:)
+                                                 name:MPMoviePlayerLoadStateDidChangeNotification
+                                               object:nil];
 }
 
 - (void)setRecordingID:(NSString *)recordingID
@@ -74,6 +88,7 @@
         [self.moviePlayerController.view removeFromSuperview];
         self.moviePlayerController = nil;
     }
+    [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
     dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);
     dispatch_async(getDetailsQueue, ^{
@@ -84,8 +99,8 @@
             self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
             self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
             self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            [self.moviePlayerView addSubview:self.moviePlayerController.view];
-            [self.moviePlayerController play];        
+            [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
+            [self.moviePlayerController play];
         });
     });
     dispatch_release(getDetailsQueue);
@@ -136,6 +151,7 @@
     self.toolbar = nil;
     self.slideImageView = nil;
     self.moviePlayerView = nil;
+    self.activityIndicator = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
 }
