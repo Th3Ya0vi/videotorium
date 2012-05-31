@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *recordings; // array of VideotoriumRecording objects
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -26,11 +27,14 @@
 @synthesize recordings = _recordings;
 @synthesize tableView = _tableView;
 @synthesize searchBar = _searchBar;
+@synthesize activityIndicator = _activityIndicator;
 
 - (void)setSearchString:(NSString *)searchString
 {
     if (![_searchString isEqualToString:searchString]) {
         _searchString = searchString;
+        self.recordings = [NSArray array];
+        [self.activityIndicator startAnimating];
         dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
         dispatch_async(getSearchResultsQueue, ^{
             VideotoriumClient *client = [[VideotoriumClient alloc] init];
@@ -39,6 +43,7 @@
                 // If the searchString hasn't changed while we were networking
                 if ([self.searchString isEqualToString:searchString]) {
                     self.recordings = recordings;
+                    [self.activityIndicator stopAnimating];
                 }
             });
         });
@@ -66,6 +71,7 @@
 {
     [self setTableView:nil];
     [self setSearchBar:nil];
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
 }
 
