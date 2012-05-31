@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *slideImageView;
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
-@property (weak, nonatomic) IBOutlet UINavigationBar *titleBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
 
@@ -31,7 +31,7 @@
 
 @synthesize slideImageView = _slideImageView;
 @synthesize moviePlayerView = _moviePlayerView;
-@synthesize titleBar = _titleBar;
+@synthesize toolBar = _toolBar;
 
 @synthesize moviePlayerController = _moviePlayerController;
 
@@ -100,7 +100,7 @@
 - (void)viewDidUnload
 {
     [self.timer invalidate];
-    self.titleBar = nil;
+    self.toolBar = nil;
     self.slideImageView = nil;
     self.moviePlayerView = nil;
     [super viewDidUnload];
