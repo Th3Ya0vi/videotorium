@@ -80,7 +80,9 @@
 {
     NSMutableDictionary *recordings = [NSMutableDictionary dictionary];
     
-    NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, SEARCH_URL, searchString];
+    NSString *encodedSearchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, SEARCH_URL, encodedSearchString];
     NSString *response = [self.dataSource contentsOfURL:URLString];
     
     NSArray *titlesAndURLs = [self substringsOf:response matching:@"<h1><a href=\"([^<]*)"];
