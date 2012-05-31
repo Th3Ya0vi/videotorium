@@ -86,7 +86,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="9YG-G7-xN2">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yah-nr-hG7"/>
+                                    <barButtonItem title="Videotorium" style="plain" id="uHo-PP-YAz"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dPe-ji-DOu"/>
+                                </items>
                             </toolbar>
                             <view contentMode="scaleToFill" id="YvY-Iq-No2">
                                 <rect key="frame" x="0.0" y="44" width="768" height="384"/>
@@ -104,7 +108,7 @@
                     <connections>
                         <outlet property="moviePlayerView" destination="YvY-Iq-No2" id="aFG-uh-bPg"/>
                         <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
-                        <outlet property="toolBar" destination="9YG-G7-xN2" id="KG4-6U-cWS"/>
+                        <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
                     </connections>
                 </viewController>
             </objects>
@@ -120,7 +124,7 @@
             <relationships>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="VideotoriumSearchResultsCell" superclassName="UITableViewCell">

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideotoriumPlayerViewController : UIViewController
+@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) NSString *recordingID;
 

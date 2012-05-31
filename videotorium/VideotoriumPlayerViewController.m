@@ -14,7 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *slideImageView;
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+
+@property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
 
@@ -31,7 +33,9 @@
 
 @synthesize slideImageView = _slideImageView;
 @synthesize moviePlayerView = _moviePlayerView;
-@synthesize toolBar = _toolBar;
+@synthesize toolbar = _toolbar;
+
+@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 
 @synthesize moviePlayerController = _moviePlayerController;
 
@@ -43,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.splitViewController.delegate = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
 }
 
@@ -68,6 +73,18 @@
         });
     });
     dispatch_release(getDetailsQueue);
+}
+
+- (void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
+{
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    // If there was a bar button, we remove it
+    if (_splitViewBarButtonItem) [toolbarItems removeObject:_splitViewBarButtonItem];
+    // We add the new button to the bar (if there is a new button)
+    if (splitViewBarButtonItem) [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+    self.toolbar.items = toolbarItems;
+    // If the setter was called with nil, then we only removed the old one without add anything new, and the property will be nil
+    _splitViewBarButtonItem = splitViewBarButtonItem;
 }
 
 - (void)updateSlide
@@ -100,7 +117,7 @@
 - (void)viewDidUnload
 {
     [self.timer invalidate];
-    self.toolBar = nil;
+    self.toolbar = nil;
     self.slideImageView = nil;
     self.moviePlayerView = nil;
     [super viewDidUnload];
@@ -112,8 +129,22 @@
 	return YES;
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+#pragma mark - Split view controller delegate
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willHideViewController:(UIViewController *)aViewController
+          withBarButtonItem:(UIBarButtonItem *)barButtonItem
+       forPopoverController:(UIPopoverController *)pc
 {
+    barButtonItem.title = @"Search";
+    self.splitViewBarButtonItem = barButtonItem;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willShowViewController:(UIViewController *)aViewController
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    self.splitViewBarButtonItem = nil;
 }
 
 @end
