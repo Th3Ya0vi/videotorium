@@ -46,11 +46,20 @@
 @synthesize recordingDetails = _recordingDetails;
 @synthesize currentSlide = _currentSlide;
 
+- (void)moviePlayerDidExitFullscreen:(NSNotification *)notification
+{
+    // Set the split view controller's frame which can be wrong because of orienation changes during fullscreen video playback
+    self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.splitViewController.delegate = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(moviePlayerDidExitFullscreen:)
+                                                 name:MPMoviePlayerDidExitFullscreenNotification object:nil];
 }
 
 - (void)setRecordingID:(NSString *)recordingID
@@ -123,8 +132,8 @@
     self.toolbar = nil;
     self.slideImageView = nil;
     self.moviePlayerView = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
