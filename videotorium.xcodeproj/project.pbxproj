@@ -64,6 +64,7 @@
 		2DD60202154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VideotoriumClientDataSourceUsingSynchronousRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2DD60203154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumClientDataSourceUsingSynchronousRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DD732D11577B88900D94E1B /* videotorium_logo_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videotorium_logo_72.png; sourceTree = "<group>"; };
+		2DD732D31577C5B100D94E1B /* videotorium.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = videotorium.entitlements; sourceTree = "<group>"; };
 		2DEB06B41549703200AD0805 /* videotorium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videotorium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEB06B81549703200AD0805 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2DEB06BA1549703200AD0805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +159,7 @@
 		2DEB06BE1549703200AD0805 /* videotorium */ = {
 			isa = PBXGroup;
 			children = (
+				2DD732D31577C5B100D94E1B /* videotorium.entitlements */,
 				2DD732D11577B88900D94E1B /* videotorium_logo_72.png */,
 				2DBAFD79157619FE007DA824 /* videotorium_logo.png */,
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */,
@@ -422,6 +424,7 @@
 		2DEB06E21549703300AD0805 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = videotorium/videotorium.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
 				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
@@ -433,6 +436,7 @@
 		2DEB06E31549703300AD0805 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = videotorium/videotorium.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
 				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
