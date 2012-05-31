@@ -97,7 +97,10 @@
     dispatch_async(getIndexPictureQueue, ^{
         NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
         dispatch_async(dispatch_get_main_queue(), ^{
-            cell.indexPicture.image = [UIImage imageWithData:imageData];
+            // Only set the picture if the text is still the same (it could have been reused since)
+            if ([cell.title.text isEqualToString:recording.title]) {
+                cell.indexPicture.image = [UIImage imageWithData:imageData];                
+            }
         });
     });
     dispatch_release(getIndexPictureQueue);
