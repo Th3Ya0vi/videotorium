@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideotoriumSearchViewController : UITableViewController
+@interface VideotoriumSearchViewController : UITableViewController <UISearchBarDelegate>
 
-@property (nonatomic, copy) NSArray *recordings; // array of VideotoriumRecording objects
+@property (nonatomic, copy) NSString *searchString;
 
 @end

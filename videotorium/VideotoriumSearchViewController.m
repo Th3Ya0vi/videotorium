@@ -14,15 +14,37 @@
 
 @interface VideotoriumSearchViewController ()
 
+@property (nonatomic, strong) NSArray *recordings; // array of VideotoriumRecording objects
+
 @end
 
 @implementation VideotoriumSearchViewController
 
 @synthesize recordings = _recordings;
+@synthesize searchString = _searchString;
+
+- (void)setSearchString:(NSString *)searchString
+{
+    if (![_searchString isEqualToString:searchString]) {
+        _searchString = searchString;
+        dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
+        dispatch_async(getSearchResultsQueue, ^{
+            VideotoriumClient *client = [[VideotoriumClient alloc] init];
+            NSArray *recordings = [client recordingsMatchingString:searchString];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // If the searchString hasn't changed while we were networking
+                if ([self.searchString isEqualToString:searchString]) {
+                    self.recordings = recordings;
+                }
+            });
+        });
+        dispatch_release(getSearchResultsQueue);
+    }
+}
 
 - (void)setRecordings:(NSArray *)recordings
 {
-    if (![_recordings isEqual:recordings]) {
+    if (![_recordings isEqualToArray:recordings]) {
         _recordings = recordings;
         [self.tableView reloadData];
     }
@@ -43,15 +65,7 @@
 
     self.clearsSelectionOnViewWillAppear = NO;
     
-    dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
-    dispatch_async(getSearchResultsQueue, ^{
-        VideotoriumClient *client = [[VideotoriumClient alloc] init];
-        NSArray *recordings = [client recordingsMatchingString:@"networkshop"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.recordings = recordings;
-        });
-    });
-    dispatch_release(getSearchResultsQueue);
+    self.searchString = @"networkshop";
 }
 
 - (void)viewDidUnload
@@ -97,6 +111,14 @@
     VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     detailViewController.RecordingID = recording.ID;
+}
+
+#pragma mark - Search bar delegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    self.searchString = searchBar.text;
+    [searchBar resignFirstResponder];
 }
 
 @end
