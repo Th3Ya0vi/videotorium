@@ -15,13 +15,17 @@
 @interface VideotoriumSearchViewController ()
 
 @property (nonatomic, strong) NSArray *recordings; // array of VideotoriumRecording objects
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
 @implementation VideotoriumSearchViewController
 
-@synthesize recordings = _recordings;
 @synthesize searchString = _searchString;
+@synthesize recordings = _recordings;
+@synthesize tableView = _tableView;
+@synthesize searchBar = _searchBar;
 
 - (void)setSearchString:(NSString *)searchString
 {
@@ -50,26 +54,18 @@
     }
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.clearsSelectionOnViewWillAppear = NO;
     
-    self.searchString = @"networkshop";
+    self.searchBar.text = @"networkshop";
+    [self searchBarSearchButtonClicked:self.searchBar];
 }
 
 - (void)viewDidUnload
 {
+    [self setTableView:nil];
+    [self setSearchBar:nil];
     [super viewDidUnload];
 }
 
