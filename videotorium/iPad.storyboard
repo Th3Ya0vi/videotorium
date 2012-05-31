@@ -132,12 +132,20 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="no slides" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yR5-j4-voA">
+                                <rect key="frame" x="550" y="949" width="198" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="28"/>
+                                <color key="textColor" red="0.75968070652173914" green="0.75968070652173914" blue="0.75968070652173914" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="xHb-jk-lmH" id="DDL-kI-4ey"/>
                         <outlet property="moviePlayerView" destination="YvY-Iq-No2" id="aFG-uh-bPg"/>
+                        <outlet property="noSlidesLabel" destination="yR5-j4-voA" id="hbF-cp-ifz"/>
                         <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
                         <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
                     </connections>
@@ -155,6 +163,7 @@
             <relationships>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="noSlidesLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>

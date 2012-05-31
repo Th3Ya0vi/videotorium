@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *noSlidesLabel;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -37,6 +38,7 @@
 @synthesize moviePlayerView = _moviePlayerView;
 @synthesize toolbar = _toolbar;
 @synthesize activityIndicator = _activityIndicator;
+@synthesize noSlidesLabel = _noSlidesLabel;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -123,25 +125,34 @@
     if (self.moviePlayerController) {
         NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
         VideotoriumSlide *slideToShow = nil;
-        for (VideotoriumSlide *slide in self.recordingDetails.slides) {
-            if ((slide.timestamp < currentPlaybackTime) &&
-                (slide.timestamp > slideToShow.timestamp)) {
-                slideToShow = slide;
-            }
+        if ([self.recordingDetails.slides count] > 0) {
+            slideToShow = [self.recordingDetails.slides objectAtIndex:0];
+            for (VideotoriumSlide *slide in self.recordingDetails.slides) {
+                if ((slide.timestamp < currentPlaybackTime) &&
+                    (slide.timestamp > slideToShow.timestamp)) {
+                    slideToShow = slide;
+                }
+            }            
         }
-        if (![slideToShow isEqual:self.currentSlide]) {
-            self.currentSlide = slideToShow;
-            dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
-            dispatch_async(downloadSlideQueue, ^{
-                NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (self.currentSlide == slideToShow) {
-                        self.slideImageView.image = [UIImage imageWithData:imageData];
-                    }
+        if (slideToShow) {
+            self.noSlidesLabel.hidden = YES;
+            if (![slideToShow isEqual:self.currentSlide]) {
+                self.currentSlide = slideToShow;
+                dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
+                dispatch_async(downloadSlideQueue, ^{
+                    NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (self.currentSlide == slideToShow) {
+                            self.slideImageView.image = [UIImage imageWithData:imageData];
+                        }
+                    });
                 });
-            });
-            dispatch_release(downloadSlideQueue);
-        }        
+                dispatch_release(downloadSlideQueue);
+            }                    
+        } else {
+            self.slideImageView.image = nil;
+            self.noSlidesLabel.hidden = NO;
+        }
     }
 }
 
@@ -153,6 +164,7 @@
     self.moviePlayerView = nil;
     self.activityIndicator = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setNoSlidesLabel:nil];
     [super viewDidUnload];
 }
 
