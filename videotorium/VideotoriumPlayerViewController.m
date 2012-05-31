@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
+@property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
 
@@ -36,6 +37,7 @@
 @synthesize toolbar = _toolbar;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
+@synthesize splitViewPopoverController = _splitViewPopoverController;
 
 @synthesize moviePlayerController = _moviePlayerController;
 
@@ -53,6 +55,7 @@
 
 - (void)setRecordingID:(NSString *)recordingID
 {
+    [self.splitViewPopoverController dismissPopoverAnimated:YES];
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
         [self.moviePlayerController.view removeFromSuperview];
@@ -138,6 +141,7 @@
 {
     barButtonItem.title = @"Search";
     self.splitViewBarButtonItem = barButtonItem;
+    self.splitViewPopoverController = pc;
 }
 
 - (void)splitViewController:(UISplitViewController *)svc
