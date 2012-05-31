@@ -113,7 +113,7 @@
 {
     VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
-    detailViewController.RecordingID = recording.ID;
+    detailViewController.recordingID = recording.ID;
 }
 
 #pragma mark - Search bar delegate
