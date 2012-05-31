@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideotoriumSearchResultsViewController : UITableViewController
+@interface VideotoriumSearchViewController : UITableViewController
 
 @property (nonatomic, copy) NSArray *recordings; // array of VideotoriumRecording objects
 

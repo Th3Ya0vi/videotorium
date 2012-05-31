@@ -6,17 +6,17 @@
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
-#import "VideotoriumSearchResultsViewController.h"
+#import "VideotoriumSearchViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumRecording.h"
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumSearchResultsCell.h"
 
-@interface VideotoriumSearchResultsViewController ()
+@interface VideotoriumSearchViewController ()
 
 @end
 
-@implementation VideotoriumSearchResultsViewController
+@implementation VideotoriumSearchViewController
 
 @synthesize recordings = _recordings;
 
