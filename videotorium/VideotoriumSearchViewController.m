@@ -67,6 +67,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#ifndef SCREENSHOTMODE
     if (!self.searchString) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *lastSearchString = [defaults stringForKey:@"lastSearchString"];
@@ -75,6 +76,7 @@
             [self searchBarSearchButtonClicked:self.searchBar];
         }
     }
+#endif
 }
 
 - (void)viewDidUnload

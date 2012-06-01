@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
+//#define SCREENSHOTMODE
+
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumRecordingInfoViewController.h"
@@ -79,6 +81,7 @@
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
                                                object:nil];
+#ifndef SCREENSHOTMODE
     if (!self.recordingID) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *lastRecordingID = [defaults stringForKey:@"lastRecordingID"];
@@ -89,6 +92,7 @@
             self.recordingID = @"4055";
         }
     }
+#endif
 }
 
 - (void)setRecordingID:(NSString *)recordingID
