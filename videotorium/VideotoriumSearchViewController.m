@@ -10,7 +10,7 @@
 #import "VideotoriumClient.h"
 #import "VideotoriumRecording.h"
 #import "VideotoriumPlayerViewController.h"
-#import "VideotoriumSearchResultsCell.h"
+#import "VideotoriumRecordingCell.h"
 
 @interface VideotoriumSearchViewController ()
 
@@ -89,8 +89,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Recording Title And Picture";
-    VideotoriumSearchResultsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"Recording Cell";
+    VideotoriumRecordingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     cell.title.text = recording.title;

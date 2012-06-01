@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideotoriumSearchResultsCell : UITableViewCell
+@interface VideotoriumRecordingCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UIImageView *indexPicture;
 @property (nonatomic, strong) IBOutlet UILabel *title;
