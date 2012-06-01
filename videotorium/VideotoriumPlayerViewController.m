@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *noSlidesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -40,6 +42,8 @@
 @synthesize toolbar = _toolbar;
 @synthesize activityIndicator = _activityIndicator;
 @synthesize noSlidesLabel = _noSlidesLabel;
+@synthesize titleLabel = _titleLabel;
+@synthesize infoButton = _infoButton;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -72,6 +76,7 @@
 
 - (void)setRecordingID:(NSString *)recordingID
 {
+    self.titleLabel.text = @"Videotorium";
     [self.splitViewPopoverController dismissPopoverAnimated:YES];
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
@@ -86,6 +91,7 @@
         VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recordingDetails = recordingDetails;
+            self.titleLabel.text = self.recordingDetails.title;
             self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
             self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
             self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -153,6 +159,8 @@
     self.activityIndicator = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self setNoSlidesLabel:nil];
+    [self setTitleLabel:nil];
+    [self setInfoButton:nil];
     [super viewDidUnload];
 }
 
