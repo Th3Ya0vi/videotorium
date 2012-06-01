@@ -82,10 +82,12 @@
     if (!self.recordingID) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *lastRecordingID = [defaults stringForKey:@"lastRecordingID"];
+        self.shouldAutoplay = NO;
         if (lastRecordingID) {
-            self.shouldAutoplay = NO;
             self.recordingID = lastRecordingID;
-        }        
+        } else {
+            self.recordingID = @"4055";
+        }
     }
 }
 
