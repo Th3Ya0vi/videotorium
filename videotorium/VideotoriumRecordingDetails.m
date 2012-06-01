@@ -11,7 +11,7 @@
 @implementation VideotoriumRecordingDetails
 
 @synthesize response = _response;
-@synthesize URLString = _URLString;
+@synthesize URL = _URL;
 @synthesize streamURL = _streamURL;
 @synthesize slides = _slides;
 @synthesize title = _title;

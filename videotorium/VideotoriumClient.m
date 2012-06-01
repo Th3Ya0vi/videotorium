@@ -84,7 +84,7 @@
 {
     VideotoriumRecordingDetails *details = [[VideotoriumRecordingDetails alloc] init];
     NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, DETAILS_URL, ID];
-    details.URLString = URLString;
+    details.URL = [NSURL URLWithString:URLString];
     details.response = [self.dataSource contentsOfURL:URLString];
     if (details.response == nil) return nil;
     NSString *titleAndPresenter = [self substringOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"];
