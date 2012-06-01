@@ -167,15 +167,24 @@
     self.wasFullscreenBeforeOrientationChange = self.moviePlayerController.fullscreen;
     if (self.wasFullscreenBeforeOrientationChange) {
         self.moviePlayerController.fullscreen = NO;
-        self.splitViewController.view.hidden = YES;
+        self.moviePlayerController.view.frame = self.splitViewController.view.bounds;
+        [self.splitViewController.view addSubview:self.moviePlayerController.view];
+        [self.splitViewController.viewControllers enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL *stop) {
+            obj.view.hidden = TRUE;
+        }];
+
     }
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (self.wasFullscreenBeforeOrientationChange) {
+        [self.splitViewController.viewControllers enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL *stop) {
+            obj.view.hidden = NO;
+        }];
+        self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
+        [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
         self.moviePlayerController.fullscreen = YES;
-        self.splitViewController.view.hidden = NO;
     }
 }
 
