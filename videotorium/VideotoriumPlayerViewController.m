@@ -34,8 +34,6 @@
 
 @property (weak, nonatomic) UIPopoverController *infoPopoverController;
 
-@property (nonatomic) BOOL shouldPlay;
-
 @end
 
 @implementation VideotoriumPlayerViewController
