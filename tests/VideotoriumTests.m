@@ -57,6 +57,7 @@
     STAssertEqualObjects(recording.presenter, @"Dr. Horváth Zoltán", nil);
     STAssertEqualObjects(recording.dateString, @"2010. november 10.", nil);
     STAssertEqualObjects(recording.durationString, @"59p 46mp", nil);
+    STAssertEqualObjects(recording.URLString, @"http://videotorium.hu/hu/recordings/details/2487", nil);
 }
 
 - (void)testCreatingSlide

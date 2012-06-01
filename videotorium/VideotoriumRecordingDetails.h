@@ -11,6 +11,7 @@
 @interface VideotoriumRecordingDetails : NSObject
 
 @property (nonatomic, strong) NSString *response;
+@property (nonatomic, strong) NSString *URLString;
 @property (nonatomic, strong) NSURL *streamURL;
 @property (nonatomic, strong) NSArray *slides; // array of VideotoriumSlide objects
 @property (nonatomic, strong) NSString *title;
