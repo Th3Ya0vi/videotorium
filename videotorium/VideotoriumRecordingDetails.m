@@ -13,7 +13,8 @@
 @synthesize response = _response;
 @synthesize streamURL = _streamURL;
 @synthesize slides = _slides;
-
+@synthesize title = _title;
+@synthesize presenter = _presenter;
 
 -(NSArray *)slides
 {
@@ -25,7 +26,7 @@
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumRecordingDetails (streamURL: %@, number of slides: %@)", self.streamURL, [self.slides count]];
+    return [NSString stringWithFormat:@"VideotoriumRecordingDetails (title: %@, presenter: %@, streamURL: %@, number of slides: %@)", self.title, self.presenter, self.streamURL, [self.slides count]];
 }
 
 

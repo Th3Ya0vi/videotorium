@@ -50,6 +50,13 @@
     STAssertEquals([slides count], (NSUInteger)19, nil);
 }
 
+- (void)testGetRecordingMetadata
+{
+    VideotoriumRecordingDetails *recording = [self.videotoriumClient detailsWithID:@"2487"];
+    STAssertEqualObjects(recording.title, @"Módszerek, amelyek megváltoztatják a világot - A számítógépes szimuláció és optimalizáció jelentősége", nil);
+    STAssertEqualObjects(recording.presenter, @"Dr. Horváth Zoltán", nil);
+}
+
 - (void)testCreatingSlide
 {
     NSString *JSONString = @"{\"timestamp\":\"1\",\"id\":\"51687\",\"isChapter\":0,\"thumbnail\":\"51687.jpg\",\"image\":\"51687.jpg\",\"captions\":{\"english\":\"\",\"original\":\"\"}}";

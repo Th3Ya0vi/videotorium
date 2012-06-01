@@ -34,6 +34,26 @@
     return _dataSource;
 }
 
+- (NSArray *)substringsOf:(NSString *)string fromMatching:(NSString *)fromPattern toMatching:(NSString *)toPattern
+{
+    NSMutableArray *results = [NSMutableArray array];
+    if (string) {
+        NSRegularExpression *fromRegexp = [NSRegularExpression regularExpressionWithPattern:fromPattern options:NSRegularExpressionCaseInsensitive error:NULL];
+        NSArray *fromMatches = [fromRegexp matchesInString:string options:0 range:NSMakeRange(0, [string length])];
+        for (NSTextCheckingResult *fromMatch in fromMatches) {
+            NSRange fromRange = [fromMatch range];
+            NSRegularExpression *toRegexp = [NSRegularExpression regularExpressionWithPattern:toPattern options:NSRegularExpressionCaseInsensitive error:NULL];
+            NSTextCheckingResult *toMatch = [toRegexp firstMatchInString:string options:0 range:NSMakeRange(fromRange.location, [string length] - fromRange.location)];
+            if (toMatch) {
+                NSRange toRange = [toMatch range];
+                NSRange range = NSMakeRange(fromRange.location, toRange.location + toRange.length - fromRange.location);
+                [results addObject:[string substringWithRange:range]];                
+            }
+        }        
+    }
+    return results;
+}
+
 - (NSArray *)substringsOf:(NSString *)string matching:(NSString *)pattern
 {
     NSMutableArray *results = [NSMutableArray array];
@@ -59,8 +79,13 @@
     NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, DETAILS_URL, ID];
     details.response = [self.dataSource contentsOfURL:URLString];
     if (details.response == nil) return nil;
-    details.streamURL = [NSURL URLWithString:[self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""]];
-    
+    NSString *titleAndPresenter = [[self substringsOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"] lastObject];
+    if (titleAndPresenter) {
+        titleAndPresenter = [titleAndPresenter stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        details.title = [self substringOf:titleAndPresenter matching:@"<h1>([^<]*)"];
+        details.presenter = [[self substringOf:titleAndPresenter matching:@"<p>([^<]*)</p>"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        details.streamURL = [NSURL URLWithString:[self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""]];        
+    }
     NSMutableArray *slides = [NSMutableArray array];
     NSString *slidesURLPrefix = [self substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
     NSString *slidesJSONString = [self substringOf:details.response matching:@"slides_model *= *'([^']*)'"];
