@@ -11,5 +11,6 @@
 @interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (nonatomic, strong) NSString *recordingID;
+@property (nonatomic) BOOL shouldAutoplay;
 
 @end

@@ -34,6 +34,8 @@
 
 @property (weak, nonatomic) UIPopoverController *infoPopoverController;
 
+@property (nonatomic) BOOL shouldPlay;
+
 @end
 
 @implementation VideotoriumPlayerViewController
@@ -61,6 +63,8 @@
 
 @synthesize infoPopoverController = _infoPopoverController;
 
+@synthesize shouldAutoplay = _shouldAutoplay;
+
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
     if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
@@ -77,6 +81,12 @@
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
                                                object:nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *lastRecordingID = [defaults stringForKey:@"lastRecordingID"];
+    if (lastRecordingID) {
+        self.shouldAutoplay = NO;
+        self.recordingID = lastRecordingID;
+    }
 }
 
 - (void)setRecordingID:(NSString *)recordingID
@@ -91,6 +101,11 @@
     }
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:recordingID forKey:@"lastRecordingID"];
+    [defaults synchronize];
+    
     dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);
     dispatch_async(getDetailsQueue, ^{
         VideotoriumClient *client = [[VideotoriumClient alloc] init];
@@ -102,7 +117,8 @@
             self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
             self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
-            [self.moviePlayerController play];
+            self.moviePlayerController.shouldAutoplay = self.shouldAutoplay;
+            [self.moviePlayerController prepareToPlay];
             self.infoButton.enabled = YES;
         });
     });

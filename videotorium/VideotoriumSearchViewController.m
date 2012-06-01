@@ -115,6 +115,7 @@
 {
     VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
+    detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = recording.ID;
 }
 
