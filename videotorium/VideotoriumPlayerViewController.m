@@ -8,6 +8,7 @@
 
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
+#import "VideotoriumRecordingInfoViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface VideotoriumPlayerViewController ()
@@ -30,6 +31,8 @@
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
 @property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
+
+@property (weak, nonatomic) UIPopoverController *infoPopoverController;
 
 @end
 
@@ -56,6 +59,8 @@
 @synthesize currentSlide = _currentSlide;
 @synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
 
+@synthesize infoPopoverController = _infoPopoverController;
+
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
     if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
@@ -77,6 +82,7 @@
 - (void)setRecordingID:(NSString *)recordingID
 {
     self.titleLabel.text = @"Videotorium";
+    self.infoButton.enabled = NO;
     [self.splitViewPopoverController dismissPopoverAnimated:YES];
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
@@ -97,6 +103,7 @@
             self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
             [self.moviePlayerController play];
+            self.infoButton.enabled = YES;
         });
     });
     dispatch_release(getDetailsQueue);
@@ -195,6 +202,24 @@
         self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
         [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
         self.moviePlayerController.fullscreen = YES;
+    }
+}
+
+- (IBAction)infoButtonPressed:(UIBarButtonItem *)sender {
+    if (self.infoPopoverController) {
+        [self.infoPopoverController dismissPopoverAnimated:YES];
+    } else {
+	    [self performSegueWithIdentifier:@"Info Popover" sender:sender];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Info Popover"]) {
+        UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+        VideotoriumRecordingInfoViewController *destination = popoverSegue.destinationViewController;
+        self.infoPopoverController = popoverSegue.popoverController;
+        destination.recording = self.recordingDetails;
     }
 }
 

@@ -97,6 +97,136 @@
             </objects>
             <point key="canvasLocation" x="-1743" y="-1052"/>
         </scene>
+        <!--Videotorium Recording Info View Controller-->
+        <scene sceneID="kyE-7k-z7g">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fis-cm-3TC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="y3K-Ra-wuR" customClass="VideotoriumRecordingInfoViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Su-OV-36l">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="176"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="Q8Y-FN-4gC">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TkE-0q-0o8" detailTextLabel="R8v-ac-6uU" style="IBUITableViewCellStyleValue2" id="wXS-m8-MNh">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Presenter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TkE-0q-0o8">
+                                                    <rect key="frame" x="10" y="15" width="91" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Dr. Horváth Gábor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R8v-ac-6uU">
+                                                    <rect key="frame" x="107" y="12" width="131" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ggo-Oe-C64" detailTextLabel="qlQ-Ey-Tzb" style="IBUITableViewCellStyleValue2" id="TbU-oN-7Bq">
+                                        <rect key="frame" x="0.0" y="44" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ggo-Oe-C64">
+                                                    <rect key="frame" x="10" y="15" width="91" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="2002. február 29." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qlQ-Ey-Tzb">
+                                                    <rect key="frame" x="107" y="12" width="119" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Q9r-hj-uWX" detailTextLabel="4cM-38-uTB" style="IBUITableViewCellStyleValue2" id="P0h-sV-M1u">
+                                        <rect key="frame" x="0.0" y="88" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q9r-hj-uWX">
+                                                    <rect key="frame" x="10" y="15" width="91" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="12p 34mp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4cM-38-uTB">
+                                                    <rect key="frame" x="107" y="12" width="70" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BU1-de-1eG">
+                                        <rect key="frame" x="0.0" y="132" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5nC-1R-e35">
+                                                    <rect key="frame" x="20" y="3" width="260" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Open in Safari">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="openInSafari:" destination="y3K-Ra-wuR" eventType="touchUpInside" id="oEW-qM-67F"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="y3K-Ra-wuR" id="vxH-v3-0tX"/>
+                            <outlet property="delegate" destination="y3K-Ra-wuR" id="jrA-fa-EFo"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="dateLabel" destination="qlQ-Ey-Tzb" id="X9p-XG-Y8t"/>
+                        <outlet property="durationLabel" destination="4cM-38-uTB" id="BZw-Mn-G7i"/>
+                        <outlet property="presenterLabel" destination="R8v-ac-6uU" id="GjD-DM-nwr"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-778" y="429"/>
+        </scene>
         <!--Videotorium Player View Controller-->
         <scene sceneID="XEz-40-OBc">
             <objects>
@@ -111,7 +241,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D6C-zN-Mzg"/>
-                                    <barButtonItem title="Info" id="epb-jG-d56"/>
+                                    <barButtonItem enabled="NO" title="Info" id="epb-jG-d56">
+                                        <connections>
+                                            <action selector="infoButtonPressed:" destination="tUe-ba-nWi" id="FYK-2b-vUQ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.44705885648727417" blue="0.73333334922790527" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
@@ -156,6 +290,9 @@
                         <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
                         <outlet property="titleLabel" destination="JMl-Qs-F7C" id="KfM-4i-PSD"/>
                         <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
+                        <segue destination="y3K-Ra-wuR" kind="popover" identifier="Info Popover" popoverAnchorBarButtonItem="epb-jG-d56" id="Gux-5n-r6E">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
             </objects>
@@ -183,6 +320,14 @@
             <relationships>
                 <relationship kind="outlet" name="indexPicture" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumRecordingInfoViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="VideotoriumSearchViewController" superclassName="UIViewController">
