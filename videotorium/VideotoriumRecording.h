@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSURL *indexPictureURL;
+@property (nonatomic, strong) NSString *dateString;
 
 @end

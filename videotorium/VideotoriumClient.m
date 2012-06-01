@@ -78,7 +78,7 @@
 
 - (NSArray *)recordingsMatchingString:(NSString *)searchString
 {
-    NSMutableDictionary *recordings = [NSMutableDictionary dictionary];
+    NSMutableArray *recordings = [NSMutableArray array];
     
     NSString *encodedSearchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -93,19 +93,29 @@
             VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
             recording.title = title;
             recording.ID = ID;
-            [recordings setObject:recording forKey:ID];
+            [recordings addObject:recording];
         }
     }
-    NSArray *picturesAndURLs = [self substringsOf:response matching:@"<a href=\"([^\"]*\"><span class=\"playpic\"></span><img src=\"[^\"]*)"];
-    for (NSString *pictureAndURL in picturesAndURLs) {
-        NSString *picture = [self substringOf:pictureAndURL matching:@"src=\"(.*)$"];
-        NSString *ID = [self substringOf:pictureAndURL matching:@"hu/recordings/details/([^,]*),"];
-        VideotoriumRecording* recording = [recordings objectForKey:ID];
+    NSArray *indexPictureURLs = [self substringsOf:response matching:@"<span class=\"playpic\"></span><img src=\"([^\"]*)"];
+    NSUInteger index;
+    index = 0;
+    for (NSString *indexPictureURL in indexPictureURLs) {
+        VideotoriumRecording* recording = [recordings objectAtIndex:index];
         if (recording) {
-            recording.indexPictureURL = [NSURL URLWithString:picture];
+            recording.indexPictureURL = [NSURL URLWithString:indexPictureURL];
         }
+        index++;
     }
-    return [recordings allValues];
+    NSArray *dateStrings = [self substringsOf:response matching:@"Felvétel ideje:</span> <span>([^<]*)"];
+    index = 0;
+    for (NSString *dateString in dateStrings) {
+        VideotoriumRecording* recording = [recordings objectAtIndex:index];
+        if (recording) {
+            recording.dateString = dateString;
+        }
+        index++;
+    }
+    return recordings;
 }
 
 @end
