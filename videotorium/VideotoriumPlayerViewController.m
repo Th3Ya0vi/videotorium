@@ -172,13 +172,15 @@
         [self.splitViewController.viewControllers enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL *stop) {
             obj.view.hidden = TRUE;
         }];
-
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
     }
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (self.wasFullscreenBeforeOrientationChange) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
         [self.splitViewController.viewControllers enumerateObjectsUsingBlock:^(UIViewController *obj, NSUInteger idx, BOOL *stop) {
             obj.view.hidden = NO;
         }];
