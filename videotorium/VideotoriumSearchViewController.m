@@ -33,6 +33,11 @@
 {
     if (![_searchString isEqualToString:searchString]) {
         _searchString = searchString;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:searchString forKey:@"lastSearchString"];
+        [defaults synchronize];
+
         self.recordings = [NSArray array];
         [self.activityIndicator startAnimating];
         dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
@@ -62,9 +67,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.searchBar.text = @"networkshop";
-    [self searchBarSearchButtonClicked:self.searchBar];
+    if (!self.searchString) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *lastSearchString = [defaults stringForKey:@"lastSearchString"];
+        if (lastSearchString) {
+            self.searchBar.text = lastSearchString;
+            [self searchBarSearchButtonClicked:self.searchBar];
+        }
+    }
 }
 
 - (void)viewDidUnload

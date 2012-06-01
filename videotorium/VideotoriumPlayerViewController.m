@@ -79,11 +79,13 @@
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
                                                object:nil];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *lastRecordingID = [defaults stringForKey:@"lastRecordingID"];
-    if (lastRecordingID) {
-        self.shouldAutoplay = NO;
-        self.recordingID = lastRecordingID;
+    if (!self.recordingID) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *lastRecordingID = [defaults stringForKey:@"lastRecordingID"];
+        if (lastRecordingID) {
+            self.shouldAutoplay = NO;
+            self.recordingID = lastRecordingID;
+        }        
     }
 }
 
