@@ -15,5 +15,7 @@
 @property (nonatomic, strong) NSArray *slides; // array of VideotoriumSlide objects
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *presenter;
+@property (nonatomic, strong) NSString *dateString;
+@property (nonatomic, strong) NSString *durationString;
 
 @end

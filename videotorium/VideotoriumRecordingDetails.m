@@ -15,6 +15,8 @@
 @synthesize slides = _slides;
 @synthesize title = _title;
 @synthesize presenter = _presenter;
+@synthesize dateString = _dateString;
+@synthesize durationString = _durationString;
 
 -(NSArray *)slides
 {
@@ -26,7 +28,7 @@
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumRecordingDetails (title: %@, presenter: %@, streamURL: %@, number of slides: %@)", self.title, self.presenter, self.streamURL, [self.slides count]];
+    return [NSString stringWithFormat:@"VideotoriumRecordingDetails (title: %@, presenter: %@, dateString: %@, durationString: %@, streamURL: %@, number of slides: %@)", self.title, self.presenter, self.dateString, self.durationString, self.streamURL, [self.slides count]];
 }
 
 

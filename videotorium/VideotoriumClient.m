@@ -43,7 +43,7 @@
         for (NSTextCheckingResult *fromMatch in fromMatches) {
             NSRange fromRange = [fromMatch range];
             NSRegularExpression *toRegexp = [NSRegularExpression regularExpressionWithPattern:toPattern options:NSRegularExpressionCaseInsensitive error:NULL];
-            NSTextCheckingResult *toMatch = [toRegexp firstMatchInString:string options:0 range:NSMakeRange(fromRange.location, [string length] - fromRange.location)];
+            NSTextCheckingResult *toMatch = [toRegexp firstMatchInString:string options:0 range:NSMakeRange(fromRange.location + fromRange.length, [string length] - fromRange.location - fromRange.length)];
             if (toMatch) {
                 NSRange toRange = [toMatch range];
                 NSRange range = NSMakeRange(fromRange.location, toRange.location + toRange.length - fromRange.location);
@@ -54,14 +54,21 @@
     return results;
 }
 
+- (NSString *)substringOf:(NSString *)string fromMatching:(NSString *)fromPattern toMatching:(NSString *)toPattern
+{
+    return [[self substringsOf:string fromMatching:fromPattern toMatching:toPattern] lastObject];
+}
+
 - (NSArray *)substringsOf:(NSString *)string matching:(NSString *)pattern
 {
     NSMutableArray *results = [NSMutableArray array];
     if (string) {
+        NSString *oneliner = [[string stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"\r" withString:@""];
         NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
-        NSArray *matches = [regexp matchesInString:string options:0 range:NSMakeRange(0, [string length])];
+        NSArray *matches = [regexp matchesInString:oneliner options:0 range:NSMakeRange(0, [oneliner length])];
         for (NSTextCheckingResult *match in matches) {
-            [results addObject:[string substringWithRange:[match rangeAtIndex:1]]];
+            NSString *result = [oneliner substringWithRange:[match rangeAtIndex:1]];
+            [results addObject:[result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         }        
     }
     return results;
@@ -79,13 +86,14 @@
     NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, DETAILS_URL, ID];
     details.response = [self.dataSource contentsOfURL:URLString];
     if (details.response == nil) return nil;
-    NSString *titleAndPresenter = [[self substringsOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"] lastObject];
+    NSString *titleAndPresenter = [self substringOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"];
     if (titleAndPresenter) {
-        titleAndPresenter = [titleAndPresenter stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         details.title = [self substringOf:titleAndPresenter matching:@"<h1>([^<]*)"];
-        details.presenter = [[self substringOf:titleAndPresenter matching:@"<p>([^<]*)</p>"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        details.streamURL = [NSURL URLWithString:[self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""]];        
+        details.presenter = [self substringOf:titleAndPresenter matching:@"<p>([^<(]*)"];
     }
+    details.dateString = [self substringOf:details.response matching:@"Felvétel ideje: *</h2>([^<]*)"];
+    details.durationString = [self substringOf:details.response matching:@"Felvétel hossza: *</h2>([^<]*)"];
+    details.streamURL = [NSURL URLWithString:[self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""]];        
     NSMutableArray *slides = [NSMutableArray array];
     NSString *slidesURLPrefix = [self substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
     NSString *slidesJSONString = [self substringOf:details.response matching:@"slides_model *= *'([^']*)'"];

@@ -55,6 +55,8 @@
     VideotoriumRecordingDetails *recording = [self.videotoriumClient detailsWithID:@"2487"];
     STAssertEqualObjects(recording.title, @"Módszerek, amelyek megváltoztatják a világot - A számítógépes szimuláció és optimalizáció jelentősége", nil);
     STAssertEqualObjects(recording.presenter, @"Dr. Horváth Zoltán", nil);
+    STAssertEqualObjects(recording.dateString, @"2010. november 10.", nil);
+    STAssertEqualObjects(recording.durationString, @"59p 46mp", nil);
 }
 
 - (void)testCreatingSlide
