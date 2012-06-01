@@ -124,7 +124,7 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Dr. Horváth Gábor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R8v-ac-6uU">
-                                                    <rect key="frame" x="107" y="12" width="131" height="19"/>
+                                                    <rect key="frame" x="107" y="12" width="41" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -149,7 +149,7 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="2002. február 29." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qlQ-Ey-Tzb">
-                                                    <rect key="frame" x="107" y="12" width="119" height="19"/>
+                                                    <rect key="frame" x="107" y="12" width="41" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -174,7 +174,7 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="12p 34mp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4cM-38-uTB">
-                                                    <rect key="frame" x="107" y="12" width="70" height="19"/>
+                                                    <rect key="frame" x="107" y="12" width="41" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -244,6 +244,9 @@
                                     <barButtonItem enabled="NO" title="Info" id="epb-jG-d56">
                                         <connections>
                                             <action selector="infoButtonPressed:" destination="tUe-ba-nWi" id="FYK-2b-vUQ"/>
+                                            <segue destination="y3K-Ra-wuR" kind="popover" identifier="Info Popover" popoverAnchorBarButtonItem="epb-jG-d56" id="7Qd-U7-C0v">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -290,9 +293,6 @@
                         <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
                         <outlet property="titleLabel" destination="JMl-Qs-F7C" id="KfM-4i-PSD"/>
                         <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
-                        <segue destination="y3K-Ra-wuR" kind="popover" identifier="Info Popover" popoverAnchorBarButtonItem="epb-jG-d56" id="Gux-5n-r6E">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
                     </connections>
                 </viewController>
             </objects>
@@ -302,43 +302,6 @@
     <resources>
         <image name="videotorium_logo.png" width="74" height="70"/>
     </resources>
-    <classes>
-        <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="noSlidesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="indexPicture" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumRecordingInfoViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

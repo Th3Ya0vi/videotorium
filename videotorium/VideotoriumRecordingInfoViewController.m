@@ -22,12 +22,12 @@
 @synthesize durationLabel = _durationLabel;
 
 @synthesize recording = _recording;
+@synthesize popoverController = _myPopoverController;
 
-//- (void)viewDidLoad
-//{
-//    self.presenterLabel.text = self.recording.presenter;
-//    self.dateLabel.text = @"";
-//}
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.popoverController.passthroughViews = [NSArray array];
+}
 
 - (void)setRecording:(VideotoriumRecordingDetails *)recording
 {

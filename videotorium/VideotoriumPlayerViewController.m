@@ -205,14 +205,6 @@
     }
 }
 
-- (IBAction)infoButtonPressed:(UIBarButtonItem *)sender {
-    if (self.infoPopoverController) {
-        [self.infoPopoverController dismissPopoverAnimated:YES];
-    } else {
-	    [self performSegueWithIdentifier:@"Info Popover" sender:sender];
-    }
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Info Popover"]) {
@@ -220,6 +212,7 @@
         VideotoriumRecordingInfoViewController *destination = popoverSegue.destinationViewController;
         self.infoPopoverController = popoverSegue.popoverController;
         destination.recording = self.recordingDetails;
+        destination.popoverController = self.infoPopoverController;
     }
 }
 

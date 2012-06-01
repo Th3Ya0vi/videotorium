@@ -12,5 +12,6 @@
 @interface VideotoriumRecordingInfoViewController : UITableViewController
 
 @property (nonatomic, copy) VideotoriumRecordingDetails *recording;
+@property (nonatomic, weak) UIPopoverController *popoverController;
 
 @end
