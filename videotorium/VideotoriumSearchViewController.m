@@ -12,6 +12,8 @@
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumRecordingCell.h"
 
+#define LAST_SEARCH_KEY @"lastSearchString"
+
 @interface VideotoriumSearchViewController ()
 
 @property (nonatomic, strong) NSArray *recordings; // array of VideotoriumRecording objects
@@ -35,7 +37,7 @@
         _searchString = searchString;
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:searchString forKey:@"lastSearchString"];
+        [defaults setObject:searchString forKey:LAST_SEARCH_KEY];
         [defaults synchronize];
 
         self.recordings = [NSArray array];
@@ -49,6 +51,18 @@
                 if ([self.searchString isEqualToString:searchString]) {
                     self.recordings = recordings;
                     [self.activityIndicator stopAnimating];
+                    if ([recordings count] == 0) {
+                        [defaults removeObjectForKey:LAST_SEARCH_KEY];
+                        [defaults synchronize];
+                        NSString *message = [NSString stringWithFormat:@"No results for '%@'.", searchString];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No recordings found"
+                                                                        message:message
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                        
+                    }
                 }
             });
         });
@@ -70,7 +84,7 @@
 #ifndef SCREENSHOTMODE
     if (!self.searchString) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastSearchString = [defaults stringForKey:@"lastSearchString"];
+        NSString *lastSearchString = [defaults stringForKey:LAST_SEARCH_KEY];
         if (lastSearchString) {
             self.searchBar.text = lastSearchString;
             [self searchBarSearchButtonClicked:self.searchBar];
