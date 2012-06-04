@@ -107,6 +107,7 @@
     }
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
+    [self.infoPopoverController dismissPopoverAnimated:YES];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:recordingID forKey:@"lastRecordingID"];
