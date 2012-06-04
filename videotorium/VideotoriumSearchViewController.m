@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *noRecordingsFoundLabel;
 
 @end
 
@@ -30,6 +31,7 @@
 @synthesize tableView = _tableView;
 @synthesize searchBar = _searchBar;
 @synthesize activityIndicator = _activityIndicator;
+@synthesize noRecordingsFoundLabel = _noRecordingsFoundLabel;
 
 - (void)setSearchString:(NSString *)searchString
 {
@@ -39,6 +41,9 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:searchString forKey:LAST_SEARCH_KEY];
         [defaults synchronize];
+
+        self.noRecordingsFoundLabel.hidden = YES;
+        self.tableView.hidden = YES;
 
         self.recordings = [NSArray array];
         [self.activityIndicator startAnimating];
@@ -52,16 +57,9 @@
                     self.recordings = recordings;
                     [self.activityIndicator stopAnimating];
                     if ([recordings count] == 0) {
-                        [defaults removeObjectForKey:LAST_SEARCH_KEY];
-                        [defaults synchronize];
-                        NSString *message = [NSString stringWithFormat:@"No results for '%@'.", searchString];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No recordings found"
-                                                                        message:message
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        
+                        self.noRecordingsFoundLabel.hidden = NO;
+                    } else {
+                        self.tableView.hidden = NO;
                     }
                 }
             });
@@ -106,6 +104,7 @@
     [self setSearchBar:nil];
     [self setActivityIndicator:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setNoRecordingsFoundLabel:nil];
     [super viewDidUnload];
 }
 
