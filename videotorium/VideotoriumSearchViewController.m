@@ -123,11 +123,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Recording Cell";
+    NSString *CellIdentifier = @"Recording Cell";
+
+    VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
+    CGSize textSize = [recording.title sizeWithFont:[UIFont systemFontOfSize:12]];
+    if (textSize.width < 190) CellIdentifier = @"Recording Cell Oneliner";
+    
     VideotoriumRecordingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     cell.title.text = recording.title;
+    cell.event.text = recording.eventName;
+    cell.date.text = recording.dateString;
     cell.indexPicture.image = [UIImage imageNamed:@"videotorium_logo.png"];
     dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
     dispatch_async(getIndexPictureQueue, ^{
