@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSURL *indexPictureURL;
 @property (nonatomic, strong) NSString *dateString;
+@property (nonatomic, strong) NSString *eventName;
 
 @end

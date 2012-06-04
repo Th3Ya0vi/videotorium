@@ -149,6 +149,17 @@
         }
         index++;
     }
+    
+    NSArray *events = [self substringsOf:response fromMatching:@"recordingevents" toMatching:@"</div>"];
+    index = 0;
+    for (NSString *event in events) {
+        VideotoriumRecording* recording = [recordings objectAtIndex:index];
+        if (recording) {
+            recording.eventName = [self substringOf:event matching:@"<a[^>]*> *([^<]*)"];
+        }
+        index++;
+    }
+
     return recordings;
 }
 

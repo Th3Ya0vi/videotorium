@@ -14,11 +14,12 @@
 @synthesize title = _title;
 @synthesize indexPictureURL = _indexPictureURL;
 @synthesize dateString = _dateString;
+@synthesize eventName = _eventName;
 
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumRecording (ID: %@, title: %@, dateString: %@, indexPictureURL: %@)", self.ID, self.title, self.dateString, self.indexPictureURL];
+    return [NSString stringWithFormat:@"VideotoriumRecording (ID: %@, title: %@, dateString: %@, eventName: %@, indexPictureURL: %@)", self.ID, self.title, self.dateString, self.eventName, self.indexPictureURL];
 }
 
 @end
