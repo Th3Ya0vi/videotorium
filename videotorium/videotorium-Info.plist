@@ -35,6 +35,17 @@
 			<string>UINewsstandBindingTypeMagazine</string>
 		</dict>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>videotorium</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>hu.videotorium</string>
+		</dict>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.zsombornagy.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

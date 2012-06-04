@@ -12,6 +12,20 @@
 
 @synthesize window = _window;
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    NSArray *components = url.pathComponents;
+    if ([[components objectAtIndex:1] isEqual:@"recordings"]) {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[components objectAtIndex:2] forKey:@"recording"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"openURL" object:nil userInfo:userInfo];
+        return YES;
+    }
+    return NO;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

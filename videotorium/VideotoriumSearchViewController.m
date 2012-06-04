@@ -91,6 +91,13 @@
         }
     }
 #endif
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openURL:) name:@"openURL" object:nil];
+}
+
+- (void)openURL:(NSNotification *)notification {
+    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
+    detailViewController.shouldAutoplay = YES;
+    detailViewController.recordingID = [notification.userInfo objectForKey:@"recording"];
 }
 
 - (void)viewDidUnload
@@ -98,6 +105,7 @@
     [self setTableView:nil];
     [self setSearchBar:nil];
     [self setActivityIndicator:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
 }
 
