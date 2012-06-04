@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D132EF7157D022F00259E36 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D132EF6157D022F00259E36 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2D132EFB157D045700259E36 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D132EFA157D045700259E36 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2D24A319157648C000C65290 /* VideotoriumRecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
@@ -52,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D132EF5157D022F00259E36 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		2D132EF6157D022F00259E36 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		2D132EF9157D045700259E36 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		2D132EFA157D045700259E36 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		2D24A317157648C000C65290 /* VideotoriumRecordingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingCell.h; sourceTree = "<group>"; };
 		2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecordingCell.m; sourceTree = "<group>"; };
 		2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideotoriumClientMockDataSource.h; path = tests/VideotoriumClientMockDataSource.h; sourceTree = SOURCE_ROOT; };
@@ -202,6 +208,10 @@
 		2DEB06BF1549703200AD0805 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2D132EF9157D045700259E36 /* NSString+HTML.h */,
+				2D132EFA157D045700259E36 /* NSString+HTML.m */,
+				2D132EF5157D022F00259E36 /* GTMNSString+HTML.h */,
+				2D132EF6157D022F00259E36 /* GTMNSString+HTML.m */,
 				2DEB06C71549703200AD0805 /* VideotoriumAppDelegate.h */,
 				2DEB06C81549703200AD0805 /* VideotoriumAppDelegate.m */,
 				2DD60202154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.h */,
@@ -352,6 +362,8 @@
 				2DBAFD77157610FC007DA824 /* VideotoriumSearchViewController.m in Sources */,
 				2D24A319157648C000C65290 /* VideotoriumRecordingCell.m in Sources */,
 				2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */,
+				2D132EF7157D022F00259E36 /* GTMNSString+HTML.m in Sources */,
+				2D132EFB157D045700259E36 /* NSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
