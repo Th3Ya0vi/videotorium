@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *noRecordingsFoundLabel;
+@property (weak, nonatomic) IBOutlet UILabel *errorConnectingLabel;
 
 @end
 
@@ -32,40 +33,45 @@
 @synthesize searchBar = _searchBar;
 @synthesize activityIndicator = _activityIndicator;
 @synthesize noRecordingsFoundLabel = _noRecordingsFoundLabel;
+@synthesize errorConnectingLabel = _errorConnectingLabel;
 
 - (void)setSearchString:(NSString *)searchString
 {
-    if (![_searchString isEqualToString:searchString]) {
-        _searchString = searchString;
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:searchString forKey:LAST_SEARCH_KEY];
-        [defaults synchronize];
-
-        self.noRecordingsFoundLabel.hidden = YES;
-        self.tableView.hidden = YES;
-
-        self.recordings = [NSArray array];
-        [self.activityIndicator startAnimating];
-        dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
-        dispatch_async(getSearchResultsQueue, ^{
-            VideotoriumClient *client = [[VideotoriumClient alloc] init];
-            NSArray *recordings = [client recordingsMatchingString:searchString];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // If the searchString hasn't changed while we were networking
-                if ([self.searchString isEqualToString:searchString]) {
-                    self.recordings = recordings;
-                    [self.activityIndicator stopAnimating];
-                    if ([recordings count] == 0) {
-                        self.noRecordingsFoundLabel.hidden = NO;
+    _searchString = searchString;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:searchString forKey:LAST_SEARCH_KEY];
+    [defaults synchronize];
+    
+    self.noRecordingsFoundLabel.hidden = YES;
+    self.errorConnectingLabel.hidden = YES;
+    self.tableView.hidden = YES;
+    
+    self.recordings = [NSArray array];
+    [self.activityIndicator startAnimating];
+    dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
+    dispatch_async(getSearchResultsQueue, ^{
+        VideotoriumClient *client = [[VideotoriumClient alloc] init];
+        NSError *error;
+        NSArray *recordings = [client recordingsMatchingString:searchString error:&error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // If the searchString hasn't changed while we were networking
+            if ([self.searchString isEqualToString:searchString]) {
+                self.recordings = recordings;
+                [self.activityIndicator stopAnimating];
+                if ([recordings count] == 0) {
+                    if (error) {
+                        self.errorConnectingLabel.hidden = NO;
                     } else {
-                        self.tableView.hidden = NO;
+                        self.noRecordingsFoundLabel.hidden = NO;
                     }
+                } else {
+                    self.tableView.hidden = NO;
                 }
-            });
+            }
         });
-        dispatch_release(getSearchResultsQueue);
-    }
+    });
+    dispatch_release(getSearchResultsQueue);
 }
 
 - (void)setRecordings:(NSArray *)recordings
@@ -105,6 +111,7 @@
     [self setActivityIndicator:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self setNoRecordingsFoundLabel:nil];
+    [self setErrorConnectingLabel:nil];
     [super viewDidUnload];
 }
 

@@ -143,6 +143,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Error connecting to videotorium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uwZ-B9-l5F">
+                                <rect key="frame" x="0.0" y="394" width="320" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="2Gr-DQ-ATz">
                                 <rect key="frame" x="0.0" y="398" width="320" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,6 +158,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="2Gr-DQ-ATz" id="uzc-gt-Vr7"/>
+                        <outlet property="errorConnectingLabel" destination="uwZ-B9-l5F" id="dEq-Qu-tJD"/>
                         <outlet property="noRecordingsFoundLabel" destination="ic3-W7-FuS" id="VZZ-9O-8MU"/>
                         <outlet property="searchBar" destination="9Vp-Dx-Dpj" id="OgR-ME-dMb"/>
                         <outlet property="tableView" destination="1Gt-gq-U6F" id="yQq-P3-uFU"/>
@@ -398,6 +405,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSearchViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>

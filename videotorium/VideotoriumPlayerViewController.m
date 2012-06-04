@@ -97,6 +97,8 @@
 
 - (void)setRecordingID:(NSString *)recordingID
 {
+    _recordingID = recordingID;
+    
     self.titleLabel.text = @"Videotorium";
     self.infoButton.enabled = NO;
     [self.splitViewPopoverController dismissPopoverAnimated:YES];
@@ -116,23 +118,29 @@
     dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);
     dispatch_async(getDetailsQueue, ^{
         VideotoriumClient *client = [[VideotoriumClient alloc] init];
-        VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID];
+        NSError *error;
+        VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.recordingDetails = recordingDetails;
-            if ([self.recordingDetails.slides count] == 0) {
-                self.slideImageView.image = nil;
-                self.noSlidesLabel.hidden = NO;
+            if (error) {
+                [self.activityIndicator stopAnimating];
+                self.titleLabel.text = @"Error connecting to videotorium";
             } else {
-                self.noSlidesLabel.hidden = YES;
+                self.recordingDetails = recordingDetails;
+                if ([self.recordingDetails.slides count] == 0) {
+                    self.slideImageView.image = nil;
+                    self.noSlidesLabel.hidden = NO;
+                } else {
+                    self.noSlidesLabel.hidden = YES;
+                }
+                self.titleLabel.text = self.recordingDetails.title;
+                self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
+                self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
+                self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+                [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
+                self.moviePlayerController.shouldAutoplay = self.shouldAutoplay;
+                [self.moviePlayerController prepareToPlay];
+                self.infoButton.enabled = YES;
             }
-            self.titleLabel.text = self.recordingDetails.title;
-            self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
-            self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
-            self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
-            self.moviePlayerController.shouldAutoplay = self.shouldAutoplay;
-            [self.moviePlayerController prepareToPlay];
-            self.infoButton.enabled = YES;
         });
     });
     dispatch_release(getDetailsQueue);
