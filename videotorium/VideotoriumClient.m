@@ -95,7 +95,7 @@
     NSString *titleAndPresenter = [self substringOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"];
     if (titleAndPresenter) {
         details.title = [[self substringOf:titleAndPresenter matching:@"<h1>([^<]*)"] stringByConvertingHTMLToPlainText];
-        details.presenter = [self substringOf:titleAndPresenter matching:@"<p>([^<(]*)"];
+        details.presenter = [[self substringOf:titleAndPresenter matching:@"<p>([^<(]*)"] stringByConvertingHTMLToPlainText];
     }
     details.dateString = [self substringOf:details.response matching:@"Felvétel ideje: *</h2>([^<]*)"];
     details.durationString = [self substringOf:details.response matching:@"Felvétel hossza: *</h2>([^<]*)"];
