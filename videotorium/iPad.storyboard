@@ -160,8 +160,8 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fis-cm-3TC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="y3K-Ra-wuR" customClass="VideotoriumRecordingInfoViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Su-OV-36l">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="176"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Su-OV-36l">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -242,14 +242,37 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BU1-de-1eG">
-                                        <rect key="frame" x="0.0" y="132" width="300" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="244" id="BU1-de-1eG">
+                                        <rect key="frame" x="0.0" y="132" width="300" height="244"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="243"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="Oq6-nW-xsX">
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="243"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <string key="text">         Leírás 
+     Az előadásban bemutatjuk a Széchenyi István Egyetemen működő, Magyarország legnagyobb ipari matematikai nemzetközi kutatócsoportját.
+
+A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői a számítógépeket jelentős és egyre nagyobb mértékben bevonják munkájukba komplex folyamatok valósághű szimulációjára, pl. bonyolult, költséges mérések kiváltására, majd a szimulációk alapján optimalizálásra. Mindehhez a mindenkor legkorszerűbb, állandóan változó hardvert, pl. szuperszámítógépeket kell használni, a programok és a mögöttük húzódó matematikai algoritmusok állandó fejlesztésével. Az előadásban a kutatócsoport kutatási és alkalmazási eredményeit mutatjuk be.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ABW-Hz-xSj">
+                                        <rect key="frame" x="0.0" y="376" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5nC-1R-e35">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pAe-U9-1wL">
                                                     <rect key="frame" x="20" y="3" width="260" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -261,7 +284,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="openInSafari:" destination="y3K-Ra-wuR" eventType="touchUpInside" id="oEW-qM-67F"/>
+                                                        <action selector="openInSafari:" destination="y3K-Ra-wuR" eventType="touchUpInside" id="DA1-yc-buD"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -278,6 +301,7 @@
                     </tableView>
                     <connections>
                         <outlet property="dateLabel" destination="qlQ-Ey-Tzb" id="X9p-XG-Y8t"/>
+                        <outlet property="descriptionTextView" destination="Oq6-nW-xsX" id="aP2-WU-DgC"/>
                         <outlet property="durationLabel" destination="4cM-38-uTB" id="BZw-Mn-G7i"/>
                         <outlet property="presenterLabel" destination="R8v-ac-6uU" id="GjD-DM-nwr"/>
                     </connections>
@@ -360,6 +384,46 @@
     <resources>
         <image name="videotorium_logo.png" width="74" height="70"/>
     </resources>
+    <classes>
+        <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="noSlidesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="event" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="indexPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumRecordingInfoViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
