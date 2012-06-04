@@ -85,12 +85,12 @@
 }
 
 
-- (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID
+- (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID error:(NSError *__autoreleasing *)error
 {
     VideotoriumRecordingDetails *details = [[VideotoriumRecordingDetails alloc] init];
     NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, DETAILS_URL, ID];
     details.URL = [NSURL URLWithString:URLString];
-    details.response = [self.dataSource contentsOfURL:URLString];
+    details.response = [self.dataSource contentsOfURL:URLString error:error];
     if (details.response == nil) return nil;
     NSString *titleAndPresenter = [self substringOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"];
     if (titleAndPresenter) {
@@ -117,13 +117,18 @@
     return details;
 }
 
-- (NSArray *)recordingsMatchingString:(NSString *)searchString
+- (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID
+{
+    return [self detailsWithID:ID error:NULL];
+}
+
+- (NSArray *)recordingsMatchingString:(NSString *)searchString error:(NSError *__autoreleasing *)error
 {
     NSMutableArray *recordings = [NSMutableArray array];
     
     NSString *encodedSearchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, SEARCH_URL, encodedSearchString];
-    NSString *response = [self.dataSource contentsOfURL:URLString];
+    NSString *response = [self.dataSource contentsOfURL:URLString error:error];
     
     NSArray *results = [self substringsOf:response fromMatching:@"^  <li[ >]" toMatching:@"^  </li>"];    
     for (NSString *result in results) {
@@ -137,6 +142,11 @@
         [recordings addObject:recording];
     }
     return recordings;
+}
+
+- (NSArray *)recordingsMatchingString:(NSString *)searchString
+{
+    return [self recordingsMatchingString:searchString error:NULL];
 }
 
 @end

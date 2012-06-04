@@ -10,7 +10,7 @@
 
 @implementation VideotoriumClientMockDataSource
 
-- (NSString *)contentsOfURL:(NSString *)urlString
+- (NSString *)contentsOfURL:(NSString *)urlString error:(NSError *__autoreleasing *)error
 {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"VideotoriumClientMockDataSourceResponses" ofType:@"plist"];
     NSDictionary *responses = [NSDictionary dictionaryWithContentsOfFile:plistPath];

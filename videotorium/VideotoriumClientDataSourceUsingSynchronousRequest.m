@@ -10,7 +10,7 @@
 
 @implementation VideotoriumClientDataSourceUsingSynchronousRequest
 
-- (NSString *)contentsOfURL:(NSString *)urlString
+- (NSString *)contentsOfURL:(NSString *)urlString error:(NSError *__autoreleasing *)error
 {
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -18,7 +18,7 @@
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request
                                          returningResponse:&response
-                                                     error:NULL];
+                                                     error:error];
     if (data == nil) return nil;
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
