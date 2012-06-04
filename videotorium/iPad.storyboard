@@ -161,7 +161,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fis-cm-3TC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="y3K-Ra-wuR" customClass="VideotoriumRecordingInfoViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Su-OV-36l">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -217,33 +217,8 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Q9r-hj-uWX" detailTextLabel="4cM-38-uTB" style="IBUITableViewCellStyleValue2" id="P0h-sV-M1u">
-                                        <rect key="frame" x="0.0" y="88" width="300" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q9r-hj-uWX">
-                                                    <rect key="frame" x="10" y="15" width="91" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="12p 34mp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4cM-38-uTB">
-                                                    <rect key="frame" x="107" y="12" width="70" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="244" id="BU1-de-1eG">
-                                        <rect key="frame" x="0.0" y="132" width="300" height="244"/>
+                                        <rect key="frame" x="0.0" y="88" width="300" height="244"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="243"/>
@@ -266,7 +241,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ABW-Hz-xSj">
-                                        <rect key="frame" x="0.0" y="376" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="332" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -302,7 +277,6 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                     <connections>
                         <outlet property="dateLabel" destination="qlQ-Ey-Tzb" id="X9p-XG-Y8t"/>
                         <outlet property="descriptionTextView" destination="Oq6-nW-xsX" id="aP2-WU-DgC"/>
-                        <outlet property="durationLabel" destination="4cM-38-uTB" id="BZw-Mn-G7i"/>
                         <outlet property="presenterLabel" destination="R8v-ac-6uU" id="GjD-DM-nwr"/>
                     </connections>
                 </tableViewController>

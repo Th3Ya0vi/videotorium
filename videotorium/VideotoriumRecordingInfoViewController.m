@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *presenterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @end
@@ -20,7 +19,6 @@
 @implementation VideotoriumRecordingInfoViewController
 @synthesize presenterLabel = _presenterLabel;
 @synthesize dateLabel = _dateLabel;
-@synthesize durationLabel = _durationLabel;
 @synthesize descriptionTextView = _descriptionTextView;
 
 @synthesize recording = _recording;
@@ -37,7 +35,6 @@
     if (![_recording isEqual:recording]) {
         self.presenterLabel.text = recording.presenter;
         self.dateLabel.text = recording.dateString;
-        self.durationLabel.text = recording.durationString;
         self.descriptionTextView.text = recording.descriptionText;
         _recording = recording;
     }
@@ -51,7 +48,6 @@
 - (void)viewDidUnload {
     [self setPresenterLabel:nil];
     [self setDateLabel:nil];
-    [self setDurationLabel:nil];
     [self setDescriptionTextView:nil];
     [super viewDidUnload];
 }
