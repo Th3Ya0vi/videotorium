@@ -38,11 +38,11 @@
 {
     NSMutableArray *results = [NSMutableArray array];
     if (string) {
-        NSRegularExpression *fromRegexp = [NSRegularExpression regularExpressionWithPattern:fromPattern options:NSRegularExpressionCaseInsensitive error:NULL];
+        NSRegularExpression *fromRegexp = [NSRegularExpression regularExpressionWithPattern:fromPattern options:NSRegularExpressionAnchorsMatchLines error:NULL];
         NSArray *fromMatches = [fromRegexp matchesInString:string options:0 range:NSMakeRange(0, [string length])];
         for (NSTextCheckingResult *fromMatch in fromMatches) {
             NSRange fromRange = [fromMatch range];
-            NSRegularExpression *toRegexp = [NSRegularExpression regularExpressionWithPattern:toPattern options:NSRegularExpressionCaseInsensitive error:NULL];
+            NSRegularExpression *toRegexp = [NSRegularExpression regularExpressionWithPattern:toPattern options:NSRegularExpressionAnchorsMatchLines error:NULL];
             NSTextCheckingResult *toMatch = [toRegexp firstMatchInString:string options:0 range:NSMakeRange(fromRange.location + fromRange.length, [string length] - fromRange.location - fromRange.length)];
             if (toMatch) {
                 NSRange toRange = [toMatch range];
@@ -56,7 +56,9 @@
 
 - (NSString *)substringOf:(NSString *)string fromMatching:(NSString *)fromPattern toMatching:(NSString *)toPattern
 {
-    return [[self substringsOf:string fromMatching:fromPattern toMatching:toPattern] lastObject];
+    NSArray *substrings = [self substringsOf:string fromMatching:fromPattern toMatching:toPattern];
+    if ([substrings count] == 0) return nil;
+    return [substrings objectAtIndex:0];
 }
 
 - (NSArray *)substringsOf:(NSString *)string matching:(NSString *)pattern
@@ -76,7 +78,9 @@
 
 - (NSString *)substringOf:(NSString *)string matching:(NSString *)pattern
 {
-    return [[self substringsOf:string matching:pattern] lastObject];
+    NSArray *substrings = [self substringsOf:string matching:pattern];
+    if ([substrings count] == 0) return nil;
+    return [substrings objectAtIndex:0];
 }
 
 
@@ -115,51 +119,20 @@
     NSMutableArray *recordings = [NSMutableArray array];
     
     NSString *encodedSearchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
     NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, SEARCH_URL, encodedSearchString];
     NSString *response = [self.dataSource contentsOfURL:URLString];
     
-    NSArray *titlesAndURLs = [self substringsOf:response matching:@"<h1><a href=\"([^<]*)"];
-    for (NSString *titleAndURL in titlesAndURLs) {
-        NSString *title = [self substringOf:titleAndURL matching:@">(.*)$"];
-        NSString *ID = [self substringOf:titleAndURL matching:@"hu/recordings/details/([^,]*),"];
-        if (ID && title) {
-            VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
-            recording.title = title;
-            recording.ID = ID;
-            [recordings addObject:recording];
-        }
+    NSArray *results = [self substringsOf:response fromMatching:@"^  <li[ >]" toMatching:@"^  </li>"];    
+    for (NSString *result in results) {
+        VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
+        recording.title = [self substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"];
+        recording.ID = [self substringOf:result matching:@"<h1><a href=\"hu/recordings/details/([^,]*)"];
+        NSString *indexPictureURLString = [self substringOf:result matching:@"<img src=\"([^\"]*)"];
+        if (indexPictureURLString) recording.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
+        recording.dateString = [self substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
+        recording.eventName = [self substringOf:result matching:@"recordingevents[^=]*=\"hu/events[^>]*> *([^<]*)"];
+        [recordings addObject:recording];
     }
-    NSArray *indexPictureURLs = [self substringsOf:response matching:@"<span class=\"playpic\"></span><img src=\"([^\"]*)"];
-    NSUInteger index;
-    index = 0;
-    for (NSString *indexPictureURL in indexPictureURLs) {
-        VideotoriumRecording* recording = [recordings objectAtIndex:index];
-        if (recording) {
-            recording.indexPictureURL = [NSURL URLWithString:indexPictureURL];
-        }
-        index++;
-    }
-    NSArray *dateStrings = [self substringsOf:response matching:@"Felvétel ideje:</span> <span>([^<]*)"];
-    index = 0;
-    for (NSString *dateString in dateStrings) {
-        VideotoriumRecording* recording = [recordings objectAtIndex:index];
-        if (recording) {
-            recording.dateString = dateString;
-        }
-        index++;
-    }
-    
-    NSArray *events = [self substringsOf:response fromMatching:@"recordingevents" toMatching:@"</div>"];
-    index = 0;
-    for (NSString *event in events) {
-        VideotoriumRecording* recording = [recordings objectAtIndex:index];
-        if (recording) {
-            recording.eventName = [self substringOf:event matching:@"<a[^>]*> *([^<]*)"];
-        }
-        index++;
-    }
-
     return recordings;
 }
 
