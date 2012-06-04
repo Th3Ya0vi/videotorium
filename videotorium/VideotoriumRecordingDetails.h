@@ -18,5 +18,6 @@
 @property (nonatomic, strong) NSString *presenter;
 @property (nonatomic, strong) NSString *dateString;
 @property (nonatomic, strong) NSString *durationString;
+@property (nonatomic, strong) NSString *descriptionText;
 
 @end

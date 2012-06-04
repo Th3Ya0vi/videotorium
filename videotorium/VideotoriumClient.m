@@ -9,6 +9,7 @@
 #import "VideotoriumClient.h"
 #import "VideotoriumClientDataSourceUsingSynchronousRequest.h"
 #import "VideotoriumRecording.h"
+#import "NSString+HTML.h"
 
 @implementation VideotoriumClient
 
@@ -93,7 +94,7 @@
     if (details.response == nil) return nil;
     NSString *titleAndPresenter = [self substringOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"];
     if (titleAndPresenter) {
-        details.title = [self substringOf:titleAndPresenter matching:@"<h1>([^<]*)"];
+        details.title = [[self substringOf:titleAndPresenter matching:@"<h1>([^<]*)"] stringByConvertingHTMLToPlainText];
         details.presenter = [self substringOf:titleAndPresenter matching:@"<p>([^<(]*)"];
     }
     details.dateString = [self substringOf:details.response matching:@"Felvétel ideje: *</h2>([^<]*)"];
@@ -111,6 +112,8 @@
         }
         details.slides = slides;        
     }
+    NSString *description = [self substringOf:details.response fromMatching:@"<div class=\"recordingdescription\">" toMatching:@"</div>"];
+    details.descriptionText = [description stringByConvertingHTMLToPlainText];
     return details;
 }
 
@@ -125,7 +128,7 @@
     NSArray *results = [self substringsOf:response fromMatching:@"^  <li[ >]" toMatching:@"^  </li>"];    
     for (NSString *result in results) {
         VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
-        recording.title = [self substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"];
+        recording.title = [[self substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"] stringByConvertingHTMLToPlainText];
         recording.ID = [self substringOf:result matching:@"<h1><a href=\"hu/recordings/details/([^,]*)"];
         NSString *indexPictureURLString = [self substringOf:result matching:@"<img src=\"([^\"]*)"];
         if (indexPictureURLString) recording.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
