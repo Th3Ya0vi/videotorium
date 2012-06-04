@@ -76,7 +76,7 @@
 {
     [super viewDidLoad];
     self.splitViewController.delegate = self;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
@@ -118,6 +118,12 @@
         VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.recordingDetails = recordingDetails;
+            if ([self.recordingDetails.slides count] == 0) {
+                self.slideImageView.image = nil;
+                self.noSlidesLabel.hidden = NO;
+            } else {
+                self.noSlidesLabel.hidden = YES;
+            }
             self.titleLabel.text = self.recordingDetails.title;
             self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
             self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
@@ -145,37 +151,30 @@
 
 - (void)updateSlide
 {
-    if (self.moviePlayerController) {
+    if ([self.recordingDetails.slides count] > 0) {
         NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
-        VideotoriumSlide *slideToShow = nil;
-        if ([self.recordingDetails.slides count] > 0) {
-            slideToShow = [self.recordingDetails.slides objectAtIndex:0];
-            for (VideotoriumSlide *slide in self.recordingDetails.slides) {
-                if ((slide.timestamp < currentPlaybackTime) &&
-                    (slide.timestamp > slideToShow.timestamp)) {
-                    slideToShow = slide;
-                }
-            }            
-        }
-        if (slideToShow) {
-            self.noSlidesLabel.hidden = YES;
-            if (![slideToShow isEqual:self.currentSlide]) {
-                self.currentSlide = slideToShow;
-                dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
-                dispatch_async(downloadSlideQueue, ^{
-                    NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (self.currentSlide == slideToShow) {
-                            self.slideImageView.image = [UIImage imageWithData:imageData];
-                        }
-                    });
+        // Assuming that the slides are ordered by their timestamp
+        // Starting from the end find the first one which has earlier timestamp than the current playback time
+        NSUInteger index = [self.recordingDetails.slides indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            VideotoriumSlide *slide = (VideotoriumSlide *)obj;
+            return (slide.timestamp < currentPlaybackTime);
+        }];
+        // If there are no slides earlier than the current time, show the first slide anyway
+        if (index == NSNotFound) index = 0;
+        VideotoriumSlide *slideToShow = [self.recordingDetails.slides objectAtIndex:index];
+        if (![slideToShow isEqual:self.currentSlide]) {
+            self.currentSlide = slideToShow;
+            dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
+            dispatch_async(downloadSlideQueue, ^{
+                NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (self.currentSlide == slideToShow) {
+                        self.slideImageView.image = [UIImage imageWithData:imageData];
+                    }
                 });
-                dispatch_release(downloadSlideQueue);
-            }                    
-        } else {
-            self.slideImageView.image = nil;
-            self.noSlidesLabel.hidden = NO;
-        }
+            });
+            dispatch_release(downloadSlideQueue);
+        }                    
     }
 }
 
