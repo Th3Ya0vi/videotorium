@@ -85,6 +85,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.searchBar setBackgroundImage:[UIImage imageNamed:@"videotorium-gradient.png"]];
 #ifndef SCREENSHOTMODE
     if (!self.searchString) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -163,6 +164,7 @@
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = recording.ID;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Search bar delegate

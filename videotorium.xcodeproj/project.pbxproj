@@ -13,6 +13,8 @@
 		2D54C3DB157DC438004783CA /* videotorium-logo-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3DA157DC438004783CA /* videotorium-logo-wide.png */; };
 		2D54C3DF157DC60C004783CA /* videotorium-icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3DE157DC60C004783CA /* videotorium-icon-144.png */; };
 		2D54C3E1157DC638004783CA /* videotorium-icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E0157DC638004783CA /* videotorium-icon-72.png */; };
+		2D54C3E4157DCABC004783CA /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E2157DCABC004783CA /* videotorium-gradient.png */; };
+		2D54C3E5157DCABC004783CA /* videotorium-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
 		2DB8B68E1578F8C3001A44D5 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8B68D1578F8C3001A44D5 /* Default-Portrait~ipad.png */; };
@@ -66,6 +68,8 @@
 		2D54C3DA157DC438004783CA /* videotorium-logo-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-logo-wide.png"; sourceTree = "<group>"; };
 		2D54C3DE157DC60C004783CA /* videotorium-icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-icon-144.png"; sourceTree = "<group>"; };
 		2D54C3E0157DC638004783CA /* videotorium-icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-icon-72.png"; sourceTree = "<group>"; };
+		2D54C3E2157DCABC004783CA /* videotorium-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient.png"; sourceTree = "<group>"; };
+		2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient@2x.png"; sourceTree = "<group>"; };
 		2D88B9FC1574F8AC00B938FF /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecording.h; sourceTree = "<group>"; };
 		2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecording.m; sourceTree = "<group>"; };
 		2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingInfoViewController.h; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 		2DEB06A91549703200AD0805 = {
 			isa = PBXGroup;
 			children = (
+				2D54C3E2157DCABC004783CA /* videotorium-gradient.png */,
+				2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */,
 				2D54C3E0157DC638004783CA /* videotorium-icon-72.png */,
 				2D54C3DE157DC60C004783CA /* videotorium-icon-144.png */,
 				2DB8B6931578F8D4001A44D5 /* Default-Landscape@2x~ipad.png */,
@@ -321,6 +327,8 @@
 				2D54C3DB157DC438004783CA /* videotorium-logo-wide.png in Resources */,
 				2D54C3DF157DC60C004783CA /* videotorium-icon-144.png in Resources */,
 				2D54C3E1157DC638004783CA /* videotorium-icon-72.png in Resources */,
+				2D54C3E4157DCABC004783CA /* videotorium-gradient.png in Resources */,
+				2D54C3E5157DCABC004783CA /* videotorium-gradient@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

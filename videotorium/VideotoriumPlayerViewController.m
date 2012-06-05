@@ -75,6 +75,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.toolbar setBackgroundImage:[UIImage imageNamed:@"videotorium-gradient.png"]forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    
     self.splitViewController.delegate = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -152,7 +154,10 @@
     // If there was a bar button, we remove it
     if (_splitViewBarButtonItem) [toolbarItems removeObject:_splitViewBarButtonItem];
     // We add the new button to the bar (if there is a new button)
-    if (splitViewBarButtonItem) [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+    if (splitViewBarButtonItem) {
+        splitViewBarButtonItem.style = UIBarButtonItemStylePlain;
+        [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+    }
     self.toolbar.items = toolbarItems;
     // If the setter was called with nil, then we only removed the old one without add anything new, and the property will be nil
     _splitViewBarButtonItem = splitViewBarButtonItem;
