@@ -13,6 +13,7 @@
 @synthesize response = _response;
 @synthesize URL = _URL;
 @synthesize streamURL = _streamURL;
+@synthesize secondaryStreamURL = _secondaryStreamURL;
 @synthesize slides = _slides;
 @synthesize title = _title;
 @synthesize presenter = _presenter;

@@ -99,7 +99,18 @@
     }
     details.dateString = [self substringOf:details.response matching:@"Felvétel ideje: *</h2>([^<]*)"];
     details.durationString = [self substringOf:details.response matching:@"Felvétel hossza: *</h2>([^<]*)"];
-    details.streamURL = [NSURL URLWithString:[self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""]];        
+    NSString *streamURLString = [self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""];
+    details.streamURL = [NSURL URLWithString:streamURLString];
+
+    NSString *secondaryStreamsString = [self substringOf:details.response matching:@"media_secondaryStreams *= *'([^']*)'"];
+    NSData *secondaryStreamsData = [secondaryStreamsString dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *secondaryStreams = [NSJSONSerialization JSONObjectWithData:secondaryStreamsData options:0 error:NULL];
+    NSString *secondaryStream = [secondaryStreams lastObject];
+    if (secondaryStream) {
+        NSString *stringToReplace = [self substringOf:streamURLString matching:@"(mp4:[^.]*\\.mp4)"];
+        NSString *secondaryStreamURLString = [streamURLString stringByReplacingOccurrencesOfString:stringToReplace withString:secondaryStream];
+        details.secondaryStreamURL = [NSURL URLWithString:secondaryStreamURLString];
+    }
     NSMutableArray *slides = [NSMutableArray array];
     NSString *slidesURLPrefix = [self substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
     NSString *slidesJSONString = [self substringOf:details.response matching:@"slides_model *= *'([^']*)'"];
