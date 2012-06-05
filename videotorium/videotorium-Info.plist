@@ -14,14 +14,13 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>videotorium_logo_72.png</string>
 				<string>Default-Portrait~ipad.png</string>
 				<string>Default-Portrait@2x~ipad.png</string>
 				<string>Default-Landscape~ipad.png</string>
 				<string>Default-Landscape@2x~ipad.png</string>
+				<string>videotorium-icon-144.png</string>
+				<string>videotorium-icon-72.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
 		</dict>
 		<key>UINewsstandIcon</key>
 		<dict>
@@ -35,17 +34,6 @@
 			<string>UINewsstandBindingTypeMagazine</string>
 		</dict>
 	</dict>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>videotorium</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string>hu.videotorium</string>
-		</dict>
-	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.zsombornagy.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -58,6 +46,17 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>hu.videotorium</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>videotorium</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
