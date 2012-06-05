@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="aLK-gI-pXH">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -54,7 +53,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="videotorium_logo.png" id="cfx-I3-khG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="videotorium-logo-wide.png" id="cfx-I3-khG">
                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -96,7 +95,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="videotorium_logo.png" id="C1l-cw-WTM">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="videotorium-logo-wide.png" id="C1l-cw-WTM">
                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -369,7 +368,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
         </scene>
     </scenes>
     <resources>
-        <image name="videotorium_logo.png" width="74" height="70"/>
+        <image name="videotorium-logo-wide.png" width="192" height="144"/>
     </resources>
     <classes>
         <class className="VideotoriumPlayerViewController" superclassName="UIViewController">

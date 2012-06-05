@@ -140,7 +140,7 @@
     cell.title.text = recording.title;
     cell.event.text = recording.eventName;
     cell.date.text = recording.dateString;
-    cell.indexPicture.image = [UIImage imageNamed:@"videotorium_logo.png"];
+    cell.indexPicture.image = [UIImage imageNamed:@"videotorium-logo-wide.png"];
     dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
     dispatch_async(getIndexPictureQueue, ^{
         NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];

@@ -10,6 +10,7 @@
 		2D132EF7157D022F00259E36 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D132EF6157D022F00259E36 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2D132EFB157D045700259E36 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D132EFA157D045700259E36 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2D24A319157648C000C65290 /* VideotoriumRecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */; };
+		2D54C3DB157DC438004783CA /* videotorium-logo-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3DA157DC438004783CA /* videotorium-logo-wide.png */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
 		2DB8B68E1578F8C3001A44D5 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8B68D1578F8C3001A44D5 /* Default-Portrait~ipad.png */; };
@@ -17,7 +18,6 @@
 		2DB8B6921578F8D0001A44D5 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8B6911578F8D0001A44D5 /* Default-Landscape~ipad.png */; };
 		2DB8B6941578F8D4001A44D5 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8B6931578F8D4001A44D5 /* Default-Landscape@2x~ipad.png */; };
 		2DBAFD77157610FC007DA824 /* VideotoriumSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBAFD76157610FC007DA824 /* VideotoriumSearchViewController.m */; };
-		2DBAFD7A157619FE007DA824 /* videotorium_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DBAFD79157619FE007DA824 /* videotorium_logo.png */; };
 		2DC6F85C154E712400CDDA80 /* VideotoriumClientMockDataSourceResponses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6F859154E69C300CDDA80 /* VideotoriumClientMockDataSourceResponses.plist */; };
 		2DC6F85E154E739300CDDA80 /* VideotoriumClientMockDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */; };
 		2DC6F860154E8A2800CDDA80 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */; };
@@ -62,6 +62,7 @@
 		2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecordingCell.m; sourceTree = "<group>"; };
 		2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideotoriumClientMockDataSource.h; path = tests/VideotoriumClientMockDataSource.h; sourceTree = SOURCE_ROOT; };
 		2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideotoriumClientMockDataSource.m; path = tests/VideotoriumClientMockDataSource.m; sourceTree = SOURCE_ROOT; };
+		2D54C3DA157DC438004783CA /* videotorium-logo-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-logo-wide.png"; sourceTree = "<group>"; };
 		2D88B9FC1574F8AC00B938FF /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecording.h; sourceTree = "<group>"; };
 		2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecording.m; sourceTree = "<group>"; };
 		2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingInfoViewController.h; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		2DB8B6931578F8D4001A44D5 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		2DBAFD75157610FC007DA824 /* VideotoriumSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSearchViewController.h; sourceTree = "<group>"; };
 		2DBAFD76157610FC007DA824 /* VideotoriumSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSearchViewController.m; sourceTree = "<group>"; };
-		2DBAFD79157619FE007DA824 /* videotorium_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videotorium_logo.png; sourceTree = "<group>"; };
 		2DC6F859154E69C300CDDA80 /* VideotoriumClientMockDataSourceResponses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VideotoriumClientMockDataSourceResponses.plist; sourceTree = "<group>"; };
 		2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumPlayerViewController.h; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 				2DB8B6911578F8D0001A44D5 /* Default-Landscape~ipad.png */,
 				2DB8B68F1578F8CB001A44D5 /* Default-Portrait@2x~ipad.png */,
 				2DB8B68D1578F8C3001A44D5 /* Default-Portrait~ipad.png */,
+				2D54C3DA157DC438004783CA /* videotorium-logo-wide.png */,
 				2DC6F8AE154E927900CDDA80 /* MediaPlayer.framework */,
 				2DEB06BE1549703200AD0805 /* videotorium */,
 				2DE8EFA3154E5F6800503998 /* tests */,
@@ -182,7 +183,6 @@
 			children = (
 				2DD732D31577C5B100D94E1B /* videotorium.entitlements */,
 				2DD732D11577B88900D94E1B /* videotorium_logo_72.png */,
-				2DBAFD79157619FE007DA824 /* videotorium_logo.png */,
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */,
 				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */,
 				2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */,
@@ -311,12 +311,12 @@
 				2DEB06C31549703200AD0805 /* InfoPlist.strings in Resources */,
 				2DC6F85C154E712400CDDA80 /* VideotoriumClientMockDataSourceResponses.plist in Resources */,
 				2DC6F860154E8A2800CDDA80 /* iPad.storyboard in Resources */,
-				2DBAFD7A157619FE007DA824 /* videotorium_logo.png in Resources */,
 				2DD732D21577B88900D94E1B /* videotorium_logo_72.png in Resources */,
 				2DB8B68E1578F8C3001A44D5 /* Default-Portrait~ipad.png in Resources */,
 				2DB8B6901578F8CB001A44D5 /* Default-Portrait@2x~ipad.png in Resources */,
 				2DB8B6921578F8D0001A44D5 /* Default-Landscape~ipad.png in Resources */,
 				2DB8B6941578F8D4001A44D5 /* Default-Landscape@2x~ipad.png in Resources */,
+				2D54C3DB157DC438004783CA /* videotorium-logo-wide.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
