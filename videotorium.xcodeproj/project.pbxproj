@@ -15,6 +15,9 @@
 		2D54C3E1157DC638004783CA /* videotorium-icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E0157DC638004783CA /* videotorium-icon-72.png */; };
 		2D54C3E4157DCABC004783CA /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E2157DCABC004783CA /* videotorium-gradient.png */; };
 		2D54C3E5157DCABC004783CA /* videotorium-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */; };
+		2D54C3E7157DF557004783CA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D54C3E6157DF557004783CA /* AVFoundation.framework */; };
+		2D54C3E9157DF766004783CA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D54C3E8157DF766004783CA /* CoreMedia.framework */; };
+		2D54C3EC157DFBC4004783CA /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D54C3EB157DFBC3004783CA /* AVPlayerView.m */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
 		2DB8B68E1578F8C3001A44D5 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8B68D1578F8C3001A44D5 /* Default-Portrait~ipad.png */; };
@@ -70,6 +73,10 @@
 		2D54C3E0157DC638004783CA /* videotorium-icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-icon-72.png"; sourceTree = "<group>"; };
 		2D54C3E2157DCABC004783CA /* videotorium-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient.png"; sourceTree = "<group>"; };
 		2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient@2x.png"; sourceTree = "<group>"; };
+		2D54C3E6157DF557004783CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2D54C3E8157DF766004783CA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2D54C3EA157DFBC3004783CA /* AVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerView.h; sourceTree = "<group>"; };
+		2D54C3EB157DFBC3004783CA /* AVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerView.m; sourceTree = "<group>"; };
 		2D88B9FC1574F8AC00B938FF /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecording.h; sourceTree = "<group>"; };
 		2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecording.m; sourceTree = "<group>"; };
 		2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingInfoViewController.h; sourceTree = "<group>"; };
@@ -117,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D54C3E9157DF766004783CA /* CoreMedia.framework in Frameworks */,
+				2D54C3E7157DF557004783CA /* AVFoundation.framework in Frameworks */,
 				2DC6F8B0154E962200CDDA80 /* MediaPlayer.framework in Frameworks */,
 				2DEB06B91549703200AD0805 /* UIKit.framework in Frameworks */,
 				2DEB06BB1549703200AD0805 /* Foundation.framework in Frameworks */,
@@ -150,6 +159,8 @@
 		2DEB06A91549703200AD0805 = {
 			isa = PBXGroup;
 			children = (
+				2D54C3E8157DF766004783CA /* CoreMedia.framework */,
+				2D54C3E6157DF557004783CA /* AVFoundation.framework */,
 				2D54C3E2157DCABC004783CA /* videotorium-gradient.png */,
 				2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */,
 				2D54C3E0157DC638004783CA /* videotorium-icon-72.png */,
@@ -194,6 +205,8 @@
 				2DD732D31577C5B100D94E1B /* videotorium.entitlements */,
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */,
 				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */,
+				2D54C3EA157DFBC3004783CA /* AVPlayerView.h */,
+				2D54C3EB157DFBC3004783CA /* AVPlayerView.m */,
 				2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */,
 				2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */,
 				2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */,
@@ -376,6 +389,7 @@
 				2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */,
 				2D132EF7157D022F00259E36 /* GTMNSString+HTML.m in Sources */,
 				2D132EFB157D045700259E36 /* NSString+HTML.m in Sources */,
+				2D54C3EC157DFBC4004783CA /* AVPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
