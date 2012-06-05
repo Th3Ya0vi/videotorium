@@ -95,6 +95,8 @@
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(memoryWarning:) name:@"memoryWarning" object:nil];
+
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -151,9 +153,9 @@
                 self.slideImageView.image = nil;
                 if ([self.recordingDetails.slides count] == 0) {
                     if (self.recordingDetails.secondaryStreamURL) {
-                        AVPlayer *player = [AVPlayer playerWithURL:recordingDetails.secondaryStreamURL];
                         self.secondaryVideoView = [[AVPlayerView alloc] initWithFrame:self.slideImageView.bounds];
-                        self.secondaryVideoView.autoresizingMask =UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+                        self.secondaryVideoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+                        AVPlayer *player = [AVPlayer playerWithURL:recordingDetails.secondaryStreamURL];
                         self.secondaryVideoView.player = player;
                         [self.slideImageView insertSubview:self.secondaryVideoView belowSubview:self.slideActivityIndicator];
                     } else {
@@ -188,6 +190,12 @@
     self.toolbar.items = toolbarItems;
     // If the setter was called with nil, then we only removed the old one without add anything new, and the property will be nil
     _splitViewBarButtonItem = splitViewBarButtonItem;
+}
+
+- (void)memoryWarning:(NSNotification *)notification
+{
+    [self.secondaryVideoView removeFromSuperview];
+    self.secondaryVideoView = nil;
 }
 
 - (void)updateSlide

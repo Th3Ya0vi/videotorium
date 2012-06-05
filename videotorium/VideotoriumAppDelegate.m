@@ -26,6 +26,11 @@
     return NO;
 }
 
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"memoryWarning" object:nil userInfo:nil];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
