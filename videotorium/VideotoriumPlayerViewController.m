@@ -77,6 +77,10 @@
 {
     if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
         [self.activityIndicator stopAnimating];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.5];
+        self.moviePlayerController.view.alpha = 1;
+        [UIView commitAnimations];
     }
 }
 
@@ -160,6 +164,7 @@
                 self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
                 self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
                 self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+                self.moviePlayerController.view.alpha = 0;
                 [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
                 self.moviePlayerController.shouldAutoplay = self.shouldAutoplay;
                 [self.moviePlayerController prepareToPlay];
