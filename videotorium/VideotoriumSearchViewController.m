@@ -160,7 +160,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
+    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = recording.ID;
