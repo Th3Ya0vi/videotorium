@@ -96,6 +96,9 @@
         }
     }
 #endif
+#ifdef SCREENSHOTMODE
+    self.searchBar.placeholder = @"";
+#endif
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openURL:) name:@"openURL" object:nil];
 }
 

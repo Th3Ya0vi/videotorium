@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
-//#define SCREENSHOTMODE
-
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumRecordingInfoViewController.h"
@@ -95,13 +93,16 @@
         }
     }
 #endif
+#ifdef SCREENSHOTMODE
+    self.toolbar.items = [NSArray array];
+#endif
 }
 
 - (void)setRecordingID:(NSString *)recordingID
 {
     _recordingID = recordingID;
     
-    self.titleLabel.text = @"Videotorium";
+    self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
     [self.splitViewPopoverController dismissPopoverAnimated:YES];
     if (self.moviePlayerController != nil) {
