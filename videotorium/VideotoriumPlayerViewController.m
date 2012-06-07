@@ -127,6 +127,7 @@
     
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
+    self.slidesButton.enabled = YES;
     [self.splitViewPopoverController dismissPopoverAnimated:YES];
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
