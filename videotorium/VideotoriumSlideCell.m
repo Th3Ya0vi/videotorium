@@ -11,5 +11,6 @@
 @implementation VideotoriumSlideCell
 
 @synthesize slideImageView = _slideImageView;
+@synthesize borderView = _borderView;
 
 @end

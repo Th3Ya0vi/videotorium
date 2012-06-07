@@ -11,5 +11,6 @@
 @interface VideotoriumSlideCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *slideImageView;
+@property (weak, nonatomic) IBOutlet UIView *borderView;
 
 @end

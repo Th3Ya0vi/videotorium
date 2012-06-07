@@ -30,7 +30,7 @@
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumSlide (timestamp: %.2f, imageURL: %@, thumbnailURL: %@)", self.timestamp, self.imageURL, self.thumbnailURL];
+    return [NSString stringWithFormat:@"VideotoriumSlide (ID: %@, timestamp: %.2f, imageURL: %@, thumbnailURL: %@)", self.ID, self.timestamp, self.imageURL, self.thumbnailURL];
 }
 
 @end

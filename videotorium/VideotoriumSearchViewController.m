@@ -177,6 +177,7 @@
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = recording.ID;
+    detailViewController.resultsOnSlides = recording.resultsOnSlides;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
