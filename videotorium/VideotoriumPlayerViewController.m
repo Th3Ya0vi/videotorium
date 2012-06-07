@@ -10,8 +10,6 @@
 #import "VideotoriumClient.h"
 #import "VideotoriumRecordingInfoViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
-#import <AVFoundation/AVFoundation.h>
-#import "AVPlayerView.h"
 
 @interface VideotoriumPlayerViewController ()
 
@@ -21,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *noSlidesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondaryVideoNotSupportedLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *slideActivityIndicator;
 
@@ -37,9 +36,6 @@
 
 @property (weak, nonatomic) UIPopoverController *infoPopoverController;
 
-@property (nonatomic, strong) AVPlayerView *secondaryVideoView;
-@property (nonatomic) BOOL seekingInProgress;
-
 @end
 
 @implementation VideotoriumPlayerViewController
@@ -52,6 +48,7 @@
 @synthesize activityIndicator = _activityIndicator;
 @synthesize noSlidesLabel = _noSlidesLabel;
 @synthesize titleLabel = _titleLabel;
+@synthesize secondaryVideoNotSupportedLabel = _secondaryVideoNotSupportedLabel;
 @synthesize infoButton = _infoButton;
 @synthesize slideActivityIndicator = _slideActivityIndicator;
 
@@ -70,9 +67,6 @@
 
 @synthesize shouldAutoplay = _shouldAutoplay;
 
-@synthesize secondaryVideoView = _secondaryVideoView;
-@synthesize seekingInProgress = _seekingInProgress;
-
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
     if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
@@ -90,7 +84,7 @@
     [self.toolbar setBackgroundImage:[UIImage imageNamed:@"videotorium-gradient.png"]forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     self.splitViewController.delegate = self;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
@@ -130,10 +124,8 @@
     self.recordingDetails = nil;
     [self.infoPopoverController dismissPopoverAnimated:YES];
     self.noSlidesLabel.hidden = YES;
+    self.secondaryVideoNotSupportedLabel.hidden = YES;
     self.slideImageView.image = nil;
-    [self.secondaryVideoView removeFromSuperview];
-    self.secondaryVideoView = nil;
-    self.seekingInProgress = NO;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:recordingID forKey:@"lastRecordingID"];
@@ -153,11 +145,7 @@
                 self.slideImageView.image = nil;
                 if ([self.recordingDetails.slides count] == 0) {
                     if (self.recordingDetails.secondaryStreamURL) {
-                        self.secondaryVideoView = [[AVPlayerView alloc] initWithFrame:self.slideImageView.bounds];
-                        self.secondaryVideoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-                        AVPlayer *player = [AVPlayer playerWithURL:recordingDetails.secondaryStreamURL];
-                        self.secondaryVideoView.player = player;
-                        [self.slideImageView insertSubview:self.secondaryVideoView belowSubview:self.slideActivityIndicator];
+                        self.secondaryVideoNotSupportedLabel.hidden = NO;
                     } else {
                         self.noSlidesLabel.hidden = NO;
                     }
@@ -194,8 +182,6 @@
 
 - (void)memoryWarning:(NSNotification *)notification
 {
-    [self.secondaryVideoView removeFromSuperview];
-    self.secondaryVideoView = nil;
 }
 
 - (void)updateSlide
@@ -232,49 +218,7 @@
             });
             dispatch_release(downloadSlideQueue);
         }                    
-    } else if (self.secondaryVideoView) {
-        if (self.moviePlayerController.playbackState == MPMoviePlaybackStatePlaying) {
-            [self.secondaryVideoView.player play];
-        } else {
-            [self.secondaryVideoView.player pause];
-        }
-        if (!self.seekingInProgress) {
-            if (self.secondaryVideoView.player.status == AVPlayerStatusReadyToPlay) {
-                Float64 seconds = CMTimeGetSeconds(self.secondaryVideoView.player.currentTime);
-                Float64 tolerance = 1;
-                if (self.moviePlayerController.playbackState != MPMoviePlaybackStatePlaying) {
-                    // If we are not playing, trying to get close to the current playback time would take too much time
-                    tolerance = 20;
-                }
-                if (fabs(seconds - currentPlaybackTime) > tolerance) {
-                    NSLog(@"Seconds: %f, current playback time: %f", seconds, currentPlaybackTime);
-                    CMTime time = CMTimeMakeWithSeconds(currentPlaybackTime, 600);
-                    self.seekingInProgress = YES;
-                    [self.slideActivityIndicator startAnimating];
-                    [UIView beginAnimations:nil context:nil];
-                    [UIView setAnimationDuration:0.2];
-                    self.secondaryVideoView.alpha = 0.5;
-                    [UIView commitAnimations];
-                    NSLog(@"Seeking to %f", currentPlaybackTime);
-                    [self.secondaryVideoView.player seekToTime:time
-                                             completionHandler:^(BOOL finished) {
-                                                 self.seekingInProgress = NO;
-                                                 if (finished) {
-                                                     NSLog(@"Seeking to %f was succesful, actual time: %f", currentPlaybackTime, CMTimeGetSeconds(self.secondaryVideoView.player.currentTime));
-                                                 } else {
-                                                     NSLog(@"Seeking to %f failed.", currentPlaybackTime);                               
-                                                 }
-                                             }];
-                } else {
-                    [self.slideActivityIndicator stopAnimating];
-                    [UIView beginAnimations:nil context:nil];
-                    [UIView setAnimationDuration:0.2];
-                    self.secondaryVideoView.alpha = 1;
-                    [UIView commitAnimations];
-                }
-            }
-        }            
-    }
+    } 
 }
 
 - (void)viewDidUnload
@@ -289,6 +233,7 @@
     [self setTitleLabel:nil];
     [self setInfoButton:nil];
     [self setSlideActivityIndicator:nil];
+    [self setSecondaryVideoNotSupportedLabel:nil];
     [super viewDidUnload];
 }
 
