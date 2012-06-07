@@ -67,11 +67,10 @@
             // Only set the picture if the tag is still the same (it could have been reused since)
             if (cell.tag == indexPath.row) {
                 cell.slideImageView.image = [UIImage imageWithData:imageData];
-                [UIView beginAnimations:nil context:nil];
-                [UIView setAnimationDuration:0.2];
-                cell.slideImageView.alpha = 1;
-                [UIView commitAnimations];
-
+                [UIView animateWithDuration:0.2
+                                 animations:^{
+                                     cell.slideImageView.alpha = 1;
+                                 }];
             }
         });
     });

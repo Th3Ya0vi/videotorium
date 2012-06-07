@@ -73,10 +73,10 @@
 {
     if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
         [self.activityIndicator stopAnimating];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.5];
-        self.moviePlayerController.view.alpha = 1;
-        [UIView commitAnimations];
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             self.moviePlayerController.view.alpha = 1;
+                         }];        
     }
 }
 
@@ -214,20 +214,20 @@
         VideotoriumSlide *slideToShow = [self.recordingDetails.slides objectAtIndex:index];
         if (![slideToShow isEqual:self.currentSlide]) {
             self.currentSlide = slideToShow;
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:0.2];
-            self.slideImageView.alpha = 0;
-            [UIView commitAnimations];
+            [UIView animateWithDuration:0.2
+                             animations:^{
+                                 self.slideImageView.alpha = 0;
+                             }];
             dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
             dispatch_async(downloadSlideQueue, ^{
                 NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (self.currentSlide == slideToShow) {
                         self.slideImageView.image = [UIImage imageWithData:imageData];
-                        [UIView beginAnimations:nil context:nil];
-                        [UIView setAnimationDuration:0.2];
-                        self.slideImageView.alpha = 1;
-                        [UIView commitAnimations];
+                        [UIView animateWithDuration:0.2
+                                         animations:^{
+                                             self.slideImageView.alpha = 1;
+                                         }];
                     }
                 });
             });
