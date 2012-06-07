@@ -261,6 +261,7 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
                                 duration:(NSTimeInterval)duration
 {
+    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
     self.wasFullscreenBeforeOrientationChange = self.moviePlayerController.fullscreen;
     if (self.wasFullscreenBeforeOrientationChange) {
         self.moviePlayerController.fullscreen = NO;
