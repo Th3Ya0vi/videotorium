@@ -9,8 +9,9 @@
 //#define SCREENSHOTMODE
 
 #import <UIKit/UIKit.h>
+#import "VideotoriumSlidesTableViewController.h"
 
-@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate>
+@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate, VideotoriumSlidesTableDelegate>
 
 @property (nonatomic, strong) NSString *recordingID;
 @property (nonatomic) BOOL shouldAutoplay;

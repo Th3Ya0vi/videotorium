@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondaryVideoNotSupportedLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *slidesButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *slideActivityIndicator;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
@@ -34,7 +35,7 @@
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
 @property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
 
-@property (weak, nonatomic) UIPopoverController *infoPopoverController;
+@property (weak, nonatomic) UIPopoverController *infoAndSlidesPopoverController;
 
 @end
 
@@ -50,6 +51,7 @@
 @synthesize titleLabel = _titleLabel;
 @synthesize secondaryVideoNotSupportedLabel = _secondaryVideoNotSupportedLabel;
 @synthesize infoButton = _infoButton;
+@synthesize slidesButton = _slidesButton;
 @synthesize slideActivityIndicator = _slideActivityIndicator;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
@@ -63,7 +65,7 @@
 @synthesize currentSlide = _currentSlide;
 @synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
 
-@synthesize infoPopoverController = _infoPopoverController;
+@synthesize infoAndSlidesPopoverController = _infoAndSlidesPopoverController;
 
 @synthesize shouldAutoplay = _shouldAutoplay;
 
@@ -78,6 +80,13 @@
     }
 }
 
+- (void)moviePlayerPlaybackDidFinish:(NSNotification *)notification {
+    if ([notification.userInfo objectForKey:@"error"]) {
+        [self.activityIndicator stopAnimating];
+        self.titleLabel.text = @"Failed to play the video stream";
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -88,6 +97,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayerPlaybackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(memoryWarning:) name:@"memoryWarning" object:nil];
 
@@ -122,7 +135,7 @@
     }
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
-    [self.infoPopoverController dismissPopoverAnimated:YES];
+    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
     self.noSlidesLabel.hidden = YES;
     self.secondaryVideoNotSupportedLabel.hidden = YES;
     self.slideImageView.image = nil;
@@ -149,6 +162,8 @@
                     } else {
                         self.noSlidesLabel.hidden = NO;
                     }
+                } else {
+                    self.slidesButton.enabled = YES;
                 }
                 self.titleLabel.text = self.recordingDetails.title;
                 self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
@@ -234,6 +249,7 @@
     [self setInfoButton:nil];
     [self setSlideActivityIndicator:nil];
     [self setSecondaryVideoNotSupportedLabel:nil];
+    [self setSlidesButton:nil];
     [super viewDidUnload];
 }
 
@@ -276,9 +292,17 @@
     if ([segue.identifier isEqualToString:@"Info Popover"]) {
         UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
         VideotoriumRecordingInfoViewController *destination = popoverSegue.destinationViewController;
-        self.infoPopoverController = popoverSegue.popoverController;
+        self.infoAndSlidesPopoverController = popoverSegue.popoverController;
         destination.recording = self.recordingDetails;
-        destination.popoverController = self.infoPopoverController;
+        destination.popoverController = self.infoAndSlidesPopoverController;
+    }
+    if ([segue.identifier isEqualToString:@"Slides Popover"]) {
+        UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+        VideotoriumSlidesTableViewController *destination = popoverSegue.destinationViewController;
+        self.infoAndSlidesPopoverController = popoverSegue.popoverController;
+        destination.delegate = self;
+        destination.slides = self.recordingDetails.slides;
+        destination.popoverController = self.infoAndSlidesPopoverController;
     }
 }
 
@@ -299,6 +323,14 @@
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     self.splitViewBarButtonItem = nil;
+}
+
+
+#pragma mark - Videotorium slide table delegate
+
+- (void)userSelectedSlide:(VideotoriumSlide *)slide {
+    self.moviePlayerController.currentPlaybackTime = slide.timestamp;
+    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
 }
 
 @end

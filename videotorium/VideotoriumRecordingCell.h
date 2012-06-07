@@ -10,9 +10,9 @@
 
 @interface VideotoriumRecordingCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UIImageView *indexPicture;
-@property (nonatomic, strong) IBOutlet UILabel *title;
-@property (nonatomic, strong) IBOutlet UILabel *event;
-@property (nonatomic, strong) IBOutlet UILabel *date;
+@property (nonatomic, weak) IBOutlet UIImageView *indexPicture;
+@property (nonatomic, weak) IBOutlet UILabel *title;
+@property (nonatomic, weak) IBOutlet UILabel *event;
+@property (nonatomic, weak) IBOutlet UILabel *date;
 
 @end
