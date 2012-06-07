@@ -43,11 +43,13 @@
     [defaults setObject:searchString forKey:LAST_SEARCH_KEY];
     [defaults synchronize];
     
-    self.noRecordingsFoundLabel.hidden = YES;
-    self.errorConnectingLabel.hidden = YES;
-    self.tableView.hidden = YES;
-    
-    self.recordings = [NSArray array];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         self.noRecordingsFoundLabel.alpha = 0;
+                         self.errorConnectingLabel.alpha = 0;
+                         self.tableView.alpha = 0;
+                         self.activityIndicator.alpha = 1;
+                     }];
     [self.activityIndicator startAnimating];
     dispatch_queue_t getSearchResultsQueue = dispatch_queue_create("get search results queue", NULL);
     dispatch_async(getSearchResultsQueue, ^{
@@ -59,15 +61,19 @@
             if ([self.searchString isEqualToString:searchString]) {
                 self.recordings = recordings;
                 [self.activityIndicator stopAnimating];
-                if ([recordings count] == 0) {
-                    if (error) {
-                        self.errorConnectingLabel.hidden = NO;
-                    } else {
-                        self.noRecordingsFoundLabel.hidden = NO;
-                    }
-                } else {
-                    self.tableView.hidden = NO;
-                }
+                [UIView animateWithDuration:0.5
+                                 animations:^{
+                                     if ([recordings count] == 0) {
+                                         if (error) {
+                                             self.errorConnectingLabel.alpha = 1;
+                                         } else {
+                                             self.noRecordingsFoundLabel.alpha = 1;
+                                         }
+                                     } else {
+                                         self.tableView.alpha = 1;
+                                     }
+                                     self.activityIndicator.alpha = 0;
+                                 }];
             }
         });
     });
@@ -86,6 +92,10 @@
 {
     [super viewDidLoad];
     [self.searchBar setBackgroundImage:[UIImage imageNamed:@"videotorium-gradient.png"]];
+    self.noRecordingsFoundLabel.alpha = 0;
+    self.errorConnectingLabel.alpha = 0;
+    self.tableView.alpha = 0;
+    self.activityIndicator.alpha = 0;
 #ifndef SCREENSHOTMODE
     if (!self.searchString) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
