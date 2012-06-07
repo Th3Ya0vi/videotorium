@@ -303,6 +303,7 @@
         self.infoAndSlidesPopoverController = popoverSegue.popoverController;
         destination.delegate = self;
         destination.slides = self.recordingDetails.slides;
+        [destination scrollToSlide:self.currentSlide animated:NO];
         destination.popoverController = self.infoAndSlidesPopoverController;
     }
 }
@@ -331,7 +332,6 @@
 
 - (void)userSelectedSlide:(VideotoriumSlide *)slide {
     self.moviePlayerController.currentPlaybackTime = slide.timestamp;
-    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
 }
 
 @end

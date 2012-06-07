@@ -35,6 +35,15 @@
     return YES;
 }
 
+- (void)scrollToSlide:(VideotoriumSlide *)slide animated:(BOOL)animated
+{
+    NSUInteger index = [self.slides indexOfObject:slide];
+    if (index != NSNotFound) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:animated];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -76,6 +85,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate userSelectedSlide:[self.slides objectAtIndex:indexPath.row]];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

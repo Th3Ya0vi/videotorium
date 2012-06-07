@@ -22,4 +22,6 @@
 @property (weak, nonatomic) UIPopoverController *popoverController;
 @property (weak, nonatomic) id <VideotoriumSlidesTableDelegate> delegate;
 
+- (void)scrollToSlide:(VideotoriumSlide *)slide animated:(BOOL)animated;
+
 @end
