@@ -333,6 +333,8 @@
 
 - (void)userSelectedSlide:(VideotoriumSlide *)slide {
     self.moviePlayerController.currentPlaybackTime = slide.timestamp;
+    [self.moviePlayerController play];
+    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
 }
 
 @end
