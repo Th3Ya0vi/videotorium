@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSURL *imageURL;
 @property (nonatomic, strong) NSURL *thumbnailURL;
+@property (nonatomic, strong) NSString *ID;
 @property (nonatomic) NSTimeInterval timestamp;
 
 + (VideotoriumSlide *)slideWithDictionary:(NSDictionary *)slideDictionary imageURLPrefix:(NSString *)imageURLPrefix thumbnailURLPrefix:(NSString *)thumbnailURLPrefix;

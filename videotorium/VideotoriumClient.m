@@ -156,7 +156,7 @@
         NSMutableArray *resultsOnSlides = [NSMutableArray array];
         NSArray *slideDivs = [self substringsOf:result fromMatching:@"<div class=\"slide\">" toMatching:@"</div>"];
         for (NSString *slideDiv in slideDivs) {
-            [resultsOnSlides addObject:[self substringOf:slideDiv matching:@"src=\"[^\"]*/([^/\"]*)\""]];
+            [resultsOnSlides addObject:[self substringOf:slideDiv matching:@"src=\"[^\"]*/([^/\"]*)\\.[^/\"]*\""]];
         }
         recording.resultsOnSlides = resultsOnSlides;
         [recordings addObject:recording];
