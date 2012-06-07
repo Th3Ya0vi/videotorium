@@ -153,6 +153,12 @@
         if (indexPictureURLString) recording.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
         recording.dateString = [self substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
         recording.eventName = [self substringOf:result matching:@"recordingevents[^=]*=\"hu/events[^>]*> *([^<]*)"];
+        NSMutableArray *resultsOnSlides = [NSMutableArray array];
+        NSArray *slideDivs = [self substringsOf:result fromMatching:@"<div class=\"slide\">" toMatching:@"</div>"];
+        for (NSString *slideDiv in slideDivs) {
+            [resultsOnSlides addObject:[self substringOf:slideDiv matching:@"src=\"[^\"]*/([^/\"]*)\""]];
+        }
+        recording.resultsOnSlides = resultsOnSlides;
         [recordings addObject:recording];
     }
     return recordings;

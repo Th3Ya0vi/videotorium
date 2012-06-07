@@ -15,11 +15,12 @@
 @synthesize indexPictureURL = _indexPictureURL;
 @synthesize dateString = _dateString;
 @synthesize eventName = _eventName;
+@synthesize resultsOnSlides = _resultsOnSlides;
 
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumRecording (ID: %@, title: %@, dateString: %@, eventName: %@, indexPictureURL: %@)", self.ID, self.title, self.dateString, self.eventName, self.indexPictureURL];
+    return [NSString stringWithFormat:@"VideotoriumRecording (ID: %@, title: %@, dateString: %@, eventName: %@, indexPictureURL: %@, resultsOnSlides: %@)", self.ID, self.title, self.dateString, self.eventName, self.indexPictureURL, self.resultsOnSlides];
 }
 
 @end
