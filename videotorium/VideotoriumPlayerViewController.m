@@ -205,7 +205,7 @@
             [UIView commitAnimations];
             dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
             dispatch_async(downloadSlideQueue, ^{
-                NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.URL];
+                NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (self.currentSlide == slideToShow) {
                         self.slideImageView.image = [UIImage imageWithData:imageData];

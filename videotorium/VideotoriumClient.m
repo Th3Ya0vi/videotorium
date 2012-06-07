@@ -114,13 +114,14 @@
         }        
     }
     NSMutableArray *slides = [NSMutableArray array];
-    NSString *slidesURLPrefix = [self substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
+    NSString *slidesImageURLPrefix = [self substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
+    NSString *slidesThumbnailURLPrefix = [self substringOf:details.response matching:@"slides_thumbnailFolder *= *'([^']*)'"];
     NSString *slidesJSONString = [self substringOf:details.response matching:@"slides_model *= *'([^']*)'"];
     if (slidesJSONString != nil) {
         NSData *slidesJSONData = [slidesJSONString dataUsingEncoding:NSUTF8StringEncoding];
         NSArray *slidesJSONArray = [NSJSONSerialization JSONObjectWithData:slidesJSONData options:0 error:NULL];
         for (NSDictionary *slideDictionary in slidesJSONArray) {
-            VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary URLPrefix:slidesURLPrefix];
+            VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary imageURLPrefix:slidesImageURLPrefix thumbnailURLPrefix:slidesThumbnailURLPrefix];
             [slides addObject:slide];
         }
         details.slides = slides;        

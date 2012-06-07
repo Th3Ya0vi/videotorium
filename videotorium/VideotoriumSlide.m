@@ -10,21 +10,23 @@
 
 @implementation VideotoriumSlide
 
-@synthesize URL = _URL;
+@synthesize imageURL = _imageURL;
+@synthesize thumbnailURL = _thumbnailURL;
 @synthesize timestamp = _timestamp;
 
-+ (VideotoriumSlide *)slideWithDictionary:(NSDictionary *)slideDictionary URLPrefix:(NSString *)URLPrefix
++ (VideotoriumSlide *)slideWithDictionary:(NSDictionary *)slideDictionary imageURLPrefix:(NSString *)imageURLPrefix thumbnailURLPrefix:(NSString *)thumbnailURLPrefix
 {
     VideotoriumSlide *slide = [[VideotoriumSlide alloc] init];
     NSString *image = [slideDictionary objectForKey:@"image"];
-    slide.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", URLPrefix, image]];
-    slide.timestamp = [[slideDictionary objectForKey:@"timestamp"] intValue];
+    slide.imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", imageURLPrefix, image]];
+    slide.thumbnailURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", thumbnailURLPrefix, image]];
+    slide.timestamp = [[slideDictionary objectForKey:@"timestamp"] floatValue];
     return slide;
 }
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumSlide (timestamp: %.0f, URL: %@)", self.timestamp, self.URL];
+    return [NSString stringWithFormat:@"VideotoriumSlide (timestamp: %.2f, imageURL: %@, thumbnailURL: %@)", self.timestamp, self.imageURL, self.thumbnailURL];
 }
 
 @end

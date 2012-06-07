@@ -10,9 +10,10 @@
 
 @interface VideotoriumSlide : NSObject
 
-@property (nonatomic, strong) NSURL *URL;
+@property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, strong) NSURL *thumbnailURL;
 @property (nonatomic) NSTimeInterval timestamp;
 
-+ (VideotoriumSlide *)slideWithDictionary:(NSDictionary *)slideDictionary URLPrefix:(NSString *)URLPrefix;
++ (VideotoriumSlide *)slideWithDictionary:(NSDictionary *)slideDictionary imageURLPrefix:(NSString *)imageURLPrefix thumbnailURLPrefix:(NSString *)thumbnailURLPrefix;
 
 @end

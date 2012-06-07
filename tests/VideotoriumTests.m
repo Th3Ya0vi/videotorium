@@ -48,6 +48,12 @@
     VideotoriumRecordingDetails *recording = [self.videotoriumClient detailsWithID:@"2487"];
     NSArray *slides = recording.slides;
     STAssertEquals([slides count], (NSUInteger)19, nil);
+    VideotoriumSlide *slide = [slides objectAtIndex:0];
+    STAssertEquals(slide.timestamp, (NSTimeInterval)1, nil);
+    NSURL *expectedImageURL = [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/487/2487/slides/51687.jpg"];
+    NSURL *expectedThumbnailURL = [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/487/2487/slides/400x400/51687.jpg"];
+    STAssertEqualObjects(slide.imageURL, expectedImageURL, nil);
+    STAssertEqualObjects(slide.thumbnailURL, expectedThumbnailURL, nil);
 }
 
 - (void)testGetRecordingMetadata
@@ -66,10 +72,13 @@
     NSString *JSONString = @"{\"timestamp\":\"1\",\"id\":\"51687\",\"isChapter\":0,\"thumbnail\":\"51687.jpg\",\"image\":\"51687.jpg\",\"captions\":{\"english\":\"\",\"original\":\"\"}}";
     NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *slideDictionary = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:NULL];
-    NSString *URLPrefix = @"http://static.videotorium.hu/files/recordings/487/2487/slides/";
-    VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary URLPrefix:URLPrefix];
-    NSURL *expectedURL = [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/487/2487/slides/51687.jpg"];
-    STAssertEqualObjects(slide.URL, expectedURL, nil);
+    NSString *imageURLPrefix = @"http://static.videotorium.hu/files/recordings/487/2487/slides/";
+    NSString *thumbnailURLPrefix = @"http://static.videotorium.hu/files/recordings/487/2487/slides/400x400/";
+    VideotoriumSlide *slide = [VideotoriumSlide slideWithDictionary:slideDictionary imageURLPrefix:imageURLPrefix thumbnailURLPrefix:thumbnailURLPrefix];
+    NSURL *expectedImageURL = [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/487/2487/slides/51687.jpg"];
+    NSURL *expectedThumbnailURL = [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/487/2487/slides/400x400/51687.jpg"];
+    STAssertEqualObjects(slide.imageURL, expectedImageURL, nil);
+    STAssertEqualObjects(slide.thumbnailURL, expectedThumbnailURL, nil);
     STAssertEquals(slide.timestamp, (NSTimeInterval)1, nil);
 }
 
