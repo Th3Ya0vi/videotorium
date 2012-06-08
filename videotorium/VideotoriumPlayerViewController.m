@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *slidesButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *slideActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *slideContainerView;
+@property (weak, nonatomic) IBOutlet UIView *slideView;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -36,6 +38,9 @@
 @property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
 
 @property (weak, nonatomic) UIPopoverController *infoAndSlidesPopoverController;
+@property (nonatomic) BOOL slideIsFullscreen;
+@property (nonatomic) BOOL slideZoomingInProgress;
+
 
 @end
 
@@ -53,6 +58,8 @@
 @synthesize infoButton = _infoButton;
 @synthesize slidesButton = _slidesButton;
 @synthesize slideActivityIndicator = _slideActivityIndicator;
+@synthesize slideContainerView = _slideContainerView;
+@synthesize slideView = _slideView;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -66,6 +73,9 @@
 @synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
 
 @synthesize infoAndSlidesPopoverController = _infoAndSlidesPopoverController;
+
+@synthesize slideIsFullscreen = _slideIsFullscreen;
+@synthesize slideZoomingInProgress = _slideZoomingInProgress;
 
 @synthesize shouldAutoplay = _shouldAutoplay;
 
@@ -127,6 +137,8 @@
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
     self.slidesButton.enabled = NO;
+    self.slideIsFullscreen = NO;
+    self.slideZoomingInProgress = NO;
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
         [self.moviePlayerController.view removeFromSuperview];
@@ -264,6 +276,8 @@
     [self setSlideActivityIndicator:nil];
     [self setSecondaryVideoNotSupportedLabel:nil];
     [self setSlidesButton:nil];
+    [self setSlideContainerView:nil];
+    [self setSlideView:nil];
     [super viewDidUnload];
 }
 
@@ -348,6 +362,44 @@
     self.moviePlayerController.currentPlaybackTime = slide.timestamp;
     [self.moviePlayerController play];
     [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
+}
+
+#pragma mark - Handling gestures
+
+- (IBAction)handlePinchGesture:(UIPinchGestureRecognizer *)sender {
+    if (!self.slideZoomingInProgress) {
+        if (sender.state == UIGestureRecognizerStateChanged) {
+            if (sender.scale > 1) {
+                if (!self.slideIsFullscreen) {
+                    self.slideZoomingInProgress = YES;
+                    CGRect rectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
+                    [self.view.superview addSubview:self.slideView];
+                    self.slideView.frame = rectInSuperview;
+                    [UIView animateWithDuration:0.5 animations:^{
+                        self.slideView.frame = self.view.superview.bounds;
+                    } completion:^(BOOL finished) {
+                        self.slideIsFullscreen = YES;
+                        self.slideZoomingInProgress = NO;
+                    }];
+                }
+            }
+            if (sender.scale < 1) {
+                if (self.slideIsFullscreen) {
+                    self.slideZoomingInProgress = YES;
+                    CGRect originalRectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
+                    [UIView animateWithDuration:0.5 animations:^{
+                        self.slideView.frame = originalRectInSuperview;
+                    } completion:^(BOOL finished) {
+                        [self.slideContainerView addSubview:self.slideView];
+                        self.slideView.frame = self.slideContainerView.bounds;
+                        self.slideIsFullscreen = NO;
+                        self.slideZoomingInProgress = NO;
+                    }];
+                }
+            }
+        }
+        
+    }
 }
 
 @end
