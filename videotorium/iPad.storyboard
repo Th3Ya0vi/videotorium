@@ -26,7 +26,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feU-jw-PYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="E3H-7v-a7f" customClass="VideotoriumSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3UY-YK-06G">
-                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="832"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" id="9Vp-Dx-Dpj">
@@ -43,7 +43,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Gt-gq-U6F">
-                                <rect key="frame" x="0.0" y="44" width="320" height="744"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="788"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -224,25 +224,26 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No recordings found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ic3-W7-FuS">
-                                <rect key="frame" x="0.0" y="370" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="392" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Error connecting to videotorium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uwZ-B9-l5F">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="394" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="2Gr-DQ-ATz">
-                                <rect key="frame" x="0.0" y="376" width="320" height="37"/>
+                                <rect key="frame" x="0.0" y="398" width="320" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="48Z-LV-7nB"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="2Gr-DQ-ATz" id="uzc-gt-Vr7"/>
                         <outlet property="errorConnectingLabel" destination="uwZ-B9-l5F" id="dEq-Qu-tJD"/>
@@ -545,7 +546,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpl-dd-GRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="cYm-1U-5wB" customClass="VideotoriumSlidesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="230" sectionHeaderHeight="22" sectionFooterHeight="22" id="DNe-91-tcd">
-                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="832"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

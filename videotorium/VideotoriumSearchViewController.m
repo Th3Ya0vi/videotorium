@@ -128,6 +128,18 @@
     [super viewDidUnload];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
@@ -196,8 +208,8 @@
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = recording.ID;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([recording.matchingSlides count] == 0) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [detailViewController dismissSplitViewPopover];
     }
 }
