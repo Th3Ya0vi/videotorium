@@ -42,7 +42,6 @@
 @implementation VideotoriumPlayerViewController
 
 @synthesize recordingID = _recordingID;
-@synthesize resultsOnSlides = _resultsOnSlides;
 
 @synthesize slideImageView = _slideImageView;
 @synthesize moviePlayerView = _moviePlayerView;
@@ -305,7 +304,6 @@
         self.infoAndSlidesPopoverController = popoverSegue.popoverController;
         destination.delegate = self;
         destination.slides = self.recordingDetails.slides;
-        destination.resultsOnSlides = self.resultsOnSlides;
         [destination scrollToSlide:self.currentSlide animated:NO];
         destination.popoverController = self.infoAndSlidesPopoverController;
     }

@@ -15,6 +15,5 @@
 
 @property (nonatomic, strong) NSString *recordingID;
 @property (nonatomic) BOOL shouldAutoplay;
-@property (nonatomic, copy) NSArray *resultsOnSlides;
 
 @end
