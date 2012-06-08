@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *slideActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *slideContainerView;
 @property (weak, nonatomic) IBOutlet UIView *slideView;
+@property (weak, nonatomic) IBOutlet UIButton *seekToThisSlideButton;
+@property (weak, nonatomic) IBOutlet UIButton *followVideoButton;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -35,12 +37,14 @@
 
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
+@property (nonatomic, strong) VideotoriumSlide *slideToShow;
 @property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
 
 @property (weak, nonatomic) UIPopoverController *infoAndSlidesPopoverController;
 @property (nonatomic) BOOL slideIsFullscreen;
 @property (nonatomic) BOOL slideZoomingInProgress;
 
+@property (nonatomic) BOOL slidesFollowVideo;
 
 @end
 
@@ -60,6 +64,8 @@
 @synthesize slideActivityIndicator = _slideActivityIndicator;
 @synthesize slideContainerView = _slideContainerView;
 @synthesize slideView = _slideView;
+@synthesize seekToThisSlideButton = _seekToThisSlideButton;
+@synthesize followVideoButton = _followVideoButton;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -70,12 +76,14 @@
 
 @synthesize recordingDetails = _recordingDetails;
 @synthesize currentSlide = _currentSlide;
+@synthesize slideToShow = _slideToShow;
 @synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
 
 @synthesize infoAndSlidesPopoverController = _infoAndSlidesPopoverController;
 
 @synthesize slideIsFullscreen = _slideIsFullscreen;
 @synthesize slideZoomingInProgress = _slideZoomingInProgress;
+@synthesize slidesFollowVideo = _slidesFollowVideo;
 
 @synthesize shouldAutoplay = _shouldAutoplay;
 
@@ -112,6 +120,19 @@
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(memoryWarning:) name:@"memoryWarning" object:nil];
+    
+    UIPinchGestureRecognizer *pinchGR = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+    UISwipeGestureRecognizer *swipeRightGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeRightGR.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeRightGR.delegate = self;
+    UISwipeGestureRecognizer *swipeLeftGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeLeftGR.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.slideView addGestureRecognizer:pinchGR];
+    [self.slideView addGestureRecognizer:swipeLeftGR];
+    [self.slideView addGestureRecognizer:swipeRightGR];
+    
+    self.seekToThisSlideButton.alpha = 0;
+    self.followVideoButton.alpha = 0;
 
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
@@ -139,6 +160,7 @@
     self.slidesButton.enabled = NO;
     self.slideIsFullscreen = NO;
     self.slideZoomingInProgress = NO;
+    self.slidesFollowVideo = YES;
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
         [self.moviePlayerController.view removeFromSuperview];
@@ -229,17 +251,33 @@
 {
     NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
     if ([self.recordingDetails.slides count] > 0) {
-        // Assuming that the slides are ordered by their timestamp
-        // Starting from the end find the first one which has earlier timestamp than the current playback time
-        NSUInteger index = [self.recordingDetails.slides indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-            VideotoriumSlide *slide = (VideotoriumSlide *)obj;
-            return (slide.timestamp < currentPlaybackTime);
-        }];
-        // If there are no slides earlier than the current time, show the first slide anyway
-        if (index == NSNotFound) index = 0;
-        VideotoriumSlide *slideToShow = [self.recordingDetails.slides objectAtIndex:index];
-        if (![slideToShow isEqual:self.currentSlide]) {
-            self.currentSlide = slideToShow;
+        if (self.slidesFollowVideo) {
+            if (self.seekToThisSlideButton.alpha == 1) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.seekToThisSlideButton.alpha = 0;
+                    self.followVideoButton.alpha = 0;
+                }];
+            }
+            // Assuming that the slides are ordered by their timestamp
+            // Starting from the end find the first one which has earlier timestamp than the current playback time
+            NSUInteger index = [self.recordingDetails.slides indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+                VideotoriumSlide *slide = (VideotoriumSlide *)obj;
+                return (slide.timestamp < currentPlaybackTime);
+            }];
+            // If there are no slides earlier than the current time, show the first slide anyway
+            if (index == NSNotFound) index = 0;
+            self.slideToShow = [self.recordingDetails.slides objectAtIndex:index];
+        } else {
+            if (self.seekToThisSlideButton.alpha == 0) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.seekToThisSlideButton.alpha = 1;
+                    self.followVideoButton.alpha = 1;
+                }];
+            }
+
+        }
+        if (![self.slideToShow isEqual:self.currentSlide]) {
+            self.currentSlide = self.slideToShow;
             [UIView animateWithDuration:0.2
                              animations:^{
                                  self.slideImageView.alpha = 0;
@@ -248,10 +286,16 @@
             dispatch_async(downloadSlideQueue, ^{
                 NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    if (self.currentSlide == slideToShow) {
+                    if (self.currentSlide == self.slideToShow) {
                         self.slideImageView.image = [UIImage imageWithData:imageData];
                         [UIView animateWithDuration:0.2
                                          animations:^{
+                                             if (self.slidesFollowVideo) {
+                                                 self.slideImageView.transform = CGAffineTransformIdentity;
+                                             } else {
+                                                 CGAffineTransform transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(0.9, 0.9), 0, 25);
+                                                 self.slideImageView.transform = transform;
+                                             }
                                              self.slideImageView.alpha = 1;
                                          }];
                     }
@@ -278,6 +322,8 @@
     [self setSlidesButton:nil];
     [self setSlideContainerView:nil];
     [self setSlideView:nil];
+    [self setSeekToThisSlideButton:nil];
+    [self setFollowVideoButton:nil];
     [super viewDidUnload];
 }
 
@@ -366,7 +412,12 @@
 
 #pragma mark - Handling gestures
 
-- (IBAction)handlePinchGesture:(UIPinchGestureRecognizer *)sender {
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (void)handlePinchGesture:(UIPinchGestureRecognizer *)sender {
     if (!self.slideZoomingInProgress) {
         if (sender.state == UIGestureRecognizerStateChanged) {
             if (sender.scale > 1) {
@@ -401,5 +452,33 @@
         
     }
 }
+
+- (IBAction)seekVideoToCurrentSlide:(id)sender {
+    self.moviePlayerController.currentPlaybackTime =self.currentSlide.timestamp;
+    self.slidesFollowVideo = YES;
+    [self updateSlide];
+}
+
+- (IBAction)makeSlidesFollowVideo:(id)sender {
+    self.slidesFollowVideo = YES;
+    [self updateSlide];
+}
+
+- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
+    NSUInteger indexOfCurrentSlide = [self.recordingDetails.slides indexOfObject:self.currentSlide];
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        if (indexOfCurrentSlide > 0) {
+            self.slidesFollowVideo = NO;
+            self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide - 1)];
+        }
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        if (indexOfCurrentSlide < [self.recordingDetails.slides count] - 1) {
+            self.slidesFollowVideo = NO;
+            self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide + 1)];
+        }
+    }
+}
+
 
 @end

@@ -492,9 +492,6 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="09t-QG-80B" appends="YES" id="igK-bo-aJr"/>
-                                                </connections>
                                             </imageView>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="Y5C-uS-45n">
                                                 <rect key="frame" x="365" y="270" width="37" height="37"/>
@@ -514,21 +511,55 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                 <color key="textColor" red="0.75968070649999997" green="0.75968070649999997" blue="0.75968070649999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q4g-zX-6CZ">
+                                                <rect key="frame" x="20" y="6" width="205" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                                <state key="normal" title="Seek video to this slide">
+                                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="seekVideoToCurrentSlide:" destination="tUe-ba-nWi" eventType="touchUpInside" id="Kus-ZB-QEr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KZy-0I-FZT">
+                                                <rect key="frame" x="636" y="6" width="112" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                                <state key="normal" title="Follow video">
+                                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="makeSlidesFollowVideo:" destination="tUe-ba-nWi" eventType="touchUpInside" id="pUl-C3-rbR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="xHb-jk-lmH" id="DDL-kI-4ey"/>
+                        <outlet property="followVideoButton" destination="KZy-0I-FZT" id="9W7-Ew-twx"/>
                         <outlet property="infoButton" destination="nDw-f1-XUJ" id="lpK-KP-Q3h"/>
                         <outlet property="moviePlayerView" destination="YvY-Iq-No2" id="aFG-uh-bPg"/>
                         <outlet property="noSlidesLabel" destination="yR5-j4-voA" id="hbF-cp-ifz"/>
                         <outlet property="secondaryVideoNotSupportedLabel" destination="NJX-7R-J48" id="uvT-Rs-Ybo"/>
+                        <outlet property="seekToThisSlideButton" destination="Q4g-zX-6CZ" id="ydk-4I-gye"/>
                         <outlet property="slideActivityIndicator" destination="Y5C-uS-45n" id="ScV-sb-ZRY"/>
                         <outlet property="slideContainerView" destination="Nxj-p1-tns" id="fVI-wW-GsO"/>
                         <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
@@ -538,11 +569,6 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                         <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
                     </connections>
                 </viewController>
-                <pinchGestureRecognizer id="09t-QG-80B">
-                    <connections>
-                        <action selector="handlePinchGesture:" destination="tUe-ba-nWi" id="BOQ-NE-pl8"/>
-                    </connections>
-                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1735" y="417"/>
         </scene>
@@ -618,10 +644,12 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="noSlidesLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="secondaryVideoNotSupportedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seekToThisSlideButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="slideActivityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>

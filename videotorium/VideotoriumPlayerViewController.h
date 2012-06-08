@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "VideotoriumSlidesTableViewController.h"
 
-@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate, VideotoriumSlidesTableDelegate>
+@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate, VideotoriumSlidesTableDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSString *recordingID;
 @property (nonatomic) BOOL shouldAutoplay;
