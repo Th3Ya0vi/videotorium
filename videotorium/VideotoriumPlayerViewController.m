@@ -110,6 +110,7 @@
     [super viewDidLoad];
     
     self.splitViewController.delegate = self;
+    self.splitViewController.presentsWithGesture = NO;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerLoadStateDidChange:)
@@ -242,7 +243,8 @@
     [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
         if ([slide.ID isEqualToString:ID]) {
             *stop = YES;
-            self.moviePlayerController.currentPlaybackTime = slide.timestamp;
+            self.moviePlayerController.currentPlaybackTime = slide.timestamp + 5;
+            self.slidesFollowVideo = YES;
         }
     }];
 }
@@ -288,14 +290,13 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (self.currentSlide == self.slideToShow) {
                         self.slideImageView.image = [UIImage imageWithData:imageData];
+                        if (self.slidesFollowVideo) {
+                            self.slideImageView.transform = CGAffineTransformIdentity;
+                        } else {
+                            self.slideImageView.transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(0.9, 0.9), 0, 25);;
+                        }
                         [UIView animateWithDuration:0.2
                                          animations:^{
-                                             if (self.slidesFollowVideo) {
-                                                 self.slideImageView.transform = CGAffineTransformIdentity;
-                                             } else {
-                                                 CGAffineTransform transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(0.9, 0.9), 0, 25);
-                                                 self.slideImageView.transform = transform;
-                                             }
                                              self.slideImageView.alpha = 1;
                                          }];
                     }
@@ -405,7 +406,7 @@
 #pragma mark - Videotorium slide table delegate
 
 - (void)userSelectedSlide:(VideotoriumSlide *)slide {
-    self.moviePlayerController.currentPlaybackTime = slide.timestamp;
+    [self seekToSlideWithID:slide.ID];
     [self.moviePlayerController play];
     [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
 }
@@ -454,13 +455,14 @@
 }
 
 - (IBAction)seekVideoToCurrentSlide:(id)sender {
-    self.moviePlayerController.currentPlaybackTime =self.currentSlide.timestamp;
-    self.slidesFollowVideo = YES;
+    [self seekToSlideWithID:self.currentSlide.ID];
+    self.currentSlide = nil;
     [self updateSlide];
 }
 
 - (IBAction)makeSlidesFollowVideo:(id)sender {
     self.slidesFollowVideo = YES;
+    self.currentSlide = nil;
     [self updateSlide];
 }
 
@@ -470,12 +472,20 @@
         if (indexOfCurrentSlide > 0) {
             self.slidesFollowVideo = NO;
             self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide - 1)];
+            [UIView animateWithDuration:0.2 animations:^{
+                self.slideImageView.transform = CGAffineTransformTranslate(self.slideImageView.transform, 1000 , 0); 
+                self.slideImageView.alpha = 0;
+            }];
         }
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         if (indexOfCurrentSlide < [self.recordingDetails.slides count] - 1) {
             self.slidesFollowVideo = NO;
             self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide + 1)];
+            [UIView animateWithDuration:0.2 animations:^{
+                self.slideImageView.transform = CGAffineTransformTranslate(self.slideImageView.transform, -1000, 0); 
+                self.slideImageView.alpha = 0;
+            }];
         }
     }
 }
