@@ -63,7 +63,16 @@
     cell.tag = indexPath.row;
     dispatch_queue_t getSlideThumbnailQueue = dispatch_queue_create("get slide thumbnail", NULL);
     dispatch_async(getSlideThumbnailQueue, ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:slide.thumbnailURL];
+        NSData *imageData;
+        // try to hack a bigger thumbnail
+        NSString *URLString = [slide.thumbnailURL absoluteString];
+        if ([URLString rangeOfString:@"150x150"].location != NSNotFound) {
+            NSString *biggerString = [URLString stringByReplacingOccurrencesOfString:@"150x150" withString:@"400x400"];
+            imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:biggerString]];
+        }
+        if (!imageData) {
+            imageData = [NSData dataWithContentsOfURL:slide.thumbnailURL];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             // Only set the picture if the tag is still the same (it could have been reused since)
             if (cell.tag == indexPath.row) {
@@ -86,6 +95,7 @@
 {
     VideotoriumSlide *slide = [self.slides objectAtIndex:indexPath.row];
     [self.delegate userSelectedSlide:slide];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

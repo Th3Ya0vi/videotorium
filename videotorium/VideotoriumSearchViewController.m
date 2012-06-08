@@ -91,7 +91,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.searchBar setBackgroundImage:[UIImage imageNamed:@"videotorium-gradient.png"]];
     self.noRecordingsFoundLabel.alpha = 0;
     self.errorConnectingLabel.alpha = 0;
     self.tableView.alpha = 0;
@@ -134,6 +133,17 @@
     return YES;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier hasPrefix:@"Show matching slides"]) {
+        VideotoriumSlidesTableViewController *destination = segue.destinationViewController;
+        VideotoriumRecordingCell *cell = sender;
+        VideotoriumRecording *recording = [self.recordings objectAtIndex:cell.tag];
+        destination.slides = recording.matchingSlides;
+        destination.delegate = self;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -147,10 +157,16 @@
 
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     CGSize textSize = [recording.title sizeWithFont:[UIFont systemFontOfSize:12]];
-    if (textSize.width < 190) CellIdentifier = @"Recording Cell Oneliner";
+    if (textSize.width < 190) {
+        CellIdentifier = @"Recording Cell Oneliner";
+    }
+    if ([recording.matchingSlides count]) {
+        CellIdentifier = [CellIdentifier stringByAppendingString:@" With Matching Slides"];
+    }
     
     VideotoriumRecordingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    cell.tag = indexPath.row;
     cell.title.text = recording.title;
     cell.event.text = recording.eventName;
     cell.date.text = recording.dateString;
@@ -159,8 +175,8 @@
     dispatch_async(getIndexPictureQueue, ^{
         NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
         dispatch_async(dispatch_get_main_queue(), ^{
-            // Only set the picture if the text is still the same (it could have been reused since)
-            if ([cell.title.text isEqualToString:recording.title]) {
+            // Only set the picture if the recording is still the same (it could have been reused since)
+            if (cell.tag == indexPath.row) {
                 cell.indexPicture.image = [UIImage imageWithData:imageData];                
                 [UIView animateWithDuration:0.2 animations:^{
                     cell.indexPicture.alpha = 1;
@@ -180,7 +196,19 @@
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = recording.ID;
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([recording.matchingSlides count] == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [detailViewController dismissSplitViewPopover];
+    }
+}
+
+#pragma mark - Slide table view delegate
+
+- (void)userSelectedSlide:(VideotoriumSlide *)slide
+{
+    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
+    [detailViewController seekToSlideWithID:slide.ID];
+    [detailViewController dismissSplitViewPopover];
 }
 
 #pragma mark - Search bar delegate

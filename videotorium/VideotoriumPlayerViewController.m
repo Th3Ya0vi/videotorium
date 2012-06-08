@@ -90,7 +90,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.toolbar setBackgroundImage:[UIImage imageNamed:@"videotorium-gradient.png"]forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     self.splitViewController.delegate = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
@@ -128,7 +127,6 @@
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
     self.slidesButton.enabled = NO;
-    [self.splitViewPopoverController dismissPopoverAnimated:YES];
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
         [self.moviePlayerController.view removeFromSuperview];
@@ -196,8 +194,23 @@
     _splitViewBarButtonItem = splitViewBarButtonItem;
 }
 
+- (void)dismissSplitViewPopover
+{
+    [self.splitViewPopoverController dismissPopoverAnimated:YES];
+}
+
 - (void)memoryWarning:(NSNotification *)notification
 {
+}
+
+- (void)seekToSlideWithID:(NSString *)ID
+{
+    [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
+        if ([slide.ID isEqualToString:ID]) {
+            *stop = YES;
+            self.moviePlayerController.currentPlaybackTime = slide.timestamp;
+        }
+    }];
 }
 
 - (void)updateSlide

@@ -145,6 +145,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DB860BE1581F08600A7F590 /* Slide table */ = {
+			isa = PBXGroup;
+			children = (
+				2DFBB7861580E00900C770EE /* VideotoriumSlidesTableViewController.h */,
+				2DFBB7871580E00900C770EE /* VideotoriumSlidesTableViewController.m */,
+				2DFBB78A1580E06700C770EE /* VideotoriumSlideCell.h */,
+				2DFBB78B1580E06800C770EE /* VideotoriumSlideCell.m */,
+			);
+			name = "Slide table";
+			sourceTree = "<group>";
+		};
 		2DE8EFA3154E5F6800503998 /* tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +205,7 @@
 			children = (
 				2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */,
 				2DFBB78F1580E0C800C770EE /* Player */,
+				2DB860BE1581F08600A7F590 /* Slide table */,
 				2DFBB78E1580E0BC00C770EE /* Search */,
 				2DFBB78D1580E0AD00C770EE /* Client */,
 				2DEB06BF1549703200AD0805 /* Supporting Files */,
@@ -260,10 +272,6 @@
 			children = (
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */,
 				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */,
-				2DFBB7861580E00900C770EE /* VideotoriumSlidesTableViewController.h */,
-				2DFBB7871580E00900C770EE /* VideotoriumSlidesTableViewController.m */,
-				2DFBB78A1580E06700C770EE /* VideotoriumSlideCell.h */,
-				2DFBB78B1580E06800C770EE /* VideotoriumSlideCell.m */,
 				2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */,
 				2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */,
 			);

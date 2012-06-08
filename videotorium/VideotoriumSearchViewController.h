@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideotoriumSlidesTableViewController.h"
 
-@interface VideotoriumSearchViewController : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface VideotoriumSearchViewController : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, VideotoriumSlidesTableDelegate>
 
 @property (nonatomic, copy) NSString *searchString;
 

@@ -14,19 +14,19 @@
                     <toolbarItems/>
                     <connections>
                         <segue destination="tUe-ba-nWi" kind="relationship" relationship="detailViewController" id="eou-IF-OfP"/>
-                        <segue destination="E3H-7v-a7f" kind="relationship" relationship="masterViewController" id="Kqx-2H-wQD"/>
+                        <segue destination="yaR-KV-ScZ" kind="relationship" relationship="masterViewController" id="Kqx-2H-wQD"/>
                     </connections>
                 </splitViewController>
             </objects>
             <point key="canvasLocation" x="-2927" y="19"/>
         </scene>
-        <!--Videotorium Search View Controller-->
+        <!--Videotorium Search View Controller - Search-->
         <scene sceneID="e40-Qe-Vjt">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feU-jw-PYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="E3H-7v-a7f" customClass="VideotoriumSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3UY-YK-06G">
-                        <rect key="frame" x="0.0" y="20" width="320" height="832"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" id="9Vp-Dx-Dpj">
@@ -43,11 +43,11 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Gt-gq-U6F">
-                                <rect key="frame" x="0.0" y="44" width="320" height="788"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="744"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell" rowHeight="73" id="Sk6-7L-ngP" customClass="VideotoriumRecordingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell With Matching Slides" rowHeight="73" id="Sk6-7L-ngP" customClass="VideotoriumRecordingCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -87,9 +87,10 @@
                                             <outlet property="event" destination="6ZX-u1-DVb" id="19j-Zt-Hm9"/>
                                             <outlet property="indexPicture" destination="cfx-I3-khG" id="PBt-GW-E9I"/>
                                             <outlet property="title" destination="xKJ-Pg-F12" id="Or5-MC-8F0"/>
+                                            <segue destination="cYm-1U-5wB" kind="push" identifier="Show matching slides 1" id="lz3-sy-RqY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner" rowHeight="73" id="zi2-aa-Pca" customClass="VideotoriumRecordingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner With Matching Slides" rowHeight="73" id="zi2-aa-Pca" customClass="VideotoriumRecordingCell">
                                         <rect key="frame" x="0.0" y="95" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -129,6 +130,91 @@
                                             <outlet property="event" destination="fdb-Yw-tIC" id="ana-VE-XMg"/>
                                             <outlet property="indexPicture" destination="C1l-cw-WTM" id="3jp-gz-KTb"/>
                                             <outlet property="title" destination="3dI-n6-dQ9" id="vrN-fV-p38"/>
+                                            <segue destination="cYm-1U-5wB" kind="push" identifier="Show matching slides 2" id="4WD-tD-RrH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell" rowHeight="73" id="Av0-ib-Egd" customClass="VideotoriumRecordingCell">
+                                        <rect key="frame" x="0.0" y="168" width="320" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="muy-Wu-sI4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Internetes kommunikációs eszközök az Országos Széchényi Könyvtárban" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="TES-dK-1rB">
+                                                    <rect key="frame" x="104" y="2" width="191" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Networkshop 2012" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="kzK-kA-1kS">
+                                                    <rect key="frame" x="104" y="33" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2012. április 42." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="xzn-yD-fmy">
+                                                    <rect key="frame" x="104" y="50" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="date" destination="xzn-yD-fmy" id="BHk-or-VV4"/>
+                                            <outlet property="event" destination="kzK-kA-1kS" id="QfR-BS-a8K"/>
+                                            <outlet property="indexPicture" destination="muy-Wu-sI4" id="tbY-r8-WXh"/>
+                                            <outlet property="title" destination="TES-dK-1rB" id="X6K-he-DAt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner" rowHeight="73" id="xA2-4B-Kl5" customClass="VideotoriumRecordingCell">
+                                        <rect key="frame" x="0.0" y="241" width="320" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="H9g-ZF-JKn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Záró plenáris" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="KMM-qm-DFH">
+                                                    <rect key="frame" x="104" y="2" width="191" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Networkshop 2012" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Mae-1b-Gpb">
+                                                    <rect key="frame" x="104" y="33" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2012. április 42." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="ENq-AF-ZdX">
+                                                    <rect key="frame" x="104" y="50" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="date" destination="ENq-AF-ZdX" id="7MJ-1f-3JG"/>
+                                            <outlet property="event" destination="Mae-1b-Gpb" id="5a7-Mm-9v7"/>
+                                            <outlet property="indexPicture" destination="H9g-ZF-JKn" id="1Vh-4y-4Zi"/>
+                                            <outlet property="title" destination="KMM-qm-DFH" id="W4g-BM-q6m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -138,24 +224,25 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No recordings found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ic3-W7-FuS">
-                                <rect key="frame" x="0.0" y="392" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="370" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Error connecting to videotorium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uwZ-B9-l5F">
-                                <rect key="frame" x="0.0" y="394" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="2Gr-DQ-ATz">
-                                <rect key="frame" x="0.0" y="398" width="320" height="37"/>
+                                <rect key="frame" x="0.0" y="376" width="320" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Search" id="48Z-LV-7nB"/>
                     <connections>
                         <outlet property="activityIndicator" destination="2Gr-DQ-ATz" id="uzc-gt-Vr7"/>
                         <outlet property="errorConnectingLabel" destination="uwZ-B9-l5F" id="dEq-Qu-tJD"/>
@@ -166,7 +253,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-1743" y="-1052"/>
+            <point key="canvasLocation" x="-1217" y="-1052"/>
         </scene>
         <!--Videotorium Slides Table View Controller-->
         <scene sceneID="d1c-2s-YQS">
@@ -433,6 +520,72 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
             </objects>
             <point key="canvasLocation" x="-1735" y="417"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YGZ-Gx-4vn">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BeX-Rc-laF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="yaR-KV-ScZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ze0-Wu-DgO">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.18431372939999999" green="0.41176474089999998" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E3H-7v-a7f" kind="relationship" relationship="rootViewController" id="lt9-iZ-Ymr"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1743" y="-1052"/>
+        </scene>
+        <!--Videotorium Slides Table View Controller - Matching slides-->
+        <scene sceneID="ozx-MF-lgy">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpl-dd-GRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="cYm-1U-5wB" customClass="VideotoriumSlidesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="230" sectionHeaderHeight="22" sectionFooterHeight="22" id="DNe-91-tcd">
+                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Slide Cell" id="krR-HO-STH" customClass="VideotoriumSlideCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="230"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="229"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="385-u0-caN">
+                                            <rect key="frame" x="9" y="9" width="282" height="212"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="v7d-YG-9RN">
+                                                    <rect key="frame" x="1" y="1" width="280" height="210"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="borderView" destination="385-u0-caN" id="Lfb-v8-dvt"/>
+                                    <outlet property="slideImageView" destination="v7d-YG-9RN" id="Jw4-cI-V3Z"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cYm-1U-5wB" id="LrN-OD-yND"/>
+                            <outlet property="delegate" destination="cYm-1U-5wB" id="MG4-pH-Z3w"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Matching slides" id="ZpP-5B-dYW"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-732" y="-1078"/>
+        </scene>
     </scenes>
     <classes>
         <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
@@ -493,4 +646,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="lz3-sy-RqY"/>
+    </inferredMetricsTieBreakers>
 </document>
