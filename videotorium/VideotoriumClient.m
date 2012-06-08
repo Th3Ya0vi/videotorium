@@ -153,12 +153,15 @@
         if (indexPictureURLString) recording.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
         recording.dateString = [self substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
         recording.eventName = [self substringOf:result matching:@"recordingevents[^=]*=\"hu/events[^>]*> *([^<]*)"];
-        NSMutableArray *resultsOnSlides = [NSMutableArray array];
+        NSMutableArray *matchingSlides = [NSMutableArray array];
         NSArray *slideDivs = [self substringsOf:result fromMatching:@"<div class=\"slide\">" toMatching:@"</div>"];
         for (NSString *slideDiv in slideDivs) {
-            [resultsOnSlides addObject:[self substringOf:slideDiv matching:@"src=\"[^\"]*/([^/\"]*)\\.[^/\"]*\""]];
+            VideotoriumSlide *slide = [[VideotoriumSlide alloc] init];
+            slide.ID = [self substringOf:slideDiv matching:@"src=\"[^\"]*/([^/\"]*)\\.[^/\"]*\""];
+            slide.thumbnailURL = [NSURL URLWithString:[self substringOf:slideDiv matching:@"src=\"([^\"]*)\""]];
+            [matchingSlides addObject:slide];
         }
-        recording.resultsOnSlides = resultsOnSlides;
+        recording.matchingSlides = matchingSlides;
         [recordings addObject:recording];
     }
     return recordings;

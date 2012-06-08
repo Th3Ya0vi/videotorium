@@ -98,7 +98,11 @@
     STAssertEqualObjects(recording31.indexPictureURL, [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/31/31/indexpics/192x144/31_31_13.jpg"], nil);
     STAssertEqualObjects(recording31.dateString, @"2004. szeptember 22.", nil);
     STAssertEqualObjects(recording31.eventName, @"A CERN és a magyar részecskefizikusok", nil);
-    STAssertEqualObjects(recording31.resultsOnSlides, [NSArray arrayWithObject:@"297"], nil);
+    STAssertEquals([recording31.matchingSlides count], (NSUInteger)1, nil);
+    VideotoriumSlide *slide = [recording31.matchingSlides lastObject];
+    NSURL *expectedThumbnailURL = [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/31/31/slides/150x150/297.jpg"];
+    STAssertEqualObjects(slide.thumbnailURL, expectedThumbnailURL, nil);
+    STAssertEqualObjects(slide.ID, @"297", nil);
 }
 
 @end

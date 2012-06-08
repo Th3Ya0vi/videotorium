@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSURL *indexPictureURL;
 @property (nonatomic, strong) NSString *dateString;
 @property (nonatomic, strong) NSString *eventName;
-@property (nonatomic, strong) NSArray *resultsOnSlides; // array of IDs of slides with search results
+@property (nonatomic, strong) NSArray *matchingSlides; // array of VideotoriumSlide objects returned by the search
 
 @end
