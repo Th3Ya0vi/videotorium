@@ -46,6 +46,8 @@
 
 @property (nonatomic) BOOL slidesFollowVideo;
 
+@property (strong, nonatomic) UIView *blackView;
+
 @end
 
 @implementation VideotoriumPlayerViewController
@@ -86,6 +88,8 @@
 @synthesize slidesFollowVideo = _slidesFollowVideo;
 
 @synthesize shouldAutoplay = _shouldAutoplay;
+
+@synthesize blackView = _blackView;
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
@@ -424,11 +428,16 @@
             if (sender.scale > 1) {
                 if (!self.slideIsFullscreen) {
                     self.slideZoomingInProgress = YES;
+                    self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1280, 1024)];
+                    self.blackView.backgroundColor = [UIColor blackColor];
+                    self.blackView.alpha = 0;
                     CGRect rectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
+                    [self.view.superview addSubview:self.blackView];
                     [self.view.superview addSubview:self.slideView];
                     self.slideView.frame = rectInSuperview;
                     [UIView animateWithDuration:0.5 animations:^{
                         self.slideView.frame = self.view.superview.bounds;
+                        self.blackView.alpha = 1;
                     } completion:^(BOOL finished) {
                         self.slideIsFullscreen = YES;
                         self.slideZoomingInProgress = NO;
@@ -441,9 +450,12 @@
                     CGRect originalRectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
                     [UIView animateWithDuration:0.5 animations:^{
                         self.slideView.frame = originalRectInSuperview;
+                        self.blackView.alpha = 0;
                     } completion:^(BOOL finished) {
                         [self.slideContainerView addSubview:self.slideView];
                         self.slideView.frame = self.slideContainerView.bounds;
+                        [self.blackView removeFromSuperview];
+                        self.blackView = nil;
                         self.slideIsFullscreen = NO;
                         self.slideZoomingInProgress = NO;
                     }];
