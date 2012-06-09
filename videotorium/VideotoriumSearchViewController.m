@@ -206,8 +206,10 @@
 {
     VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
-    detailViewController.shouldAutoplay = YES;
-    detailViewController.recordingID = recording.ID;
+    if (![detailViewController.recordingID isEqualToString:recording.ID]) {
+        detailViewController.shouldAutoplay = YES;        
+        detailViewController.recordingID = recording.ID;
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([recording.matchingSlides count] == 0) {
         [detailViewController dismissSplitViewPopover];
