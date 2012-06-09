@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIView *slideView;
 @property (weak, nonatomic) IBOutlet UIButton *seekToThisSlideButton;
 @property (weak, nonatomic) IBOutlet UIButton *followVideoButton;
+@property (weak, nonatomic) IBOutlet UIButton *retryButton;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -68,6 +69,7 @@
 @synthesize slideView = _slideView;
 @synthesize seekToThisSlideButton = _seekToThisSlideButton;
 @synthesize followVideoButton = _followVideoButton;
+@synthesize retryButton = _retryButton;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -105,7 +107,9 @@
 - (void)moviePlayerPlaybackDidFinish:(NSNotification *)notification {
     if ([notification.userInfo objectForKey:@"error"]) {
         [self.activityIndicator stopAnimating];
-        self.titleLabel.text = @"Failed to play the video stream";
+        [UIView animateWithDuration:0.2 animations:^{
+            self.retryButton.alpha = 1;
+        }];
     }
 }
 
@@ -166,6 +170,7 @@
     self.slideIsFullscreen = NO;
     self.slideZoomingInProgress = NO;
     self.slidesFollowVideo = YES;
+    self.retryButton.alpha = 0;
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
         [self.moviePlayerController.view removeFromSuperview];
@@ -188,9 +193,11 @@
         NSError *error;
         VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
+            if (error || !recordingDetails || !recordingDetails.streamURL) {
                 [self.activityIndicator stopAnimating];
-                self.titleLabel.text = @"Error connecting to videotorium";
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.retryButton.alpha = 1;
+                }];
             } else {
                 self.recordingDetails = recordingDetails;
                 self.slideImageView.image = nil;
@@ -329,6 +336,7 @@
     [self setSlideView:nil];
     [self setSeekToThisSlideButton:nil];
     [self setFollowVideoButton:nil];
+    [self setRetryButton:nil];
     [super viewDidUnload];
 }
 
@@ -385,6 +393,10 @@
         [destination scrollToSlide:self.currentSlide animated:NO];
         destination.popoverController = self.infoAndSlidesPopoverController;
     }
+}
+
+- (IBAction)retryButtonPressed:(id)sender {
+    self.recordingID = self.recordingID;
 }
 
 #pragma mark - Split view controller delegate
