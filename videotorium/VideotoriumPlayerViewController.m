@@ -488,6 +488,15 @@
                 self.slideImageView.transform = CGAffineTransformTranslate(self.slideImageView.transform, 1000 , 0); 
                 self.slideImageView.alpha = 0;
             }];
+        } else {
+            CGAffineTransform transform = self.slideImageView.transform;
+            [UIView animateWithDuration:0.1 animations:^{
+                self.slideImageView.transform = CGAffineTransformTranslate(transform, 200 , 0); 
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.slideImageView.transform = transform;
+                }];
+            }];
         }
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
@@ -497,6 +506,15 @@
             [UIView animateWithDuration:0.2 animations:^{
                 self.slideImageView.transform = CGAffineTransformTranslate(self.slideImageView.transform, -1000, 0); 
                 self.slideImageView.alpha = 0;
+            }];
+        } else {
+            CGAffineTransform transform = self.slideImageView.transform;
+            [UIView animateWithDuration:0.1 animations:^{
+                self.slideImageView.transform = CGAffineTransformTranslate(transform, -200 , 0); 
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    self.slideImageView.transform = transform;
+                }];
             }];
         }
     }
