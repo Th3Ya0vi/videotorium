@@ -98,6 +98,7 @@
 
 @synthesize blackView = _blackView;
 
+
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
     if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
@@ -132,18 +133,24 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerPlaybackDidFinish:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(memoryWarning:) name:@"memoryWarning" object:nil];
-    
+                                               object:nil];    
     UIPinchGestureRecognizer *pinchGR = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     UISwipeGestureRecognizer *swipeRightGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeRightGR.direction = UISwipeGestureRecognizerDirectionRight;
     swipeRightGR.delegate = self;
     UISwipeGestureRecognizer *swipeLeftGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeLeftGR.direction = UISwipeGestureRecognizerDirectionLeft;
+    UISwipeGestureRecognizer *swipeUpGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeUpGR.direction = UISwipeGestureRecognizerDirectionUp;
+    UISwipeGestureRecognizer *swipeDownGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeDownGR.direction = UISwipeGestureRecognizerDirectionDown;
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [self.slideView addGestureRecognizer:pinchGR];
     [self.slideView addGestureRecognizer:swipeLeftGR];
     [self.slideView addGestureRecognizer:swipeRightGR];
+    [self.slideView addGestureRecognizer:swipeUpGR];
+    [self.slideView addGestureRecognizer:swipeDownGR];
+    [self.slideView addGestureRecognizer:tapGR];
     
     self.seekToThisSlideButton.alpha = 0;
     self.followVideoButton.alpha = 0;
@@ -248,17 +255,16 @@
     [self.splitViewPopoverController dismissPopoverAnimated:YES];
 }
 
-- (void)memoryWarning:(NSNotification *)notification
-{
-}
-
 - (void)seekToSlideWithID:(NSString *)ID
 {
     [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
         if ([slide.ID isEqualToString:ID]) {
             *stop = YES;
-            self.moviePlayerController.currentPlaybackTime = slide.timestamp + 5;
+            NSLog(@"%@", [slide debugDescription]);
+            self.moviePlayerController.currentPlaybackTime = slide.timestamp + 10;
+            self.slideToShow = slide;
             self.slidesFollowVideo = YES;
+            [self updateSlide];
         }
     }];
 }
@@ -294,7 +300,7 @@
                     self.slideImageView.frame = self.viewForSlideWithVisibleButtons.frame;
                 }];
             }
-
+            
         }
         if (![self.slideToShow isEqual:self.currentSlide]) {
             BOOL slideFromLeft = self.currentSlide.timestamp > self.slideToShow.timestamp;
@@ -328,8 +334,8 @@
                                  });
                                  dispatch_release(downloadSlideQueue);
                              }];
-        }                    
-    } 
+        }
+    }
 }
 
 - (void)viewDidUnload
@@ -487,7 +493,6 @@
 
 - (IBAction)seekVideoToCurrentSlide:(id)sender {
     [self seekToSlideWithID:self.currentSlide.ID];
-    [self updateSlide];
 }
 
 - (IBAction)makeSlidesFollowVideo:(id)sender {
@@ -527,6 +532,23 @@
                     self.slideImageView.transform = transform;
                 }];
             }];
+        }
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionUp) {
+        self.slidesFollowVideo = NO;
+        [self updateSlide];
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionDown) {
+        self.slidesFollowVideo = YES;
+        [self updateSlide];
+    }
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (!self.slidesFollowVideo) {
+            [self seekToSlideWithID:self.currentSlide.ID];
         }
     }
 }
