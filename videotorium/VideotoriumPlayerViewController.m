@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondaryVideoNotSupportedLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *slidesButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *slideActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *slideContainerView;
 @property (weak, nonatomic) IBOutlet UIView *slideView;
@@ -63,7 +62,6 @@
 @synthesize titleLabel = _titleLabel;
 @synthesize secondaryVideoNotSupportedLabel = _secondaryVideoNotSupportedLabel;
 @synthesize infoButton = _infoButton;
-@synthesize slidesButton = _slidesButton;
 @synthesize slideActivityIndicator = _slideActivityIndicator;
 @synthesize slideContainerView = _slideContainerView;
 @synthesize slideView = _slideView;
@@ -166,7 +164,6 @@
     
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
-    self.slidesButton.enabled = NO;
     self.slideIsFullscreen = NO;
     self.slideZoomingInProgress = NO;
     self.slidesFollowVideo = YES;
@@ -207,8 +204,6 @@
                     } else {
                         self.noSlidesLabel.hidden = NO;
                     }
-                } else {
-                    self.slidesButton.enabled = YES;
                 }
                 self.titleLabel.text = self.recordingDetails.title;
                 self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
@@ -331,7 +326,6 @@
     [self setInfoButton:nil];
     [self setSlideActivityIndicator:nil];
     [self setSecondaryVideoNotSupportedLabel:nil];
-    [self setSlidesButton:nil];
     [self setSlideContainerView:nil];
     [self setSlideView:nil];
     [self setSeekToThisSlideButton:nil];
@@ -382,15 +376,6 @@
         VideotoriumRecordingInfoViewController *destination = popoverSegue.destinationViewController;
         self.infoAndSlidesPopoverController = popoverSegue.popoverController;
         destination.recording = self.recordingDetails;
-        destination.popoverController = self.infoAndSlidesPopoverController;
-    }
-    if ([segue.identifier isEqualToString:@"Slides Popover"]) {
-        UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
-        VideotoriumSlidesTableViewController *destination = popoverSegue.destinationViewController;
-        self.infoAndSlidesPopoverController = popoverSegue.popoverController;
-        destination.delegate = self;
-        destination.slides = self.recordingDetails.slides;
-        [destination scrollToSlide:self.currentSlide animated:NO];
         destination.popoverController = self.infoAndSlidesPopoverController;
     }
 }
