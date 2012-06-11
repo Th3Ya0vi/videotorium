@@ -449,9 +449,19 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="480"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" id="rlK-Np-Cr1" userLabel="viewForSlideWithoutButtons">
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="480"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view hidden="YES" contentMode="scaleToFill" id="QDW-tS-WmD" userLabel="viewForSlideWithVisibleButtons">
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="440"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
                                             <imageView contentMode="scaleAspectFit" id="wIT-X3-Sxx" userLabel="slideImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="768" height="480"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                             </imageView>
@@ -474,8 +484,8 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q4g-zX-6CZ">
-                                                <rect key="frame" x="20" y="0.0" width="205" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="20" y="439" width="205" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                                 <state key="normal" title="Seek video to this slide">
                                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -489,8 +499,8 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KZy-0I-FZT">
-                                                <rect key="frame" x="636" y="0.0" width="112" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="636" y="439" width="112" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                                 <state key="normal" title="Follow video">
                                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -503,6 +513,13 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                     <action selector="makeSlidesFollowVideo:" destination="tUe-ba-nWi" eventType="touchUpInside" id="pUl-C3-rbR"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Pdx-Zi-4Xf">
+                                                <rect key="frame" x="363" y="448" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
@@ -526,9 +543,12 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                         <outlet property="slideActivityIndicator" destination="Y5C-uS-45n" id="ScV-sb-ZRY"/>
                         <outlet property="slideContainerView" destination="Nxj-p1-tns" id="fVI-wW-GsO"/>
                         <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
+                        <outlet property="slideNumberLabel" destination="Pdx-Zi-4Xf" id="mfQ-SA-e1Z"/>
                         <outlet property="slideView" destination="eul-G2-yVK" id="sqt-B3-30I"/>
                         <outlet property="titleLabel" destination="JMl-Qs-F7C" id="KfM-4i-PSD"/>
                         <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
+                        <outlet property="viewForSlideWithVisibleButtons" destination="QDW-tS-WmD" id="sSw-6z-mla"/>
+                        <outlet property="viewForSlideWithoutButtons" destination="rlK-Np-Cr1" id="CQD-hj-i2p"/>
                     </connections>
                 </viewController>
             </objects>
@@ -616,9 +636,12 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                 <relationship kind="outlet" name="slideActivityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="slideNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="slideView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="viewForSlideWithVisibleButtons" candidateClass="UIView"/>
+                <relationship kind="outlet" name="viewForSlideWithoutButtons" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">

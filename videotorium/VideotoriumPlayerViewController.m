@@ -27,6 +27,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *seekToThisSlideButton;
 @property (weak, nonatomic) IBOutlet UIButton *followVideoButton;
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
+@property (weak, nonatomic) IBOutlet UILabel *slideNumberLabel;
+@property (weak, nonatomic) IBOutlet UIView *viewForSlideWithoutButtons;
+@property (weak, nonatomic) IBOutlet UIView *viewForSlideWithVisibleButtons;
+
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -68,6 +72,9 @@
 @synthesize seekToThisSlideButton = _seekToThisSlideButton;
 @synthesize followVideoButton = _followVideoButton;
 @synthesize retryButton = _retryButton;
+@synthesize slideNumberLabel = _slideNumberLabel;
+@synthesize viewForSlideWithoutButtons = _viewForSlideWithoutButtons;
+@synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -140,6 +147,7 @@
     
     self.seekToThisSlideButton.alpha = 0;
     self.followVideoButton.alpha = 0;
+    self.slideNumberLabel.alpha = 0;
 
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
@@ -264,6 +272,8 @@
                 [UIView animateWithDuration:0.2 animations:^{
                     self.seekToThisSlideButton.alpha = 0;
                     self.followVideoButton.alpha = 0;
+                    self.slideNumberLabel.alpha = 0;
+                    self.slideImageView.frame = self.viewForSlideWithoutButtons.frame;
                 }];
             }
             // Assuming that the slides are ordered by their timestamp
@@ -280,35 +290,44 @@
                 [UIView animateWithDuration:0.2 animations:^{
                     self.seekToThisSlideButton.alpha = 1;
                     self.followVideoButton.alpha = 1;
+                    self.slideNumberLabel.alpha = 1;
+                    self.slideImageView.frame = self.viewForSlideWithVisibleButtons.frame;
                 }];
             }
 
         }
         if (![self.slideToShow isEqual:self.currentSlide]) {
+            BOOL slideFromLeft = self.currentSlide.timestamp > self.slideToShow.timestamp;
             self.currentSlide = self.slideToShow;
             [UIView animateWithDuration:0.2
                              animations:^{
-                                 self.slideImageView.alpha = 0;
+                                 if (slideFromLeft) {
+                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
+                                 } else {
+                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
+                                 }
+                             } completion:^(BOOL finished) {
+                                 dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
+                                 dispatch_async(downloadSlideQueue, ^{
+                                     NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
+                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                         if (self.currentSlide == self.slideToShow) {
+                                             self.slideNumberLabel.text = [NSString stringWithFormat:@"%d", [self.recordingDetails.slides indexOfObject:self.currentSlide] + 1];
+                                             self.slideImageView.image = [UIImage imageWithData:imageData];
+                                             if (slideFromLeft) {
+                                                 self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
+                                             } else {
+                                                 self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
+                                             }
+                                             [UIView animateWithDuration:0.2
+                                                              animations:^{
+                                                                  self.slideImageView.transform = CGAffineTransformIdentity;
+                                                              }];
+                                         }
+                                     });
+                                 });
+                                 dispatch_release(downloadSlideQueue);
                              }];
-            dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
-            dispatch_async(downloadSlideQueue, ^{
-                NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (self.currentSlide == self.slideToShow) {
-                        self.slideImageView.image = [UIImage imageWithData:imageData];
-                        if (self.slidesFollowVideo) {
-                            self.slideImageView.transform = CGAffineTransformIdentity;
-                        } else {
-                            self.slideImageView.transform = CGAffineTransformTranslate(CGAffineTransformMakeScale(0.9, 0.9), 0, 25);;
-                        }
-                        [UIView animateWithDuration:0.2
-                                         animations:^{
-                                             self.slideImageView.alpha = 1;
-                                         }];
-                    }
-                });
-            });
-            dispatch_release(downloadSlideQueue);
         }                    
     } 
 }
@@ -331,6 +350,9 @@
     [self setSeekToThisSlideButton:nil];
     [self setFollowVideoButton:nil];
     [self setRetryButton:nil];
+    [self setSlideNumberLabel:nil];
+    [self setViewForSlideWithoutButtons:nil];
+    [self setViewForSlideWithVisibleButtons:nil];
     [super viewDidUnload];
 }
 
@@ -465,13 +487,11 @@
 
 - (IBAction)seekVideoToCurrentSlide:(id)sender {
     [self seekToSlideWithID:self.currentSlide.ID];
-    self.currentSlide = nil;
     [self updateSlide];
 }
 
 - (IBAction)makeSlidesFollowVideo:(id)sender {
     self.slidesFollowVideo = YES;
-    self.currentSlide = nil;
     [self updateSlide];
 }
 
@@ -481,14 +501,11 @@
         if (indexOfCurrentSlide > 0) {
             self.slidesFollowVideo = NO;
             self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide - 1)];
-            [UIView animateWithDuration:0.2 animations:^{
-                self.slideImageView.transform = CGAffineTransformTranslate(self.slideImageView.transform, 1000 , 0); 
-                self.slideImageView.alpha = 0;
-            }];
+            [self updateSlide];
         } else {
             CGAffineTransform transform = self.slideImageView.transform;
             [UIView animateWithDuration:0.1 animations:^{
-                self.slideImageView.transform = CGAffineTransformTranslate(transform, 200 , 0); 
+                self.slideImageView.transform = CGAffineTransformTranslate(transform, self.slideImageView.bounds.size.width/4 , 0); 
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:0.1 animations:^{
                     self.slideImageView.transform = transform;
@@ -500,14 +517,11 @@
         if (indexOfCurrentSlide < [self.recordingDetails.slides count] - 1) {
             self.slidesFollowVideo = NO;
             self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide + 1)];
-            [UIView animateWithDuration:0.2 animations:^{
-                self.slideImageView.transform = CGAffineTransformTranslate(self.slideImageView.transform, -1000, 0); 
-                self.slideImageView.alpha = 0;
-            }];
+            [self updateSlide];
         } else {
             CGAffineTransform transform = self.slideImageView.transform;
             [UIView animateWithDuration:0.1 animations:^{
-                self.slideImageView.transform = CGAffineTransformTranslate(transform, -200 , 0); 
+                self.slideImageView.transform = CGAffineTransformTranslate(transform, -self.slideImageView.bounds.size.width/4 , 0); 
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:0.1 animations:^{
                     self.slideImageView.transform = transform;
