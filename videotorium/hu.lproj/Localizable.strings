@@ -15,3 +15,4 @@
 "matchingSlides" = "Találatok a fóliákon";
 "noRecordings" = "Nincs találat";
 "errorConnecting" = "Nem sikerült elérni a Videotoriumot";
+"queryTooShort" = "A kereséshez legalább 3 karakter hosszú keresőkifejezést kötelező megadni.";

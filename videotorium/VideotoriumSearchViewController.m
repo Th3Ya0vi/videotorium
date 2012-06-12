@@ -236,8 +236,12 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    self.searchString = searchBar.text;
-    [searchBar resignFirstResponder];
+    if ([searchBar.text length] >= 3) {
+        self.searchString = searchBar.text;
+        [searchBar resignFirstResponder];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"queryTooShort", nil) message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+    }
 }
 
 @end

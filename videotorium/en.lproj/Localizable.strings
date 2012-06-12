@@ -15,3 +15,4 @@
 "matchingSlides" = "Matching slides";
 "noRecordings" = "No recordings found";
 "errorConnecting" = "Error connecting to Videotorium";
+"queryTooShort" = "Please provide at least 3 characters to search.";
