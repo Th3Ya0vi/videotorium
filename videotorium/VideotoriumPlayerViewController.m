@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *slideNumberLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithoutButtons;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithVisibleButtons;
+@property (weak, nonatomic) IBOutlet UIImageView *arrowImage;
 
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
@@ -75,6 +76,7 @@
 @synthesize slideNumberLabel = _slideNumberLabel;
 @synthesize viewForSlideWithoutButtons = _viewForSlideWithoutButtons;
 @synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
+@synthesize arrowImage = _arrowImage;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -98,6 +100,14 @@
 
 @synthesize blackView = _blackView;
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (!self.recordingID) {
+        [UIView animateWithDuration:1 animations:^{
+            self.arrowImage.alpha = 1;
+        }];
+    }
+}
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
@@ -156,6 +166,7 @@
     self.followVideoButton.alpha = 0;
     self.slideNumberLabel.alpha = 0;
     self.retryButton.alpha = 0;
+    self.arrowImage.alpha = 0;
 
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
@@ -164,8 +175,6 @@
         self.shouldAutoplay = NO;
         if (lastRecordingID) {
             self.recordingID = lastRecordingID;
-        } else {
-            self.recordingID = @"4055";
         }
     }
 #endif
@@ -200,6 +209,10 @@
     self.noSlidesLabel.hidden = YES;
     self.secondaryVideoNotSupportedLabel.hidden = YES;
     self.slideImageView.image = nil;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.arrowImage.alpha = 0;
+    }];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:recordingID forKey:@"lastRecordingID"];
@@ -368,6 +381,7 @@
     [self setSlideNumberLabel:nil];
     [self setViewForSlideWithoutButtons:nil];
     [self setViewForSlideWithVisibleButtons:nil];
+    [self setArrowImage:nil];
     [super viewDidUnload];
 }
 
