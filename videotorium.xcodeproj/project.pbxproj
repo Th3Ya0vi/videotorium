@@ -22,11 +22,12 @@
 		2DB8B6921578F8D0001A44D5 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8B6911578F8D0001A44D5 /* Default-Landscape~ipad.png */; };
 		2DB8B6941578F8D4001A44D5 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB8B6931578F8D4001A44D5 /* Default-Landscape@2x~ipad.png */; };
 		2DBAFD77157610FC007DA824 /* VideotoriumSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBAFD76157610FC007DA824 /* VideotoriumSearchViewController.m */; };
-		2DC6F85C154E712400CDDA80 /* VideotoriumClientMockDataSourceResponses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6F859154E69C300CDDA80 /* VideotoriumClientMockDataSourceResponses.plist */; };
 		2DC6F85E154E739300CDDA80 /* VideotoriumClientMockDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */; };
 		2DC6F860154E8A2800CDDA80 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */; };
 		2DC6F863154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */; };
 		2DC6F8B0154E962200CDDA80 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC6F8AE154E927900CDDA80 /* MediaPlayer.framework */; };
+		2DC8428A1587523F00B562FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D84723515874DBE008D2280 /* Localizable.strings */; };
+		2DC8428C1587547600B562FD /* VideotoriumClientMockDataSourceResponses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6F859154E69C300CDDA80 /* VideotoriumClientMockDataSourceResponses.plist */; };
 		2DD60204154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD60203154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.m */; };
 		2DEB06B91549703200AD0805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06B81549703200AD0805 /* UIKit.framework */; };
 		2DEB06BB1549703200AD0805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DEB06BA1549703200AD0805 /* Foundation.framework */; };
@@ -74,6 +75,7 @@
 		2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient@2x.png"; sourceTree = "<group>"; };
 		2D54C3E6157DF557004783CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2D54C3E8157DF766004783CA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2D84723715874DC6008D2280 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D88B9FC1574F8AC00B938FF /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecording.h; sourceTree = "<group>"; };
 		2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecording.m; sourceTree = "<group>"; };
 		2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingInfoViewController.h; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumPlayerViewController.h; sourceTree = "<group>"; };
 		2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumPlayerViewController.m; sourceTree = "<group>"; };
 		2DC6F8AE154E927900CDDA80 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		2DC8428B1587524200B562FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2DD60202154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VideotoriumClientDataSourceUsingSynchronousRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2DD60203154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumClientDataSourceUsingSynchronousRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DD732D31577C5B100D94E1B /* videotorium.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = videotorium.entitlements; sourceTree = "<group>"; };
@@ -204,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */,
+				2D84723515874DBE008D2280 /* Localizable.strings */,
 				2DFBB78F1580E0C800C770EE /* Player */,
 				2DB860BE1581F08600A7F590 /* Slide table */,
 				2DFBB78E1580E0BC00C770EE /* Search */,
@@ -363,6 +367,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				hu,
 			);
 			mainGroup = 2DEB06A91549703200AD0805;
 			productRefGroup = 2DEB06B51549703200AD0805 /* Products */;
@@ -380,8 +385,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC8428A1587523F00B562FD /* Localizable.strings in Resources */,
 				2DEB06C31549703200AD0805 /* InfoPlist.strings in Resources */,
-				2DC6F85C154E712400CDDA80 /* VideotoriumClientMockDataSourceResponses.plist in Resources */,
 				2DC6F860154E8A2800CDDA80 /* iPad.storyboard in Resources */,
 				2DB8B68E1578F8C3001A44D5 /* Default-Portrait~ipad.png in Resources */,
 				2DB8B6901578F8CB001A44D5 /* Default-Portrait@2x~ipad.png in Resources */,
@@ -399,6 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC8428C1587547600B562FD /* VideotoriumClientMockDataSourceResponses.plist in Resources */,
 				2DEB06DB1549703300AD0805 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +472,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2D84723515874DBE008D2280 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D84723715874DC6008D2280 /* hu */,
+				2DC8428B1587524200B562FD /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		2DEB06C11549703200AD0805 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

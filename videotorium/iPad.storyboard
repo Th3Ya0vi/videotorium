@@ -288,7 +288,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Open in Safari">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <attributedString key="attributedTitle"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -316,6 +317,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                     <connections>
                         <outlet property="dateLabel" destination="phN-iX-bul" id="FUW-zf-g1W"/>
                         <outlet property="descriptionTextView" destination="Oq6-nW-xsX" id="2Ao-id-ZLG"/>
+                        <outlet property="openInSafariButton" destination="pAe-U9-1wL" id="Ncm-pz-ao2"/>
                         <outlet property="presenterLabel" destination="r8w-OG-obf" id="7ON-OX-oPb"/>
                         <outlet property="titleLabel" destination="ACW-Qo-8uq" id="XbP-qz-Az0"/>
                     </connections>
@@ -363,7 +365,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NTx-qf-xBa">
-                                        <rect key="frame" x="225" y="221" width="319" height="37"/>
+                                        <rect key="frame" x="20" y="221" width="728" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Failed to play video. Tap here to retry.">
@@ -408,22 +410,22 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                 <rect key="frame" x="365" y="221" width="37" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </activityIndicatorView>
-                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="no slides" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="yR5-j4-voA">
-                                                <rect key="frame" x="285" y="222" width="198" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <nil key="highlightedColor"/>
-                                                <color key="textColor" red="0.75968070652173914" green="0.75968070652173914" blue="0.75968070652173914" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="28"/>
-                                            </label>
                                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="secondary video stream is not supported" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="NJX-7R-J48">
-                                                <rect key="frame" x="127" y="222" width="514" height="35"/>
+                                                <rect key="frame" x="85" y="221" width="598" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <nil key="highlightedColor"/>
                                                 <color key="textColor" red="0.75968070649999997" green="0.75968070649999997" blue="0.75968070649999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="28"/>
                                             </label>
+                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="no slides" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="yR5-j4-voA">
+                                                <rect key="frame" x="243" y="221" width="283" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" red="0.75968070652173914" green="0.75968070652173914" blue="0.75968070652173914" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="28"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q4g-zX-6CZ">
-                                                <rect key="frame" x="20" y="439" width="205" height="44"/>
+                                                <rect key="frame" x="20" y="439" width="290" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                                 <state key="normal" title="Seek video to this slide">
@@ -438,7 +440,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KZy-0I-FZT">
-                                                <rect key="frame" x="636" y="439" width="112" height="44"/>
+                                                <rect key="frame" x="543" y="439" width="205" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                                 <state key="normal" title="Follow video">
@@ -565,6 +567,9 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
         <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
             <relationships>
+                <relationship kind="action" name="makeSlidesFollowVideo:"/>
+                <relationship kind="action" name="retryButtonPressed:"/>
+                <relationship kind="action" name="seekVideoToCurrentSlide:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
@@ -599,6 +604,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                 <relationship kind="action" name="openInSafari:"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>

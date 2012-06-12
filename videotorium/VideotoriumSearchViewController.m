@@ -109,6 +109,11 @@
     self.searchBar.placeholder = @"";
 #endif
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openURL:) name:@"openURL" object:nil];
+    
+    self.noRecordingsFoundLabel.text = NSLocalizedString(@"noRecordings", nil);
+    self.errorConnectingLabel.text = NSLocalizedString(@"errorConnecting", nil);
+    self.searchBar.placeholder = NSLocalizedString(@"search", nil);
+    self.navigationItem.title = NSLocalizedString(@"search", nil);
 }
 
 - (void)openURL:(NSNotification *)notification {
@@ -154,6 +159,7 @@
         VideotoriumRecording *recording = [self.recordings objectAtIndex:cell.tag];
         destination.slides = recording.matchingSlides;
         destination.delegate = self;
+        destination.navigationItem.title = NSLocalizedString(@"matchingSlides", nil);
     }
 }
 

@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *presenterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *openInSafariButton;
 
 @end
 
@@ -22,6 +23,7 @@
 @synthesize presenterLabel = _presenterLabel;
 @synthesize dateLabel = _dateLabel;
 @synthesize descriptionTextView = _descriptionTextView;
+@synthesize openInSafariButton = _openInSafariButton;
 
 @synthesize recording = _recording;
 @synthesize popoverController = _myPopoverController;
@@ -40,6 +42,10 @@
     descriptionFrame.size.height -= offset;
     descriptionFrame.origin.y += offset;
     self.descriptionTextView.frame = descriptionFrame;
+}
+
+- (void)viewDidLoad {
+    [self.openInSafariButton setTitle:NSLocalizedString(@"openInSafari", nil) forState:UIControlStateNormal];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -69,6 +75,7 @@
     [self setDateLabel:nil];
     [self setDescriptionTextView:nil];
     [self setTitleLabel:nil];
+    [self setOpenInSafariButton:nil];
     [super viewDidUnload];
 }
 

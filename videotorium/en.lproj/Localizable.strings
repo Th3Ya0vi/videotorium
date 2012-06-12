@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  videotorium
+
+  Created by Zsombor Nagy on 2012.06.12..
+
+*/
+"failedToLoadRetry" = "Failed to load play video. Tap here to retry.";
+"openInSafari" = "Open in Safari";
+"search" = "Search";
+"secondaryVideoNotSupported" = "secondary video is not supported";
+"noSlides" = "no slides";
+"followVideo" = "Follow video";
+"seekToThisSlide" = "Seek video to this slide";
+"matchingSlides" = "Matching slides";
+"noRecordings" = "No recordings found";
+"errorConnecting" = "Error connecting to Videotorium";

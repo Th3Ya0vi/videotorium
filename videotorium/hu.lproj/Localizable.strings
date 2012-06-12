@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  videotorium
+
+  Created by Zsombor Nagy on 2012.06.12..
+
+*/
+"failedToLoadRetry" = "Nem sikerült betölteni a felvételt. Újrapróbálkozáshoz érentse meg ezt.";
+"openInSafari" = "Megnyitás Safariban";
+"search" = "Keresés";
+"secondaryVideoNotSupported" = "másodlagos videó nem támogatott";
+"noSlides" = "nincsenek fóliák";
+"followVideo" = "Videó követése";
+"seekToThisSlide" = "Ugrás ehhez a fóliához";
+"matchingSlides" = "Találatok a fóliákon";
+"noRecordings" = "Nincs találat";
+"errorConnecting" = "Nem sikerült elérni a Videotoriumot";

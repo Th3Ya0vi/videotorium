@@ -171,6 +171,12 @@
 #ifdef SCREENSHOTMODE
     self.toolbar.items = [NSArray array];
 #endif
+    
+    [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
+    self.secondaryVideoNotSupportedLabel.text = NSLocalizedString(@"secondaryVideoNotSupported", nil);
+    self.noSlidesLabel.text = NSLocalizedString(@"noSlides", nil);
+    [self.followVideoButton setTitle:NSLocalizedString(@"followVideo", nil) forState:UIControlStateNormal];
+    [self.seekToThisSlideButton setTitle:NSLocalizedString(@"seekToThisSlide", nil) forState:UIControlStateNormal];
 }
 
 - (void)setRecordingID:(NSString *)recordingID
@@ -417,7 +423,7 @@
           withBarButtonItem:(UIBarButtonItem *)barButtonItem
        forPopoverController:(UIPopoverController *)pc
 {
-    barButtonItem.title = @"Search";
+    barButtonItem.title = NSLocalizedString(@"search", nil);
     self.splitViewBarButtonItem = barButtonItem;
     self.splitViewPopoverController = pc;
 }
