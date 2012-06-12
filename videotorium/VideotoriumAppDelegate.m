@@ -18,7 +18,7 @@
          annotation:(id)annotation
 {
     NSArray *components = url.pathComponents;
-    if ([[components objectAtIndex:1] isEqual:@"recordings"]) {
+    if ([[components objectAtIndex:1] isEqual:@"recording"]) {
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[components objectAtIndex:2] forKey:@"recording"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"openURL" object:nil userInfo:userInfo];
         return YES;
