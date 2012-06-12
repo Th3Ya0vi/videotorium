@@ -442,7 +442,7 @@
     if (self.slideIsFullscreen && !self.slideZoomingInProgress) {
         self.slideZoomingInProgress = YES;
         CGRect originalRectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             self.slideView.frame = originalRectInSuperview;
             self.blackView.alpha = 0;
         } completion:^(BOOL finished) {
@@ -466,13 +466,14 @@
         [self.view.superview addSubview:self.blackView];
         [self.view.superview addSubview:self.slideView];
         self.slideView.frame = rectInSuperview;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.slideView.frame = self.view.superview.bounds;
-            self.blackView.alpha = 1;
-        } completion:^(BOOL finished) {
-            self.slideIsFullscreen = YES;
-            self.slideZoomingInProgress = NO;
-        }];
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             self.slideView.frame = self.view.superview.bounds;
+                             self.blackView.alpha = 1;
+                         } completion:^(BOOL finished) {
+                             self.slideIsFullscreen = YES;
+                             self.slideZoomingInProgress = NO;
+                         }];
     }
 }
 
