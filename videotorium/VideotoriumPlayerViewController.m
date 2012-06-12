@@ -266,7 +266,11 @@
     [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
         if ([slide.ID isEqualToString:ID]) {
             *stop = YES;
-            self.moviePlayerController.currentPlaybackTime = slide.timestamp + 10;
+            NSTimeInterval seekTime = slide.timestamp + 10;
+            if (seekTime > self.moviePlayerController.duration - 10) {
+                seekTime = self.moviePlayerController.duration - 10;
+            }
+            self.moviePlayerController.currentPlaybackTime = seekTime;
             self.slideToShow = slide;
             self.slidesFollowVideo = YES;
             [self updateSlide];
