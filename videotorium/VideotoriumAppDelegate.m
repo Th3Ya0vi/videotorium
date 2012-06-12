@@ -26,11 +26,6 @@
     return NO;
 }
 
-- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"memoryWarning" object:nil userInfo:nil];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UIImage *image = [UIImage imageNamed:@"videotorium-gradient.png"];
