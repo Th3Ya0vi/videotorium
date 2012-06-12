@@ -31,7 +31,7 @@
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumRecordingDetails (title: %@, presenter: %@, dateString: %@, durationString: %@, streamURL: %@, number of slides: %@, descriptionText: %@)", self.title, self.presenter, self.dateString, self.durationString, self.streamURL, [self.slides count], self.descriptionText];
+    return [NSString stringWithFormat:@"VideotoriumRecordingDetails (title: %@, presenter: %@, dateString: %@, durationString: %@, streamURL: %@, number of slides: %d, descriptionText: %@)", self.title, self.presenter, self.dateString, self.durationString, self.streamURL, [self.slides count], self.descriptionText];
 }
 
 
