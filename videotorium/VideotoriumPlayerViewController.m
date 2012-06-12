@@ -179,9 +179,8 @@
     
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
-    self.slideIsFullscreen = NO;
-    self.slideZoomingInProgress = NO;
     self.slidesFollowVideo = YES;
+    [self slideToNormal];
     self.retryButton.alpha = 0;
     if (self.moviePlayerController != nil) {
         [self.moviePlayerController stop];
@@ -431,14 +430,6 @@
 }
 
 
-#pragma mark - Videotorium slide table delegate
-
-- (void)userSelectedSlide:(VideotoriumSlide *)slide {
-    [self seekToSlideWithID:slide.ID];
-    [self.moviePlayerController play];
-    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
-}
-
 #pragma mark - Handling gestures
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -446,47 +437,53 @@
     return YES;
 }
 
+
+- (void)slideToNormal {
+    if (self.slideIsFullscreen && !self.slideZoomingInProgress) {
+        self.slideZoomingInProgress = YES;
+        CGRect originalRectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.slideView.frame = originalRectInSuperview;
+            self.blackView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.slideContainerView addSubview:self.slideView];
+            self.slideView.frame = self.slideContainerView.bounds;
+            [self.blackView removeFromSuperview];
+            self.blackView = nil;
+            self.slideIsFullscreen = NO;
+            self.slideZoomingInProgress = NO;
+        }];
+    }
+}
+
+- (void)slideToFullscreen {
+    if (!self.slideIsFullscreen && !self.slideZoomingInProgress) {
+        self.slideZoomingInProgress = YES;
+        self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1280, 1024)];
+        self.blackView.backgroundColor = [UIColor blackColor];
+        self.blackView.alpha = 0;
+        CGRect rectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
+        [self.view.superview addSubview:self.blackView];
+        [self.view.superview addSubview:self.slideView];
+        self.slideView.frame = rectInSuperview;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.slideView.frame = self.view.superview.bounds;
+            self.blackView.alpha = 1;
+        } completion:^(BOOL finished) {
+            self.slideIsFullscreen = YES;
+            self.slideZoomingInProgress = NO;
+        }];
+    }
+}
+
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)sender {
-    if (!self.slideZoomingInProgress) {
-        if (sender.state == UIGestureRecognizerStateChanged) {
-            if (sender.scale > 1) {
-                if (!self.slideIsFullscreen) {
-                    self.slideZoomingInProgress = YES;
-                    self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1280, 1024)];
-                    self.blackView.backgroundColor = [UIColor blackColor];
-                    self.blackView.alpha = 0;
-                    CGRect rectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
-                    [self.view.superview addSubview:self.blackView];
-                    [self.view.superview addSubview:self.slideView];
-                    self.slideView.frame = rectInSuperview;
-                    [UIView animateWithDuration:0.5 animations:^{
-                        self.slideView.frame = self.view.superview.bounds;
-                        self.blackView.alpha = 1;
-                    } completion:^(BOOL finished) {
-                        self.slideIsFullscreen = YES;
-                        self.slideZoomingInProgress = NO;
-                    }];
-                }
-            }
-            if (sender.scale < 1) {
-                if (self.slideIsFullscreen) {
-                    self.slideZoomingInProgress = YES;
-                    CGRect originalRectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
-                    [UIView animateWithDuration:0.5 animations:^{
-                        self.slideView.frame = originalRectInSuperview;
-                        self.blackView.alpha = 0;
-                    } completion:^(BOOL finished) {
-                        [self.slideContainerView addSubview:self.slideView];
-                        self.slideView.frame = self.slideContainerView.bounds;
-                        [self.blackView removeFromSuperview];
-                        self.blackView = nil;
-                        self.slideIsFullscreen = NO;
-                        self.slideZoomingInProgress = NO;
-                    }];
-                }
-            }
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        if (sender.scale > 1) {
+            [self slideToFullscreen];
         }
-        
+        if (sender.scale < 1) {
+            [self slideToNormal];
+        }
     }
 }
 
@@ -500,46 +497,48 @@
 }
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
-    NSUInteger indexOfCurrentSlide = [self.recordingDetails.slides indexOfObject:self.currentSlide];
-    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-        if (indexOfCurrentSlide > 0) {
-            self.slidesFollowVideo = NO;
-            self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide - 1)];
-            [self updateSlide];
-        } else {
-            CGAffineTransform transform = self.slideImageView.transform;
-            [UIView animateWithDuration:0.1 animations:^{
-                self.slideImageView.transform = CGAffineTransformTranslate(transform, self.slideImageView.bounds.size.width/4 , 0); 
-            } completion:^(BOOL finished) {
+    if ([self.recordingDetails.slides count]) {
+        NSUInteger indexOfCurrentSlide = [self.recordingDetails.slides indexOfObject:self.currentSlide];
+        if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+            if (indexOfCurrentSlide > 0) {
+                self.slidesFollowVideo = NO;
+                self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide - 1)];
+                [self updateSlide];
+            } else {
+                CGAffineTransform transform = self.slideImageView.transform;
                 [UIView animateWithDuration:0.1 animations:^{
-                    self.slideImageView.transform = transform;
+                    self.slideImageView.transform = CGAffineTransformTranslate(transform, self.slideImageView.bounds.size.width/4 , 0); 
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:0.1 animations:^{
+                        self.slideImageView.transform = transform;
+                    }];
                 }];
-            }];
+            }
         }
-    }
-    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        if (indexOfCurrentSlide < [self.recordingDetails.slides count] - 1) {
-            self.slidesFollowVideo = NO;
-            self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide + 1)];
-            [self updateSlide];
-        } else {
-            CGAffineTransform transform = self.slideImageView.transform;
-            [UIView animateWithDuration:0.1 animations:^{
-                self.slideImageView.transform = CGAffineTransformTranslate(transform, -self.slideImageView.bounds.size.width/4 , 0); 
-            } completion:^(BOOL finished) {
+        if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+            if (indexOfCurrentSlide < [self.recordingDetails.slides count] - 1) {
+                self.slidesFollowVideo = NO;
+                self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide + 1)];
+                [self updateSlide];
+            } else {
+                CGAffineTransform transform = self.slideImageView.transform;
                 [UIView animateWithDuration:0.1 animations:^{
-                    self.slideImageView.transform = transform;
+                    self.slideImageView.transform = CGAffineTransformTranslate(transform, -self.slideImageView.bounds.size.width/4 , 0); 
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:0.1 animations:^{
+                        self.slideImageView.transform = transform;
+                    }];
                 }];
-            }];
+            }
         }
-    }
-    if (sender.direction == UISwipeGestureRecognizerDirectionUp) {
-        self.slidesFollowVideo = NO;
-        [self updateSlide];
-    }
-    if (sender.direction == UISwipeGestureRecognizerDirectionDown) {
-        self.slidesFollowVideo = YES;
-        [self updateSlide];
+        if (sender.direction == UISwipeGestureRecognizerDirectionUp) {
+            self.slidesFollowVideo = NO;
+            [self updateSlide];
+        }
+        if (sender.direction == UISwipeGestureRecognizerDirectionDown) {
+            self.slidesFollowVideo = YES;
+            [self updateSlide];
+        }
     }
 }
 
