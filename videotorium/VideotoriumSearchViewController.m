@@ -115,6 +115,7 @@
     VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
     detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = [notification.userInfo objectForKey:@"recording"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload
