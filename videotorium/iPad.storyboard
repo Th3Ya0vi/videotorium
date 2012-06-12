@@ -255,132 +255,74 @@
             <point key="canvasLocation" x="-1217" y="-1052"/>
         </scene>
         <!--Videotorium Recording Info View Controller-->
-        <scene sceneID="kyE-7k-z7g">
+        <scene sceneID="gF4-wL-42Z">
             <objects>
-                <tableViewController id="y3K-Ra-wuR" customClass="VideotoriumRecordingInfoViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Su-OV-36l">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="Q8Y-FN-4gC">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TkE-0q-0o8" detailTextLabel="R8v-ac-6uU" style="IBUITableViewCellStyleValue2" id="wXS-m8-MNh">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Presenter" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="TkE-0q-0o8">
-                                                    <rect key="frame" x="10" y="15" width="91" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Dr. Horváth Gábor" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="R8v-ac-6uU">
-                                                    <rect key="frame" x="107" y="12" width="131" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ggo-Oe-C64" detailTextLabel="qlQ-Ey-Tzb" style="IBUITableViewCellStyleValue2" id="TbU-oN-7Bq">
-                                        <rect key="frame" x="0.0" y="44" width="300" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Date" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Ggo-Oe-C64">
-                                                    <rect key="frame" x="10" y="15" width="91" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" red="0.32156862745098042" green="0.40000000000000002" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="2002. február 29." adjustsFontSizeToFit="NO" autoshrinkMode="none" id="qlQ-Ey-Tzb">
-                                                    <rect key="frame" x="107" y="12" width="119" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="244" id="BU1-de-1eG">
-                                        <rect key="frame" x="0.0" y="88" width="300" height="244"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="243"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="Oq6-nW-xsX">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="243"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                                    <mutableString key="text">         Leírás 
+                <viewController id="JoF-w7-v85" customClass="VideotoriumRecordingInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2pg-Yc-Hvo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" text="Az előadás címe" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="ACW-Qo-8uq">
+                                <rect key="frame" x="20" y="10" width="280" height="33"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Dr. Horváth Gábor" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="r8w-OG-obf">
+                                <rect key="frame" x="20" y="46" width="280" height="25"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="2002. február 29." adjustsFontSizeToFit="NO" autoshrinkMode="none" id="phN-iX-bul">
+                                <rect key="frame" x="20" y="68" width="280" height="27"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pAe-U9-1wL">
+                                <rect key="frame" x="20" y="543" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Open in Safari">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openInSafari:" destination="JoF-w7-v85" eventType="touchUpInside" id="yxz-VT-2qc"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="Oq6-nW-xsX">
+                                <rect key="frame" x="20" y="99" width="280" height="436"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <string key="text">         Leírás 
      Az előadásban bemutatjuk a Széchenyi István Egyetemen működő, Magyarország legnagyobb ipari matematikai nemzetközi kutatócsoportját.
 
-A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői a számítógépeket jelentős és egyre nagyobb mértékben bevonják munkájukba komplex folyamatok valósághű szimulációjára, pl. bonyolult, költséges mérések kiváltására, majd a szimulációk alapján optimalizálásra. Mindehhez a mindenkor legkorszerűbb, állandóan változó hardvert, pl. szuperszámítógépeket kell használni, a programok és a mögöttük húzódó matematikai algoritmusok állandó fejlesztésével. Az előadásban a kutatócsoport kutatási és alkalmazási eredményeit mutatjuk be.</mutableString>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                </textView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ABW-Hz-xSj">
-                                        <rect key="frame" x="0.0" y="332" width="300" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pAe-U9-1wL">
-                                                    <rect key="frame" x="20" y="3" width="260" height="37"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Open in Safari">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="openInSafari:" destination="y3K-Ra-wuR" eventType="touchUpInside" id="DA1-yc-buD"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="y3K-Ra-wuR" id="vxH-v3-0tX"/>
-                            <outlet property="delegate" destination="y3K-Ra-wuR" id="jrA-fa-EFo"/>
-                        </connections>
-                    </tableView>
+A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői a számítógépeket jelentős és egyre nagyobb mértékben bevonják munkájukba komplex folyamatok valósághű szimulációjára, pl. bonyolult, költséges mérések kiváltására, majd a szimulációk alapján optimalizálásra. Mindehhez a mindenkor legkorszerűbb, állandóan változó hardvert, pl. szuperszámítógépeket kell használni, a programok és a mögöttük húzódó matematikai algoritmusok állandó fejlesztésével. Az előadásban a kutatócsoport kutatási és alkalmazási eredményeit mutatjuk be.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
                     <connections>
-                        <outlet property="dateLabel" destination="qlQ-Ey-Tzb" id="X9p-XG-Y8t"/>
-                        <outlet property="descriptionTextView" destination="Oq6-nW-xsX" id="aP2-WU-DgC"/>
-                        <outlet property="presenterLabel" destination="R8v-ac-6uU" id="GjD-DM-nwr"/>
+                        <outlet property="dateLabel" destination="phN-iX-bul" id="FUW-zf-g1W"/>
+                        <outlet property="descriptionTextView" destination="Oq6-nW-xsX" id="2Ao-id-ZLG"/>
+                        <outlet property="presenterLabel" destination="r8w-OG-obf" id="7ON-OX-oPb"/>
+                        <outlet property="titleLabel" destination="ACW-Qo-8uq" id="XbP-qz-Az0"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fis-cm-3TC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DmM-WX-KeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="429"/>
+            <point key="canvasLocation" x="-612" y="379"/>
         </scene>
         <!--Videotorium Player View Controller-->
         <scene sceneID="XEz-40-OBc">
@@ -397,7 +339,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D6C-zN-Mzg"/>
                                     <barButtonItem enabled="NO" title="Info" style="plain" id="nDw-f1-XUJ">
                                         <connections>
-                                            <segue destination="y3K-Ra-wuR" kind="popover" identifier="Info Popover" popoverAnchorBarButtonItem="nDw-f1-XUJ" id="4D3-6B-GIc">
+                                            <segue destination="JoF-w7-v85" kind="popover" identifier="Info Popover" popoverAnchorBarButtonItem="nDw-f1-XUJ" id="FTl-tf-Eso">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -405,12 +347,12 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                 </items>
                                 <color key="tintColor" red="0.18431372939999999" green="0.41176474089999998" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" text="" textAlignment="center" autoshrinkMode="minimumScaleFactor" id="JMl-Qs-F7C" userLabel="titleLabel">
-                                <rect key="frame" x="69" y="11" width="631" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" text="Videotorium" textAlignment="center" autoshrinkMode="minimumScaleFactor" id="JMl-Qs-F7C" userLabel="titleLabel">
+                                <rect key="frame" x="92" y="7" width="585" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             </label>
                             <view contentMode="scaleToFill" id="YvY-Iq-No2" userLabel="moviePlayerView">
                                 <rect key="frame" x="0.0" y="44" width="768" height="480"/>
@@ -654,13 +596,14 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="VideotoriumRecordingInfoViewController" superclassName="UITableViewController">
+        <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
             <relationships>
                 <relationship kind="action" name="openInSafari:"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="VideotoriumSearchViewController" superclassName="UIViewController">

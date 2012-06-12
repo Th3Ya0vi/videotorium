@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VideotoriumRecordingDetails.h"
 
-@interface VideotoriumRecordingInfoViewController : UITableViewController
+@interface VideotoriumRecordingInfoViewController : UIViewController
 
 @property (nonatomic, copy) VideotoriumRecordingDetails *recording;
 @property (nonatomic, weak) UIPopoverController *popoverController;
