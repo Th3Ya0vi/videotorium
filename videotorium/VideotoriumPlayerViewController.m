@@ -155,6 +155,7 @@
     self.seekToThisSlideButton.alpha = 0;
     self.followVideoButton.alpha = 0;
     self.slideNumberLabel.alpha = 0;
+    self.retryButton.alpha = 0;
 
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
