@@ -529,6 +529,7 @@
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
     if ([self.recordingDetails.slides count]) {
         self.userSwipedSlides = YES;
+        self.seekingInProgress = NO;
         NSUInteger indexOfCurrentSlide = [self.recordingDetails.slides indexOfObject:self.currentSlide];
         if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
             if (indexOfCurrentSlide > 0) {
