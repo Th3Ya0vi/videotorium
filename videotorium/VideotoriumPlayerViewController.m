@@ -97,7 +97,9 @@
     [super viewDidLoad];
     
     self.splitViewController.delegate = self;
-    self.splitViewController.presentsWithGesture = NO;
+    if ([self.splitViewController respondsToSelector:@selector(setPresentsWithGesture:)]) {
+        self.splitViewController.presentsWithGesture = NO;        
+    }
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerLoadStateDidChange:)
