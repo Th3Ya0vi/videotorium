@@ -53,52 +53,11 @@
 
 @property (strong, nonatomic) UIView *blackView;
 
+@property (nonatomic) BOOL seekingInProgress;
+
 @end
 
 @implementation VideotoriumPlayerViewController
-
-@synthesize recordingID = _recordingID;
-
-@synthesize slideImageView = _slideImageView;
-@synthesize moviePlayerView = _moviePlayerView;
-@synthesize toolbar = _toolbar;
-@synthesize activityIndicator = _activityIndicator;
-@synthesize noSlidesLabel = _noSlidesLabel;
-@synthesize titleLabel = _titleLabel;
-@synthesize secondaryVideoNotSupportedLabel = _secondaryVideoNotSupportedLabel;
-@synthesize infoButton = _infoButton;
-@synthesize slideActivityIndicator = _slideActivityIndicator;
-@synthesize slideContainerView = _slideContainerView;
-@synthesize slideView = _slideView;
-@synthesize seekToThisSlideButton = _seekToThisSlideButton;
-@synthesize followVideoButton = _followVideoButton;
-@synthesize retryButton = _retryButton;
-@synthesize slideNumberLabel = _slideNumberLabel;
-@synthesize viewForSlideWithoutButtons = _viewForSlideWithoutButtons;
-@synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
-@synthesize arrowImage = _arrowImage;
-
-@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
-@synthesize splitViewPopoverController = _splitViewPopoverController;
-
-@synthesize moviePlayerController = _moviePlayerController;
-
-@synthesize timer = _timer;
-
-@synthesize recordingDetails = _recordingDetails;
-@synthesize currentSlide = _currentSlide;
-@synthesize slideToShow = _slideToShow;
-@synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
-
-@synthesize infoAndSlidesPopoverController = _infoAndSlidesPopoverController;
-
-@synthesize slideIsFullscreen = _slideIsFullscreen;
-@synthesize slideZoomingInProgress = _slideZoomingInProgress;
-@synthesize slidesFollowVideo = _slidesFollowVideo;
-
-@synthesize shouldAutoplay = _shouldAutoplay;
-
-@synthesize blackView = _blackView;
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -129,6 +88,10 @@
     }
 }
 
+- (void)moviePlayerPlaybackStateDidChange:(NSNotification *)notification {
+    self.seekingInProgress = NO;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -143,7 +106,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerPlaybackDidFinish:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:nil];    
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayerPlaybackStateDidChange:)
+                                                 name:MPMoviePlayerPlaybackStateDidChangeNotification
+                                               object:nil];
     UIPinchGestureRecognizer *pinchGR = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     UISwipeGestureRecognizer *swipeRightGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeRightGR.direction = UISwipeGestureRecognizerDirectionRight;
@@ -279,14 +246,15 @@
     [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
         if ([slide.ID isEqualToString:ID]) {
             *stop = YES;
-            NSTimeInterval seekTime = slide.timestamp + 10;
+            NSTimeInterval seekTime = slide.timestamp;
             if (seekTime > self.moviePlayerController.duration - 10) {
                 seekTime = self.moviePlayerController.duration - 10;
             }
             self.moviePlayerController.currentPlaybackTime = seekTime;
+            [self.moviePlayerController play];
             self.slideToShow = slide;
+            self.seekingInProgress = YES;
             self.slidesFollowVideo = YES;
-            [self updateSlide];
         }
     }];
 }
@@ -304,15 +272,17 @@
                     self.slideImageView.frame = self.viewForSlideWithoutButtons.frame;
                 }];
             }
-            // Assuming that the slides are ordered by their timestamp
-            // Starting from the end find the first one which has earlier timestamp than the current playback time
-            NSUInteger index = [self.recordingDetails.slides indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-                VideotoriumSlide *slide = (VideotoriumSlide *)obj;
-                return (slide.timestamp < currentPlaybackTime);
-            }];
-            // If there are no slides earlier than the current time, show the first slide anyway
-            if (index == NSNotFound) index = 0;
-            self.slideToShow = [self.recordingDetails.slides objectAtIndex:index];
+            if (!self.seekingInProgress) {
+                // Assuming that the slides are ordered by their timestamp
+                // Starting from the end find the first one which has earlier timestamp than the current playback time
+                NSUInteger index = [self.recordingDetails.slides indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+                    VideotoriumSlide *slide = (VideotoriumSlide *)obj;
+                    return (slide.timestamp < currentPlaybackTime);
+                }];
+                // If there are no slides earlier than the current time, show the first slide anyway
+                if (index == NSNotFound) index = 0;
+                self.slideToShow = [self.recordingDetails.slides objectAtIndex:index];
+            }
         } else {
             if (self.seekToThisSlideButton.alpha == 0) {
                 [UIView animateWithDuration:0.2 animations:^{
@@ -356,6 +326,11 @@
                                  });
                                  dispatch_release(downloadSlideQueue);
                              }];
+        }
+        if (self.seekingInProgress) {
+            if (self.currentSlide.timestamp < self.moviePlayerController.currentPlaybackTime) {
+                self.seekingInProgress = NO;
+            }
         }
     }
 }
@@ -513,11 +488,11 @@
     }
 }
 
-- (IBAction)seekVideoToCurrentSlide:(id)sender {
+- (IBAction)seekVideoToCurrentSlide {
     [self seekToSlideWithID:self.currentSlide.ID];
 }
 
-- (IBAction)makeSlidesFollowVideo:(id)sender {
+- (IBAction)makeSlidesFollowVideo {
     self.slidesFollowVideo = YES;
     [self updateSlide];
 }
