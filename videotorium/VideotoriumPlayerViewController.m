@@ -55,6 +55,8 @@
 
 @property (nonatomic) BOOL seekingInProgress;
 
+@property (nonatomic) BOOL userSwipedSlides;
+
 @end
 
 @implementation VideotoriumPlayerViewController
@@ -298,14 +300,20 @@
         }
         if (![self.slideToShow isEqual:self.currentSlide]) {
             BOOL slideFromLeft = self.currentSlide.timestamp > self.slideToShow.timestamp;
+            BOOL dissolve = !self.userSwipedSlides;
+            self.userSwipedSlides = NO;
             self.currentSlide = self.slideToShow;
             self.slideView.userInteractionEnabled = NO;
-            [UIView animateWithDuration:0.2
+            NSTimeInterval firstAnimationDuration = 0.2;
+            if (dissolve) firstAnimationDuration = 0;
+            [UIView animateWithDuration:firstAnimationDuration
                              animations:^{
-                                 if (slideFromLeft) {
-                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
-                                 } else {
-                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
+                                 if (!dissolve) {
+                                     if (slideFromLeft) {
+                                         self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
+                                     } else {
+                                         self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
+                                     }                                     
                                  }
                              } completion:^(BOOL finished) {
                                  dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
@@ -314,19 +322,31 @@
                                      dispatch_async(dispatch_get_main_queue(), ^{
                                          if (self.currentSlide == self.slideToShow) {
                                              self.slideNumberLabel.text = [NSString stringWithFormat:@"%d", [self.recordingDetails.slides indexOfObject:self.currentSlide] + 1];
-                                             self.slideImageView.image = [UIImage imageWithData:imageData];
-                                             if (slideFromLeft) {
-                                                 self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
+                                             UIImage *newImage = [UIImage imageWithData:imageData];
+                                             if (dissolve) {
+                                                 [UIView transitionWithView:self.slideImageView duration:0.2
+                                                                    options:UIViewAnimationOptionTransitionCrossDissolve
+                                                                 animations:^{
+                                                                     self.slideImageView.image = newImage;
+                                                                 }
+                                                                 completion:^(BOOL finished) {
+                                                                     self.slideView.userInteractionEnabled = YES;
+                                                                 }];
                                              } else {
-                                                 self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
+                                                 self.slideImageView.image = newImage;
+                                                 if (slideFromLeft) {
+                                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
+                                                 } else {
+                                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
+                                                 }
+                                                 [UIView animateWithDuration:0.2
+                                                                  animations:^{
+                                                                      self.slideImageView.transform = CGAffineTransformIdentity;
+                                                                  }
+                                                                  completion:^(BOOL finished) {
+                                                                      self.slideView.userInteractionEnabled = YES;
+                                                                  }];
                                              }
-                                             [UIView animateWithDuration:0.2
-                                                              animations:^{
-                                                                  self.slideImageView.transform = CGAffineTransformIdentity;
-                                                              }
-                                                              completion:^(BOOL finished) {
-                                                                  self.slideView.userInteractionEnabled = YES;
-                                                              }];
                                          }
                                      });
                                  });
@@ -502,11 +522,13 @@
 
 - (IBAction)makeSlidesFollowVideo {
     self.slidesFollowVideo = YES;
+    self.userSwipedSlides = YES;
     [self updateSlide];
 }
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
     if ([self.recordingDetails.slides count]) {
+        self.userSwipedSlides = YES;
         NSUInteger indexOfCurrentSlide = [self.recordingDetails.slides indexOfObject:self.currentSlide];
         if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
             if (indexOfCurrentSlide > 0) {
