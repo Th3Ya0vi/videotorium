@@ -482,13 +482,15 @@
 }
 
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateChanged) {
-        if (sender.scale > 1) {
-            [self slideToFullscreen];
-        }
-        if (sender.scale < 1) {
-            [self slideToNormal];
-        }
+    if ([self.recordingDetails.slides count]) {
+        if (sender.state == UIGestureRecognizerStateChanged) {
+            if (sender.scale > 1) {
+                [self slideToFullscreen];
+            }
+            if (sender.scale < 1) {
+                [self slideToNormal];
+            }
+        }        
     }
 }
 
