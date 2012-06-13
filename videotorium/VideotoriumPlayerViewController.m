@@ -297,6 +297,7 @@
         if (![self.slideToShow isEqual:self.currentSlide]) {
             BOOL slideFromLeft = self.currentSlide.timestamp > self.slideToShow.timestamp;
             self.currentSlide = self.slideToShow;
+            self.slideView.userInteractionEnabled = NO;
             [UIView animateWithDuration:0.2
                              animations:^{
                                  if (slideFromLeft) {
@@ -320,6 +321,9 @@
                                              [UIView animateWithDuration:0.2
                                                               animations:^{
                                                                   self.slideImageView.transform = CGAffineTransformIdentity;
+                                                              }
+                                                              completion:^(BOOL finished) {
+                                                                  self.slideView.userInteractionEnabled = YES;
                                                               }];
                                          }
                                      });
