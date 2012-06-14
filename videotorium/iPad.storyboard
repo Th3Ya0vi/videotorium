@@ -440,7 +440,6 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="makeSlidesFollowVideo" destination="tUe-ba-nWi" eventType="touchUpInside" id="6vd-ME-YV4"/>
                                                     <action selector="seekVideoToCurrentSlide" destination="tUe-ba-nWi" eventType="touchUpInside" id="8J0-No-DQL"/>
                                                 </connections>
                                             </button>
@@ -456,7 +455,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="makeSlidesFollowVideo" destination="tUe-ba-nWi" eventType="touchUpInside" id="qYK-8F-40R"/>
+                                                    <action selector="makeSlidesFollowVideo" destination="tUe-ba-nWi" eventType="touchUpInside" id="fnb-Hx-EOD"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="17" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Pdx-Zi-4Xf">
@@ -572,72 +571,6 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
     <resources>
         <image name="arrow.png" width="796" height="552"/>
     </resources>
-    <classes>
-        <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="retryButtonPressed:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="arrowImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="noSlidesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="secondaryVideoNotSupportedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="seekToThisSlideButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="slideActivityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="slideNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slideView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="viewForSlideWithVisibleButtons" candidateClass="UIView"/>
-                <relationship kind="outlet" name="viewForSlideWithoutButtons" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="event" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="indexPicture" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="openInSafari:"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumSlideCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlideCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="borderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumSlidesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlidesTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

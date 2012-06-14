@@ -126,12 +126,12 @@
     UISwipeGestureRecognizer *swipeDownGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeDownGR.direction = UISwipeGestureRecognizerDirectionDown;
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    [self.slideView addGestureRecognizer:pinchGR];
-    [self.slideView addGestureRecognizer:swipeLeftGR];
-    [self.slideView addGestureRecognizer:swipeRightGR];
-    [self.slideView addGestureRecognizer:swipeUpGR];
-    [self.slideView addGestureRecognizer:swipeDownGR];
-    [self.slideView addGestureRecognizer:tapGR];
+    [self.slideImageView addGestureRecognizer:pinchGR];
+    [self.slideImageView addGestureRecognizer:swipeLeftGR];
+    [self.slideImageView addGestureRecognizer:swipeRightGR];
+    [self.slideImageView addGestureRecognizer:swipeUpGR];
+    [self.slideImageView addGestureRecognizer:swipeDownGR];
+    [self.slideImageView addGestureRecognizer:tapGR];
     
     self.seekToThisSlideButton.alpha = 0;
     self.followVideoButton.alpha = 0;
