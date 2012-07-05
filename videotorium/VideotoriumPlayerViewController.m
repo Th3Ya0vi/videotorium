@@ -61,6 +61,53 @@
 
 @implementation VideotoriumPlayerViewController
 
+@synthesize recordingID = _recordingID;
+
+@synthesize slideImageView = _slideImageView;
+@synthesize moviePlayerView = _moviePlayerView;
+@synthesize toolbar = _toolbar;
+@synthesize activityIndicator = _activityIndicator;
+@synthesize noSlidesLabel = _noSlidesLabel;
+@synthesize titleLabel = _titleLabel;
+@synthesize secondaryVideoNotSupportedLabel = _secondaryVideoNotSupportedLabel;
+@synthesize infoButton = _infoButton;
+@synthesize slideActivityIndicator = _slideActivityIndicator;
+@synthesize slideContainerView = _slideContainerView;
+@synthesize slideView = _slideView;
+@synthesize seekToThisSlideButton = _seekToThisSlideButton;
+@synthesize followVideoButton = _followVideoButton;
+@synthesize retryButton = _retryButton;
+@synthesize slideNumberLabel = _slideNumberLabel;
+@synthesize viewForSlideWithoutButtons = _viewForSlideWithoutButtons;
+@synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
+@synthesize arrowImage = _arrowImage;
+
+@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
+@synthesize splitViewPopoverController = _splitViewPopoverController;
+
+@synthesize moviePlayerController = _moviePlayerController;
+
+@synthesize timer = _timer;
+
+@synthesize recordingDetails = _recordingDetails;
+@synthesize currentSlide = _currentSlide;
+@synthesize slideToShow = _slideToShow;
+@synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
+
+@synthesize infoAndSlidesPopoverController = _infoAndSlidesPopoverController;
+
+@synthesize slideIsFullscreen = _slideIsFullscreen;
+@synthesize slideZoomingInProgress = _slideZoomingInProgress;
+@synthesize slidesFollowVideo = _slidesFollowVideo;
+
+@synthesize shouldAutoplay = _shouldAutoplay;
+
+@synthesize blackView = _blackView;
+
+@synthesize userSwipedSlides = _userSwipedSlides;
+@synthesize seekingInProgress = _seekingInProgress;
+
+
 - (void)viewDidAppear:(BOOL)animated
 {
     if (!self.recordingID) {
