@@ -242,6 +242,8 @@
         NSError *error;
         VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
+            // If the recordingID was changed meanwhile, this recording is not needed anymore
+            if (![recordingID isEqualToString:_recordingID]) return;
             if (error || !recordingDetails || !recordingDetails.streamURL) {
                 [self.activityIndicator stopAnimating];
                 [UIView animateWithDuration:0.2 animations:^{
