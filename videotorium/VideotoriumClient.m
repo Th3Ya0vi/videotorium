@@ -100,6 +100,9 @@
     details.dateString = [self substringOf:details.response matching:@"Felvétel ideje: *</h2>([^<]*)"];
     details.durationString = [self substringOf:details.response matching:@"Felvétel hossza: *</h2>([^<]*)"];
     NSString *streamURLString = [self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""];
+    if ([streamURLString rangeOfString:@"stream.videotorium.hu:1935/"].location != NSNotFound) {
+        streamURLString = [streamURLString stringByReplacingOccurrencesOfString:@"stream.videotorium.hu:1935/" withString:@"stream.videotorium.hu/"];
+    }
     details.streamURL = [NSURL URLWithString:streamURLString];
 
     NSString *secondaryStreamsString = [self substringOf:details.response matching:@"media_secondaryStreams *= *'([^']*)'"];

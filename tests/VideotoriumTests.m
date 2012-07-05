@@ -39,7 +39,7 @@
 - (void)testGetRecordingStreamURL
 {
     VideotoriumRecordingDetails *recording = [self.videotoriumClient detailsWithID:@"2487"];
-    NSURL *expectedURL = [NSURL URLWithString:@"http://stream.videotorium.hu:1935/vtorium/_definst_/mp4:487/2487/2487_2483_mobile.mp4/playlist.m3u8?sessionid=i2kmtu98s810o3b1itn5p6u0b3_2487"];
+    NSURL *expectedURL = [NSURL URLWithString:@"http://stream.videotorium.hu/vtorium/_definst_/mp4:487/2487/2487_2483_mobile.mp4/playlist.m3u8?sessionid=i2kmtu98s810o3b1itn5p6u0b3_2487"];
     STAssertEqualObjects(expectedURL, recording.streamURL, nil);
 }
 
