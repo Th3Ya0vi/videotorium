@@ -304,20 +304,24 @@
 
 - (void)seekToSlideWithID:(NSString *)ID
 {
-    [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
-        if ([slide.ID isEqualToString:ID]) {
-            *stop = YES;
-            NSTimeInterval seekTime = slide.timestamp;
-            if (seekTime > self.moviePlayerController.duration - 10) {
-                seekTime = self.moviePlayerController.duration - 10;
+    if (self.moviePlayerController.loadState == MPMovieLoadStateUnknown) {
+        [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:1];
+    } else {
+        [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
+            if ([slide.ID isEqualToString:ID]) {
+                *stop = YES;
+                NSTimeInterval seekTime = slide.timestamp;
+                if (seekTime > self.moviePlayerController.duration - 10) {
+                    seekTime = self.moviePlayerController.duration - 10;
+                }
+                self.moviePlayerController.currentPlaybackTime = seekTime;
+                [self.moviePlayerController play];
+                self.slideToShow = slide;
+                self.seekingInProgress = YES;
+                self.slidesFollowVideo = YES;
             }
-            self.moviePlayerController.currentPlaybackTime = seekTime;
-            [self.moviePlayerController play];
-            self.slideToShow = slide;
-            self.seekingInProgress = YES;
-            self.slidesFollowVideo = YES;
-        }
-    }];
+        }];        
+    }
 }
 
 - (void)updateSlide
