@@ -44,11 +44,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell" rowHeight="73" id="Sk6-7L-ngP" customClass="VideotoriumRecordingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell" rowHeight="73" id="Sk6-7L-ngP" customClass="VideotoriumRecordingCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="cfx-I3-khG">
@@ -56,7 +56,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Internetes kommunikációs eszközök az Országos Széchényi Könyvtárban" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="xKJ-Pg-F12">
-                                                    <rect key="frame" x="104" y="2" width="191" height="36"/>
+                                                    <rect key="frame" x="104" y="2" width="180" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -84,14 +84,13 @@
                                             <outlet property="indexPicture" destination="cfx-I3-khG" id="PBt-GW-E9I"/>
                                             <outlet property="subtitle" destination="6ZX-u1-DVb" id="zWc-re-K9e"/>
                                             <outlet property="title" destination="xKJ-Pg-F12" id="Or5-MC-8F0"/>
-                                            <segue destination="cYm-1U-5wB" kind="push" identifier="Show matching slides 1" id="lz3-sy-RqY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner" rowHeight="73" id="zi2-aa-Pca" customClass="VideotoriumRecordingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner" rowHeight="73" id="zi2-aa-Pca" customClass="VideotoriumRecordingCell">
                                         <rect key="frame" x="0.0" y="95" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="C1l-cw-WTM">
@@ -99,7 +98,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Záró plenáris" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="3dI-n6-dQ9">
-                                                    <rect key="frame" x="104" y="2" width="191" height="23"/>
+                                                    <rect key="frame" x="104" y="2" width="180" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -127,7 +126,6 @@
                                             <outlet property="indexPicture" destination="C1l-cw-WTM" id="3jp-gz-KTb"/>
                                             <outlet property="subtitle" destination="fdb-Yw-tIC" id="3E8-mp-Ua9"/>
                                             <outlet property="title" destination="3dI-n6-dQ9" id="vrN-fV-p38"/>
-                                            <segue destination="cYm-1U-5wB" kind="push" identifier="Show matching slides 2" id="4WD-tD-RrH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -164,11 +162,12 @@
                         <outlet property="searchBar" destination="9Vp-Dx-Dpj" id="OgR-ME-dMb"/>
                         <outlet property="tableView" destination="1Gt-gq-U6F" id="yQq-P3-uFU"/>
                         <outlet property="view" destination="3UY-YK-06G" id="nEW-mL-OsD"/>
+                        <segue destination="cYm-1U-5wB" kind="push" identifier="Show slides" id="Tuo-rS-1HL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feU-jw-PYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-643" y="-992"/>
+            <point key="canvasLocation" x="-649" y="-975"/>
         </scene>
         <!--Videotorium Recording Info View Controller-->
         <scene sceneID="gF4-wL-42Z">
@@ -436,7 +435,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
             </objects>
             <point key="canvasLocation" x="-1169" y="-992"/>
         </scene>
-        <!--Videotorium Slides Table View Controller - Matching slides-->
+        <!--Videotorium Slides Table View Controller - Slides-->
         <scene sceneID="ozx-MF-lgy">
             <objects>
                 <tableViewController id="cYm-1U-5wB" customClass="VideotoriumSlidesTableViewController" sceneMemberID="viewController">
@@ -477,7 +476,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                             <outlet property="delegate" destination="cYm-1U-5wB" id="MG4-pH-Z3w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Matching slides" id="ZpP-5B-dYW">
+                    <navigationItem key="navigationItem" title="Slides" id="ZpP-5B-dYW">
                         <barButtonItem key="backBarButtonItem" title="Search" id="lmH-GP-qW1"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -664,87 +663,9 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
     <resources>
         <image name="arrow.png" width="796" height="552"/>
     </resources>
-    <classes>
-        <class className="VideotoriumFeaturedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumFeaturedViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="retryButtonPressed:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="arrowImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="noSlidesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="secondaryVideoNotSupportedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="seekToThisSlideButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="slideActivityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="slideNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slideView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="viewForSlideWithVisibleButtons" candidateClass="UIView"/>
-                <relationship kind="outlet" name="viewForSlideWithoutButtons" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="indexPicture" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="subtitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="openInSafari:"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumSlideCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlideCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="borderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="VideotoriumSlidesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlidesTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="4WD-tD-RrH"/>
-    </inferredMetricsTieBreakers>
 </document>

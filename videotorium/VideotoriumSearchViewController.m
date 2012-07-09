@@ -158,7 +158,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier hasPrefix:@"Show matching slides"]) {
+    if ([segue.identifier isEqualToString:@"Show slides"]) {
         VideotoriumSlidesTableViewController *destination = segue.destinationViewController;
         VideotoriumRecordingCell *cell = sender;
         VideotoriumRecording *recording = [self.recordings objectAtIndex:cell.tag];
@@ -196,6 +196,9 @@
     }
     cell.date.text = recording.dateString;
     cell.indexPicture.alpha = 0;
+    if (![recording.matchingSlides count]) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
     dispatch_async(getIndexPictureQueue, ^{
         NSData *imageData = [NSData dataWithContentsOfURL:recording.indexPictureURL];
@@ -228,6 +231,13 @@
         [detailViewController dismissSplitViewPopover];
     }
 }
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"Show slides" sender:cell];
+}
+
 
 #pragma mark - Slide table view delegate
 
