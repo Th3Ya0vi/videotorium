@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *slideNumberLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithoutButtons;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithVisibleButtons;
-@property (weak, nonatomic) IBOutlet UIImageView *arrowImage;
+@property (weak, nonatomic) IBOutlet UILabel *introductoryText;
 
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
@@ -80,7 +80,7 @@
 @synthesize slideNumberLabel = _slideNumberLabel;
 @synthesize viewForSlideWithoutButtons = _viewForSlideWithoutButtons;
 @synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
-@synthesize arrowImage = _arrowImage;
+@synthesize introductoryText = _introductoryText;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -112,7 +112,7 @@
 {
     if (!self.recordingID) {
         [UIView animateWithDuration:1 animations:^{
-            self.arrowImage.alpha = 1;
+            self.introductoryText.alpha = 1;
         }];
     }
 }
@@ -184,7 +184,7 @@
     self.followVideoButton.alpha = 0;
     self.slideNumberLabel.alpha = 0;
     self.retryButton.alpha = 0;
-    self.arrowImage.alpha = 0;
+    self.introductoryText.alpha = 0;
 
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
@@ -205,6 +205,11 @@
     self.noSlidesLabel.text = NSLocalizedString(@"noSlides", nil);
     [self.followVideoButton setTitle:NSLocalizedString(@"followVideo", nil) forState:UIControlStateNormal];
     [self.seekToThisSlideButton setTitle:NSLocalizedString(@"seekToThisSlide", nil) forState:UIControlStateNormal];
+    if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+        self.introductoryText.text = NSLocalizedString(@"introductoryTextLandscape", nil);
+    } else {
+        self.introductoryText.text = NSLocalizedString(@"introductoryTextPortrait", nil);
+    }
 }
 
 - (void)setRecordingID:(NSString *)recordingID
@@ -229,7 +234,10 @@
     self.slideImageView.image = nil;
     
     [UIView animateWithDuration:0.2 animations:^{
-        self.arrowImage.alpha = 0;
+        self.introductoryText.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.introductoryText removeFromSuperview];
+        self.introductoryText = nil;
     }];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -431,7 +439,7 @@
     [self setSlideNumberLabel:nil];
     [self setViewForSlideWithoutButtons:nil];
     [self setViewForSlideWithVisibleButtons:nil];
-    [self setArrowImage:nil];
+    [self setIntroductoryText:nil];
     [super viewDidUnload];
 }
 
@@ -454,6 +462,11 @@
         blackView.backgroundColor = [UIColor blackColor];
         [self.splitViewController.view addSubview:blackView];
         [self.splitViewController.view addSubview:self.moviePlayerController.view];
+    }
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        self.introductoryText.text = NSLocalizedString(@"introductoryTextLandscape", nil);
+    } else {
+        self.introductoryText.text = NSLocalizedString(@"introductoryTextPortrait", nil);
     }
 }
 

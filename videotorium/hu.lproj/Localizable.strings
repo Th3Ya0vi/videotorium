@@ -18,3 +18,5 @@
 "queryTooShort" = "A kereséshez legalább 3 karakter hosszú keresőkifejezést kötelező megadni.";
 "featured" = "Ajánlott felvételek";
 "recordings" = "Felvételek";
+"introductoryTextLandscape" = "Üdvözöljük a Videotoriumon!\n\n\nA lejátszáshoz válasszon az ajánlott felvételek közül a bal oldali listából. Ugyanitt kereshet is a felvételek között.\n\nHa egy előadás felvételéhez fóliák is tartoznak, azok a videó alatt fognak megjelenni.\n\nCsípési mozdulattal lehet a videót illetve a fóliákat teljes képernyőre nagyítani.";
+"introductoryTextPortrait" = "Üdvözöljük a Videotoriumon!\n\n\nA lejátszáshoz koppintson a \"Felvételek\" gombra a bal felső sarokban, aztán válasszon az ajánlott felvételek közül a megjelenő listából. Ugyanitt kereshet is a felvételek között.\n\nHa egy előadás felvételéhez fóliák is tartoznak, azok a videó alatt fognak megjelenni.\n\nCsípési mozdulattal lehet a videót illetve a fóliákat teljes képernyőre nagyítani.";

@@ -18,3 +18,7 @@
 "queryTooShort" = "Please provide at least 3 characters to search.";
 "featured" = "Featured recordings";
 "recordings" = "Recordings";
+"introductoryTextLandscape" = "Welcome to Videotorium!\n\n\nYou can start watching by selecting a featured recording from the list on the left. You can also search for recordings there.\n\nIf a recording of a presentation contains slides, those will be displayed under the video.\n\nYou can zoom the video or the slides to full screen by pinching.";
+"introductoryTextPortrait" = "Welcome to Videotorium!\n\n\nYou can start watching by tapping the \"Recordings\" button in the top left corner, then selecting a featured recording from the appearing list. You can also search for recordings there.\n\nIf a recording of a presentation contains slides, those will be displayed under the video.\n\nYou can zoom the video or the slides to full screen by pinching.";
+
+
