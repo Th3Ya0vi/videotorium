@@ -12,7 +12,7 @@
 
 - (NSString *)contentsOfURL:(NSString *)urlString error:(NSError *__autoreleasing *)error
 {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"VideotoriumClientMockDataSourceResponses" ofType:@"plist"];
+    NSString *plistPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"VideotoriumClientMockDataSourceResponses" ofType:@"plist"];
     NSDictionary *responses = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     return [responses objectForKey:urlString];
 }

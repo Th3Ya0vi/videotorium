@@ -18,6 +18,7 @@
 
 #define DETAILS_URL @"recordings/details/"
 #define SEARCH_URL @"search/all?perpage=100&q="
+#define FEATURED_URL @"featured?perpage=100"
 
 - (NSString *)videotoriumBaseURL
 {
@@ -173,6 +174,35 @@
 - (NSArray *)recordingsMatchingString:(NSString *)searchString
 {
     return [self recordingsMatchingString:searchString error:NULL];
+}
+
+- (NSArray *)featuredRecordingsWithError:(NSError *__autoreleasing *)error
+{
+    NSMutableArray *recordings = [NSMutableArray array];
+    
+    NSString *URLString = [NSString stringWithFormat:@"%@%@", self.videotoriumBaseURL, FEATURED_URL];
+    NSString *response = [self.dataSource contentsOfURL:URLString error:error];
+    
+    NSArray *results = [self substringsOf:response fromMatching:@"^      <li>$" toMatching:@"^  </li>"];
+    for (NSString *result in results) {
+        VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
+        recording.title = [[self substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"] stringByConvertingHTMLToPlainText];
+        recording.ID = [self substringOf:result matching:@"<h1><a href=\"hu/recordings/details/([^,]*)"];
+        NSString *indexPictureURLString = [self substringOf:result matching:@"<img src=\"([^\"]*)"];
+        if (indexPictureURLString) recording.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
+        recording.dateString = [self substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
+        recording.presenter = [self substringOf:result matching:@"recordingpresenters[^<]*<li> *([^<]*)"];
+        if ([[recording.presenter substringFromIndex:(recording.presenter.length - 1)] isEqualToString:@","]) {
+            recording.presenter = [recording.presenter stringByAppendingString:@" ..."];
+        }
+        [recordings addObject:recording];
+    }
+    return recordings;
+}
+
+- (NSArray *)featuredRecordings
+{
+    return [self featuredRecordingsWithError:NULL];
 }
 
 @end

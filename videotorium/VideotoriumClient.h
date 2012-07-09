@@ -24,7 +24,9 @@
 
 - (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID;
 - (VideotoriumRecordingDetails *)detailsWithID:(NSString *)ID error:(NSError**)error;
-- (NSArray *)recordingsMatchingString:(NSString *)searchString; // array of VideotoriumRecording objects
-- (NSArray *)recordingsMatchingString:(NSString *)searchString error:(NSError**)error; // array of VideotoriumRecording objects
+- (NSArray *)recordingsMatchingString:(NSString *)searchString; // returns an array of VideotoriumRecording objects
+- (NSArray *)recordingsMatchingString:(NSString *)searchString error:(NSError**)error; // returns an array of VideotoriumRecording objects
+- (NSArray *)featuredRecordings; // returns an array of VideotoriumRecording objects
+- (NSArray *)featuredRecordingsWithError:(NSError**)error; // returns an array of VideotoriumRecording objects
 
 @end

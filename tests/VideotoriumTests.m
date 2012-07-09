@@ -105,4 +105,25 @@
     STAssertEqualObjects(slide.ID, @"297", nil);
 }
 
+- (void)testFeauturedRecordings
+{
+    NSArray *results = [self.videotoriumClient featuredRecordings];
+    STAssertEquals([results count], (NSUInteger)100, nil);
+    
+    VideotoriumRecording *recording = [results objectAtIndex:0];
+    STAssertEqualObjects(recording.ID, @"4313", nil);
+    STAssertEqualObjects(recording.title, @"NIIF videokonferencia", nil);
+    STAssertEqualObjects(recording.indexPictureURL, [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/313/4313/indexpics/192x144/4313_4167_19.jpg"], nil);
+    STAssertEqualObjects(recording.dateString, @"2012. május 16.", nil);
+    STAssertEqualObjects(recording.presenter, @"Kovács András, ...", nil);
+    
+    recording = [results objectAtIndex:1];
+    STAssertEqualObjects(recording.ID, @"3234", nil);
+    STAssertEqualObjects(recording.title, @"A bibliai idők emberének növényei", nil);
+    STAssertEqualObjects(recording.indexPictureURL, [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/234/3234/indexpics/192x144/3234_3145_8.jpg"], nil);
+    STAssertEqualObjects(recording.dateString, @"2011. május  4.", nil);
+    STAssertEqualObjects(recording.presenter, @"Dr. Juhász Miklós", nil);
+
+}
+
 @end
