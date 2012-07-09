@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideotoriumFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface VideotoriumFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate>
 
 @end

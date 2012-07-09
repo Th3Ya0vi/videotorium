@@ -89,6 +89,10 @@
     self.tableView.alpha = 0;
     self.activityIndicator.alpha = 0;
     
+    self.tabBarController.delegate = self;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.tabBarController.selectedIndex = [defaults integerForKey:kLastSelectedTab];
+    
     self.noRecordingsFoundLabel.text = NSLocalizedString(@"noRecordings", nil);
     self.errorConnectingLabel.text = NSLocalizedString(@"errorConnecting", nil);
     self.navigationItem.title = NSLocalizedString(@"featured", nil);
@@ -169,5 +173,15 @@
         [detailViewController dismissSplitViewPopover];
     }
 }
+
+#pragma mark - Tab bar controller delegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:tabBarController.selectedIndex forKey:kLastSelectedTab];
+    [defaults synchronize];
+}
+
 
 @end

@@ -12,8 +12,6 @@
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumRecordingCell.h"
 
-#define LAST_SEARCH_KEY @"lastSearchString"
-
 @interface VideotoriumSearchViewController ()
 
 @property (nonatomic, strong) NSArray *recordings; // array of VideotoriumRecording objects
@@ -40,7 +38,7 @@
     _searchString = searchString;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:searchString forKey:LAST_SEARCH_KEY];
+    [defaults setObject:searchString forKey:kLastSearchKey];
     [defaults synchronize];
     
     [UIView animateWithDuration:0.5
@@ -103,7 +101,7 @@
 #ifndef SCREENSHOTMODE
     if (!self.searchString) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastSearchString = [defaults stringForKey:LAST_SEARCH_KEY];
+        NSString *lastSearchString = [defaults stringForKey:kLastSearchKey];
         if (lastSearchString) {
             self.searchBar.text = lastSearchString;
             [self searchBarSearchButtonClicked:self.searchBar];
@@ -259,5 +257,6 @@
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"queryTooShort", nil) message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
     }
 }
+
 
 @end

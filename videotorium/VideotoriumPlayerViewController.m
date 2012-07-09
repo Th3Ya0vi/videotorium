@@ -189,7 +189,7 @@
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastRecordingID = [defaults stringForKey:@"lastRecordingID"];
+        NSString *lastRecordingID = [defaults stringForKey:kLastRecordingID];
         self.shouldAutoplay = NO;
         if (lastRecordingID) {
             self.recordingID = lastRecordingID;

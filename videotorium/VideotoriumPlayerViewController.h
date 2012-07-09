@@ -11,6 +11,11 @@
 #import <UIKit/UIKit.h>
 #import "VideotoriumSlidesTableViewController.h"
 
+#define kLastSearchKey @"lastSearchString"
+#define kLastSelectedTab @"lastSelectedTab"
+#define kLastRecordingID @"lastRecordingID"
+
+
 @interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSString *recordingID;
