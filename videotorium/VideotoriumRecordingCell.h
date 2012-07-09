@@ -12,7 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *indexPicture;
 @property (nonatomic, weak) IBOutlet UILabel *title;
-@property (nonatomic, weak) IBOutlet UILabel *event;
+@property (nonatomic, weak) IBOutlet UILabel *subtitle;
 @property (nonatomic, weak) IBOutlet UILabel *date;
 
 @end

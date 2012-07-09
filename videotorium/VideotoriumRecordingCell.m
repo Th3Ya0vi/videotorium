@@ -12,7 +12,7 @@
 
 @synthesize indexPicture = _indexPicture;
 @synthesize title = _title;
-@synthesize event = _event;
+@synthesize subtitle = _subtitle;
 @synthesize date = _date;
 
 @end

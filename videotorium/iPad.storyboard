@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2541" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="aLK-gI-pXH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2809" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="aLK-gI-pXH">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1875"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1884"/>
     </dependencies>
     <scenes>
         <!--Split View Controller-->
@@ -44,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell With Matching Slides" rowHeight="73" id="Sk6-7L-ngP" customClass="VideotoriumRecordingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell" rowHeight="73" id="Sk6-7L-ngP" customClass="VideotoriumRecordingCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -81,13 +81,13 @@
                                         </view>
                                         <connections>
                                             <outlet property="date" destination="1bu-CN-qC6" id="wso-dZ-VhS"/>
-                                            <outlet property="event" destination="6ZX-u1-DVb" id="19j-Zt-Hm9"/>
                                             <outlet property="indexPicture" destination="cfx-I3-khG" id="PBt-GW-E9I"/>
+                                            <outlet property="subtitle" destination="6ZX-u1-DVb" id="zWc-re-K9e"/>
                                             <outlet property="title" destination="xKJ-Pg-F12" id="Or5-MC-8F0"/>
                                             <segue destination="cYm-1U-5wB" kind="push" identifier="Show matching slides 1" id="lz3-sy-RqY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner With Matching Slides" rowHeight="73" id="zi2-aa-Pca" customClass="VideotoriumRecordingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner" rowHeight="73" id="zi2-aa-Pca" customClass="VideotoriumRecordingCell">
                                         <rect key="frame" x="0.0" y="95" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -124,94 +124,10 @@
                                         </view>
                                         <connections>
                                             <outlet property="date" destination="x5I-IH-hwo" id="JEZ-X6-lbU"/>
-                                            <outlet property="event" destination="fdb-Yw-tIC" id="ana-VE-XMg"/>
                                             <outlet property="indexPicture" destination="C1l-cw-WTM" id="3jp-gz-KTb"/>
+                                            <outlet property="subtitle" destination="fdb-Yw-tIC" id="3E8-mp-Ua9"/>
                                             <outlet property="title" destination="3dI-n6-dQ9" id="vrN-fV-p38"/>
                                             <segue destination="cYm-1U-5wB" kind="push" identifier="Show matching slides 2" id="4WD-tD-RrH"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell" rowHeight="73" id="Av0-ib-Egd" customClass="VideotoriumRecordingCell">
-                                        <rect key="frame" x="0.0" y="168" width="320" height="73"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="muy-Wu-sI4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Internetes kommunikációs eszközök az Országos Széchényi Könyvtárban" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="TES-dK-1rB">
-                                                    <rect key="frame" x="104" y="2" width="191" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Networkshop 2012" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="kzK-kA-1kS">
-                                                    <rect key="frame" x="104" y="33" width="191" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2012. április 42." adjustsFontSizeToFit="NO" autoshrinkMode="none" id="xzn-yD-fmy">
-                                                    <rect key="frame" x="104" y="50" width="191" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <outlet property="date" destination="xzn-yD-fmy" id="BHk-or-VV4"/>
-                                            <outlet property="event" destination="kzK-kA-1kS" id="QfR-BS-a8K"/>
-                                            <outlet property="indexPicture" destination="muy-Wu-sI4" id="tbY-r8-WXh"/>
-                                            <outlet property="title" destination="TES-dK-1rB" id="X6K-he-DAt"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner" rowHeight="73" id="xA2-4B-Kl5" customClass="VideotoriumRecordingCell">
-                                        <rect key="frame" x="0.0" y="241" width="320" height="73"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="H9g-ZF-JKn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Záró plenáris" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="KMM-qm-DFH">
-                                                    <rect key="frame" x="104" y="2" width="191" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Networkshop 2012" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Mae-1b-Gpb">
-                                                    <rect key="frame" x="104" y="33" width="191" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2012. április 42." adjustsFontSizeToFit="NO" autoshrinkMode="none" id="ENq-AF-ZdX">
-                                                    <rect key="frame" x="104" y="50" width="191" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <outlet property="date" destination="ENq-AF-ZdX" id="7MJ-1f-3JG"/>
-                                            <outlet property="event" destination="Mae-1b-Gpb" id="5a7-Mm-9v7"/>
-                                            <outlet property="indexPicture" destination="H9g-ZF-JKn" id="1Vh-4y-4Zi"/>
-                                            <outlet property="title" destination="KMM-qm-DFH" id="W4g-BM-q6m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

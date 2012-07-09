@@ -184,15 +184,16 @@
     if (textSize.width < 190) {
         CellIdentifier = @"Recording Cell Oneliner";
     }
-    if ([recording.matchingSlides count]) {
-        CellIdentifier = [CellIdentifier stringByAppendingString:@" With Matching Slides"];
-    }
     
     VideotoriumRecordingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     cell.tag = indexPath.row;
     cell.title.text = recording.title;
-    cell.event.text = recording.eventName;
+    if (recording.presenter) {
+        cell.subtitle.text = recording.presenter;
+    } else {
+        cell.subtitle.text = recording.eventName;
+    }
     cell.date.text = recording.dateString;
     cell.indexPicture.alpha = 0;
     dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
