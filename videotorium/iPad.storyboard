@@ -11,7 +11,7 @@
                     <toolbarItems/>
                     <connections>
                         <segue destination="tUe-ba-nWi" kind="relationship" relationship="detailViewController" id="eou-IF-OfP"/>
-                        <segue destination="yaR-KV-ScZ" kind="relationship" relationship="masterViewController" id="Kqx-2H-wQD"/>
+                        <segue destination="Lc8-Hp-jFv" kind="relationship" relationship="masterViewController" id="zYC-WV-mjl"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9p-OA-SQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -23,7 +23,7 @@
             <objects>
                 <viewController id="E3H-7v-a7f" customClass="VideotoriumSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3UY-YK-06G">
-                        <rect key="frame" x="0.0" y="20" width="320" height="832"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="783"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" id="9Vp-Dx-Dpj">
@@ -40,7 +40,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Gt-gq-U6F">
-                                <rect key="frame" x="0.0" y="44" width="320" height="788"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="739"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -137,19 +137,19 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="No recordings found" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="ic3-W7-FuS">
-                                <rect key="frame" x="0.0" y="392" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="367" width="320" height="44"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Error connecting to videotorium" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="uwZ-B9-l5F">
-                                <rect key="frame" x="0.0" y="394" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="369" width="320" height="44"/>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="2Gr-DQ-ATz">
-                                <rect key="frame" x="0.0" y="398" width="320" height="37"/>
+                                <rect key="frame" x="0.0" y="373" width="320" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feU-jw-PYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1217" y="-1052"/>
+            <point key="canvasLocation" x="-643" y="-992"/>
         </scene>
         <!--Videotorium Recording Info View Controller-->
         <scene sceneID="gF4-wL-42Z">
@@ -204,7 +204,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Open in Safari">
-                                    <attributedString key="attributedTitle"/>
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -265,7 +264,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                                 </items>
                                 <color key="tintColor" red="0.18431372939999999" green="0.41176474089999998" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" text="Videotorium" textAlignment="center" autoshrinkMode="minimumScaleFactor" id="JMl-Qs-F7C" userLabel="titleLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Videotorium" textAlignment="center" autoshrinkMode="minimumFontSize" id="JMl-Qs-F7C" userLabel="titleLabel">
                                 <rect key="frame" x="92" y="7" width="585" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
@@ -421,6 +420,7 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
         <scene sceneID="YGZ-Gx-4vn">
             <objects>
                 <navigationController id="yaR-KV-ScZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="1A7-BH-rwt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ze0-Wu-DgO">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -434,14 +434,14 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BeX-Rc-laF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1743" y="-1052"/>
+            <point key="canvasLocation" x="-1169" y="-992"/>
         </scene>
         <!--Videotorium Slides Table View Controller - Matching slides-->
         <scene sceneID="ozx-MF-lgy">
             <objects>
                 <tableViewController id="cYm-1U-5wB" customClass="VideotoriumSlidesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="230" sectionHeaderHeight="22" sectionFooterHeight="22" id="DNe-91-tcd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="832"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -477,22 +477,274 @@ A kutatás alapját az adja, hogy az ipari, gazdasági élet vezető szereplői 
                             <outlet property="delegate" destination="cYm-1U-5wB" id="MG4-pH-Z3w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Matching slides" id="ZpP-5B-dYW"/>
+                    <navigationItem key="navigationItem" title="Matching slides" id="ZpP-5B-dYW">
+                        <barButtonItem key="backBarButtonItem" title="Search" id="lmH-GP-qW1"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpl-dd-GRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-732" y="-1078"/>
+            <point key="canvasLocation" x="-158" y="-1018"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="OpX-Uf-yU5">
+            <objects>
+                <tabBarController id="Lc8-Hp-jFv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="cyR-4s-yMR">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yPd-h1-boP" kind="relationship" relationship="viewControllers" id="ICz-9w-Mqs"/>
+                        <segue destination="yaR-KV-ScZ" kind="relationship" relationship="viewControllers" id="bls-KV-2xi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PI1-bF-kHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1743" y="-1010"/>
+        </scene>
+        <!--Videotorium Featured View Controller - Featured-->
+        <scene sceneID="Hth-0B-iMP">
+            <objects>
+                <viewController id="SqD-tc-TdJ" customClass="VideotoriumFeaturedViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ff5-iB-OeI">
+                        <rect key="frame" x="0.0" y="64" width="320" height="739"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="73" sectionHeaderHeight="22" sectionFooterHeight="22" id="Eke-GM-cI8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="739"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell" rowHeight="73" id="9eh-MN-IPJ" customClass="VideotoriumRecordingCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ldz-zQ-5US">
+                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Internetes kommunikációs eszközök az Országos Széchényi Könyvtárban" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="jhQ-zC-vEF">
+                                                    <rect key="frame" x="104" y="2" width="190" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Networkshop 2012" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="mWA-uN-r8Q">
+                                                    <rect key="frame" x="104" y="33" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2012. április 42." adjustsFontSizeToFit="NO" autoshrinkMode="none" id="QHH-iW-Sp0">
+                                                    <rect key="frame" x="104" y="50" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="date" destination="QHH-iW-Sp0" id="JUZ-Ju-HKs"/>
+                                            <outlet property="indexPicture" destination="ldz-zQ-5US" id="SpE-bI-SOe"/>
+                                            <outlet property="subtitle" destination="mWA-uN-r8Q" id="2FB-IE-qih"/>
+                                            <outlet property="title" destination="jhQ-zC-vEF" id="KkU-vr-BoJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recording Cell Oneliner" rowHeight="73" id="haF-vt-AWx" customClass="VideotoriumRecordingCell">
+                                        <rect key="frame" x="0.0" y="95" width="320" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="MTT-7C-iPQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="96" height="72"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Záró plenáris" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Hpx-Fb-x8K">
+                                                    <rect key="frame" x="104" y="2" width="190" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Networkshop 2012" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="D2C-bZ-Xgh">
+                                                    <rect key="frame" x="104" y="33" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="2012. április 42." adjustsFontSizeToFit="NO" autoshrinkMode="none" id="kjq-Yy-Pzb">
+                                                    <rect key="frame" x="104" y="50" width="191" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="date" destination="kjq-Yy-Pzb" id="HSD-gg-QZi"/>
+                                            <outlet property="indexPicture" destination="MTT-7C-iPQ" id="B48-Pn-Zac"/>
+                                            <outlet property="subtitle" destination="D2C-bZ-Xgh" id="Nk1-da-6Ui"/>
+                                            <outlet property="title" destination="Hpx-Fb-x8K" id="1qh-Wl-e0k"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SqD-tc-TdJ" id="xoF-7i-BGQ"/>
+                                    <outlet property="delegate" destination="SqD-tc-TdJ" id="rXD-m7-bSo"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="No recordings found" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Piy-wj-1ai">
+                                <rect key="frame" x="0.0" y="345" width="320" height="44"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Error connecting to videotorium" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="fYb-Qi-qbZ">
+                                <rect key="frame" x="0.0" y="347" width="320" height="44"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="get-H4-sCq">
+                                <rect key="frame" x="0.0" y="351" width="320" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Featured" id="0iB-te-KpM"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="get-H4-sCq" id="vAT-eT-2wf"/>
+                        <outlet property="errorConnectingLabel" destination="fYb-Qi-qbZ" id="8Gc-Xz-YIf"/>
+                        <outlet property="noRecordingsFoundLabel" destination="Piy-wj-1ai" id="c7p-sP-JDf"/>
+                        <outlet property="tableView" destination="Eke-GM-cI8" id="ezF-ud-gdP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rig-DJ-11v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-643" y="-1980"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Lz-gM-50e">
+            <objects>
+                <navigationController id="yPd-h1-boP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="i5i-85-c3b"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rdt-PX-PIk">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.18431372939999999" green="0.41176474089999998" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SqD-tc-TdJ" kind="relationship" relationship="rootViewController" id="Qg8-Fn-Wb9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8b-IV-hn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1169" y="-1980"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.png" width="796" height="552"/>
     </resources>
+    <classes>
+        <class className="VideotoriumFeaturedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumFeaturedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="retryButtonPressed:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="arrowImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="noSlidesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="secondaryVideoNotSupportedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seekToThisSlideButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="slideActivityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="slideNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slideView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="viewForSlideWithVisibleButtons" candidateClass="UIView"/>
+                <relationship kind="outlet" name="viewForSlideWithoutButtons" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="indexPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="subtitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="openInSafari:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="presenterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSlideCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlideCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="borderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSlidesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlidesTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lz3-sy-RqY"/>
+        <segue reference="4WD-tD-RrH"/>
     </inferredMetricsTieBreakers>
 </document>

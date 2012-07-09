@@ -492,7 +492,7 @@
           withBarButtonItem:(UIBarButtonItem *)barButtonItem
        forPopoverController:(UIPopoverController *)pc
 {
-    barButtonItem.title = NSLocalizedString(@"search", nil);
+    barButtonItem.title = NSLocalizedString(@"recordings", nil);
     self.splitViewBarButtonItem = barButtonItem;
     self.splitViewPopoverController = pc;
 }
