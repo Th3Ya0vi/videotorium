@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *noRecordingsFoundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *errorConnectingLabel;
+@property (strong, nonatomic) NSIndexPath *indexPathForTheSelectedRecording;
 
 @end
 
@@ -32,6 +33,7 @@
 @synthesize activityIndicator = _activityIndicator;
 @synthesize noRecordingsFoundLabel = _noRecordingsFoundLabel;
 @synthesize errorConnectingLabel = _errorConnectingLabel;
+@synthesize indexPathForTheSelectedRecording = _indexPathForTheSelectedRecording;
 
 - (void)setSearchString:(NSString *)searchString
 {
@@ -225,14 +227,13 @@
         detailViewController.recordingID = recording.ID;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ([recording.matchingSlides count] == 0) {
-        [detailViewController dismissSplitViewPopover];
-    }
+    [detailViewController dismissSplitViewPopover];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    self.indexPathForTheSelectedRecording = indexPath;
     [self performSegueWithIdentifier:@"Show slides" sender:cell];
 }
 
@@ -242,6 +243,11 @@
 - (void)userSelectedSlide:(VideotoriumSlide *)slide
 {
     VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
+    VideotoriumRecording *recording = [self.recordings objectAtIndex:self.indexPathForTheSelectedRecording.row];
+    if (![detailViewController.recordingID isEqualToString:recording.ID]) {
+        detailViewController.shouldAutoplay = YES;
+        detailViewController.recordingID = recording.ID;
+    }   
     [detailViewController seekToSlideWithID:slide.ID];
     [detailViewController dismissSplitViewPopover];
 }
