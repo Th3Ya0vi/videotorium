@@ -205,7 +205,9 @@
 
 #ifdef SCREENSHOTMODE
     self.introductoryTextContainerView = nil;
+    self.titleLabel.text = @"";
 #endif
+    
     
     [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
     self.secondaryVideoNotSupportedLabel.text = NSLocalizedString(@"secondaryVideoNotSupported", nil);
