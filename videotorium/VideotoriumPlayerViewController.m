@@ -8,7 +8,6 @@
 
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
-#import "VideotoriumRecordingInfoViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface VideotoriumPlayerViewController ()
@@ -455,7 +454,6 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
                                 duration:(NSTimeInterval)duration
 {
-    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
     self.wasFullscreenBeforeOrientationChange = self.moviePlayerController.fullscreen;
     if (self.wasFullscreenBeforeOrientationChange) {
         self.moviePlayerController.fullscreen = NO;
@@ -476,6 +474,11 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
+    if (self.infoAndSlidesPopoverController) {
+        // dismiss and recreate the info popover, otherwise it screws up the passthrough views
+        [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
+        [self performSegueWithIdentifier:@"Info Popover" sender:self.infoButton];
+    }
     if (self.wasFullscreenBeforeOrientationChange) {
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
         self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
@@ -495,11 +498,19 @@
         self.infoAndSlidesPopoverController = popoverSegue.popoverController;
         destination.recording = self.recordingDetails;
         destination.popoverController = self.infoAndSlidesPopoverController;
+        destination.delegate = self;
     }
 }
 
 - (IBAction)retryButtonPressed:(id)sender {
     self.recordingID = self.recordingID;
+}
+
+#pragma mark - Videotorium recording info view delegate
+
+-(void)userSelectedRecordingWithURL:(NSURL *)recordingURL {
+    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
+    self.recordingID = [VideotoriumClient IDOfRecordingWithURL:recordingURL];
 }
 
 #pragma mark - Split view controller delegate

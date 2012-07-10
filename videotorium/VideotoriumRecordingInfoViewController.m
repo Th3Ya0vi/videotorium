@@ -10,39 +10,20 @@
 
 @interface VideotoriumRecordingInfoViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *presenterLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *openInSafariButton;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
 @implementation VideotoriumRecordingInfoViewController
-@synthesize titleLabel = _titleLabel;
-@synthesize presenterLabel = _presenterLabel;
-@synthesize dateLabel = _dateLabel;
-@synthesize descriptionTextView = _descriptionTextView;
 @synthesize openInSafariButton = _openInSafariButton;
+@synthesize webView = _webView;
+@synthesize activityIndicator = _activityIndicator;
 
 @synthesize recording = _recording;
 @synthesize popoverController = _myPopoverController;
-
-- (void)viewWillLayoutSubviews {
-    CGFloat originalSize = self.titleLabel.frame.size.height;
-    [self.titleLabel sizeToFit];
-    CGFloat offset = self.titleLabel.frame.size.height - originalSize;
-    NSRange range = [self.presenterLabel.text rangeOfCharacterFromSet:[NSCharacterSet alphanumericCharacterSet]];
-    if (range.location == NSNotFound) {
-        offset -= self.presenterLabel.frame.size.height;
-    }
-    self.presenterLabel.center = CGPointMake(self.presenterLabel.center.x, self.presenterLabel.center.y + offset);
-    self.dateLabel.center = CGPointMake(self.dateLabel.center.x, self.dateLabel.center.y + offset);
-    CGRect descriptionFrame = self.descriptionTextView.frame;
-    descriptionFrame.size.height -= offset;
-    descriptionFrame.origin.y += offset;
-    self.descriptionTextView.frame = descriptionFrame;
-}
+@synthesize delegate = _delegate;
 
 - (void)viewDidLoad {
     [self.openInSafariButton setTitle:NSLocalizedString(@"openInSafari", nil) forState:UIControlStateNormal];
@@ -51,16 +32,21 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     self.popoverController.passthroughViews = [NSArray array];
-    [self.descriptionTextView flashScrollIndicators];
 }
 
 - (void)setRecording:(VideotoriumRecordingDetails *)recording
 {
     if (![_recording isEqual:recording]) {
-        self.titleLabel.text = recording.title;
-        self.presenterLabel.text = recording.presenter;
-        self.dateLabel.text = recording.dateString;
-        self.descriptionTextView.text = recording.descriptionText;
+        self.webView.scalesPageToFit = YES;
+        self.webView.delegate = self;
+        NSString *strippedHTML = recording.response;
+        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<body>" withString:@"<body style=\"background-image: none\">"];
+        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"header\">" withString:@"<div id=\"header\" style=\"display: none\">"];
+        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"menu\">" withString:@"<div id=\"menu\" style=\"display: none\">"];
+        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div class=\"player\">" withString:@"<div class=\"player\" style=\"display: none\">"];
+        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"footer\">" withString:@"<div id=\"footer\" style=\"display: none\">"];
+        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"footerbg\">" withString:@"<div id=\"footerbg\" style=\"display: none\">"];
+        [self.webView loadHTMLString:strippedHTML baseURL:recording.URL];
         _recording = recording;
     }
 }
@@ -71,16 +57,35 @@
 }
 
 - (void)viewDidUnload {
-    [self setPresenterLabel:nil];
-    [self setDateLabel:nil];
-    [self setDescriptionTextView:nil];
-    [self setTitleLabel:nil];
     [self setOpenInSafariButton:nil];
+    [self setWebView:nil];
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
 }
 
 - (IBAction)openInSafari:(id)sender {
     [[UIApplication sharedApplication] openURL:self.recording.URL];
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self.activityIndicator startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.activityIndicator stopAnimating];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if ([request.URL isEqual:self.recording.URL]) {
+        return YES;
+    }
+    if ([[request.URL absoluteString] hasPrefix:@"http://videotorium.hu/hu/recordings/details/"]) {
+        [self.delegate userSelectedRecordingWithURL:request.URL];
+    }
+    return NO;
 }
 
 @end

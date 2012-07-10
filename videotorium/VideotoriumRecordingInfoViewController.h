@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "VideotoriumRecordingDetails.h"
 
-@interface VideotoriumRecordingInfoViewController : UIViewController
+@protocol VideotoriumRecordingInfoViewDelegate <NSObject>
+        
+-(void)userSelectedRecordingWithURL:(NSURL *)recordingURL;
+
+@end
+
+@interface VideotoriumRecordingInfoViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, copy) VideotoriumRecordingDetails *recording;
 @property (nonatomic, weak) UIPopoverController *popoverController;
+@property (nonatomic, weak) id <VideotoriumRecordingInfoViewDelegate> delegate;
 
 @end
