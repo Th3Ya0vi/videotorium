@@ -45,6 +45,7 @@
 		2DEB06ED154AC82B00AD0805 /* VideotoriumRecordingDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecordingDetails.m */; };
 		2DEB06EE154AC82B00AD0805 /* VideotoriumRecordingDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06EC154AC82B00AD0805 /* VideotoriumRecordingDetails.m */; };
 		2DEB06EF154ACC3800AD0805 /* VideotoriumClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */; };
+		2DF97E1315AC35C4006CA6A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF97E1215AC35C4006CA6A2 /* QuartzCore.framework */; };
 		2DFBB7881580E00900C770EE /* VideotoriumSlidesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBB7871580E00900C770EE /* VideotoriumSlidesTableViewController.m */; };
 		2DFBB78C1580E06800C770EE /* VideotoriumSlideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFBB78B1580E06800C770EE /* VideotoriumSlideCell.m */; };
 		2DFCBF1A154EC97A0091A021 /* VideotoriumSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFCBF19154EC97A0091A021 /* VideotoriumSlide.m */; };
@@ -118,6 +119,7 @@
 		2DEB06E8154970CF00AD0805 /* VideotoriumClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DEB06EB154AC82B00AD0805 /* VideotoriumRecordingDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = VideotoriumRecordingDetails.h; path = videotorium/VideotoriumRecordingDetails.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2DEB06EC154AC82B00AD0805 /* VideotoriumRecordingDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = VideotoriumRecordingDetails.m; path = videotorium/VideotoriumRecordingDetails.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2DF97E1215AC35C4006CA6A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2DFBB7861580E00900C770EE /* VideotoriumSlidesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSlidesTableViewController.h; sourceTree = "<group>"; };
 		2DFBB7871580E00900C770EE /* VideotoriumSlidesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSlidesTableViewController.m; sourceTree = "<group>"; };
 		2DFBB78A1580E06700C770EE /* VideotoriumSlideCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSlideCell.h; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF97E1315AC35C4006CA6A2 /* QuartzCore.framework in Frameworks */,
 				2DC6F8B0154E962200CDDA80 /* MediaPlayer.framework in Frameworks */,
 				2DEB06B91549703200AD0805 /* UIKit.framework in Frameworks */,
 				2DEB06BB1549703200AD0805 /* Foundation.framework in Frameworks */,
@@ -175,6 +178,7 @@
 		2DEB06A91549703200AD0805 = {
 			isa = PBXGroup;
 			children = (
+				2DF97E1215AC35C4006CA6A2 /* QuartzCore.framework */,
 				2DEB06BE1549703200AD0805 /* videotorium */,
 				2DE8EFA3154E5F6800503998 /* tests */,
 				2DEB06B71549703200AD0805 /* Frameworks */,

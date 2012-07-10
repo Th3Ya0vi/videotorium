@@ -29,7 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *slideNumberLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithoutButtons;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithVisibleButtons;
-@property (weak, nonatomic) IBOutlet UILabel *introductoryText;
+@property (weak, nonatomic) IBOutlet UIView *introductoryTextContainerView;
+@property (weak, nonatomic) IBOutlet UILabel *introductoryTextLabel;
 
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
@@ -79,7 +80,8 @@
 @synthesize slideNumberLabel = _slideNumberLabel;
 @synthesize viewForSlideWithoutButtons = _viewForSlideWithoutButtons;
 @synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
-@synthesize introductoryText = _introductoryText;
+@synthesize introductoryTextContainerView = _introductoryTextContainerView;
+@synthesize introductoryTextLabel = _introductoryTextLabel;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -110,8 +112,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     if (!self.recordingID) {
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = CGRectMake(0, 0, 1024, 1024);
+        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor grayColor] CGColor], nil];
+        [self.introductoryTextContainerView.layer insertSublayer:gradient atIndex:0];
         [UIView animateWithDuration:1 animations:^{
-            self.introductoryText.alpha = 1;
+            self.introductoryTextContainerView.alpha = 1;
         }];
     }
 }
@@ -183,7 +189,7 @@
     self.followVideoButton.alpha = 0;
     self.slideNumberLabel.alpha = 0;
     self.retryButton.alpha = 0;
-    self.introductoryText.alpha = 0;
+    self.introductoryTextContainerView.alpha = 0;
 
 #ifndef SCREENSHOTMODE
     if (!self.recordingID) {
@@ -205,9 +211,9 @@
     [self.followVideoButton setTitle:NSLocalizedString(@"followVideo", nil) forState:UIControlStateNormal];
     [self.seekToThisSlideButton setTitle:NSLocalizedString(@"seekToThisSlide", nil) forState:UIControlStateNormal];
     if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-        self.introductoryText.text = NSLocalizedString(@"introductoryTextLandscape", nil);
+        self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextLandscape", nil);
     } else {
-        self.introductoryText.text = NSLocalizedString(@"introductoryTextPortrait", nil);
+        self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextPortrait", nil);
     }
 }
 
@@ -233,10 +239,11 @@
     self.slideImageView.image = nil;
     
     [UIView animateWithDuration:0.2 animations:^{
-        self.introductoryText.alpha = 0;
+        self.introductoryTextContainerView.alpha = 0;
     } completion:^(BOOL finished) {
-        [self.introductoryText removeFromSuperview];
-        self.introductoryText = nil;
+        [self.introductoryTextContainerView removeFromSuperview];
+        self.introductoryTextContainerView = nil;
+        self.introductoryTextLabel = nil;
     }];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -442,7 +449,8 @@
     [self setSlideNumberLabel:nil];
     [self setViewForSlideWithoutButtons:nil];
     [self setViewForSlideWithVisibleButtons:nil];
-    [self setIntroductoryText:nil];
+    [self setIntroductoryTextContainerView:nil];
+    [self setIntroductoryTextLabel:nil];
     [super viewDidUnload];
 }
 
@@ -466,9 +474,9 @@
         [self.splitViewController.view addSubview:self.moviePlayerController.view];
     }
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        self.introductoryText.text = NSLocalizedString(@"introductoryTextLandscape", nil);
+        self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextLandscape", nil);
     } else {
-        self.introductoryText.text = NSLocalizedString(@"introductoryTextPortrait", nil);
+        self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextPortrait", nil);
     }
 }
 
