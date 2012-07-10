@@ -274,7 +274,11 @@
                     if (self.recordingDetails.secondaryStreamURL) {
                         self.secondaryVideoNotSupportedLabel.hidden = NO;
                     } else {
+                        self.noSlidesLabel.alpha = 1;
                         self.noSlidesLabel.hidden = NO;
+                        [UIView animateWithDuration:2 delay:10 options:UIViewAnimationCurveLinear animations:^{
+                            self.noSlidesLabel.alpha = 0;
+                        } completion:^(BOOL finished) {}];
                     }
                 }
                 self.titleLabel.text = self.recordingDetails.title;
