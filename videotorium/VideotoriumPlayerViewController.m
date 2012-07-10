@@ -228,6 +228,8 @@
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
     self.slidesFollowVideo = YES;
+    self.userSwipedSlides = NO;
+    self.seekingInProgress = NO;
     [self slideToNormal];
     self.retryButton.alpha = 0;
     if (self.moviePlayerController != nil) {
@@ -381,6 +383,7 @@
             self.slideView.userInteractionEnabled = NO;
             NSTimeInterval firstAnimationDuration = 0.2;
             if (dissolve) firstAnimationDuration = 0;
+            NSString *currentRecordingID = self.recordingID;
             [UIView animateWithDuration:firstAnimationDuration
                              animations:^{
                                  if (!dissolve) {
@@ -391,10 +394,13 @@
                                      }                                     
                                  }
                              } completion:^(BOOL finished) {
+                                 if (![currentRecordingID isEqualToString:self.recordingID]) return;
                                  dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
                                  dispatch_async(downloadSlideQueue, ^{
+                                     if (![currentRecordingID isEqualToString:self.recordingID]) return;
                                      NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                         if (![currentRecordingID isEqualToString:self.recordingID]) return;
                                          if (self.currentSlide == self.slideToShow) {
                                              self.slideNumberLabel.text = [NSString stringWithFormat:@"%d", [self.recordingDetails.slides indexOfObject:self.currentSlide] + 1];
                                              UIImage *newImage = [UIImage imageWithData:imageData];
@@ -405,6 +411,7 @@
                                                                      self.slideImageView.image = newImage;
                                                                  }
                                                                  completion:^(BOOL finished) {
+                                                                     if (![currentRecordingID isEqualToString:self.recordingID]) return;
                                                                      self.slideView.userInteractionEnabled = YES;
                                                                  }];
                                              } else {
@@ -419,6 +426,7 @@
                                                                       self.slideImageView.transform = CGAffineTransformIdentity;
                                                                   }
                                                                   completion:^(BOOL finished) {
+                                                                      if (![currentRecordingID isEqualToString:self.recordingID]) return;
                                                                       self.slideView.userInteractionEnabled = YES;
                                                                   }];
                                              }
@@ -621,10 +629,10 @@
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
     if ([self.recordingDetails.slides count]) {
-        self.userSwipedSlides = YES;
         self.seekingInProgress = NO;
         NSUInteger indexOfCurrentSlide = [self.recordingDetails.slides indexOfObject:self.currentSlide];
         if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+            self.userSwipedSlides = YES;
             if (indexOfCurrentSlide > 0) {
                 self.slidesFollowVideo = NO;
                 self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide - 1)];
@@ -641,6 +649,7 @@
             }
         }
         if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+            self.userSwipedSlides = YES;
             if (indexOfCurrentSlide < [self.recordingDetails.slides count] - 1) {
                 self.slidesFollowVideo = NO;
                 self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide + 1)];
