@@ -36,7 +36,7 @@
     return _dataSource;
 }
 
-- (NSArray *)substringsOf:(NSString *)string fromMatching:(NSString *)fromPattern toMatching:(NSString *)toPattern
++ (NSArray *)substringsOf:(NSString *)string fromMatching:(NSString *)fromPattern toMatching:(NSString *)toPattern
 {
     NSMutableArray *results = [NSMutableArray array];
     if (string) {
@@ -56,14 +56,14 @@
     return results;
 }
 
-- (NSString *)substringOf:(NSString *)string fromMatching:(NSString *)fromPattern toMatching:(NSString *)toPattern
++ (NSString *)substringOf:(NSString *)string fromMatching:(NSString *)fromPattern toMatching:(NSString *)toPattern
 {
     NSArray *substrings = [self substringsOf:string fromMatching:fromPattern toMatching:toPattern];
     if ([substrings count] == 0) return nil;
     return [substrings objectAtIndex:0];
 }
 
-- (NSArray *)substringsOf:(NSString *)string matching:(NSString *)pattern
++ (NSArray *)substringsOf:(NSString *)string matching:(NSString *)pattern
 {
     NSMutableArray *results = [NSMutableArray array];
     if (string) {
@@ -78,7 +78,7 @@
     return results;
 }
 
-- (NSString *)substringOf:(NSString *)string matching:(NSString *)pattern
++ (NSString *)substringOf:(NSString *)string matching:(NSString *)pattern
 {
     NSArray *substrings = [self substringsOf:string matching:pattern];
     if ([substrings count] == 0) return nil;
@@ -93,34 +93,34 @@
     details.URL = [NSURL URLWithString:URLString];
     details.response = [self.dataSource contentsOfURL:URLString error:error];
     if (details.response == nil) return nil;
-    NSString *titleAndPresenter = [self substringOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"];
+    NSString *titleAndPresenter = [VideotoriumClient substringOf:details.response fromMatching:@"heading recording" toMatching:@"</p>"];
     if (titleAndPresenter) {
-        details.title = [[self substringOf:titleAndPresenter matching:@"<h1>([^<]*)"] stringByConvertingHTMLToPlainText];
-        details.presenter = [[self substringOf:titleAndPresenter matching:@"<p>([^<(]*)"] stringByConvertingHTMLToPlainText];
+        details.title = [[VideotoriumClient substringOf:titleAndPresenter matching:@"<h1>([^<]*)"] stringByConvertingHTMLToPlainText];
+        details.presenter = [[VideotoriumClient substringOf:titleAndPresenter matching:@"<p>([^<(]*)"] stringByConvertingHTMLToPlainText];
     }
-    details.dateString = [self substringOf:details.response matching:@"Felvétel ideje: *</h2>([^<]*)"];
-    details.durationString = [self substringOf:details.response matching:@"Felvétel hossza: *</h2>([^<]*)"];
-    NSString *streamURLString = [self substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""];
+    details.dateString = [VideotoriumClient substringOf:details.response matching:@"Felvétel ideje: *</h2>([^<]*)"];
+    details.durationString = [VideotoriumClient substringOf:details.response matching:@"Felvétel hossza: *</h2>([^<]*)"];
+    NSString *streamURLString = [VideotoriumClient substringOf:details.response matching:@"<video[^>]*src=\"([^\"]*)\""];
     if ([streamURLString rangeOfString:@"stream.videotorium.hu:1935/"].location != NSNotFound) {
         streamURLString = [streamURLString stringByReplacingOccurrencesOfString:@"stream.videotorium.hu:1935/" withString:@"stream.videotorium.hu/"];
     }
     details.streamURL = [NSURL URLWithString:streamURLString];
 
-    NSString *secondaryStreamsString = [self substringOf:details.response matching:@"media_secondaryStreams *= *'([^']*)'"];
+    NSString *secondaryStreamsString = [VideotoriumClient substringOf:details.response matching:@"media_secondaryStreams *= *'([^']*)'"];
     if (secondaryStreamsString) {
         NSData *secondaryStreamsData = [secondaryStreamsString dataUsingEncoding:NSUTF8StringEncoding];
         NSArray *secondaryStreams = [NSJSONSerialization JSONObjectWithData:secondaryStreamsData options:0 error:NULL];
         NSString *secondaryStream = [secondaryStreams lastObject];
         if (secondaryStream) {
-            NSString *stringToReplace = [self substringOf:streamURLString matching:@"(mp4:[^.]*\\.mp4)"];
+            NSString *stringToReplace = [VideotoriumClient substringOf:streamURLString matching:@"(mp4:[^.]*\\.mp4)"];
             NSString *secondaryStreamURLString = [streamURLString stringByReplacingOccurrencesOfString:stringToReplace withString:secondaryStream];
             details.secondaryStreamURL = [NSURL URLWithString:secondaryStreamURLString];
         }        
     }
     NSMutableArray *slides = [NSMutableArray array];
-    NSString *slidesImageURLPrefix = [self substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
-    NSString *slidesThumbnailURLPrefix = [self substringOf:details.response matching:@"slides_thumbnailFolder *= *'([^']*)'"];
-    NSString *slidesJSONString = [self substringOf:details.response matching:@"slides_model *= *'([^']*)'"];
+    NSString *slidesImageURLPrefix = [VideotoriumClient substringOf:details.response matching:@"slides_imageFolder *= *'([^']*)'"];
+    NSString *slidesThumbnailURLPrefix = [VideotoriumClient substringOf:details.response matching:@"slides_thumbnailFolder *= *'([^']*)'"];
+    NSString *slidesJSONString = [VideotoriumClient substringOf:details.response matching:@"slides_model *= *'([^']*)'"];
     if (slidesJSONString != nil) {
         NSData *slidesJSONData = [slidesJSONString dataUsingEncoding:NSUTF8StringEncoding];
         NSArray *slidesJSONArray = [NSJSONSerialization JSONObjectWithData:slidesJSONData options:0 error:NULL];
@@ -130,7 +130,7 @@
         }
         details.slides = slides;        
     }
-    NSString *description = [self substringOf:details.response fromMatching:@"<div class=\"recordingdescription\">" toMatching:@"</div>"];
+    NSString *description = [VideotoriumClient substringOf:details.response fromMatching:@"<div class=\"recordingdescription\">" toMatching:@"</div>"];
     details.descriptionText = [description stringByConvertingHTMLToPlainText];
     return details;
 }
@@ -148,21 +148,21 @@
     NSString *URLString = [NSString stringWithFormat:@"%@%@%@", self.videotoriumBaseURL, SEARCH_URL, encodedSearchString];
     NSString *response = [self.dataSource contentsOfURL:URLString error:error];
     
-    NSArray *results = [self substringsOf:response fromMatching:@"^  <li[ >]" toMatching:@"^  </li>"];    
+    NSArray *results = [VideotoriumClient substringsOf:response fromMatching:@"^  <li[ >]" toMatching:@"^  </li>"];
     for (NSString *result in results) {
         VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
-        recording.title = [[self substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"] stringByConvertingHTMLToPlainText];
-        recording.ID = [self substringOf:result matching:@"<h1><a href=\"hu/recordings/details/([^,]*)"];
-        NSString *indexPictureURLString = [self substringOf:result matching:@"<img src=\"([^\"]*)"];
+        recording.title = [[VideotoriumClient substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"] stringByConvertingHTMLToPlainText];
+        recording.ID = [VideotoriumClient substringOf:result matching:@"<h1><a href=\"hu/recordings/details/([^,]*)"];
+        NSString *indexPictureURLString = [VideotoriumClient substringOf:result matching:@"<img src=\"([^\"]*)"];
         if (indexPictureURLString) recording.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
-        recording.dateString = [self substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
-        recording.eventName = [self substringOf:result matching:@"recordingevents[^=]*=\"hu/events[^>]*> *([^<]*)"];
+        recording.dateString = [VideotoriumClient substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
+        recording.eventName = [VideotoriumClient substringOf:result matching:@"recordingevents[^=]*=\"hu/events[^>]*> *([^<]*)"];
         NSMutableArray *matchingSlides = [NSMutableArray array];
-        NSArray *slideDivs = [self substringsOf:result fromMatching:@"<div class=\"slide\">" toMatching:@"</div>"];
+        NSArray *slideDivs = [VideotoriumClient substringsOf:result fromMatching:@"<div class=\"slide\">" toMatching:@"</div>"];
         for (NSString *slideDiv in slideDivs) {
             VideotoriumSlide *slide = [[VideotoriumSlide alloc] init];
-            slide.ID = [self substringOf:slideDiv matching:@"src=\"[^\"]*/([^/\"]*)\\.[^/\"]*\""];
-            slide.thumbnailURL = [NSURL URLWithString:[self substringOf:slideDiv matching:@"src=\"([^\"]*)\""]];
+            slide.ID = [VideotoriumClient substringOf:slideDiv matching:@"src=\"[^\"]*/([^/\"]*)\\.[^/\"]*\""];
+            slide.thumbnailURL = [NSURL URLWithString:[VideotoriumClient substringOf:slideDiv matching:@"src=\"([^\"]*)\""]];
             [matchingSlides addObject:slide];
         }
         recording.matchingSlides = matchingSlides;
@@ -183,15 +183,15 @@
     NSString *URLString = [NSString stringWithFormat:@"%@%@", self.videotoriumBaseURL, FEATURED_URL];
     NSString *response = [self.dataSource contentsOfURL:URLString error:error];
     
-    NSArray *results = [self substringsOf:response fromMatching:@"^      <li>$" toMatching:@"^  </li>"];
+    NSArray *results = [VideotoriumClient substringsOf:response fromMatching:@"^      <li>$" toMatching:@"^  </li>"];
     for (NSString *result in results) {
         VideotoriumRecording *recording = [[VideotoriumRecording alloc] init];
-        recording.title = [[self substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"] stringByConvertingHTMLToPlainText];
-        recording.ID = [self substringOf:result matching:@"<h1><a href=\"hu/recordings/details/([^,]*)"];
-        NSString *indexPictureURLString = [self substringOf:result matching:@"<img src=\"([^\"]*)"];
+        recording.title = [[VideotoriumClient substringOf:result matching:@"<h1><a href=[^>]*>([^<]*)"] stringByConvertingHTMLToPlainText];
+        recording.ID = [VideotoriumClient substringOf:result matching:@"<h1><a href=\"hu/recordings/details/([^,]*)"];
+        NSString *indexPictureURLString = [VideotoriumClient substringOf:result matching:@"<img src=\"([^\"]*)"];
         if (indexPictureURLString) recording.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
-        recording.dateString = [self substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
-        recording.presenter = [self substringOf:result matching:@"recordingpresenters[^<]*<li> *([^<]*)"];
+        recording.dateString = [VideotoriumClient substringOf:result matching:@"Felvétel ideje:</span> <span>([^<]*)"];
+        recording.presenter = [VideotoriumClient substringOf:result matching:@"recordingpresenters[^<]*<li> *([^<]*)"];
         if ([[recording.presenter substringFromIndex:(recording.presenter.length - 1)] isEqualToString:@","]) {
             recording.presenter = [recording.presenter stringByAppendingString:@" ..."];
         }
@@ -203,6 +203,11 @@
 - (NSArray *)featuredRecordings
 {
     return [self featuredRecordingsWithError:NULL];
+}
+
++ (NSString *)IDOfRecordingWithURL:(NSURL *)URL
+{
+    return [VideotoriumClient substringOf:URL.absoluteString matching:@"hu/recordings/details/([^,]*)"];
 }
 
 @end

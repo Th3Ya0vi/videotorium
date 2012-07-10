@@ -28,5 +28,6 @@
 - (NSArray *)recordingsMatchingString:(NSString *)searchString error:(NSError**)error; // returns an array of VideotoriumRecording objects
 - (NSArray *)featuredRecordings; // returns an array of VideotoriumRecording objects
 - (NSArray *)featuredRecordingsWithError:(NSError**)error; // returns an array of VideotoriumRecording objects
++ (NSString *)IDOfRecordingWithURL:(NSURL *)URL;
 
 @end
