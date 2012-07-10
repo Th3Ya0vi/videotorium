@@ -45,6 +45,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+#ifndef SCREENSHOTMODE
     if (!self.recordings) {
         [UIView animateWithDuration:0.5
                          animations:^{
@@ -79,6 +80,7 @@
         });
         dispatch_release(getFeaturedRecordingsQueue);
     }
+#endif
 }
 
 - (void)viewDidLoad
@@ -89,13 +91,20 @@
     self.tableView.alpha = 0;
     self.activityIndicator.alpha = 0;
     
+#ifndef SCREENSHOTMODE
     self.tabBarController.delegate = self;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.tabBarController.selectedIndex = [defaults integerForKey:kLastSelectedTab];
+#endif
     
     self.noRecordingsFoundLabel.text = NSLocalizedString(@"noRecordings", nil);
     self.errorConnectingLabel.text = NSLocalizedString(@"errorConnecting", nil);
     self.navigationItem.title = NSLocalizedString(@"featured", nil);
+    
+#ifdef SCREENSHOTMODE
+    self.navigationItem.title = @"";
+    self.tabBarController.viewControllers = [NSArray array];
+#endif
 }
 
 - (void)viewDidUnload

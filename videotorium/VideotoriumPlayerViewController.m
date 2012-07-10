@@ -9,6 +9,7 @@
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface VideotoriumPlayerViewController ()
 
@@ -201,8 +202,9 @@
         }
     }
 #endif
+
 #ifdef SCREENSHOTMODE
-    self.toolbar.items = [NSArray array];
+    self.introductoryTextContainerView = nil;
 #endif
     
     [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
