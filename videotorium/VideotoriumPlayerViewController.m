@@ -280,7 +280,9 @@
                         self.noSlidesLabel.hidden = NO;
                         [UIView animateWithDuration:2 delay:10 options:UIViewAnimationCurveLinear animations:^{
                             self.noSlidesLabel.alpha = 0;
-                        } completion:^(BOOL finished) {}];
+                        } completion:^(BOOL finished) {
+                            self.noSlidesLabel.hidden = YES;
+                        }];
                     }
                 }
                 self.titleLabel.text = self.recordingDetails.title;
@@ -536,6 +538,7 @@
 
 -(void)userSelectedRecordingWithURL:(NSURL *)recordingURL {
     [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
+    self.shouldAutoplay = YES;
     self.recordingID = [VideotoriumClient IDOfRecordingWithURL:recordingURL];
 }
 
