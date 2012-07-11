@@ -488,9 +488,9 @@
         self.moviePlayerController.controlStyle = MPMovieControlStyleNone;
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
         self.moviePlayerController.view.frame = self.splitViewController.view.bounds;
-        UIView *blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1024, 1024)];
-        blackView.backgroundColor = [UIColor blackColor];
-        [self.splitViewController.view addSubview:blackView];
+        self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1024, 1024)];
+        self.blackView.backgroundColor = [UIColor blackColor];
+        [self.splitViewController.view addSubview:self.blackView];
         [self.splitViewController.view addSubview:self.moviePlayerController.view];
     }
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
@@ -512,7 +512,8 @@
         self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
         self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
         [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
-        [[self.splitViewController.view.subviews lastObject] removeFromSuperview];
+        [self.blackView removeFromSuperview];
+        self.blackView = nil;
         self.moviePlayerController.controlStyle = MPMovieControlStyleDefault;
         self.moviePlayerController.fullscreen = YES;
     }
