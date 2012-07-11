@@ -350,6 +350,7 @@
                     self.seekToThisSlideButton.alpha = 0;
                     self.followVideoButton.alpha = 0;
                     self.slideNumberLabel.alpha = 0;
+                    self.slideImageView.transform = CGAffineTransformIdentity;
                     self.slideImageView.frame = self.viewForSlideWithoutButtons.frame;
                 }];
             }
@@ -370,6 +371,7 @@
                     self.seekToThisSlideButton.alpha = 1;
                     self.followVideoButton.alpha = 1;
                     self.slideNumberLabel.alpha = 1;
+                    self.slideImageView.transform = CGAffineTransformIdentity;
                     self.slideImageView.frame = self.viewForSlideWithVisibleButtons.frame;
                 }];
             }
@@ -391,13 +393,12 @@
                                          self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
                                      } else {
                                          self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
-                                     }                                     
+                                     }
                                  }
                              } completion:^(BOOL finished) {
                                  if (![currentRecordingID isEqualToString:self.recordingID]) return;
                                  dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
                                  dispatch_async(downloadSlideQueue, ^{
-                                     if (![currentRecordingID isEqualToString:self.recordingID]) return;
                                      NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
                                      dispatch_async(dispatch_get_main_queue(), ^{
                                          if (![currentRecordingID isEqualToString:self.recordingID]) return;
@@ -424,6 +425,7 @@
                                                  [UIView animateWithDuration:0.2
                                                                   animations:^{
                                                                       self.slideImageView.transform = CGAffineTransformIdentity;
+
                                                                   }
                                                                   completion:^(BOOL finished) {
                                                                       if (![currentRecordingID isEqualToString:self.recordingID]) return;
@@ -640,7 +642,7 @@
             } else {
                 CGAffineTransform transform = self.slideImageView.transform;
                 [UIView animateWithDuration:0.1 animations:^{
-                    self.slideImageView.transform = CGAffineTransformTranslate(transform, self.slideImageView.bounds.size.width/4 , 0); 
+                    self.slideImageView.transform = CGAffineTransformTranslate(transform, self.slideImageView.bounds.size.width/4 , 0);
                 } completion:^(BOOL finished) {
                     [UIView animateWithDuration:0.1 animations:^{
                         self.slideImageView.transform = transform;
@@ -657,7 +659,7 @@
             } else {
                 CGAffineTransform transform = self.slideImageView.transform;
                 [UIView animateWithDuration:0.1 animations:^{
-                    self.slideImageView.transform = CGAffineTransformTranslate(transform, -self.slideImageView.bounds.size.width/4 , 0); 
+                    self.slideImageView.transform = CGAffineTransformTranslate(transform, -self.slideImageView.bounds.size.width/4 , 0);
                 } completion:^(BOOL finished) {
                     [UIView animateWithDuration:0.1 animations:^{
                         self.slideImageView.transform = transform;
