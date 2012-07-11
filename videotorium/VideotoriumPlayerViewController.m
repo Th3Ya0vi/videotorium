@@ -17,11 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UILabel *noSlidesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *secondaryVideoNotSupportedLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *slideActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *slideContainerView;
 @property (weak, nonatomic) IBOutlet UIView *slideView;
 @property (weak, nonatomic) IBOutlet UIButton *seekToThisSlideButton;
@@ -32,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithVisibleButtons;
 @property (weak, nonatomic) IBOutlet UIView *introductoryTextContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *introductoryTextLabel;
+@property (weak, nonatomic) IBOutlet UIView *viewForVideoWithNoSlides;
+@property (weak, nonatomic) IBOutlet UIView *viewForVideoWithSlides;
 
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
@@ -68,11 +67,8 @@
 @synthesize moviePlayerView = _moviePlayerView;
 @synthesize toolbar = _toolbar;
 @synthesize activityIndicator = _activityIndicator;
-@synthesize noSlidesLabel = _noSlidesLabel;
 @synthesize titleLabel = _titleLabel;
-@synthesize secondaryVideoNotSupportedLabel = _secondaryVideoNotSupportedLabel;
 @synthesize infoButton = _infoButton;
-@synthesize slideActivityIndicator = _slideActivityIndicator;
 @synthesize slideContainerView = _slideContainerView;
 @synthesize slideView = _slideView;
 @synthesize seekToThisSlideButton = _seekToThisSlideButton;
@@ -83,6 +79,8 @@
 @synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
 @synthesize introductoryTextContainerView = _introductoryTextContainerView;
 @synthesize introductoryTextLabel = _introductoryTextLabel;
+@synthesize viewForVideoWithNoSlides = _viewForVideoWithNoSlides;
+@synthesize viewForVideoWithSlides = _viewForVideoWithSlides;
 
 @synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
 @synthesize splitViewPopoverController = _splitViewPopoverController;
@@ -210,8 +208,6 @@
     
     
     [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
-    self.secondaryVideoNotSupportedLabel.text = NSLocalizedString(@"secondaryVideoNotSupported", nil);
-    self.noSlidesLabel.text = NSLocalizedString(@"noSlides", nil);
     [self.followVideoButton setTitle:NSLocalizedString(@"followVideo", nil) forState:UIControlStateNormal];
     [self.seekToThisSlideButton setTitle:NSLocalizedString(@"seekToThisSlide", nil) forState:UIControlStateNormal];
     if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
@@ -240,8 +236,6 @@
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
     [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
-    self.noSlidesLabel.hidden = YES;
-    self.secondaryVideoNotSupportedLabel.hidden = YES;
     self.slideImageView.image = nil;
     
     [UIView animateWithDuration:0.2 animations:^{
@@ -272,18 +266,10 @@
             } else {
                 self.recordingDetails = recordingDetails;
                 self.slideImageView.image = nil;
-                if ([self.recordingDetails.slides count] == 0) {
-                    if (self.recordingDetails.secondaryStreamURL) {
-                        self.secondaryVideoNotSupportedLabel.hidden = NO;
-                    } else {
-                        self.noSlidesLabel.alpha = 1;
-                        self.noSlidesLabel.hidden = NO;
-                        [UIView animateWithDuration:2 delay:10 options:UIViewAnimationCurveLinear animations:^{
-                            self.noSlidesLabel.alpha = 0;
-                        } completion:^(BOOL finished) {
-                            self.noSlidesLabel.hidden = YES;
-                        }];
-                    }
+                if ([self.recordingDetails.slides count]) {
+                    self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
+                } else {
+                    self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
                 }
                 self.titleLabel.text = self.recordingDetails.title;
                 self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
@@ -456,11 +442,8 @@
     self.moviePlayerView = nil;
     self.activityIndicator = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self setNoSlidesLabel:nil];
     [self setTitleLabel:nil];
     [self setInfoButton:nil];
-    [self setSlideActivityIndicator:nil];
-    [self setSecondaryVideoNotSupportedLabel:nil];
     [self setSlideContainerView:nil];
     [self setSlideView:nil];
     [self setSeekToThisSlideButton:nil];
@@ -471,6 +454,8 @@
     [self setViewForSlideWithVisibleButtons:nil];
     [self setIntroductoryTextContainerView:nil];
     [self setIntroductoryTextLabel:nil];
+    [self setViewForVideoWithNoSlides:nil];
+    [self setViewForVideoWithSlides:nil];
     [super viewDidUnload];
 }
 
