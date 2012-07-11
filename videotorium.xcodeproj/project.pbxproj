@@ -15,6 +15,8 @@
 		2D54C3E1157DC638004783CA /* videotorium-icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E0157DC638004783CA /* videotorium-icon-72.png */; };
 		2D54C3E4157DCABC004783CA /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E2157DCABC004783CA /* videotorium-gradient.png */; };
 		2D54C3E5157DCABC004783CA /* videotorium-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */; };
+		2D6C1A7B15AD713300A3ECFA /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7A15AD713300A3ECFA /* app-icon.png */; };
+		2D6C1A7D15AD713700A3ECFA /* app-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */; };
 		2D87232115AAD97100B29538 /* VideotoriumFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87232015AAD97100B29538 /* VideotoriumFeaturedViewController.m */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
@@ -77,6 +79,8 @@
 		2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient@2x.png"; sourceTree = "<group>"; };
 		2D54C3E6157DF557004783CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2D54C3E8157DF766004783CA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2D6C1A7A15AD713300A3ECFA /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
+		2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-retina.png"; sourceTree = "<group>"; };
 		2D84723715874DC6008D2280 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D87232015AAD97100B29538 /* VideotoriumFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumFeaturedViewController.m; sourceTree = "<group>"; };
 		2D87232315AAD97D00B29538 /* VideotoriumFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumFeaturedViewController.h; sourceTree = "<group>"; };
@@ -178,7 +182,6 @@
 		2DEB06A91549703200AD0805 = {
 			isa = PBXGroup;
 			children = (
-				2DF97E1215AC35C4006CA6A2 /* QuartzCore.framework */,
 				2DEB06BE1549703200AD0805 /* videotorium */,
 				2DE8EFA3154E5F6800503998 /* tests */,
 				2DEB06B71549703200AD0805 /* Frameworks */,
@@ -199,6 +202,7 @@
 		2DEB06B71549703200AD0805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DF97E1215AC35C4006CA6A2 /* QuartzCore.framework */,
 				2D54C3E8157DF766004783CA /* CoreMedia.framework */,
 				2DC6F8AE154E927900CDDA80 /* MediaPlayer.framework */,
 				2D54C3E6157DF557004783CA /* AVFoundation.framework */,
@@ -307,6 +311,8 @@
 		2DFBB7911580E11400C770EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */,
+				2D6C1A7A15AD713300A3ECFA /* app-icon.png */,
 				2D54C3E2157DCABC004783CA /* videotorium-gradient.png */,
 				2D54C3E3157DCABC004783CA /* videotorium-gradient@2x.png */,
 				2D54C3E0157DC638004783CA /* videotorium-icon-72.png */,
@@ -406,6 +412,8 @@
 				2D54C3E1157DC638004783CA /* videotorium-icon-72.png in Resources */,
 				2D54C3E4157DCABC004783CA /* videotorium-gradient.png in Resources */,
 				2D54C3E5157DCABC004783CA /* videotorium-gradient@2x.png in Resources */,
+				2D6C1A7B15AD713300A3ECFA /* app-icon.png in Resources */,
+				2D6C1A7D15AD713700A3ECFA /* app-icon-retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

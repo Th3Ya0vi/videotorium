@@ -18,8 +18,8 @@
 				<string>Default-Portrait@2x~ipad.png</string>
 				<string>Default-Landscape~ipad.png</string>
 				<string>Default-Landscape@2x~ipad.png</string>
-				<string>videotorium-icon-144.png</string>
-				<string>videotorium-icon-72.png</string>
+				<string>app-icon-retina.png</string>
+				<string>app-icon.png</string>
 			</array>
 		</dict>
 		<key>UINewsstandIcon</key>
