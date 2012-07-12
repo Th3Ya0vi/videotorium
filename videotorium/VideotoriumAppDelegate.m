@@ -29,10 +29,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UIImage *image = [UIImage imageNamed:@"videotorium-gradient.png"];
-    [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    [[UISearchBar appearance] setBackgroundImage:image];
-    [[UIToolbar appearance] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-
+    [(UINavigationBar*)[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [(UISearchBar*)[UISearchBar appearance] setBackgroundImage:image];
+    [(UIToolbar*)[UIToolbar appearance] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [(UIBarButtonItem*)[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0 green:0.5 blue:0.73 alpha:1]];
     return YES;
 }
 
