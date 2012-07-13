@@ -198,6 +198,8 @@
     cell.indexPicture.alpha = 0;
     if (![recording.matchingSlides count]) {
         cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture queue", NULL);
     dispatch_async(getIndexPictureQueue, ^{
