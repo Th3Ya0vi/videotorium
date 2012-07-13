@@ -20,7 +20,7 @@
 
 - (NSString *)debugDescription
 {
-    return [NSString stringWithFormat:@"VideotoriumRecording (ID: %@, title: %@, dateString: %@, eventName: %@, presenter: %@, indexPictureURL: %@, resultsOnSlides: %@)", self.ID, self.title, self.dateString, self.eventName, self.presenter, self.indexPictureURL, self.matchingSlides];
+    return [NSString stringWithFormat:@"VideotoriumRecording (ID: %@, title: %@, dateString: %@, eventName: %@, presenter: %@, indexPictureURL: %@, matchingSlides: %@)", self.ID, self.title, self.dateString, self.eventName, self.presenter, self.indexPictureURL, self.matchingSlides];
 }
 
 @end
