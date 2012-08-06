@@ -714,7 +714,6 @@ You can zoom the video or the slides to full screen by pinching.</string>
         <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
             <relationships>
-                <relationship kind="action" name="openInSafari:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>

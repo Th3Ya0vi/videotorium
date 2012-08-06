@@ -11,7 +11,6 @@
 
 @interface VideotoriumMoviePlayerViewController : UIViewController
 
-@property (readonly, strong, nonatomic) MPMoviePlayerController *moviePlayerController;
 @property (strong, nonatomic) NSURL *streamURL;
 @property (nonatomic) BOOL shouldAutoplay;
 

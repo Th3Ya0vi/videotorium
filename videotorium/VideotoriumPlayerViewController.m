@@ -44,7 +44,6 @@
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
 @property (nonatomic, strong) VideotoriumSlide *slideToShow;
-@property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
 
 @property (weak, nonatomic) UIPopoverController *infoAndSlidesPopoverController;
 @property (nonatomic) BOOL slideIsFullscreen;
@@ -52,11 +51,11 @@
 
 @property (nonatomic) BOOL slidesFollowVideo;
 
-@property (strong, nonatomic) UIView *blackView;
-
 @property (nonatomic) BOOL seekingInProgress;
 
 @property (nonatomic) BOOL userSwipedSlides;
+
+@property (strong, nonatomic) UIView *blackView;
 
 @end
 
@@ -406,17 +405,6 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
                                 duration:(NSTimeInterval)duration
 {
-    self.wasFullscreenBeforeOrientationChange = self.moviePlayer.moviePlayerController.fullscreen;
-    if (self.wasFullscreenBeforeOrientationChange) {
-        self.moviePlayer.moviePlayerController.fullscreen = NO;
-        self.moviePlayer.moviePlayerController.controlStyle = MPMovieControlStyleNone;
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-        self.moviePlayer.view.frame = self.splitViewController.view.bounds;
-        self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1024, 1024)];
-        self.blackView.backgroundColor = [UIColor blackColor];
-        [self.splitViewController.view addSubview:self.blackView];
-        [self.splitViewController.view addSubview:self.moviePlayer.view];
-    }
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
         self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextLandscape", nil);
     } else {
@@ -430,16 +418,6 @@
         // dismiss and recreate the info popover, otherwise it screws up the passthrough views
         [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
         [self performSegueWithIdentifier:@"Info Popover" sender:self.infoButton];
-    }
-    if (self.wasFullscreenBeforeOrientationChange) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
-        self.moviePlayer.view.frame = self.moviePlayerView.bounds;
-        [self.moviePlayerView addSubview:self.moviePlayer.view];
-        [self.blackView removeFromSuperview];
-        self.blackView = nil;
-        self.moviePlayer.moviePlayerController.controlStyle = MPMovieControlStyleDefault;
-        self.moviePlayer.moviePlayerController.fullscreen = YES;
     }
 }
 

@@ -10,17 +10,22 @@
 
 @interface VideotoriumMoviePlayerViewController ()
 
+@property (strong, nonatomic) MPMoviePlayerController *moviePlayerController;
+@property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
+@property (strong, nonatomic) UIView *blackView;
+
 @end
 
 @implementation VideotoriumMoviePlayerViewController
 
 - (void)setStreamURL:(NSURL *)streamURL
 {
-    _moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
-    _moviePlayerController.shouldAutoplay = self.shouldAutoplay;
-    _moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _moviePlayerController.view.frame = self.view.bounds;
-    [self.view addSubview:_moviePlayerController.view];
+    MPMoviePlayerController *player = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
+    player.shouldAutoplay = self.shouldAutoplay;
+    player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    player.view.frame = self.view.bounds;
+    [self.view addSubview:player.view];
+    _moviePlayerController = player;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -69,6 +74,33 @@
 - (void)stop
 {
     [self.moviePlayerController stop];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    self.wasFullscreenBeforeOrientationChange = self.moviePlayerController.fullscreen;
+    if (self.wasFullscreenBeforeOrientationChange) {
+        self.moviePlayerController.fullscreen = NO;
+        self.moviePlayerController.controlStyle = MPMovieControlStyleNone;
+        UIView *rootView = self.view.window.rootViewController.view;
+        self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1024, 1024)];
+        self.blackView.backgroundColor = [UIColor blackColor];
+        [rootView addSubview:self.blackView];
+        self.moviePlayerController.view.frame = rootView.bounds;
+        [rootView addSubview:self.moviePlayerController.view];
+    }
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if (self.wasFullscreenBeforeOrientationChange) {
+        self.moviePlayerController.view.frame = self.view.bounds;
+        [self.view addSubview:self.moviePlayerController.view];
+        [self.blackView removeFromSuperview];
+        self.blackView = nil;
+        self.moviePlayerController.controlStyle = MPMovieControlStyleDefault;
+        self.moviePlayerController.fullscreen = YES;
+    }
 }
 
 @end
