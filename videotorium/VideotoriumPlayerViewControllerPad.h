@@ -13,11 +13,6 @@
 #import "VideotoriumRecordingInfoViewController.h"
 #import "VideotoriumPlayerViewController.h"
 
-#define kLastSearchKey @"lastSearchString"
-#define kLastSelectedTab @"lastSelectedTab"
-#define kLastRecordingID @"lastRecordingID"
-
-
 @interface VideotoriumPlayerViewControllerPad : UIViewController <UISplitViewControllerDelegate, VideotoriumRecordingInfoViewDelegate, VideotoriumPlayerViewController>
 
 @end

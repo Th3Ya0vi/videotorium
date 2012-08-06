@@ -9,8 +9,10 @@
 #import "VideotoriumSearchViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumRecording.h"
-#import "VideotoriumPlayerViewControllerPad.h"
+#import "VideotoriumPlayerViewController.h"
 #import "VideotoriumRecordingCell.h"
+
+#define kLastSearchKey @"lastSearchString"
 
 @interface VideotoriumSearchViewController ()
 
@@ -113,8 +115,8 @@
 }
 
 - (void)openURL:(NSNotification *)notification {
-    VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] lastObject];
-    detailViewController.recordingID = [notification.userInfo objectForKey:@"recording"];
+    id <VideotoriumPlayerViewController> playerViewController = [self playerViewController];
+    playerViewController.recordingID = [notification.userInfo objectForKey:@"recording"];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -155,6 +157,15 @@
         destination.slides = recording.matchingSlides;
         destination.delegate = self;
         destination.navigationItem.title = NSLocalizedString(@"matchingSlides", nil);
+    }
+}
+
+- (id<VideotoriumPlayerViewController>)playerViewController
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return [self.splitViewController.viewControllers objectAtIndex:1];
+    } else {
+        return [self.storyboard instantiateViewControllerWithIdentifier:@"player"];
     }
 }
 
@@ -212,10 +223,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
+    id <VideotoriumPlayerViewController> playerViewController = [self playerViewController];
+    
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
-    if (![detailViewController.recordingID isEqualToString:recording.ID]) {
-        detailViewController.recordingID = recording.ID;
+    if (![playerViewController.recordingID isEqualToString:recording.ID]) {
+        playerViewController.recordingID = recording.ID;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -232,12 +244,12 @@
 
 - (void)userSelectedSlide:(VideotoriumSlide *)slide
 {
-    VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
+    id <VideotoriumPlayerViewController> playerViewController = [self playerViewController];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:self.indexPathForTheSelectedRecording.row];
-    if (![detailViewController.recordingID isEqualToString:recording.ID]) {
-        detailViewController.recordingID = recording.ID;
+    if (![playerViewController.recordingID isEqualToString:recording.ID]) {
+        playerViewController.recordingID = recording.ID;
     }   
-    [detailViewController seekToSlideWithID:slide.ID];
+    [playerViewController seekToSlideWithID:slide.ID];
 }
 
 #pragma mark - Search bar delegate

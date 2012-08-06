@@ -15,6 +15,8 @@
 
 @interface VideotoriumPlayerViewControllerPad ()
 
+#define kLastRecordingID @"lastRecordingID"
+
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

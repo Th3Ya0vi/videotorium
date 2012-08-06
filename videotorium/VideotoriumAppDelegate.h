@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideotoriumPlayerViewController.h"
 
 @interface VideotoriumAppDelegate : UIResponder <UIApplicationDelegate>
 
