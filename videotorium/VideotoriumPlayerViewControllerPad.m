@@ -238,10 +238,6 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
                                 duration:(NSTimeInterval)duration
 {
-    // Fix the frames of the video and the slide container views to occupy exactly half of the available area
-    CGRect area = self.viewForVideoWithNoSlides.frame;
-    self.viewForVideoWithSlides.frame = CGRectMake(area.origin.x, area.origin.y, area.size.width, area.size.height/2);
-    self.slideContainerView.frame = CGRectMake(area.origin.x, area.origin.y + area.size.height/2, area.size.width, area.size.height/2);
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
         self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextLandscape", nil);
     } else {
@@ -256,6 +252,14 @@
         [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
         [self performSegueWithIdentifier:@"Info Popover" sender:self.infoButton];
     }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    // Fix the frames of the video and the slide container views to occupy exactly half of the available area
+    CGRect area = self.viewForVideoWithNoSlides.frame;
+    self.viewForVideoWithSlides.frame = CGRectMake(area.origin.x, area.origin.y, area.size.width, area.size.height/2);
+    self.slideContainerView.frame = CGRectMake(area.origin.x, area.origin.y + area.size.height/2, area.size.width, area.size.height/2);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
