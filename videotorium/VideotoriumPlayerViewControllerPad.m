@@ -37,7 +37,7 @@
 
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 
-@property (weak, nonatomic) UIPopoverController *infoAndSlidesPopoverController;
+@property (weak, nonatomic) UIPopoverController *infoPopoverController;
 
 @end
 
@@ -160,7 +160,7 @@
     }
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
-    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
+    [self.infoPopoverController dismissPopoverAnimated:YES];
     
     [UIView animateWithDuration:0.2 animations:^{
         self.introductoryTextContainerView.alpha = 0;
@@ -255,9 +255,9 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    if (self.infoAndSlidesPopoverController) {
+    if (self.infoPopoverController) {
         // dismiss and recreate the info popover, otherwise it screws up the passthrough views
-        [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
+        [self.infoPopoverController dismissPopoverAnimated:YES];
         [self performSegueWithIdentifier:@"Info Popover" sender:self.infoButton];
     }
 }
@@ -275,9 +275,9 @@
     if ([segue.identifier isEqualToString:@"Info Popover"]) {
         UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
         VideotoriumRecordingInfoViewController *destination = popoverSegue.destinationViewController;
-        self.infoAndSlidesPopoverController = popoverSegue.popoverController;
+        self.infoPopoverController = popoverSegue.popoverController;
         destination.recording = self.recordingDetails;
-        destination.infoPopoverController = self.infoAndSlidesPopoverController;
+        destination.infoPopoverController = self.infoPopoverController;
         destination.delegate = self;
     }
 }
@@ -289,7 +289,7 @@
 #pragma mark - Videotorium recording info view delegate
 
 -(void)userSelectedRecordingWithURL:(NSURL *)recordingURL {
-    [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
+    [self.infoPopoverController dismissPopoverAnimated:YES];
     self.recordingID = [VideotoriumClient IDOfRecordingWithURL:recordingURL];
 }
 
