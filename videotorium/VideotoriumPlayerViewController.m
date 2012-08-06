@@ -8,6 +8,7 @@
 
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
+#import "VideotoriumMoviePlayerViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -36,7 +37,7 @@
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
 
-@property (nonatomic, strong) MPMoviePlayerController *moviePlayerController;
+@property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -77,11 +78,11 @@
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
 {
-    if (self.moviePlayerController.loadState == MPMovieLoadStatePlayable) {
+    if (self.moviePlayer.loadState == MPMovieLoadStatePlayable) {
         [self.activityIndicator stopAnimating];
         [UIView animateWithDuration:0.5
                          animations:^{
-                             self.moviePlayerController.view.alpha = 1;
+                             self.moviePlayerView.alpha = 1;
                          }];        
     }
 }
@@ -182,10 +183,11 @@
     self.seekingInProgress = NO;
     [self slideToNormal];
     self.retryButton.alpha = 0;
-    if (self.moviePlayerController != nil) {
-        [self.moviePlayerController stop];
-        [self.moviePlayerController.view removeFromSuperview];
-        self.moviePlayerController = nil;
+    if (self.moviePlayer != nil) {
+        [self.moviePlayer stop];
+        [self.moviePlayer.view removeFromSuperview];
+        [self.moviePlayer removeFromParentViewController];
+        self.moviePlayer = nil;
     }
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
@@ -226,13 +228,14 @@
                     self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
                 }
                 self.titleLabel.text = self.recordingDetails.title;
-                self.moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.recordingDetails.streamURL];
-                self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
-                self.moviePlayerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-                self.moviePlayerController.view.alpha = 0;
-                [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
-                self.moviePlayerController.shouldAutoplay = self.shouldAutoplay;
-                [self.moviePlayerController prepareToPlay];
+                self.moviePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"moviePlayer"];
+                self.moviePlayer.streamURL = self.recordingDetails.streamURL;
+                self.moviePlayer.view.frame = self.moviePlayerView.bounds;
+                self.moviePlayerView.alpha = 0;
+                [self addChildViewController:self.moviePlayer];
+                [self.moviePlayerView addSubview:self.moviePlayer.view];
+                self.moviePlayer.shouldAutoplay = self.shouldAutoplay;
+                [self.moviePlayer prepareToPlay];
                 self.infoButton.enabled = YES;
             }
         });
@@ -262,18 +265,18 @@
 
 - (void)seekToSlideWithID:(NSString *)ID
 {
-    if (self.moviePlayerController.loadState == MPMovieLoadStateUnknown) {
+    if (self.moviePlayer.loadState == MPMovieLoadStateUnknown) {
         [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:1];
     } else {
         [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
             if ([slide.ID isEqualToString:ID]) {
                 *stop = YES;
                 NSTimeInterval seekTime = slide.timestamp;
-                if (seekTime > self.moviePlayerController.duration - 10) {
-                    seekTime = self.moviePlayerController.duration - 10;
+                if (seekTime > self.moviePlayer.duration - 10) {
+                    seekTime = self.moviePlayer.duration - 10;
                 }
-                self.moviePlayerController.currentPlaybackTime = seekTime;
-                [self.moviePlayerController play];
+                self.moviePlayer.currentPlaybackTime = seekTime;
+                [self.moviePlayer play];
                 self.slideToShow = slide;
                 self.seekingInProgress = YES;
                 self.slidesFollowVideo = YES;
@@ -284,7 +287,7 @@
 
 - (void)updateSlide
 {
-    NSTimeInterval currentPlaybackTime = self.moviePlayerController.currentPlaybackTime;
+    NSTimeInterval currentPlaybackTime = self.moviePlayer.currentPlaybackTime;
     if ([self.recordingDetails.slides count] > 0) {
         if (self.slidesFollowVideo) {
             if (self.seekToThisSlideButton.alpha == 1) {
@@ -381,7 +384,7 @@
                              }];
         }
         if (self.seekingInProgress) {
-            if (self.currentSlide.timestamp < self.moviePlayerController.currentPlaybackTime) {
+            if (self.currentSlide.timestamp < self.moviePlayer.currentPlaybackTime) {
                 self.seekingInProgress = NO;
             }
         }
@@ -391,25 +394,7 @@
 - (void)viewDidUnload
 {
     [self.timer invalidate];
-    self.toolbar = nil;
-    self.slideImageView = nil;
-    self.moviePlayerView = nil;
-    self.activityIndicator = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self setTitleLabel:nil];
-    [self setInfoButton:nil];
-    [self setSlideContainerView:nil];
-    [self setSlideView:nil];
-    [self setSeekToThisSlideButton:nil];
-    [self setFollowVideoButton:nil];
-    [self setRetryButton:nil];
-    [self setSlideNumberLabel:nil];
-    [self setViewForSlideWithoutButtons:nil];
-    [self setViewForSlideWithVisibleButtons:nil];
-    [self setIntroductoryTextContainerView:nil];
-    [self setIntroductoryTextLabel:nil];
-    [self setViewForVideoWithNoSlides:nil];
-    [self setViewForVideoWithSlides:nil];
     [super viewDidUnload];
 }
 
@@ -421,16 +406,16 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
                                 duration:(NSTimeInterval)duration
 {
-    self.wasFullscreenBeforeOrientationChange = self.moviePlayerController.fullscreen;
+    self.wasFullscreenBeforeOrientationChange = self.moviePlayer.moviePlayerController.fullscreen;
     if (self.wasFullscreenBeforeOrientationChange) {
-        self.moviePlayerController.fullscreen = NO;
-        self.moviePlayerController.controlStyle = MPMovieControlStyleNone;
+        self.moviePlayer.moviePlayerController.fullscreen = NO;
+        self.moviePlayer.moviePlayerController.controlStyle = MPMovieControlStyleNone;
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
-        self.moviePlayerController.view.frame = self.splitViewController.view.bounds;
+        self.moviePlayer.view.frame = self.splitViewController.view.bounds;
         self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1024, 1024)];
         self.blackView.backgroundColor = [UIColor blackColor];
         [self.splitViewController.view addSubview:self.blackView];
-        [self.splitViewController.view addSubview:self.moviePlayerController.view];
+        [self.splitViewController.view addSubview:self.moviePlayer.view];
     }
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
         self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextLandscape", nil);
@@ -449,12 +434,12 @@
     if (self.wasFullscreenBeforeOrientationChange) {
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
         self.splitViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
-        self.moviePlayerController.view.frame = self.moviePlayerView.bounds;
-        [self.moviePlayerView insertSubview:self.moviePlayerController.view belowSubview:self.activityIndicator];
+        self.moviePlayer.view.frame = self.moviePlayerView.bounds;
+        [self.moviePlayerView addSubview:self.moviePlayer.view];
         [self.blackView removeFromSuperview];
         self.blackView = nil;
-        self.moviePlayerController.controlStyle = MPMovieControlStyleDefault;
-        self.moviePlayerController.fullscreen = YES;
+        self.moviePlayer.moviePlayerController.controlStyle = MPMovieControlStyleDefault;
+        self.moviePlayer.moviePlayerController.fullscreen = YES;
     }
 }
 

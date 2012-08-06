@@ -12,6 +12,7 @@
 		2D24A319157648C000C65290 /* VideotoriumRecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */; };
 		2D6C1A7B15AD713300A3ECFA /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7A15AD713300A3ECFA /* app-icon.png */; };
 		2D6C1A7D15AD713700A3ECFA /* app-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */; };
+		2D7CE03B15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CE03A15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m */; };
 		2D87232115AAD97100B29538 /* VideotoriumFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87232015AAD97100B29538 /* VideotoriumFeaturedViewController.m */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
 		2DB449A115AE99EC00594FFF /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */; };
@@ -73,6 +74,8 @@
 		2D54C3E8157DF766004783CA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2D6C1A7A15AD713300A3ECFA /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
 		2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-retina.png"; sourceTree = "<group>"; };
+		2D7CE03915CFAC0300118313 /* VideotoriumMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumMoviePlayerViewController.h; sourceTree = "<group>"; };
+		2D7CE03A15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumMoviePlayerViewController.m; sourceTree = "<group>"; };
 		2D84723715874DC6008D2280 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D87232015AAD97100B29538 /* VideotoriumFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumFeaturedViewController.m; sourceTree = "<group>"; };
 		2D87232315AAD97D00B29538 /* VideotoriumFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumFeaturedViewController.h; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 			children = (
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */,
 				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */,
+				2D7CE03915CFAC0300118313 /* VideotoriumMoviePlayerViewController.h */,
+				2D7CE03A15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m */,
 				2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */,
 				2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */,
 			);
@@ -453,6 +458,7 @@
 				2DFBB7881580E00900C770EE /* VideotoriumSlidesTableViewController.m in Sources */,
 				2DFBB78C1580E06800C770EE /* VideotoriumSlideCell.m in Sources */,
 				2D87232115AAD97100B29538 /* VideotoriumFeaturedViewController.m in Sources */,
+				2D7CE03B15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
