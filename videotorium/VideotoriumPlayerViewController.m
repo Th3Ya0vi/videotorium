@@ -61,52 +61,6 @@
 
 @implementation VideotoriumPlayerViewController
 
-@synthesize recordingID = _recordingID;
-
-@synthesize slideImageView = _slideImageView;
-@synthesize moviePlayerView = _moviePlayerView;
-@synthesize toolbar = _toolbar;
-@synthesize activityIndicator = _activityIndicator;
-@synthesize titleLabel = _titleLabel;
-@synthesize infoButton = _infoButton;
-@synthesize slideContainerView = _slideContainerView;
-@synthesize slideView = _slideView;
-@synthesize seekToThisSlideButton = _seekToThisSlideButton;
-@synthesize followVideoButton = _followVideoButton;
-@synthesize retryButton = _retryButton;
-@synthesize slideNumberLabel = _slideNumberLabel;
-@synthesize viewForSlideWithoutButtons = _viewForSlideWithoutButtons;
-@synthesize viewForSlideWithVisibleButtons = _viewForSlideWithVisibleButtons;
-@synthesize introductoryTextContainerView = _introductoryTextContainerView;
-@synthesize introductoryTextLabel = _introductoryTextLabel;
-@synthesize viewForVideoWithNoSlides = _viewForVideoWithNoSlides;
-@synthesize viewForVideoWithSlides = _viewForVideoWithSlides;
-
-@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
-@synthesize splitViewPopoverController = _splitViewPopoverController;
-
-@synthesize moviePlayerController = _moviePlayerController;
-
-@synthesize timer = _timer;
-
-@synthesize recordingDetails = _recordingDetails;
-@synthesize currentSlide = _currentSlide;
-@synthesize slideToShow = _slideToShow;
-@synthesize wasFullscreenBeforeOrientationChange = _wasFullscreenBeforeOrientationChange;
-
-@synthesize infoAndSlidesPopoverController = _infoAndSlidesPopoverController;
-
-@synthesize slideIsFullscreen = _slideIsFullscreen;
-@synthesize slideZoomingInProgress = _slideZoomingInProgress;
-@synthesize slidesFollowVideo = _slidesFollowVideo;
-
-@synthesize shouldAutoplay = _shouldAutoplay;
-
-@synthesize blackView = _blackView;
-
-@synthesize userSwipedSlides = _userSwipedSlides;
-@synthesize seekingInProgress = _seekingInProgress;
-
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -511,7 +465,7 @@
         VideotoriumRecordingInfoViewController *destination = popoverSegue.destinationViewController;
         self.infoAndSlidesPopoverController = popoverSegue.popoverController;
         destination.recording = self.recordingDetails;
-        destination.popoverController = self.infoAndSlidesPopoverController;
+        destination.infoPopoverController = self.infoAndSlidesPopoverController;
         destination.delegate = self;
     }
 }

@@ -10,11 +10,6 @@
 
 @implementation VideotoriumSlide
 
-@synthesize imageURL = _imageURL;
-@synthesize thumbnailURL = _thumbnailURL;
-@synthesize ID = _ID;
-@synthesize timestamp = _timestamp;
-
 + (VideotoriumSlide *)slideWithDictionary:(NSDictionary *)slideDictionary imageURLPrefix:(NSString *)imageURLPrefix thumbnailURLPrefix:(NSString *)thumbnailURLPrefix
 {
     VideotoriumSlide *slide = [[VideotoriumSlide alloc] init];

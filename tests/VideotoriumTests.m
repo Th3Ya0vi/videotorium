@@ -21,8 +21,6 @@
 
 @implementation VideotoriumTests
 
-@synthesize videotoriumClient = _videotoriumClient;
-
 - (void)setUp
 {
     [super setUp];

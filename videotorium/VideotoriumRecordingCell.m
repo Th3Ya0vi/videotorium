@@ -10,9 +10,4 @@
 
 @implementation VideotoriumRecordingCell
 
-@synthesize indexPicture = _indexPicture;
-@synthesize title = _title;
-@synthesize subtitle = _subtitle;
-@synthesize date = _date;
-
 @end

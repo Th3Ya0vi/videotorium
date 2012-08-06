@@ -17,13 +17,6 @@
 @end
 
 @implementation VideotoriumRecordingInfoViewController
-@synthesize openInSafariButton = _openInSafariButton;
-@synthesize webView = _webView;
-@synthesize activityIndicator = _activityIndicator;
-
-@synthesize recording = _recording;
-@synthesize popoverController = _myPopoverController;
-@synthesize delegate = _delegate;
 
 - (void)viewDidLoad {
     [self.openInSafariButton setTitle:NSLocalizedString(@"openInSafari", nil) forState:UIControlStateNormal];
@@ -31,7 +24,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.popoverController.passthroughViews = [NSArray array];
+    self.infoPopoverController.passthroughViews = [NSArray array];
 }
 
 - (void)setRecording:(VideotoriumRecordingDetails *)recording

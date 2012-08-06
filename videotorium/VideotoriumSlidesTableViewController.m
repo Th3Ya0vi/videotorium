@@ -15,14 +15,6 @@
 
 @implementation VideotoriumSlidesTableViewController
 
-@synthesize slides = _slides;
-@synthesize popoverController = _myPopoverController;
-@synthesize delegate = _delegate;
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.popoverController.passthroughViews = [NSArray array];
-}
 
 - (void)setSlides:(NSArray *)slides
 {

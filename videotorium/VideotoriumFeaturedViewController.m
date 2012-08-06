@@ -24,12 +24,6 @@
 
 @implementation VideotoriumFeaturedViewController
 
-@synthesize recordings = _recordings;
-@synthesize activityIndicator = _activityIndicator;
-@synthesize noRecordingsFoundLabel = _noRecordingsFoundLabel;
-@synthesize errorConnectingLabel = _errorConnectingLabel;
-@synthesize tableView = _tableView;
-
 - (void)setRecordings:(NSArray *)recordings
 {
     if (![_recordings isEqualToArray:recordings]) {

@@ -19,7 +19,6 @@
 @interface VideotoriumSlidesTableViewController : UITableViewController
 
 @property (copy, nonatomic) NSArray *slides; // array of VideotoriumSlide objects
-@property (weak, nonatomic) UIPopoverController *popoverController;
 @property (weak, nonatomic) id <VideotoriumSlidesTableDelegate> delegate;
 
 - (void)scrollToSlide:(VideotoriumSlide *)slide animated:(BOOL)animated;

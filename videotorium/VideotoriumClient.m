@@ -13,9 +13,6 @@
 
 @implementation VideotoriumClient
 
-@synthesize dataSource = _dataSource;
-@synthesize videotoriumBaseURL = _videotoriumBaseURL;
-
 #define DETAILS_URL @"recordings/details/"
 #define SEARCH_URL @"search/all?perpage=100&q="
 #define FEATURED_URL @"featured?perpage=100"

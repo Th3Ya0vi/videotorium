@@ -10,8 +10,6 @@
 
 @implementation VideotoriumAppDelegate
 
-@synthesize window = _window;
-
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication

@@ -18,7 +18,7 @@
 @interface VideotoriumRecordingInfoViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, copy) VideotoriumRecordingDetails *recording;
-@property (nonatomic, weak) UIPopoverController *popoverController;
+@property (nonatomic, weak) UIPopoverController *infoPopoverController;
 @property (nonatomic, weak) id <VideotoriumRecordingInfoViewDelegate> delegate;
 
 @end

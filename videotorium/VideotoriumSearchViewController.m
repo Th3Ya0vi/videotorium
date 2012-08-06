@@ -26,15 +26,6 @@
 
 @implementation VideotoriumSearchViewController
 
-@synthesize searchString = _searchString;
-@synthesize recordings = _recordings;
-@synthesize tableView = _tableView;
-@synthesize searchBar = _searchBar;
-@synthesize activityIndicator = _activityIndicator;
-@synthesize noRecordingsFoundLabel = _noRecordingsFoundLabel;
-@synthesize errorConnectingLabel = _errorConnectingLabel;
-@synthesize indexPathForTheSelectedRecording = _indexPathForTheSelectedRecording;
-
 - (void)setSearchString:(NSString *)searchString
 {
     _searchString = searchString;
