@@ -76,7 +76,7 @@
 }
 
 - (void)moviePlayerPlaybackStateDidChange:(NSNotification *)notification {
-    self.slidePlayer.seekingInProgress = NO;
+    [self.slidePlayer moviePlayerPlaybackStateDidChange];
 }
 
 - (void)viewDidLoad

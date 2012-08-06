@@ -11,12 +11,10 @@
 
 @interface VideotoriumSlidePlayerViewController : UIViewController <UIGestureRecognizerDelegate>
 
-@property (nonatomic) BOOL seekingInProgress;
 @property (weak, nonatomic) VideotoriumMoviePlayerViewController *moviePlayer;
-
 @property (strong, nonatomic) NSArray *slides;
 
-
 - (void)seekToSlideWithID:(NSString *)ID;
+- (void)moviePlayerPlaybackStateDidChange;
 
 @end

@@ -26,6 +26,7 @@
 @property (nonatomic) BOOL slideIsFullscreen;
 @property (nonatomic) BOOL slideZoomingInProgress;
 
+@property (nonatomic) BOOL seekingInProgress;
 @property (nonatomic) BOOL slidesFollowVideo;
 
 @property (nonatomic) BOOL userSwipedSlides;
@@ -45,6 +46,12 @@
     [self slideToNormal];
     self.slideImageView.image = nil;
 }
+
+- (void)moviePlayerPlaybackStateDidChange
+{
+	self.seekingInProgress = NO;
+}
+
 
 - (void)viewDidLoad
 {
