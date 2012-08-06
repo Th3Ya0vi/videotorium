@@ -168,7 +168,9 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         return [self.splitViewController.viewControllers objectAtIndex:1];
     } else {
-        return [self.storyboard instantiateViewControllerWithIdentifier:@"player"];
+        id<VideotoriumPlayerViewController> player = [self.storyboard instantiateViewControllerWithIdentifier:@"player"];
+        [self presentViewController:(UIViewController *)player animated:YES completion:^{}];
+        return player;
     }
 }
 

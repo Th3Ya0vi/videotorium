@@ -10,7 +10,6 @@
 #import "VideotoriumClient.h"
 #import "VideotoriumMoviePlayerViewController.h"
 #import "VideotoriumSlidePlayerViewController.h"
-#import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 
 @interface VideotoriumPlayerViewControllerPad ()

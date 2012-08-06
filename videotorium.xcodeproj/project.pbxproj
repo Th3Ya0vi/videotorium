@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D132EF7157D022F00259E36 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D132EF6157D022F00259E36 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2D132EFB157D045700259E36 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D132EFA157D045700259E36 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2D1EECF015D0065000D48624 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1EECEF15D0065000D48624 /* iPhone.storyboard */; };
+		2D1EECF315D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EECF215D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.m */; };
 		2D24A319157648C000C65290 /* VideotoriumRecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */; };
 		2D6C1A7B15AD713300A3ECFA /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7A15AD713300A3ECFA /* app-icon.png */; };
 		2D6C1A7D15AD713700A3ECFA /* app-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */; };
@@ -68,6 +70,9 @@
 		2D132EF9157D045700259E36 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		2D132EFA157D045700259E36 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		2D1EECED15CFFDCD00D48624 /* VideotoriumPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideotoriumPlayerViewController.h; sourceTree = "<group>"; };
+		2D1EECEF15D0065000D48624 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		2D1EECF115D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumPlayerViewControllerPhone.h; sourceTree = "<group>"; };
+		2D1EECF215D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumPlayerViewControllerPhone.m; sourceTree = "<group>"; };
 		2D24A317157648C000C65290 /* VideotoriumRecordingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingCell.h; sourceTree = "<group>"; };
 		2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecordingCell.m; sourceTree = "<group>"; };
 		2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideotoriumClientMockDataSource.h; path = tests/VideotoriumClientMockDataSource.h; sourceTree = SOURCE_ROOT; };
@@ -219,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */,
+				2D1EECEF15D0065000D48624 /* iPhone.storyboard */,
 				2D84723515874DBE008D2280 /* Localizable.strings */,
 				2DFBB78F1580E0C800C770EE /* Player */,
 				2DB860BE1581F08600A7F590 /* Slide table */,
@@ -291,6 +297,8 @@
 				2D1EECED15CFFDCD00D48624 /* VideotoriumPlayerViewController.h */,
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.h */,
 				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.m */,
+				2D1EECF115D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.h */,
+				2D1EECF215D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.m */,
 				2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */,
 				2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */,
 				2D7CE03915CFAC0300118313 /* VideotoriumMoviePlayerViewController.h */,
@@ -414,6 +422,7 @@
 				2D6C1A7D15AD713700A3ECFA /* app-icon-retina.png in Resources */,
 				2DB449A115AE99EC00594FFF /* videotorium-gradient.png in Resources */,
 				2DB449A215AE99EC00594FFF /* videotorium-gradient@2x.png in Resources */,
+				2D1EECF015D0065000D48624 /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +476,7 @@
 				2D87232115AAD97100B29538 /* VideotoriumFeaturedViewController.m in Sources */,
 				2D7CE03B15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m in Sources */,
 				2DA15CBA15CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m in Sources */,
+				2D1EECF315D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +589,7 @@
 				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
 				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -591,6 +602,7 @@
 				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
 				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
