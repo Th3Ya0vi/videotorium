@@ -41,6 +41,7 @@
 
 @implementation VideotoriumPlayerViewControllerPad
 
+@synthesize recordingID = _recordingID;
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -106,9 +107,8 @@
     if (!self.recordingID) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *lastRecordingID = [defaults stringForKey:kLastRecordingID];
-        self.shouldAutoplay = NO;
         if (lastRecordingID) {
-            self.recordingID = lastRecordingID;
+            [self setRecordingID:lastRecordingID autoplay:NO];
         }
     }
 #endif
@@ -134,6 +134,12 @@
 
 - (void)setRecordingID:(NSString *)recordingID
 {
+    [self setRecordingID:recordingID autoplay:YES];
+}
+
+- (void)setRecordingID:(NSString *)recordingID autoplay:(BOOL)shouldAutoplay
+{
+
     _recordingID = recordingID;
     
     self.titleLabel.text = @"";
@@ -188,7 +194,7 @@
                 self.moviePlayerView.alpha = 0;
                 [self addChildViewController:self.moviePlayer];
                 [self.moviePlayerView addSubview:self.moviePlayer.view];
-                self.moviePlayer.shouldAutoplay = self.shouldAutoplay;
+                self.moviePlayer.shouldAutoplay = shouldAutoplay;
                 [self.moviePlayer prepareToPlay];
                 self.infoButton.enabled = YES;
                 if ([self.recordingDetails.slides count]) {
@@ -282,7 +288,6 @@
 
 -(void)userSelectedRecordingWithURL:(NSURL *)recordingURL {
     [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
-    self.shouldAutoplay = YES;
     self.recordingID = [VideotoriumClient IDOfRecordingWithURL:recordingURL];
 }
 

@@ -67,6 +67,7 @@
 		2D132EF6157D022F00259E36 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		2D132EF9157D045700259E36 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		2D132EFA157D045700259E36 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		2D1EECED15CFFDCD00D48624 /* VideotoriumPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideotoriumPlayerViewController.h; sourceTree = "<group>"; };
 		2D24A317157648C000C65290 /* VideotoriumRecordingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingCell.h; sourceTree = "<group>"; };
 		2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecordingCell.m; sourceTree = "<group>"; };
 		2D469038154E5AF500E4E69F /* VideotoriumClientMockDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideotoriumClientMockDataSource.h; path = tests/VideotoriumClientMockDataSource.h; sourceTree = SOURCE_ROOT; };
@@ -287,6 +288,7 @@
 		2DFBB78F1580E0C800C770EE /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				2D1EECED15CFFDCD00D48624 /* VideotoriumPlayerViewController.h */,
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.h */,
 				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.m */,
 				2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */,

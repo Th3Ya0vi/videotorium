@@ -168,7 +168,6 @@
     VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     if (![detailViewController.recordingID isEqualToString:recording.ID]) {
-        detailViewController.shouldAutoplay = YES;        
         detailViewController.recordingID = recording.ID;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

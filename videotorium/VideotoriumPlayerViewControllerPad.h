@@ -11,17 +11,13 @@
 #import <UIKit/UIKit.h>
 #import "VideotoriumSlidesTableViewController.h"
 #import "VideotoriumRecordingInfoViewController.h"
+#import "VideotoriumPlayerViewController.h"
 
 #define kLastSearchKey @"lastSearchString"
 #define kLastSelectedTab @"lastSelectedTab"
 #define kLastRecordingID @"lastRecordingID"
 
 
-@interface VideotoriumPlayerViewControllerPad : UIViewController <UISplitViewControllerDelegate, VideotoriumRecordingInfoViewDelegate>
-
-@property (nonatomic, strong) NSString *recordingID;
-@property (nonatomic) BOOL shouldAutoplay;
-
-- (void)seekToSlideWithID:(NSString *)ID;
+@interface VideotoriumPlayerViewControllerPad : UIViewController <UISplitViewControllerDelegate, VideotoriumRecordingInfoViewDelegate, VideotoriumPlayerViewController>
 
 @end

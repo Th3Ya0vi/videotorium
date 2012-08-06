@@ -114,7 +114,6 @@
 
 - (void)openURL:(NSNotification *)notification {
     VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] lastObject];
-    detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = [notification.userInfo objectForKey:@"recording"];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -216,7 +215,6 @@
     VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     if (![detailViewController.recordingID isEqualToString:recording.ID]) {
-        detailViewController.shouldAutoplay = YES;        
         detailViewController.recordingID = recording.ID;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -237,7 +235,6 @@
     VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:self.indexPathForTheSelectedRecording.row];
     if (![detailViewController.recordingID isEqualToString:recording.ID]) {
-        detailViewController.shouldAutoplay = YES;
         detailViewController.recordingID = recording.ID;
     }   
     [detailViewController seekToSlideWithID:slide.ID];
