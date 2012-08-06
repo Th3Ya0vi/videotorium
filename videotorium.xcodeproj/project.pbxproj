@@ -26,7 +26,7 @@
 		2DBAFD77157610FC007DA824 /* VideotoriumSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBAFD76157610FC007DA824 /* VideotoriumSearchViewController.m */; };
 		2DC6F85E154E739300CDDA80 /* VideotoriumClientMockDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */; };
 		2DC6F860154E8A2800CDDA80 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */; };
-		2DC6F863154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */; };
+		2DC6F863154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.m */; };
 		2DC6F8B0154E962200CDDA80 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC6F8AE154E927900CDDA80 /* MediaPlayer.framework */; };
 		2DC8428A1587523F00B562FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D84723515874DBE008D2280 /* Localizable.strings */; };
 		2DC8428C1587547600B562FD /* VideotoriumClientMockDataSourceResponses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6F859154E69C300CDDA80 /* VideotoriumClientMockDataSourceResponses.plist */; };
@@ -96,8 +96,8 @@
 		2DBAFD76157610FC007DA824 /* VideotoriumSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSearchViewController.m; sourceTree = "<group>"; };
 		2DC6F859154E69C300CDDA80 /* VideotoriumClientMockDataSourceResponses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VideotoriumClientMockDataSourceResponses.plist; sourceTree = "<group>"; };
 		2DC6F85F154E8A2800CDDA80 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
-		2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumPlayerViewController.h; sourceTree = "<group>"; };
-		2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumPlayerViewController.m; sourceTree = "<group>"; };
+		2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumPlayerViewControllerPad.h; sourceTree = "<group>"; };
+		2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumPlayerViewControllerPad.m; sourceTree = "<group>"; };
 		2DC6F8AE154E927900CDDA80 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		2DC8428B1587524200B562FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2DD60202154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VideotoriumClientDataSourceUsingSynchronousRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -287,8 +287,8 @@
 		2DFBB78F1580E0C800C770EE /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */,
-				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */,
+				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.h */,
+				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.m */,
 				2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */,
 				2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */,
 				2D7CE03915CFAC0300118313 /* VideotoriumMoviePlayerViewController.h */,
@@ -452,7 +452,7 @@
 				2DEB06E9154970CF00AD0805 /* VideotoriumClient.m in Sources */,
 				2DEB06ED154AC82B00AD0805 /* VideotoriumRecordingDetails.m in Sources */,
 				2DD60204154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.m in Sources */,
-				2DC6F863154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m in Sources */,
+				2DC6F863154E8C5B00CDDA80 /* VideotoriumPlayerViewControllerPad.m in Sources */,
 				2DFCBF1A154EC97A0091A021 /* VideotoriumSlide.m in Sources */,
 				2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */,
 				2DBAFD77157610FC007DA824 /* VideotoriumSearchViewController.m in Sources */,

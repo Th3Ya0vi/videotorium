@@ -17,12 +17,11 @@
 #define kLastRecordingID @"lastRecordingID"
 
 
-@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate, VideotoriumRecordingInfoViewDelegate>
+@interface VideotoriumPlayerViewControllerPad : UIViewController <UISplitViewControllerDelegate, VideotoriumRecordingInfoViewDelegate>
 
 @property (nonatomic, strong) NSString *recordingID;
 @property (nonatomic) BOOL shouldAutoplay;
 
-- (void)dismissSplitViewPopover;
 - (void)seekToSlideWithID:(NSString *)ID;
 
 @end

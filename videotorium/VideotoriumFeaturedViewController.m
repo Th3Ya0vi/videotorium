@@ -9,7 +9,7 @@
 #import "VideotoriumFeaturedViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumRecording.h"
-#import "VideotoriumPlayerViewController.h"
+#import "VideotoriumPlayerViewControllerPad.h"
 #import "VideotoriumRecordingCell.h"
 
 @interface VideotoriumFeaturedViewController ()
@@ -165,16 +165,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
+    VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     if (![detailViewController.recordingID isEqualToString:recording.ID]) {
         detailViewController.shouldAutoplay = YES;        
         detailViewController.recordingID = recording.ID;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ([recording.matchingSlides count] == 0) {
-        [detailViewController dismissSplitViewPopover];
-    }
 }
 
 #pragma mark - Tab bar controller delegate

@@ -9,7 +9,7 @@
 #import "VideotoriumSearchViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumRecording.h"
-#import "VideotoriumPlayerViewController.h"
+#import "VideotoriumPlayerViewControllerPad.h"
 #import "VideotoriumRecordingCell.h"
 
 @interface VideotoriumSearchViewController ()
@@ -113,7 +113,7 @@
 }
 
 - (void)openURL:(NSNotification *)notification {
-    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] lastObject];
+    VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] lastObject];
     detailViewController.shouldAutoplay = YES;
     detailViewController.recordingID = [notification.userInfo objectForKey:@"recording"];
     [self.navigationController popToRootViewControllerAnimated:YES];
@@ -213,14 +213,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
+    VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
     if (![detailViewController.recordingID isEqualToString:recording.ID]) {
         detailViewController.shouldAutoplay = YES;        
         detailViewController.recordingID = recording.ID;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [detailViewController dismissSplitViewPopover];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -235,14 +234,13 @@
 
 - (void)userSelectedSlide:(VideotoriumSlide *)slide
 {
-    VideotoriumPlayerViewController *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
+    VideotoriumPlayerViewControllerPad *detailViewController = [[self.splitViewController viewControllers] objectAtIndex:1];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:self.indexPathForTheSelectedRecording.row];
     if (![detailViewController.recordingID isEqualToString:recording.ID]) {
         detailViewController.shouldAutoplay = YES;
         detailViewController.recordingID = recording.ID;
     }   
     [detailViewController seekToSlideWithID:slide.ID];
-    [detailViewController dismissSplitViewPopover];
 }
 
 #pragma mark - Search bar delegate

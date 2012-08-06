@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
-#import "VideotoriumPlayerViewController.h"
+#import "VideotoriumPlayerViewControllerPad.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumMoviePlayerViewController.h"
 #import "VideotoriumSlidePlayerViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface VideotoriumPlayerViewController ()
+@interface VideotoriumPlayerViewControllerPad ()
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
@@ -39,7 +39,7 @@
 
 @end
 
-@implementation VideotoriumPlayerViewController
+@implementation VideotoriumPlayerViewControllerPad
 
 
 - (void)viewDidAppear:(BOOL)animated
@@ -206,6 +206,7 @@
         });
     });
     dispatch_release(getDetailsQueue);
+    [self.splitViewPopoverController dismissPopoverAnimated:YES];
 }
 
 - (void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
@@ -222,12 +223,6 @@
     // If the setter was called with nil, then we only removed the old one without add anything new, and the property will be nil
     _splitViewBarButtonItem = splitViewBarButtonItem;
 }
-
-- (void)dismissSplitViewPopover
-{
-    [self.splitViewPopoverController dismissPopoverAnimated:YES];
-}
-
 
 - (void)viewDidUnload
 {
