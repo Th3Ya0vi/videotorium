@@ -15,6 +15,7 @@
 		2D7CE03B15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CE03A15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m */; };
 		2D87232115AAD97100B29538 /* VideotoriumFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87232015AAD97100B29538 /* VideotoriumFeaturedViewController.m */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
+		2DA15CBA15CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */; };
 		2DB449A115AE99EC00594FFF /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */; };
 		2DB449A215AE99EC00594FFF /* videotorium-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB449A015AE99EC00594FFF /* videotorium-gradient@2x.png */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
@@ -81,6 +82,8 @@
 		2D87232315AAD97D00B29538 /* VideotoriumFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumFeaturedViewController.h; sourceTree = "<group>"; };
 		2D88B9FC1574F8AC00B938FF /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecording.h; sourceTree = "<group>"; };
 		2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecording.m; sourceTree = "<group>"; };
+		2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSlidePlayerViewController.h; sourceTree = "<group>"; };
+		2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSlidePlayerViewController.m; sourceTree = "<group>"; };
 		2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient.png"; sourceTree = "<group>"; };
 		2DB449A015AE99EC00594FFF /* videotorium-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient@2x.png"; sourceTree = "<group>"; };
 		2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingInfoViewController.h; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 			children = (
 				2DC6F861154E8C5B00CDDA80 /* VideotoriumPlayerViewController.h */,
 				2DC6F862154E8C5B00CDDA80 /* VideotoriumPlayerViewController.m */,
+				2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */,
+				2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */,
 				2D7CE03915CFAC0300118313 /* VideotoriumMoviePlayerViewController.h */,
 				2D7CE03A15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m */,
 				2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */,
@@ -459,6 +464,7 @@
 				2DFBB78C1580E06800C770EE /* VideotoriumSlideCell.m in Sources */,
 				2D87232115AAD97100B29538 /* VideotoriumFeaturedViewController.m in Sources */,
 				2D7CE03B15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m in Sources */,
+				2DA15CBA15CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

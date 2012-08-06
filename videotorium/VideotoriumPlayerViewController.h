@@ -17,7 +17,7 @@
 #define kLastRecordingID @"lastRecordingID"
 
 
-@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate, UIGestureRecognizerDelegate, VideotoriumRecordingInfoViewDelegate>
+@interface VideotoriumPlayerViewController : UIViewController <UISplitViewControllerDelegate, VideotoriumRecordingInfoViewDelegate>
 
 @property (nonatomic, strong) NSString *recordingID;
 @property (nonatomic) BOOL shouldAutoplay;

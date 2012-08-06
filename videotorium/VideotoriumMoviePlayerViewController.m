@@ -83,7 +83,7 @@
         self.moviePlayerController.fullscreen = NO;
         self.moviePlayerController.controlStyle = MPMovieControlStyleNone;
         UIView *rootView = self.view.window.rootViewController.view;
-        self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1024, 1024)];
+        self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1280, 1024)];
         self.blackView.backgroundColor = [UIColor blackColor];
         [rootView addSubview:self.blackView];
         self.moviePlayerController.view.frame = rootView.bounds;

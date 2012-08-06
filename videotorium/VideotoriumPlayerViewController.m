@@ -9,53 +9,33 @@
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumClient.h"
 #import "VideotoriumMoviePlayerViewController.h"
+#import "VideotoriumSlidePlayerViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 
 @interface VideotoriumPlayerViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *slideImageView;
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
 @property (weak, nonatomic) IBOutlet UIView *slideContainerView;
-@property (weak, nonatomic) IBOutlet UIView *slideView;
-@property (weak, nonatomic) IBOutlet UIButton *seekToThisSlideButton;
-@property (weak, nonatomic) IBOutlet UIButton *followVideoButton;
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
-@property (weak, nonatomic) IBOutlet UILabel *slideNumberLabel;
-@property (weak, nonatomic) IBOutlet UIView *viewForSlideWithoutButtons;
-@property (weak, nonatomic) IBOutlet UIView *viewForSlideWithVisibleButtons;
 @property (weak, nonatomic) IBOutlet UIView *introductoryTextContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *introductoryTextLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithNoSlides;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithSlides;
 
-
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
-
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
 
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
-@property (nonatomic, strong) VideotoriumSlide *currentSlide;
-@property (nonatomic, strong) VideotoriumSlide *slideToShow;
 
 @property (weak, nonatomic) UIPopoverController *infoAndSlidesPopoverController;
-@property (nonatomic) BOOL slideIsFullscreen;
-@property (nonatomic) BOOL slideZoomingInProgress;
-
-@property (nonatomic) BOOL slidesFollowVideo;
-
-@property (nonatomic) BOOL seekingInProgress;
-
-@property (nonatomic) BOOL userSwipedSlides;
-
-@property (strong, nonatomic) UIView *blackView;
 
 @end
 
@@ -96,7 +76,7 @@
 }
 
 - (void)moviePlayerPlaybackStateDidChange:(NSNotification *)notification {
-    self.seekingInProgress = NO;
+    self.slidePlayer.seekingInProgress = NO;
 }
 
 - (void)viewDidLoad
@@ -107,7 +87,6 @@
     if ([self.splitViewController respondsToSelector:@selector(setPresentsWithGesture:)]) {
         self.splitViewController.presentsWithGesture = NO;        
     }
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlide) userInfo:nil repeats:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayerLoadStateDidChange:)
                                                  name:MPMoviePlayerLoadStateDidChangeNotification
@@ -120,27 +99,6 @@
                                              selector:@selector(moviePlayerPlaybackStateDidChange:)
                                                  name:MPMoviePlayerPlaybackStateDidChangeNotification
                                                object:nil];
-    UIPinchGestureRecognizer *pinchGR = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
-    UISwipeGestureRecognizer *swipeRightGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeRightGR.direction = UISwipeGestureRecognizerDirectionRight;
-    swipeRightGR.delegate = self;
-    UISwipeGestureRecognizer *swipeLeftGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeLeftGR.direction = UISwipeGestureRecognizerDirectionLeft;
-    UISwipeGestureRecognizer *swipeUpGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeUpGR.direction = UISwipeGestureRecognizerDirectionUp;
-    UISwipeGestureRecognizer *swipeDownGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeDownGR.direction = UISwipeGestureRecognizerDirectionDown;
-    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    [self.slideImageView addGestureRecognizer:pinchGR];
-    [self.slideImageView addGestureRecognizer:swipeLeftGR];
-    [self.slideImageView addGestureRecognizer:swipeRightGR];
-    [self.slideImageView addGestureRecognizer:swipeUpGR];
-    [self.slideImageView addGestureRecognizer:swipeDownGR];
-    [self.slideImageView addGestureRecognizer:tapGR];
-    
-    self.seekToThisSlideButton.alpha = 0;
-    self.followVideoButton.alpha = 0;
-    self.slideNumberLabel.alpha = 0;
     self.retryButton.alpha = 0;
     self.introductoryTextContainerView.alpha = 0;
 
@@ -162,13 +120,16 @@
     
     
     [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
-    [self.followVideoButton setTitle:NSLocalizedString(@"followVideo", nil) forState:UIControlStateNormal];
-    [self.seekToThisSlideButton setTitle:NSLocalizedString(@"seekToThisSlide", nil) forState:UIControlStateNormal];
     if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
         self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextLandscape", nil);
     } else {
         self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextPortrait", nil);
     }
+}
+
+- (void)seekToSlideWithID:(NSString *)ID
+{
+    [self.slidePlayer seekToSlideWithID:ID];
 }
 
 - (void)setRecordingID:(NSString *)recordingID
@@ -177,10 +138,6 @@
     
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
-    self.slidesFollowVideo = YES;
-    self.userSwipedSlides = NO;
-    self.seekingInProgress = NO;
-    [self slideToNormal];
     self.retryButton.alpha = 0;
     if (self.moviePlayer != nil) {
         [self.moviePlayer stop];
@@ -188,10 +145,14 @@
         [self.moviePlayer removeFromParentViewController];
         self.moviePlayer = nil;
     }
+    if (self.slidePlayer != nil) {
+        [self.slidePlayer.view removeFromSuperview];
+        [self.slidePlayer removeFromParentViewController];
+        self.slidePlayer = nil;
+    }
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
     [self.infoAndSlidesPopoverController dismissPopoverAnimated:YES];
-    self.slideImageView.image = nil;
     
     [UIView animateWithDuration:0.2 animations:^{
         self.introductoryTextContainerView.alpha = 0;
@@ -220,12 +181,6 @@
                 }];
             } else {
                 self.recordingDetails = recordingDetails;
-                self.slideImageView.image = nil;
-                if ([self.recordingDetails.slides count]) {
-                    self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
-                } else {
-                    self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
-                }
                 self.titleLabel.text = self.recordingDetails.title;
                 self.moviePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"moviePlayer"];
                 self.moviePlayer.streamURL = self.recordingDetails.streamURL;
@@ -236,6 +191,17 @@
                 self.moviePlayer.shouldAutoplay = self.shouldAutoplay;
                 [self.moviePlayer prepareToPlay];
                 self.infoButton.enabled = YES;
+                if ([self.recordingDetails.slides count]) {
+                    self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
+                    self.slidePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"slidePlayer"];
+                    self.slidePlayer.slides = self.recordingDetails.slides;
+                    self.slidePlayer.moviePlayer = self.moviePlayer;
+                    [self addChildViewController:self.slidePlayer];
+                    self.slidePlayer.view.frame = self.slideContainerView.bounds;
+                    [self.slideContainerView addSubview:self.slidePlayer.view];
+                } else {
+                    self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
+                }
             }
         });
     });
@@ -262,137 +228,9 @@
     [self.splitViewPopoverController dismissPopoverAnimated:YES];
 }
 
-- (void)seekToSlideWithID:(NSString *)ID
-{
-    if (self.moviePlayer.loadState == MPMovieLoadStateUnknown) {
-        [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:1];
-    } else {
-        [self.recordingDetails.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
-            if ([slide.ID isEqualToString:ID]) {
-                *stop = YES;
-                NSTimeInterval seekTime = slide.timestamp;
-                if (seekTime > self.moviePlayer.duration - 10) {
-                    seekTime = self.moviePlayer.duration - 10;
-                }
-                self.moviePlayer.currentPlaybackTime = seekTime;
-                [self.moviePlayer play];
-                self.slideToShow = slide;
-                self.seekingInProgress = YES;
-                self.slidesFollowVideo = YES;
-            }
-        }];        
-    }
-}
-
-- (void)updateSlide
-{
-    NSTimeInterval currentPlaybackTime = self.moviePlayer.currentPlaybackTime;
-    if ([self.recordingDetails.slides count] > 0) {
-        if (self.slidesFollowVideo) {
-            if (self.seekToThisSlideButton.alpha == 1) {
-                [UIView animateWithDuration:0.2 animations:^{
-                    self.seekToThisSlideButton.alpha = 0;
-                    self.followVideoButton.alpha = 0;
-                    self.slideNumberLabel.alpha = 0;
-                    self.slideImageView.transform = CGAffineTransformIdentity;
-                    self.slideImageView.frame = self.viewForSlideWithoutButtons.frame;
-                }];
-            }
-            if (!self.seekingInProgress) {
-                // Assuming that the slides are ordered by their timestamp
-                // Starting from the end find the first one which has earlier timestamp than the current playback time
-                NSUInteger index = [self.recordingDetails.slides indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-                    VideotoriumSlide *slide = (VideotoriumSlide *)obj;
-                    return (slide.timestamp < currentPlaybackTime);
-                }];
-                // If there are no slides earlier than the current time, show the first slide anyway
-                if (index == NSNotFound) index = 0;
-                self.slideToShow = [self.recordingDetails.slides objectAtIndex:index];
-            }
-        } else {
-            if (self.seekToThisSlideButton.alpha == 0) {
-                [UIView animateWithDuration:0.2 animations:^{
-                    self.seekToThisSlideButton.alpha = 1;
-                    self.followVideoButton.alpha = 1;
-                    self.slideNumberLabel.alpha = 1;
-                    self.slideImageView.transform = CGAffineTransformIdentity;
-                    self.slideImageView.frame = self.viewForSlideWithVisibleButtons.frame;
-                }];
-            }
-            
-        }
-        if (![self.slideToShow isEqual:self.currentSlide]) {
-            BOOL slideFromLeft = self.currentSlide.timestamp > self.slideToShow.timestamp;
-            BOOL dissolve = !self.userSwipedSlides;
-            self.userSwipedSlides = NO;
-            self.currentSlide = self.slideToShow;
-            self.slideView.userInteractionEnabled = NO;
-            NSTimeInterval firstAnimationDuration = 0.2;
-            if (dissolve) firstAnimationDuration = 0;
-            NSString *currentRecordingID = self.recordingID;
-            [UIView animateWithDuration:firstAnimationDuration
-                             animations:^{
-                                 if (!dissolve) {
-                                     if (slideFromLeft) {
-                                         self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
-                                     } else {
-                                         self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
-                                     }
-                                 }
-                             } completion:^(BOOL finished) {
-                                 if (![currentRecordingID isEqualToString:self.recordingID]) return;
-                                 dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
-                                 dispatch_async(downloadSlideQueue, ^{
-                                     NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
-                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                         if (![currentRecordingID isEqualToString:self.recordingID]) return;
-                                         if (self.currentSlide == self.slideToShow) {
-                                             self.slideNumberLabel.text = [NSString stringWithFormat:@"%d", [self.recordingDetails.slides indexOfObject:self.currentSlide] + 1];
-                                             UIImage *newImage = [UIImage imageWithData:imageData];
-                                             if (dissolve) {
-                                                 [UIView transitionWithView:self.slideImageView duration:0.2
-                                                                    options:UIViewAnimationOptionTransitionCrossDissolve
-                                                                 animations:^{
-                                                                     self.slideImageView.image = newImage;
-                                                                 }
-                                                                 completion:^(BOOL finished) {
-                                                                     if (![currentRecordingID isEqualToString:self.recordingID]) return;
-                                                                     self.slideView.userInteractionEnabled = YES;
-                                                                 }];
-                                             } else {
-                                                 self.slideImageView.image = newImage;
-                                                 if (slideFromLeft) {
-                                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(-self.slideImageView.bounds.size.width, 0);                            
-                                                 } else {
-                                                     self.slideImageView.transform = CGAffineTransformMakeTranslation(self.slideImageView.bounds.size.width, 0);                            
-                                                 }
-                                                 [UIView animateWithDuration:0.2
-                                                                  animations:^{
-                                                                      self.slideImageView.transform = CGAffineTransformIdentity;
-
-                                                                  }
-                                                                  completion:^(BOOL finished) {
-                                                                      if (![currentRecordingID isEqualToString:self.recordingID]) return;
-                                                                      self.slideView.userInteractionEnabled = YES;
-                                                                  }];
-                                             }
-                                         }
-                                     });
-                                 });
-                                 dispatch_release(downloadSlideQueue);
-                             }];
-        }
-        if (self.seekingInProgress) {
-            if (self.currentSlide.timestamp < self.moviePlayer.currentPlaybackTime) {
-                self.seekingInProgress = NO;
-            }
-        }
-    }
-}
 
 - (void)viewDidUnload
 {
-    [self.timer invalidate];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
 }
@@ -405,6 +243,10 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
                                 duration:(NSTimeInterval)duration
 {
+    // Fix the frames of the video and the slide container views to occupy exactly half of the available area
+    CGRect area = self.viewForVideoWithNoSlides.frame;
+    self.viewForVideoWithSlides.frame = CGRectMake(area.origin.x, area.origin.y, area.size.width, area.size.height/2);
+    self.slideContainerView.frame = CGRectMake(area.origin.x, area.origin.y + area.size.height/2, area.size.width, area.size.height/2);
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
         self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextLandscape", nil);
     } else {
@@ -464,134 +306,6 @@
     self.splitViewBarButtonItem = nil;
 }
 
-
-#pragma mark - Handling gestures
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-    return YES;
-}
-
-
-- (void)slideToNormal {
-    if (self.slideIsFullscreen && !self.slideZoomingInProgress) {
-        self.slideZoomingInProgress = YES;
-        CGRect originalRectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
-        [UIView animateWithDuration:0.3 animations:^{
-            self.slideView.frame = originalRectInSuperview;
-            self.blackView.alpha = 0;
-        } completion:^(BOOL finished) {
-            [self.slideContainerView addSubview:self.slideView];
-            self.slideView.frame = self.slideContainerView.bounds;
-            [self.blackView removeFromSuperview];
-            self.blackView = nil;
-            self.slideIsFullscreen = NO;
-            self.slideZoomingInProgress = NO;
-        }];
-    }
-}
-
-- (void)slideToFullscreen {
-    if (!self.slideIsFullscreen && !self.slideZoomingInProgress) {
-        self.slideZoomingInProgress = YES;
-        self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1280, 1024)];
-        self.blackView.backgroundColor = [UIColor blackColor];
-        self.blackView.alpha = 0;
-        CGRect rectInSuperview = [self.view convertRect:self.slideContainerView.frame toView:self.view.superview];
-        [self.view.superview addSubview:self.blackView];
-        [self.view.superview addSubview:self.slideView];
-        self.slideView.frame = rectInSuperview;
-        [UIView animateWithDuration:0.3
-                         animations:^{
-                             self.slideView.frame = self.view.superview.bounds;
-                             self.blackView.alpha = 1;
-                         } completion:^(BOOL finished) {
-                             self.slideIsFullscreen = YES;
-                             self.slideZoomingInProgress = NO;
-                         }];
-    }
-}
-
-- (void)handlePinchGesture:(UIPinchGestureRecognizer *)sender {
-    if ([self.recordingDetails.slides count]) {
-        if (sender.state == UIGestureRecognizerStateChanged) {
-            if (sender.scale > 1) {
-                [self slideToFullscreen];
-            }
-            if (sender.scale < 1) {
-                [self slideToNormal];
-            }
-        }        
-    }
-}
-
-- (IBAction)seekVideoToCurrentSlide {
-    [self seekToSlideWithID:self.currentSlide.ID];
-}
-
-- (IBAction)makeSlidesFollowVideo {
-    self.slidesFollowVideo = YES;
-    self.userSwipedSlides = YES;
-    [self updateSlide];
-}
-
-- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
-    if ([self.recordingDetails.slides count]) {
-        self.seekingInProgress = NO;
-        NSUInteger indexOfCurrentSlide = [self.recordingDetails.slides indexOfObject:self.currentSlide];
-        if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-            self.userSwipedSlides = YES;
-            if (indexOfCurrentSlide > 0) {
-                self.slidesFollowVideo = NO;
-                self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide - 1)];
-                [self updateSlide];
-            } else {
-                CGAffineTransform transform = self.slideImageView.transform;
-                [UIView animateWithDuration:0.1 animations:^{
-                    self.slideImageView.transform = CGAffineTransformTranslate(transform, self.slideImageView.bounds.size.width/4 , 0);
-                } completion:^(BOOL finished) {
-                    [UIView animateWithDuration:0.1 animations:^{
-                        self.slideImageView.transform = transform;
-                    }];
-                }];
-            }
-        }
-        if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-            self.userSwipedSlides = YES;
-            if (indexOfCurrentSlide < [self.recordingDetails.slides count] - 1) {
-                self.slidesFollowVideo = NO;
-                self.slideToShow = [self.recordingDetails.slides objectAtIndex:(indexOfCurrentSlide + 1)];
-                [self updateSlide];
-            } else {
-                CGAffineTransform transform = self.slideImageView.transform;
-                [UIView animateWithDuration:0.1 animations:^{
-                    self.slideImageView.transform = CGAffineTransformTranslate(transform, -self.slideImageView.bounds.size.width/4 , 0);
-                } completion:^(BOOL finished) {
-                    [UIView animateWithDuration:0.1 animations:^{
-                        self.slideImageView.transform = transform;
-                    }];
-                }];
-            }
-        }
-        if (sender.direction == UISwipeGestureRecognizerDirectionUp) {
-            self.slidesFollowVideo = NO;
-            [self updateSlide];
-        }
-        if (sender.direction == UISwipeGestureRecognizerDirectionDown) {
-            self.slidesFollowVideo = YES;
-            [self updateSlide];
-        }
-    }
-}
-
-- (void)handleTapGesture:(UITapGestureRecognizer *)sender
-{
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        if (!self.slidesFollowVideo) {
-            [self seekToSlideWithID:self.currentSlide.ID];
-        }
-    }
-}
 
 
 @end

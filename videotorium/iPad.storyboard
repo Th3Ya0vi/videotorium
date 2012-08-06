@@ -236,6 +236,99 @@
             </objects>
             <point key="canvasLocation" x="433" y="386"/>
         </scene>
+        <!--Videotorium Slide Player View Controller-->
+        <scene sceneID="1do-cu-pHL">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6CV-I8-Wjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="slidePlayer" id="WXR-Yt-yJf" customClass="VideotoriumSlidePlayerViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="YeL-pW-km1" userLabel="View">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Yej-9e-RIl" userLabel="slideView">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" id="ays-tR-4c3" userLabel="viewForSlideWithoutButtons">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" id="ghg-ZJ-7FY" userLabel="viewForSlideWithVisibleButtons">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="708"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView contentMode="scaleAspectFit" id="Qdb-hQ-Lpo" userLabel="slideImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mmq-in-LNN">
+                                        <rect key="frame" x="40" y="719" width="290" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Seek video to this slide">
+                                            <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="seekVideoToCurrentSlide" destination="tUe-ba-nWi" eventType="touchUpInside" id="TOB-k3-Hjr"/>
+                                            <action selector="seekVideoToCurrentSlide" destination="WXR-Yt-yJf" eventType="touchUpInside" id="i7L-7b-EBl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ndW-T9-twm">
+                                        <rect key="frame" x="779" y="719" width="205" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Follow video">
+                                            <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="makeSlidesFollowVideo" destination="WXR-Yt-yJf" eventType="touchUpInside" id="9cf-Do-Fbe"/>
+                                            <action selector="makeSlidesFollowVideo" destination="tUe-ba-nWi" eventType="touchUpInside" id="iAY-Tu-QGa"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WYA-xc-7Ur">
+                                        <rect key="frame" x="454" y="728" width="113" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="followVideoButton" destination="ndW-T9-twm" id="XEC-LV-VeZ"/>
+                        <outlet property="seekToThisSlideButton" destination="Mmq-in-LNN" id="qtZ-qV-0f1"/>
+                        <outlet property="slideImageView" destination="Qdb-hQ-Lpo" id="Zwf-Wd-yiz"/>
+                        <outlet property="slideNumberLabel" destination="WYA-xc-7Ur" id="mEv-fP-KaO"/>
+                        <outlet property="slideView" destination="Yej-9e-RIl" id="pIp-Nd-6SV"/>
+                        <outlet property="view" destination="YeL-pW-km1" id="JZg-PN-Dgh"/>
+                        <outlet property="viewForSlideWithVisibleButtons" destination="ghg-ZJ-7FY" id="pH1-9n-uTl"/>
+                        <outlet property="viewForSlideWithoutButtons" destination="ays-tR-4c3" id="cd0-XC-zur"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="433" y="1279"/>
+        </scene>
         <!--Videotorium Player View Controller-->
         <scene sceneID="XEz-40-OBc">
             <objects>
@@ -266,6 +359,11 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="YvY-Iq-No2" userLabel="moviePlayerView">
+                                <rect key="frame" x="0.0" y="44" width="768" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" id="MD0-gV-pEB" userLabel="viewForVideoWithNoSlides">
                                 <rect key="frame" x="0.0" y="44" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,79 +377,11 @@
                             <view contentMode="scaleToFill" id="Nxj-p1-tns" userLabel="slideContainerView">
                                 <rect key="frame" x="0.0" y="524" width="768" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" id="eul-G2-yVK" userLabel="slideView">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="480"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <view hidden="YES" contentMode="scaleToFill" id="rlK-Np-Cr1" userLabel="viewForSlideWithoutButtons">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="480"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view hidden="YES" contentMode="scaleToFill" id="QDW-tS-WmD" userLabel="viewForSlideWithVisibleButtons">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="440"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <imageView contentMode="scaleAspectFit" id="wIT-X3-Sxx" userLabel="slideImageView">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="480"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <gestureRecognizers/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q4g-zX-6CZ">
-                                                <rect key="frame" x="20" y="439" width="290" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" title="Seek video to this slide">
-                                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="seekVideoToCurrentSlide" destination="tUe-ba-nWi" eventType="touchUpInside" id="8J0-No-DQL"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KZy-0I-FZT">
-                                                <rect key="frame" x="543" y="439" width="205" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" title="Follow video">
-                                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="makeSlidesFollowVideo" destination="tUe-ba-nWi" eventType="touchUpInside" id="fnb-Hx-EOD"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pdx-Zi-4Xf">
-                                                <rect key="frame" x="327" y="448" width="113" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <gestureRecognizers/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </view>
-                            <view contentMode="scaleToFill" id="YvY-Iq-No2" userLabel="moviePlayerView">
-                                <rect key="frame" x="0.0" y="44" width="768" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NTx-qf-xBa">
-                                <rect key="frame" x="20" y="484" width="728" height="37"/>
+                                <rect key="frame" x="40" y="484" width="728" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Failed to play video. Tap here to retry.">
@@ -397,21 +427,14 @@ You can zoom the video or the slides to full screen by pinching.</string>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="xHb-jk-lmH" id="DDL-kI-4ey"/>
-                        <outlet property="followVideoButton" destination="KZy-0I-FZT" id="9W7-Ew-twx"/>
                         <outlet property="infoButton" destination="nDw-f1-XUJ" id="lpK-KP-Q3h"/>
                         <outlet property="introductoryTextContainerView" destination="i9I-6b-fsg" id="EGE-tp-vjB"/>
                         <outlet property="introductoryTextLabel" destination="4Wv-YA-PTn" id="d41-pm-FDk"/>
                         <outlet property="moviePlayerView" destination="YvY-Iq-No2" id="aFG-uh-bPg"/>
                         <outlet property="retryButton" destination="NTx-qf-xBa" id="3Ov-wS-xEd"/>
-                        <outlet property="seekToThisSlideButton" destination="Q4g-zX-6CZ" id="ydk-4I-gye"/>
                         <outlet property="slideContainerView" destination="Nxj-p1-tns" id="fVI-wW-GsO"/>
-                        <outlet property="slideImageView" destination="wIT-X3-Sxx" id="eEx-Ya-7Tb"/>
-                        <outlet property="slideNumberLabel" destination="Pdx-Zi-4Xf" id="mfQ-SA-e1Z"/>
-                        <outlet property="slideView" destination="eul-G2-yVK" id="sqt-B3-30I"/>
                         <outlet property="titleLabel" destination="JMl-Qs-F7C" id="KfM-4i-PSD"/>
                         <outlet property="toolbar" destination="9YG-G7-xN2" id="a0Z-1R-Jhn"/>
-                        <outlet property="viewForSlideWithVisibleButtons" destination="QDW-tS-WmD" id="sSw-6z-mla"/>
-                        <outlet property="viewForSlideWithoutButtons" destination="rlK-Np-Cr1" id="CQD-hj-i2p"/>
                         <outlet property="viewForVideoWithNoSlides" destination="MD0-gV-pEB" id="h4k-as-mTO"/>
                         <outlet property="viewForVideoWithSlides" destination="HNs-Db-abq" id="JaA-wH-jvr"/>
                     </connections>
@@ -683,21 +706,14 @@ You can zoom the video or the slides to full screen by pinching.</string>
             <relationships>
                 <relationship kind="action" name="retryButtonPressed:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="introductoryTextContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="introductoryTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="seekToThisSlideButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="slideNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slideView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="viewForSlideWithVisibleButtons" candidateClass="UIView"/>
-                <relationship kind="outlet" name="viewForSlideWithoutButtons" candidateClass="UIView"/>
                 <relationship kind="outlet" name="viewForVideoWithNoSlides" candidateClass="UIView"/>
                 <relationship kind="outlet" name="viewForVideoWithSlides" candidateClass="UIView"/>
             </relationships>
@@ -714,6 +730,7 @@ You can zoom the video or the slides to full screen by pinching.</string>
         <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
             <relationships>
+                <relationship kind="action" name="openInSafari:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
@@ -734,6 +751,18 @@ You can zoom the video or the slides to full screen by pinching.</string>
             <relationships>
                 <relationship kind="outlet" name="borderView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSlidePlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlidePlayerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="seekToThisSlideButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="slideNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slideView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="viewForSlideWithVisibleButtons" candidateClass="UIView"/>
+                <relationship kind="outlet" name="viewForSlideWithoutButtons" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="VideotoriumSlidesTableViewController" superclassName="UITableViewController">
