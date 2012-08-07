@@ -27,7 +27,7 @@
         self.tapView = nil;
     }
     if (gestureRecognizer) {
-        self.tapView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height/2)];
+        self.tapView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height*2/3)];
         [self.tapView addGestureRecognizer:gestureRecognizer];
         [self.view addSubview:self.tapView];
     }
