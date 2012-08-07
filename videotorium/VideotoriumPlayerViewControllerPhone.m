@@ -36,6 +36,13 @@
 @implementation VideotoriumPlayerViewControllerPhone
 @synthesize recordingID = _recordingID;
 
+- (IBAction)donePressed:(id)sender {
+    [self.titleBarTimer invalidate];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -89,7 +96,7 @@
     [self.titleBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.titleBar setBarStyle:UIBarStyleBlackTranslucent];
     self.titleBarVisible = YES;
-    self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+    self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
 }
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender
@@ -107,7 +114,7 @@
             self.titleBar.alpha = 1;
         }];
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-        self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+        self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
     }
 }
 
