@@ -104,9 +104,9 @@
 
 - (void)adjustFullscreenDisabler {
     if (self.noSlides) {
-        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 55, self.view.frame.size.height - 44, 55, 44);
+        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 66, self.view.frame.size.height - 44, 66, 44);
     } else {
-        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 55, self.view.frame.size.height/2 - 44, 55, 44);        
+        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 66, self.view.frame.size.height/2 - 44, 66, 44);
     }
 }
 
