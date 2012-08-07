@@ -180,6 +180,7 @@
                 if ([self.recordingDetails.slides count]) {
                     self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
                     self.slidePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"slidePlayer"];
+                    self.slidePlayer.fullscreenDisabled = YES;
                     self.slidePlayer.slides = self.recordingDetails.slides;
                     self.slidePlayer.moviePlayer = self.moviePlayer;
                     [self addChildViewController:self.slidePlayer];

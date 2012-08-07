@@ -53,6 +53,12 @@
     self.slideImageView.image = nil;
 }
 
+- (void)setFullscreenDisabled:(BOOL)fullscreenDisabled
+{
+    _fullscreenDisabled = fullscreenDisabled;
+    [self slideToNormal];
+}
+
 - (void)moviePlayerPlaybackStateDidChange
 {
 	self.seekingInProgress = NO;
@@ -260,17 +266,17 @@
 }
 
 - (void)slideToFullscreen {
-    if (!self.slideIsFullscreen && !self.slideZoomingInProgress) {
+    if (!self.slideIsFullscreen && !self.slideZoomingInProgress && !self.fullscreenDisabled) {
         self.slideZoomingInProgress = YES;
         self.blackView = [[UIView alloc] initWithFrame:CGRectMake(-256, 0, 1280, 1024)];
         self.blackView.backgroundColor = [UIColor blackColor];
         self.blackView.alpha = 0;
         UIView *rootView = self.view.window.rootViewController.view;
-        CGRect rectInRootView = [rootView  convertRect:self.view.frame fromView:self.view];
+        CGRect rectInRootView = [rootView convertRect:self.view.frame fromView:self.view];
         [rootView addSubview:self.blackView];
         [rootView addSubview:self.slideView];
         self.slideView.frame = rectInRootView;
-        [UIView animateWithDuration:0.3
+        [UIView animateWithDuration:3
                          animations:^{
                              self.slideView.frame = rootView.bounds;
                              self.blackView.alpha = 1;
