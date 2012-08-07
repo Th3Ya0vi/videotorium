@@ -318,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMx-pV-1Ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-649" y="-975"/>
+            <point key="canvasLocation" x="-653" y="-975"/>
         </scene>
         <!--Videotorium Player View Controller Phone-->
         <scene sceneID="B7S-up-MsU">
@@ -612,7 +612,6 @@
         <class className="VideotoriumPlayerViewControllerPhone" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewControllerPhone.h"/>
             <relationships>
-                <relationship kind="action" name="donePressed:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
