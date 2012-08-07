@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithNoSlides;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithSlides;
-@property (weak, nonatomic) IBOutlet UINavigationBar *titleBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *titleBar;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -93,7 +93,9 @@
     [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-    [self.titleBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.titleBar setBackgroundImage:nil
+                   forToolbarPosition:UIToolbarPositionAny
+                           barMetrics:UIBarMetricsDefault];
     [self.titleBar setBarStyle:UIBarStyleBlackTranslucent];
     self.titleBarVisible = YES;
     self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
@@ -200,21 +202,6 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    CGRect area = self.viewForVideoWithNoSlides.frame;
-    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-        self.viewForVideoWithSlides.frame = CGRectMake(area.origin.x, area.origin.y, area.size.width*2/3, area.size.height);
-        self.slideContainerView.frame = CGRectMake(area.origin.x + area.size.width*2/3, area.origin.y, area.size.width/3, area.size.height);
-    } else {
-        self.viewForVideoWithSlides.frame = CGRectMake(area.origin.x, area.origin.y, area.size.width, area.size.height/2);
-        self.slideContainerView.frame = CGRectMake(area.origin.x, area.origin.y + area.size.height/2, area.size.width, area.size.height/2);
-    }
-    if ([self.recordingDetails.slides count]) {
-        self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
-    }
 }
 
 @end
