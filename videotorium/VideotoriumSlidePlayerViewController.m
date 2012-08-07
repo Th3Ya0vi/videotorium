@@ -37,6 +37,12 @@
 
 @implementation VideotoriumSlidePlayerViewController
 
+- (void)setGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+{
+    _gestureRecognizer = gestureRecognizer;
+    [self.slideImageView addGestureRecognizer:gestureRecognizer];
+}
+
 - (void)setSlides:(NSArray *)slides
 {
     _slides = slides;
@@ -66,13 +72,16 @@
     UISwipeGestureRecognizer *swipeDownGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeDownGR.direction = UISwipeGestureRecognizerDirectionDown;
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapGR.delegate = self;
+    if (self.gestureRecognizer) {
+        [self.slideImageView addGestureRecognizer:self.gestureRecognizer];
+    }
     [self.slideImageView addGestureRecognizer:pinchGR];
     [self.slideImageView addGestureRecognizer:swipeLeftGR];
     [self.slideImageView addGestureRecognizer:swipeRightGR];
     [self.slideImageView addGestureRecognizer:swipeUpGR];
     [self.slideImageView addGestureRecognizer:swipeDownGR];
     [self.slideImageView addGestureRecognizer:tapGR];
-    
     self.seekToThisSlideButton.alpha = 0;
     self.followVideoButton.alpha = 0;
     self.slideNumberLabel.alpha = 0;

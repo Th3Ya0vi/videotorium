@@ -13,10 +13,26 @@
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayerController;
 @property (nonatomic) BOOL wasFullscreenBeforeOrientationChange;
 @property (strong, nonatomic) UIView *blackView;
+@property (strong, nonatomic) UIView *tapView;
 
 @end
 
 @implementation VideotoriumMoviePlayerViewController
+
+- (void)setGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+{
+    _gestureRecognizer = gestureRecognizer;
+    if (self.tapView) {
+        [self.tapView removeFromSuperview];
+        self.tapView = nil;
+    }
+    if (gestureRecognizer) {
+        self.tapView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height/2)];
+        [self.tapView addGestureRecognizer:gestureRecognizer];
+        [self.view addSubview:self.tapView];
+    }
+}
+
 
 - (void)setStreamURL:(NSURL *)streamURL
 {
@@ -26,6 +42,7 @@
     player.view.frame = self.view.bounds;
     [self.view addSubview:player.view];
     _moviePlayerController = player;
+    self.gestureRecognizer = self.gestureRecognizer;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

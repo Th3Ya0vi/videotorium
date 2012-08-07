@@ -11,6 +11,8 @@
 
 @interface VideotoriumMoviePlayerViewController : UIViewController
 
+@property (strong, nonatomic) UIGestureRecognizer *gestureRecognizer;
+
 @property (strong, nonatomic) NSURL *streamURL;
 @property (nonatomic) BOOL shouldAutoplay;
 

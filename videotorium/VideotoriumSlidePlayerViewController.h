@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (strong, nonatomic) NSArray *slides;
+@property (strong, nonatomic) UIGestureRecognizer *gestureRecognizer;
 
 - (void)seekToSlideWithID:(NSString *)ID;
 - (void)moviePlayerPlaybackStateDidChange;

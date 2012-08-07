@@ -19,21 +19,26 @@
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithNoSlides;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithSlides;
+@property (weak, nonatomic) IBOutlet UINavigationBar *titleBar;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
 
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 
+@property (nonatomic, strong) UITapGestureRecognizer *tapGR;
+
+@property (nonatomic) BOOL titleBarVisible;
+@property (nonatomic, strong) NSTimer *titleBarTimer;
+
 @end
 
 @implementation VideotoriumPlayerViewControllerPhone
-
 @synthesize recordingID = _recordingID;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
@@ -80,7 +85,30 @@
     
     [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    [self.titleBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.titleBar setBarStyle:UIBarStyleBlackTranslucent];
+    self.titleBarVisible = YES;
+    self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender
+{
+    [self.titleBarTimer invalidate];
+    if (self.titleBarVisible) {
+        self.titleBarVisible = NO;
+        [UIView animateWithDuration:0.4 animations:^{
+            self.titleBar.alpha = 0;
+        }];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    } else {
+        self.titleBarVisible = YES;
+        [UIView animateWithDuration:0.4 animations:^{
+            self.titleBar.alpha = 1;
+        }];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+        self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+    }
 }
 
 - (void)seekToSlideWithID:(NSString *)ID
@@ -140,6 +168,8 @@
                 [self.moviePlayerView addSubview:self.moviePlayer.view];
                 self.moviePlayer.shouldAutoplay = shouldAutoplay;
                 [self.moviePlayer prepareToPlay];
+                self.moviePlayer.gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];;
+
                 if ([self.recordingDetails.slides count]) {
                     self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
                     self.slidePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"slidePlayer"];
@@ -148,6 +178,7 @@
                     [self addChildViewController:self.slidePlayer];
                     self.slidePlayer.view.frame = self.slideContainerView.bounds;
                     [self.slideContainerView addSubview:self.slidePlayer.view];
+                    self.slidePlayer.gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];;
                 } else {
                     self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
                 }
@@ -177,6 +208,5 @@
         self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
     }
 }
-
 
 @end
