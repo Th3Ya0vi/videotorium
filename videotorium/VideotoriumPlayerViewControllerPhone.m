@@ -26,11 +26,10 @@
 
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 
-@property (nonatomic, strong) UITapGestureRecognizer *tapGR;
-
 @property (nonatomic) BOOL titleBarVisible;
 @property (nonatomic, strong) NSTimer *titleBarTimer;
-
+@property (nonatomic, strong) UIView *fullscreenDisabler;
+@property (nonatomic) BOOL noSlides;
 @end
 
 @implementation VideotoriumPlayerViewControllerPhone
@@ -99,8 +98,19 @@
     [self.titleBar setBarStyle:UIBarStyleBlackTranslucent];
     self.titleBarVisible = YES;
     self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+    self.fullscreenDisabler = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)];
+    [self.view addSubview:self.fullscreenDisabler];
 }
 
+- (void)adjustFullscreenDisabler {
+    if (self.noSlides) {
+        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 55, self.view.frame.size.height - 44, 55, 44);
+    } else {
+        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 55, self.view.frame.size.height/2 - 44, 55, 44);        
+    }
+}
+
+                                                                                                        
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender
 {
     [self.titleBarTimer invalidate];
@@ -180,6 +190,8 @@
                 self.moviePlayer.gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];;
 
                 if ([self.recordingDetails.slides count]) {
+                    self.noSlides = NO;
+                    [self adjustFullscreenDisabler];
                     self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
                     self.slidePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"slidePlayer"];
                     self.slidePlayer.fullscreenDisabled = YES;
@@ -190,6 +202,8 @@
                     [self.slideContainerView addSubview:self.slidePlayer.view];
                     self.slidePlayer.gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];;
                 } else {
+                    self.noSlides = YES;
+                    [self adjustFullscreenDisabler];
                     self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
                 }
             }
