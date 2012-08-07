@@ -131,6 +131,7 @@
 - (void)seekToSlideWithID:(NSString *)ID
 {
     [self.slidePlayer seekToSlideWithID:ID];
+    [self.splitViewPopoverController dismissPopoverAnimated:YES];
 }
 
 - (void)setRecordingID:(NSString *)recordingID
