@@ -276,7 +276,7 @@
         [rootView addSubview:self.blackView];
         [rootView addSubview:self.slideView];
         self.slideView.frame = rectInRootView;
-        [UIView animateWithDuration:3
+        [UIView animateWithDuration:0.3
                          animations:^{
                              self.slideView.frame = rootView.bounds;
                              self.blackView.alpha = 1;
