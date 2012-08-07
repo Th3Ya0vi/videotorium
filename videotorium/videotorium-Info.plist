@@ -18,8 +18,12 @@
 				<string>Default-Portrait@2x~ipad.png</string>
 				<string>Default-Landscape~ipad.png</string>
 				<string>Default-Landscape@2x~ipad.png</string>
-				<string>app-icon-retina.png</string>
-				<string>app-icon.png</string>
+				<string>app-icon@2x~iphone.png</string>
+				<string>app-icon~iphone.png</string>
+				<string>app-icon@2x~ipad.png</string>
+				<string>app-icon~ipad.png</string>
+				<string>Default@2x.png</string>
+				<string>Default.png</string>
 			</array>
 		</dict>
 	</dict>

@@ -12,12 +12,16 @@
 		2D1EECF015D0065000D48624 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1EECEF15D0065000D48624 /* iPhone.storyboard */; };
 		2D1EECF315D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1EECF215D00A0000D48624 /* VideotoriumPlayerViewControllerPhone.m */; };
 		2D24A319157648C000C65290 /* VideotoriumRecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D24A318157648C000C65290 /* VideotoriumRecordingCell.m */; };
-		2D6C1A7B15AD713300A3ECFA /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7A15AD713300A3ECFA /* app-icon.png */; };
-		2D6C1A7D15AD713700A3ECFA /* app-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */; };
 		2D7CE03B15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CE03A15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m */; };
+		2D810C0F15D0E1FB0072A719 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D810C0E15D0E1FB0072A719 /* Default@2x.png */; };
+		2D810C1215D0E2050072A719 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D810C1115D0E2050072A719 /* Default.png */; };
 		2D87232115AAD97100B29538 /* VideotoriumFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D87232015AAD97100B29538 /* VideotoriumFeaturedViewController.m */; };
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
+		2D94239F15D0E049004C91A9 /* app-icon@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D94239E15D0E049004C91A9 /* app-icon@2x~iphone.png */; };
+		2D9423A215D0E04C004C91A9 /* app-icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9423A115D0E04C004C91A9 /* app-icon~iphone.png */; };
 		2DA15CBA15CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */; };
+		2DA8FF8C15D0E074006A117D /* app-icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8FF8B15D0E074006A117D /* app-icon@2x~ipad.png */; };
+		2DA8FF8F15D0E077006A117D /* app-icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8FF8E15D0E077006A117D /* app-icon~ipad.png */; };
 		2DB449A115AE99EC00594FFF /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */; };
 		2DB449A215AE99EC00594FFF /* videotorium-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB449A015AE99EC00594FFF /* videotorium-gradient@2x.png */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
@@ -79,17 +83,21 @@
 		2D469039154E5AF500E4E69F /* VideotoriumClientMockDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideotoriumClientMockDataSource.m; path = tests/VideotoriumClientMockDataSource.m; sourceTree = SOURCE_ROOT; };
 		2D54C3E6157DF557004783CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2D54C3E8157DF766004783CA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		2D6C1A7A15AD713300A3ECFA /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
-		2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-retina.png"; sourceTree = "<group>"; };
 		2D7CE03915CFAC0300118313 /* VideotoriumMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumMoviePlayerViewController.h; sourceTree = "<group>"; };
 		2D7CE03A15CFAC0300118313 /* VideotoriumMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumMoviePlayerViewController.m; sourceTree = "<group>"; };
+		2D810C0E15D0E1FB0072A719 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2D810C1115D0E2050072A719 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2D84723715874DC6008D2280 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D87232015AAD97100B29538 /* VideotoriumFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumFeaturedViewController.m; sourceTree = "<group>"; };
 		2D87232315AAD97D00B29538 /* VideotoriumFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumFeaturedViewController.h; sourceTree = "<group>"; };
 		2D88B9FC1574F8AC00B938FF /* VideotoriumRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecording.h; sourceTree = "<group>"; };
 		2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecording.m; sourceTree = "<group>"; };
+		2D94239E15D0E049004C91A9 /* app-icon@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon@2x~iphone.png"; sourceTree = "<group>"; };
+		2D9423A115D0E04C004C91A9 /* app-icon~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon~iphone.png"; sourceTree = "<group>"; };
 		2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSlidePlayerViewController.h; sourceTree = "<group>"; };
 		2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSlidePlayerViewController.m; sourceTree = "<group>"; };
+		2DA8FF8B15D0E074006A117D /* app-icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon@2x~ipad.png"; sourceTree = "<group>"; };
+		2DA8FF8E15D0E077006A117D /* app-icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon~ipad.png"; sourceTree = "<group>"; };
 		2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient.png"; sourceTree = "<group>"; };
 		2DB449A015AE99EC00594FFF /* videotorium-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient@2x.png"; sourceTree = "<group>"; };
 		2DB8B68A1578B718001A44D5 /* VideotoriumRecordingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumRecordingInfoViewController.h; sourceTree = "<group>"; };
@@ -325,10 +333,14 @@
 		2DFBB7911580E11400C770EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2D810C1115D0E2050072A719 /* Default.png */,
+				2D810C0E15D0E1FB0072A719 /* Default@2x.png */,
 				2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */,
 				2DB449A015AE99EC00594FFF /* videotorium-gradient@2x.png */,
-				2D6C1A7C15AD713700A3ECFA /* app-icon-retina.png */,
-				2D6C1A7A15AD713300A3ECFA /* app-icon.png */,
+				2DA8FF8E15D0E077006A117D /* app-icon~ipad.png */,
+				2DA8FF8B15D0E074006A117D /* app-icon@2x~ipad.png */,
+				2D9423A115D0E04C004C91A9 /* app-icon~iphone.png */,
+				2D94239E15D0E049004C91A9 /* app-icon@2x~iphone.png */,
 				2DB8B6931578F8D4001A44D5 /* Default-Landscape@2x~ipad.png */,
 				2DB8B6911578F8D0001A44D5 /* Default-Landscape~ipad.png */,
 				2DB8B68F1578F8CB001A44D5 /* Default-Portrait@2x~ipad.png */,
@@ -418,11 +430,15 @@
 				2DB8B6901578F8CB001A44D5 /* Default-Portrait@2x~ipad.png in Resources */,
 				2DB8B6921578F8D0001A44D5 /* Default-Landscape~ipad.png in Resources */,
 				2DB8B6941578F8D4001A44D5 /* Default-Landscape@2x~ipad.png in Resources */,
-				2D6C1A7B15AD713300A3ECFA /* app-icon.png in Resources */,
-				2D6C1A7D15AD713700A3ECFA /* app-icon-retina.png in Resources */,
 				2DB449A115AE99EC00594FFF /* videotorium-gradient.png in Resources */,
 				2DB449A215AE99EC00594FFF /* videotorium-gradient@2x.png in Resources */,
 				2D1EECF015D0065000D48624 /* iPhone.storyboard in Resources */,
+				2D94239F15D0E049004C91A9 /* app-icon@2x~iphone.png in Resources */,
+				2D9423A215D0E04C004C91A9 /* app-icon~iphone.png in Resources */,
+				2DA8FF8C15D0E074006A117D /* app-icon@2x~ipad.png in Resources */,
+				2DA8FF8F15D0E077006A117D /* app-icon~ipad.png in Resources */,
+				2D810C0F15D0E1FB0072A719 /* Default@2x.png in Resources */,
+				2D810C1215D0E2050072A719 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +553,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zsombor Nagy";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zsombor Nagy";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -552,9 +568,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "6864F085-23A0-48D2-9A81-437DC8255EAF";
+				PROVISIONING_PROFILE = "3918DC1D-2E47-48B5-A608-9E92A278827E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3918DC1D-2E47-48B5-A608-9E92A278827E";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -565,7 +582,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zsombor Nagy";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zsombor Nagy";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -574,9 +591,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "6864F085-23A0-48D2-9A81-437DC8255EAF";
+				PROVISIONING_PROFILE = "3918DC1D-2E47-48B5-A608-9E92A278827E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3918DC1D-2E47-48B5-A608-9E92A278827E";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

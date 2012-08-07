@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 zsombornagy.com. All rights reserved.
 //
 
-//#define SCREENSHOTMODE
-
 #import <UIKit/UIKit.h>
 #import "VideotoriumSlidesTableViewController.h"
 #import "VideotoriumRecordingInfoViewController.h"

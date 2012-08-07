@@ -6,6 +6,9 @@
 //
 //
 
+//#define SCREENSHOTMODE
+
+
 #import <Foundation/Foundation.h>
 
 @protocol VideotoriumPlayerViewController <NSObject>
