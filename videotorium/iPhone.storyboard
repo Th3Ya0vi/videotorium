@@ -368,7 +368,7 @@
                                 <rect key="frame" x="141" y="221" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YlR-hu-PGc">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="YlR-hu-PGc">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
@@ -379,6 +379,51 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="J9X-Hg-RMb">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="play" id="rws-E7-Ao6">
+                                        <connections>
+                                            <action selector="playButtonPressed:" destination="duf-CU-ThZ" id="XNW-9Q-Qqw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="pause" id="eaD-lc-Zsd">
+                                        <connections>
+                                            <action selector="pauseButtonPressed:" destination="duf-CU-ThZ" id="PKr-XY-RxO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="39Q-h2-Wrl"/>
+                                    <barButtonItem style="plain" id="5fE-2N-O3M">
+                                        <view key="customView" contentMode="scaleToFill" id="AeX-au-s7S">
+                                            <rect key="frame" x="53" y="6" width="45" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="met-YP-qjI">
+                                                    <rect key="frame" x="0.0" y="6" width="45" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="rWA-t4-NDn">
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="M9k-YT-LFG">
+                                            <rect key="frame" x="108" y="11" width="200" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="minimumTrackTintColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                                            <color key="maximumTrackTintColor" red="0.22967155612244894" green="0.22967155612244894" blue="0.22967155612244894" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="sliderChanged:" destination="duf-CU-ThZ" eventType="valueChanged" id="f1l-ha-cQV"/>
+                                            </connections>
+                                        </slider>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -386,7 +431,12 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Fy5-av-2Gc" id="zaa-Lk-Zs0"/>
+                        <outlet property="currentPlaybackTimeLabel" destination="met-YP-qjI" id="Uni-wc-CDX"/>
                         <outlet property="moviePlayerView" destination="k92-Tl-Ess" id="uN6-fZ-9Rh"/>
+                        <outlet property="pauseButton" destination="eaD-lc-Zsd" id="ldu-B5-APT"/>
+                        <outlet property="playButton" destination="rws-E7-Ao6" id="YAx-jn-tHZ"/>
+                        <outlet property="playbackControlsBar" destination="J9X-Hg-RMb" id="aQK-gF-cf5"/>
+                        <outlet property="playbackSlider" destination="M9k-YT-LFG" id="lF3-nH-Glo"/>
                         <outlet property="retryButton" destination="vke-vE-f7P" id="BZE-0W-fqP"/>
                         <outlet property="slideContainerView" destination="S8e-Ca-1I1" id="dWD-ih-QaY"/>
                         <outlet property="titleBar" destination="YlR-hu-PGc" id="JD9-Hm-yqs"/>
@@ -396,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jY0-0g-dtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1351" y="-263"/>
+            <point key="canvasLocation" x="-1414" y="-266"/>
         </scene>
         <!--Videotorium Movie Player View Controller-->
         <scene sceneID="HJz-T1-tgx">
@@ -611,7 +661,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewControllerPhone.h"/>
             <relationships>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="currentPlaybackTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pauseButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playbackControlsBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleBar" candidateClass="UIToolbar"/>

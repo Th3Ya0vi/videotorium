@@ -7,6 +7,7 @@
 //
 
 #import "VideotoriumAppDelegate.h"
+#import "VideotoriumPlayerViewControllerPad.h"
 
 @implementation VideotoriumAppDelegate
 
@@ -30,8 +31,9 @@
     UIImage *image = [UIImage imageNamed:@"videotorium-gradient.png"];
     [(UINavigationBar*)[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     [(UISearchBar*)[UISearchBar appearance] setBackgroundImage:image];
-    [(UIToolbar*)[UIToolbar appearance] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-    [(UIBarButtonItem*)[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0 green:0.5 blue:0.73 alpha:1]];
+    [(UIToolbar*)[UIToolbar appearanceWhenContainedIn:[UINavigationController class], nil] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [(UIToolbar*)[UIToolbar appearanceWhenContainedIn:[VideotoriumPlayerViewControllerPad class], nil] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [(UIBarButtonItem*)[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], nil] setTintColor:[UIColor colorWithRed:0 green:0.5 blue:0.73 alpha:1]];
     return YES;
 }
 

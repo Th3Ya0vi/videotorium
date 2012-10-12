@@ -19,9 +19,12 @@
 @property(nonatomic) NSTimeInterval currentPlaybackTime;
 @property(nonatomic, readonly) NSTimeInterval duration;
 @property(nonatomic, readonly) MPMovieLoadState loadState;
+@property(nonatomic, readonly) MPMoviePlaybackState playbackState;
 
 - (void)prepareToPlay;
 - (void)play;
 - (void)stop;
+- (void)pause;
+- (void)turnOffControls;
 
 @end

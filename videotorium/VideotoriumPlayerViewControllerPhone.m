@@ -20,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithNoSlides;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithSlides;
 @property (weak, nonatomic) IBOutlet UIToolbar *titleBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *playbackControlsBar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *playButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *pauseButton;
+@property (weak, nonatomic) IBOutlet UISlider *playbackSlider;
+@property (weak, nonatomic) IBOutlet UILabel *currentPlaybackTimeLabel;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -30,6 +35,11 @@
 @property (nonatomic, strong) NSTimer *titleBarTimer;
 @property (nonatomic, strong) UIView *fullscreenDisabler;
 @property (nonatomic) BOOL noSlides;
+
+@property (strong, nonatomic) NSTimer *timer;
+
+@property (nonatomic) BOOL wasSliding;
+
 @end
 
 @implementation VideotoriumPlayerViewControllerPhone
@@ -68,6 +78,11 @@
 }
 
 - (void)moviePlayerPlaybackStateDidChange:(NSNotification *)notification {
+    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
+        [self changeFirstButtonTo:self.pauseButton];
+    } else {
+        [self changeFirstButtonTo:self.playButton];
+    }
     [self.slidePlayer moviePlayerPlaybackStateDidChange];
 }
 
@@ -92,14 +107,34 @@
     [self.retryButton setTitle:NSLocalizedString(@"failedToLoadRetry", nil) forState:UIControlStateNormal];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-    [self.titleBar setBackgroundImage:nil
-                   forToolbarPosition:UIToolbarPositionAny
-                           barMetrics:UIBarMetricsDefault];
-    [self.titleBar setBarStyle:UIBarStyleBlackTranslucent];
     self.titleBarVisible = YES;
+    UIImage *image = [UIImage imageNamed:@"thumb.png"];
+    [self.playbackSlider setThumbImage:image forState:UIControlStateNormal];
+    NSMutableArray *items = [self.playbackControlsBar.items mutableCopy];
+    [items removeObjectAtIndex:1]; // Remove pause button
+    self.playbackControlsBar.items = items;
+
     self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
     self.fullscreenDisabler = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)];
     [self.view addSubview:self.fullscreenDisabler];
+}
+
+- (void)changeFirstButtonTo:(UIBarButtonItem *)button {
+    NSMutableArray *items = [self.playbackControlsBar.items mutableCopy];
+    [items removeObjectAtIndex:0];
+    [items insertObject:button atIndex:0];
+    self.playbackControlsBar.items = items;
+}
+
+- (IBAction)playButtonPressed:(id)sender {
+    [self.moviePlayer play];
+}
+- (IBAction)pauseButtonPressed:(id)sender {
+    [self.moviePlayer pause];
+}
+- (IBAction)sliderChanged:(UISlider *)sender {
+    self.wasSliding = true;
+    self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration * sender.value;
 }
 
 - (void)adjustFullscreenDisabler {
@@ -118,12 +153,14 @@
         self.titleBarVisible = NO;
         [UIView animateWithDuration:0.4 animations:^{
             self.titleBar.alpha = 0;
+            self.playbackControlsBar.alpha = 0;
         }];
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     } else {
         self.titleBarVisible = YES;
         [UIView animateWithDuration:0.4 animations:^{
             self.titleBar.alpha = 1;
+            self.playbackControlsBar.alpha = 1;
         }];
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
@@ -181,6 +218,7 @@
                 self.recordingDetails = recordingDetails;
                 self.moviePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"moviePlayer"];
                 self.moviePlayer.streamURL = self.recordingDetails.streamURL;
+                [self.moviePlayer turnOffControls];
                 self.moviePlayer.view.frame = self.moviePlayerView.bounds;
                 self.moviePlayerView.alpha = 0;
                 [self addChildViewController:self.moviePlayer];
@@ -217,5 +255,27 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.timer invalidate];
+}
+
+- (void)updateSlider {
+    int minutes = floor(self.moviePlayer.currentPlaybackTime / 60);
+    int seconds = floor(self.moviePlayer.currentPlaybackTime) - minutes * 60;
+    self.currentPlaybackTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
+    if (self.wasSliding) {
+        self.wasSliding = false;
+    } else {
+	    self.playbackSlider.value = self.moviePlayer.currentPlaybackTime / self.moviePlayer.duration;
+    }
+}
+
 
 @end

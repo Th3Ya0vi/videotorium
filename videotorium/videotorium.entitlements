@@ -7,6 +7,6 @@
 		<string>$(AppIdentifierPrefix)com.zsombornagy.videotorium</string>
 	</array>
 	<key>get-task-allow</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

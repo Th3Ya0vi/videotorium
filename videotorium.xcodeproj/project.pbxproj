@@ -20,6 +20,8 @@
 		2D94239F15D0E049004C91A9 /* app-icon@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D94239E15D0E049004C91A9 /* app-icon@2x~iphone.png */; };
 		2D9423A215D0E04C004C91A9 /* app-icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9423A115D0E04C004C91A9 /* app-icon~iphone.png */; };
 		2DA15CBA15CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */; };
+		2DA19E9516284FD1008799AE /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA19E9316284FD1008799AE /* thumb.png */; };
+		2DA19E9616284FD1008799AE /* thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA19E9416284FD1008799AE /* thumb@2x.png */; };
 		2DA8FF8C15D0E074006A117D /* app-icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8FF8B15D0E074006A117D /* app-icon@2x~ipad.png */; };
 		2DA8FF8F15D0E077006A117D /* app-icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8FF8E15D0E077006A117D /* app-icon~ipad.png */; };
 		2DB449A115AE99EC00594FFF /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */; };
@@ -97,6 +99,8 @@
 		2D9423A115D0E04C004C91A9 /* app-icon~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon~iphone.png"; sourceTree = "<group>"; };
 		2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSlidePlayerViewController.h; sourceTree = "<group>"; };
 		2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSlidePlayerViewController.m; sourceTree = "<group>"; };
+		2DA19E9316284FD1008799AE /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		2DA19E9416284FD1008799AE /* thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb@2x.png"; sourceTree = "<group>"; };
 		2DA8FF8B15D0E074006A117D /* app-icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon@2x~ipad.png"; sourceTree = "<group>"; };
 		2DA8FF8E15D0E077006A117D /* app-icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon~ipad.png"; sourceTree = "<group>"; };
 		2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-gradient.png"; sourceTree = "<group>"; };
@@ -198,7 +202,6 @@
 		2DEB06A91549703200AD0805 = {
 			isa = PBXGroup;
 			children = (
-				2DEC7C521611DDFF0069DDB9 /* Default-568h@2x.png */,
 				2DEB06BE1549703200AD0805 /* videotorium */,
 				2DE8EFA3154E5F6800503998 /* tests */,
 				2DEB06B71549703200AD0805 /* Frameworks */,
@@ -336,6 +339,9 @@
 		2DFBB7911580E11400C770EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2DA19E9316284FD1008799AE /* thumb.png */,
+				2DA19E9416284FD1008799AE /* thumb@2x.png */,
+				2DEC7C521611DDFF0069DDB9 /* Default-568h@2x.png */,
 				2D810C1115D0E2050072A719 /* Default.png */,
 				2D810C0E15D0E1FB0072A719 /* Default@2x.png */,
 				2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */,
@@ -443,6 +449,8 @@
 				2D810C0F15D0E1FB0072A719 /* Default@2x.png in Resources */,
 				2D810C1215D0E2050072A719 /* Default.png in Resources */,
 				2DEC7C531611DDFF0069DDB9 /* Default-568h@2x.png in Resources */,
+				2DA19E9516284FD1008799AE /* thumb.png in Resources */,
+				2DA19E9616284FD1008799AE /* thumb@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,8 +580,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PROVISIONING_PROFILE = "69D381E5-6752-4C81-8A42-5BA4BCCCADF6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69D381E5-6752-4C81-8A42-5BA4BCCCADF6";
+				PROVISIONING_PROFILE = "8C5C48D2-A0B6-4B7F-B622-04AE22F82A65";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8C5C48D2-A0B6-4B7F-B622-04AE22F82A65";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -595,8 +603,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "69D381E5-6752-4C81-8A42-5BA4BCCCADF6";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "69D381E5-6752-4C81-8A42-5BA4BCCCADF6";
+				PROVISIONING_PROFILE = "8C5C48D2-A0B6-4B7F-B622-04AE22F82A65";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8C5C48D2-A0B6-4B7F-B622-04AE22F82A65";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
