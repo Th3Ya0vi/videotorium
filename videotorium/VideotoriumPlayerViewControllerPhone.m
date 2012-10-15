@@ -54,7 +54,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification *)notification
@@ -244,6 +244,9 @@
                     [self adjustFullscreenDisabler];
                     self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
                 }
+                if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+                    self.moviePlayerView.frame = self.view.bounds;
+                }
             }
         });
     });
@@ -267,15 +270,29 @@
 }
 
 - (void)updateSlider {
-    int minutes = floor(self.moviePlayer.currentPlaybackTime / 60);
-    int seconds = floor(self.moviePlayer.currentPlaybackTime) - minutes * 60;
-    self.currentPlaybackTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
-    if (self.wasSliding) {
-        self.wasSliding = false;
-    } else {
-	    self.playbackSlider.value = self.moviePlayer.currentPlaybackTime / self.moviePlayer.duration;
+    if (self.moviePlayer && (self.moviePlayer.duration > 0)) {
+        int minutes = floor(self.moviePlayer.currentPlaybackTime / 60);
+        int seconds = floor(self.moviePlayer.currentPlaybackTime) - minutes * 60;
+        self.currentPlaybackTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
+        if (self.wasSliding) {
+            self.wasSliding = false;
+        } else {
+            self.playbackSlider.value = self.moviePlayer.currentPlaybackTime / self.moviePlayer.duration;
+        }
     }
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        if ([self.recordingDetails.slides count]) {
+            self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
+        } else {
+            self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
+        }
+    } else {
+        self.moviePlayerView.frame = self.view.bounds;
+    }
+}
 
 @end
