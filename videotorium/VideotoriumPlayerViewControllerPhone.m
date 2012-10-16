@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *pauseButton;
 @property (weak, nonatomic) IBOutlet UISlider *playbackSlider;
 @property (weak, nonatomic) IBOutlet UILabel *currentPlaybackTimeLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -33,7 +34,6 @@
 
 @property (nonatomic) BOOL titleBarVisible;
 @property (nonatomic, strong) NSTimer *titleBarTimer;
-@property (nonatomic, strong) UIView *fullscreenDisabler;
 @property (nonatomic) BOOL noSlides;
 
 @property (strong, nonatomic) NSTimer *timer;
@@ -115,8 +115,6 @@
     self.playbackControlsBar.items = items;
 
     self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
-    self.fullscreenDisabler = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)];
-    [self.view addSubview:self.fullscreenDisabler];
 }
 
 - (void)changeFirstButtonTo:(UIBarButtonItem *)button {
@@ -136,15 +134,6 @@
     self.wasSliding = true;
     self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration * sender.value;
 }
-
-- (void)adjustFullscreenDisabler {
-    if (self.noSlides) {
-        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 66, self.view.frame.size.height - 44, 66, 44);
-    } else {
-        self.fullscreenDisabler.frame = CGRectMake(self.view.frame.size.width - 66, self.view.frame.size.height/2 - 44, 66, 44);
-    }
-}
-
                                                                                                         
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender
 {
@@ -175,6 +164,26 @@
 - (void)setRecordingID:(NSString *)recordingID
 {
     [self setRecordingID:recordingID autoplay:YES];
+}
+
+- (void)layoutViewsInOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    if ([self.recordingDetails.slides count]) {
+        if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+            self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height * 2);
+            self.scrollView.scrollEnabled = YES;
+            self.moviePlayerView.frame = self.view.bounds;
+            self.slideContainerView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+        } else {
+            self.scrollView.contentSize = self.view.bounds.size;
+            self.scrollView.scrollEnabled = NO;
+            self.moviePlayerView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2);
+            self.slideContainerView.frame = CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height/2);
+        }
+    } else {
+        self.scrollView.contentSize = self.view.bounds.size;
+        self.scrollView.scrollEnabled = NO;
+        self.moviePlayerView.frame = self.view.bounds;
+    }
 }
 
 - (void)setRecordingID:(NSString *)recordingID autoplay:(BOOL)shouldAutoplay
@@ -229,8 +238,6 @@
 
                 if ([self.recordingDetails.slides count]) {
                     self.noSlides = NO;
-                    [self adjustFullscreenDisabler];
-                    self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
                     self.slidePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"slidePlayer"];
                     self.slidePlayer.fullscreenDisabled = YES;
                     self.slidePlayer.slides = self.recordingDetails.slides;
@@ -241,12 +248,8 @@
                     self.slidePlayer.gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];;
                 } else {
                     self.noSlides = YES;
-                    [self adjustFullscreenDisabler];
-                    self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
                 }
-                if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-                    self.moviePlayerView.frame = self.view.bounds;
-                }
+                [self layoutViewsInOrientation:self.interfaceOrientation];
             }
         });
     });
@@ -256,6 +259,7 @@
 - (void)viewDidUnload
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setScrollView:nil];
     [super viewDidUnload];
 }
 
@@ -284,15 +288,7 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
-        if ([self.recordingDetails.slides count]) {
-            self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
-        } else {
-            self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
-        }
-    } else {
-        self.moviePlayerView.frame = self.view.bounds;
-    }
+    [self layoutViewsInOrientation:toInterfaceOrientation];
 }
 
 @end

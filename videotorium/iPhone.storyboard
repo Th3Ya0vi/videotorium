@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="QXd-T9-4Hr">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
@@ -328,27 +327,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" id="LYY-Ee-K38" userLabel="viewForVideoWithNoSlides">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="485-cs-0KY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="ruX-ft-s0q" userLabel="viewForVideoWithSlides">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="S8e-Ca-1I1" userLabel="slideContainerView">
-                                <rect key="frame" x="0.0" y="240" width="320" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                            </view>
-                            <view contentMode="scaleToFill" id="k92-Tl-Ess" userLabel="moviePlayerView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="S8e-Ca-1I1" userLabel="slideContainerView">
+                                        <rect key="frame" x="0.0" y="240" width="320" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="k92-Tl-Ess" userLabel="moviePlayerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vke-vE-f7P">
                                 <rect key="frame" x="0.0" y="221" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -396,7 +391,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="39Q-h2-Wrl"/>
                                     <barButtonItem style="plain" id="5fE-2N-O3M">
                                         <view key="customView" contentMode="scaleToFill" id="AeX-au-s7S">
-                                            <rect key="frame" x="53" y="6" width="45" height="33"/>
+                                            <rect key="frame" x="33" y="6" width="45" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="met-YP-qjI">
@@ -412,8 +407,8 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="rWA-t4-NDn">
                                         <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="M9k-YT-LFG">
-                                            <rect key="frame" x="108" y="11" width="200" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <rect key="frame" x="88" y="11" width="220" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="minimumTrackTintColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                             <color key="maximumTrackTintColor" red="0.22967155612244894" green="0.22967155612244894" blue="0.22967155612244894" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
@@ -438,10 +433,9 @@
                         <outlet property="playbackControlsBar" destination="J9X-Hg-RMb" id="aQK-gF-cf5"/>
                         <outlet property="playbackSlider" destination="M9k-YT-LFG" id="lF3-nH-Glo"/>
                         <outlet property="retryButton" destination="vke-vE-f7P" id="BZE-0W-fqP"/>
+                        <outlet property="scrollView" destination="485-cs-0KY" id="dpk-eN-blv"/>
                         <outlet property="slideContainerView" destination="S8e-Ca-1I1" id="dWD-ih-QaY"/>
                         <outlet property="titleBar" destination="YlR-hu-PGc" id="JD9-Hm-yqs"/>
-                        <outlet property="viewForVideoWithNoSlides" destination="LYY-Ee-K38" id="0iU-Kx-24O"/>
-                        <outlet property="viewForVideoWithSlides" destination="ruX-ft-s0q" id="i2p-hq-zjC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jY0-0g-dtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -668,6 +662,7 @@
                 <relationship kind="outlet" name="playbackControlsBar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleBar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="viewForVideoWithNoSlides" candidateClass="UIView"/>
