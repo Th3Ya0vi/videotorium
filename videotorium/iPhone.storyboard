@@ -414,6 +414,9 @@
                                             <color key="maximumTrackTintColor" red="0.22967155612244894" green="0.22967155612244894" blue="0.22967155612244894" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="sliderChanged:" destination="duf-CU-ThZ" eventType="valueChanged" id="f1l-ha-cQV"/>
+                                                <action selector="sliderTouchDown:" destination="duf-CU-ThZ" eventType="touchDown" id="hpi-xZ-pDN"/>
+                                                <action selector="sliderTouchUp:" destination="duf-CU-ThZ" eventType="touchUpInside" id="GEH-an-8V6"/>
+                                                <action selector="sliderTouchUp:" destination="duf-CU-ThZ" eventType="touchUpOutside" id="KSc-kQ-5xW"/>
                                             </connections>
                                         </slider>
                                     </barButtonItem>
@@ -654,6 +657,12 @@
         <class className="VideotoriumPlayerViewControllerPhone" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewControllerPhone.h"/>
             <relationships>
+                <relationship kind="action" name="donePressed:"/>
+                <relationship kind="action" name="pauseButtonPressed:"/>
+                <relationship kind="action" name="playButtonPressed:"/>
+                <relationship kind="action" name="sliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="sliderTouchDown:"/>
+                <relationship kind="action" name="sliderTouchUp:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="currentPlaybackTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
@@ -665,8 +674,6 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="viewForVideoWithNoSlides" candidateClass="UIView"/>
-                <relationship kind="outlet" name="viewForVideoWithSlides" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">

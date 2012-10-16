@@ -112,8 +112,7 @@
     NSMutableArray *items = [self.playbackControlsBar.items mutableCopy];
     [items removeObjectAtIndex:1]; // Remove pause button
     self.playbackControlsBar.items = items;
-
-    self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+    [self scheduleTitleBarTimer];
 }
 
 - (void)changeFirstButtonTo:(UIBarButtonItem *)button {
@@ -133,7 +132,19 @@
     self.wasSliding = true;
     self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration * sender.value;
 }
-                                                                                                        
+
+- (IBAction)sliderTouchDown:(id)sender {
+    [self.titleBarTimer invalidate];
+}
+- (IBAction)sliderTouchUp:(id)sender {
+    [self scheduleTitleBarTimer];
+}
+
+
+- (void)scheduleTitleBarTimer {
+    self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+}
+
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender
 {
     [self.titleBarTimer invalidate];
@@ -151,7 +162,7 @@
             self.playbackControlsBar.alpha = 1;
         }];
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-        self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+        [self scheduleTitleBarTimer];
     }
 }
 
