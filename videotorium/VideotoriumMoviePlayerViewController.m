@@ -28,7 +28,7 @@
     }
     if (gestureRecognizer) {
         self.tapView = [[UIView alloc] initWithFrame:self.view.frame];
-        self.tapView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        self.tapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self.tapView addGestureRecognizer:gestureRecognizer];
         [self.view addSubview:self.tapView];
     }
