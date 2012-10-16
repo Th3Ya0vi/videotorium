@@ -10,8 +10,10 @@
 #import "VideotoriumRecordingDetails.h"
 
 @protocol VideotoriumRecordingInfoViewDelegate <NSObject>
-        
+
+@optional
 -(void)userSelectedRecordingWithURL:(NSURL *)recordingURL;
+-(void)userPressedDoneButton;
 
 @end
 

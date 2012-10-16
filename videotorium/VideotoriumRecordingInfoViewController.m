@@ -18,29 +18,40 @@
 
 @implementation VideotoriumRecordingInfoViewController
 
+- (IBAction)doneButtonPressed:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(userPressedDoneButton)]) {
+        [self.delegate userPressedDoneButton];
+    }
+}
+
 - (void)viewDidLoad {
     [self.openInSafariButton setTitle:NSLocalizedString(@"openInSafari", nil) forState:UIControlStateNormal];
+    self.webView.scalesPageToFit = YES;
+    self.webView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     self.infoPopoverController.passthroughViews = [NSArray array];
+    [self showRecordingInWebView];
+}
+
+- (void)showRecordingInWebView {
+    NSString *strippedHTML = self.recording.response;
+    strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<body>" withString:@"<body style=\"background-image: none\">"];
+    strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"header\">" withString:@"<div id=\"header\" style=\"display: none\">"];
+    strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"menu\">" withString:@"<div id=\"menu\" style=\"display: none\">"];
+    strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div class=\"player\">" withString:@"<div class=\"player\" style=\"display: none\">"];
+    strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"footer\">" withString:@"<div id=\"footer\" style=\"display: none\">"];
+    strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"footerbg\">" withString:@"<div id=\"footerbg\" style=\"display: none\">"];
+    [self.webView loadHTMLString:strippedHTML baseURL:self.recording.URL];
 }
 
 - (void)setRecording:(VideotoriumRecordingDetails *)recording
 {
     if (![_recording isEqual:recording]) {
-        self.webView.scalesPageToFit = YES;
-        self.webView.delegate = self;
-        NSString *strippedHTML = recording.response;
-        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<body>" withString:@"<body style=\"background-image: none\">"];
-        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"header\">" withString:@"<div id=\"header\" style=\"display: none\">"];
-        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"menu\">" withString:@"<div id=\"menu\" style=\"display: none\">"];
-        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div class=\"player\">" withString:@"<div class=\"player\" style=\"display: none\">"];
-        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"footer\">" withString:@"<div id=\"footer\" style=\"display: none\">"];
-        strippedHTML = [strippedHTML stringByReplacingOccurrencesOfString:@"<div id=\"footerbg\">" withString:@"<div id=\"footerbg\" style=\"display: none\">"];
-        [self.webView loadHTMLString:strippedHTML baseURL:recording.URL];
         _recording = recording;
+        [self showRecordingInWebView];
     }
 }
 
@@ -50,9 +61,6 @@
 }
 
 - (void)viewDidUnload {
-    [self setOpenInSafariButton:nil];
-    [self setWebView:nil];
-    [self setActivityIndicator:nil];
     [super viewDidUnload];
 }
 
@@ -76,7 +84,9 @@
         return YES;
     }
     if ([[request.URL absoluteString] hasPrefix:@"http://videotorium.hu/hu/recordings/details/"]) {
-        [self.delegate userSelectedRecordingWithURL:request.URL];
+        if ([self.delegate respondsToSelector:@selector(userSelectedRecordingWithURL:)]) {
+            [self.delegate userSelectedRecordingWithURL:request.URL];            
+        }
     }
     return NO;
 }

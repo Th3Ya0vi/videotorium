@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "VideotoriumPlayerViewController.h"
+#import "VideotoriumRecordingInfoViewController.h"
 
-@interface VideotoriumPlayerViewControllerPhone : UIViewController <VideotoriumPlayerViewController>
+@interface VideotoriumPlayerViewControllerPhone : UIViewController <VideotoriumPlayerViewController, VideotoriumRecordingInfoViewDelegate>
 
 @end

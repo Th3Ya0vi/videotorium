@@ -304,4 +304,30 @@
     [self layoutViewsInOrientation:toInterfaceOrientation];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Info"]) {
+        VideotoriumRecordingInfoViewController *destination = segue.destinationViewController;
+        destination.recording = self.recordingDetails;
+        destination.delegate = self;
+        [self.titleBarTimer invalidate];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    }
+}
+
+- (void)userPressedDoneButton {
+    [self dismissModalViewControllerAnimated:YES];
+    [self scheduleTitleBarTimer];
+    [self layoutViewsInOrientation:self.interfaceOrientation];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+}
+
+- (void)userSelectedRecordingWithURL:(NSURL *)recordingURL {
+    [self dismissModalViewControllerAnimated:YES];
+    self.recordingID = [VideotoriumClient IDOfRecordingWithURL:recordingURL];
+    [self scheduleTitleBarTimer];
+    [self layoutViewsInOrientation:self.interfaceOrientation];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+}
+
 @end

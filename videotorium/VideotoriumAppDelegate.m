@@ -34,6 +34,8 @@
     [(UIToolbar*)[UIToolbar appearanceWhenContainedIn:[UINavigationController class], nil] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     [(UIToolbar*)[UIToolbar appearanceWhenContainedIn:[VideotoriumPlayerViewControllerPad class], nil] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     [(UIBarButtonItem*)[UIBarButtonItem appearanceWhenContainedIn:[UINavigationController class], nil] setTintColor:[UIColor colorWithRed:0 green:0.5 blue:0.73 alpha:1]];
+    [(UIToolbar*)[UIToolbar appearanceWhenContainedIn:[VideotoriumRecordingInfoViewController class], nil] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [(UIBarButtonItem*)[UIBarButtonItem appearanceWhenContainedIn:[VideotoriumRecordingInfoViewController class], nil] setTintColor:[UIColor colorWithRed:0 green:0.5 blue:0.73 alpha:1]];
     return YES;
 }
 
