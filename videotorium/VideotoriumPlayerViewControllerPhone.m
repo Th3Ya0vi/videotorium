@@ -17,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *slideContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
-@property (weak, nonatomic) IBOutlet UIView *viewForVideoWithNoSlides;
-@property (weak, nonatomic) IBOutlet UIView *viewForVideoWithSlides;
 @property (weak, nonatomic) IBOutlet UIToolbar *titleBar;
 @property (weak, nonatomic) IBOutlet UIToolbar *playbackControlsBar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *playButton;
@@ -26,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *playbackSlider;
 @property (weak, nonatomic) IBOutlet UILabel *currentPlaybackTimeLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property(nonatomic) CGPoint lastScrollViewOffset;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -166,14 +165,17 @@
     [self setRecordingID:recordingID autoplay:YES];
 }
 
-- (void)layoutViewsInOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+- (void)layoutViewsInOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if ([self.recordingDetails.slides count]) {
-        if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        if (UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
             self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height * 2);
             self.scrollView.scrollEnabled = YES;
             self.moviePlayerView.frame = self.view.bounds;
             self.slideContainerView.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+            if (self.lastScrollViewOffset.y >= self.view.bounds.size.height / 2)
+	            self.scrollView.contentOffset = CGPointMake(0, self.view.bounds.size.height);
         } else {
+            self.lastScrollViewOffset = self.scrollView.contentOffset;
             self.scrollView.contentSize = self.view.bounds.size;
             self.scrollView.scrollEnabled = NO;
             self.moviePlayerView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/2);
