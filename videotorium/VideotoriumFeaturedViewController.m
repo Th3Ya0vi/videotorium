@@ -118,7 +118,7 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         return YES;
     } else {
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     }
 }
 
@@ -138,7 +138,10 @@
     if (textSize.width < 190) {
         CellIdentifier = @"Recording Cell Oneliner";
     }
-    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsLandscape(self.interfaceOrientation) && textSize.width < 330) {
+        CellIdentifier = @"Recording Cell Oneliner";
+    }
+
     VideotoriumRecordingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     cell.tag = indexPath.row;

@@ -40,7 +40,7 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         return YES;
     } else {
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     }
 }
 
