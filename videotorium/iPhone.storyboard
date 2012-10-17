@@ -126,22 +126,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Slide Cell" id="nMH-Vm-d2m" customClass="VideotoriumSlideCell">
-                                <rect key="frame" x="0.0" y="22" width="480" height="230"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="230"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="460" height="229"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="229"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="nzY-0T-4Jp">
-                                            <rect key="frame" x="9" y="9" width="442" height="212"/>
+                                            <rect key="frame" x="9" y="9" width="282" height="212"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="MQd-fm-u3g">
-                                                    <rect key="frame" x="1" y="1" width="440" height="210"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="MQd-fm-u3g">
+                                                    <rect key="frame" x="1" y="1" width="280" height="210"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
