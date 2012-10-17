@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *slideNumberLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithoutButtons;
 @property (weak, nonatomic) IBOutlet UIView *viewForSlideWithVisibleButtons;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong) VideotoriumSlide *currentSlide;
 @property (nonatomic, strong) VideotoriumSlide *slideToShow;
@@ -113,6 +114,10 @@
 	return YES;
 }
 
+- (void)startAnimatingActivityIndicator {
+    [self.activityIndicator startAnimating];
+}
+
 - (void)seekToSlideWithID:(NSString *)ID
 {
     if (self.moviePlayer.loadState == MPMovieLoadStateUnknown) {
@@ -191,12 +196,15 @@
                                  }
                              } completion:^(BOOL finished) {
                                  dispatch_queue_t downloadSlideQueue = dispatch_queue_create("download slide queue", NULL);
+                                 NSTimer *activityIndicatorStarter = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(startAnimatingActivityIndicator) userInfo:nil repeats:NO];
                                  dispatch_async(downloadSlideQueue, ^{
                                      NSData *imageData = [NSData dataWithContentsOfURL:self.currentSlide.imageURL];
                                      dispatch_async(dispatch_get_main_queue(), ^{
                                          if (self.currentSlide == self.slideToShow) {
                                              self.slideNumberLabel.text = [NSString stringWithFormat:@"%d", [self.slides indexOfObject:self.currentSlide] + 1];
                                              UIImage *newImage = [UIImage imageWithData:imageData];
+                                             [activityIndicatorStarter invalidate];
+                                             [self.activityIndicator stopAnimating];
                                              if (dissolve) {
                                                  [UIView transitionWithView:self.slideImageView duration:0.2
                                                                     options:UIViewAnimationOptionTransitionCrossDissolve
@@ -369,4 +377,8 @@
 }
 
 
+- (void)viewDidUnload {
+    [self setActivityIndicator:nil];
+    [super viewDidUnload];
+}
 @end
