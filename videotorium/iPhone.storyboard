@@ -327,7 +327,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="485-cs-0KY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" id="485-cs-0KY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -695,6 +695,85 @@
             <point key="canvasLocation" x="-312" y="-266"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="VideotoriumFeaturedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumFeaturedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumMoviePlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumMoviePlayerViewController.h"/>
+        </class>
+        <class className="VideotoriumPlayerViewControllerPhone" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumPlayerViewControllerPhone.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="currentPlaybackTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="moviePlayerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pauseButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playbackControlsBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleBar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumRecordingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="date" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="indexPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="subtitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorConnectingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noRecordingsFoundLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSlideCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlideCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="borderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSlidePlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlidePlayerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="followVideoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="seekToThisSlideButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="slideImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="slideNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slideView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="viewForSlideWithVisibleButtons" candidateClass="UIView"/>
+                <relationship kind="outlet" name="viewForSlideWithoutButtons" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="VideotoriumSlidesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumSlidesTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
