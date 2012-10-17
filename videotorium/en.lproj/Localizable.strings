@@ -10,8 +10,8 @@
 "search" = "Search";
 "secondaryVideoNotSupported" = "secondary video is not supported";
 "noSlides" = "no slides";
-"followVideo" = "Follow video";
-"seekToThisSlide" = "Seek video to this slide";
+"followVideo" = "Jump back";
+"seekToThisSlide" = "Jump to this slide";
 "matchingSlides" = "Matching slides";
 "noRecordings" = "No recordings found";
 "errorConnecting" = "Error connecting to Videotorium";

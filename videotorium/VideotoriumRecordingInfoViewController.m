@@ -11,6 +11,7 @@
 @interface VideotoriumRecordingInfoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *openInSafariButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *openInSafariBarButton;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
@@ -26,6 +27,7 @@
 
 - (void)viewDidLoad {
     [self.openInSafariButton setTitle:NSLocalizedString(@"openInSafari", nil) forState:UIControlStateNormal];
+    [self.openInSafariBarButton setTitle:NSLocalizedString(@"openInSafari", nil)];
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
 }

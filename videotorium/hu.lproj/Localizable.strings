@@ -10,8 +10,8 @@
 "search" = "Keresés";
 "secondaryVideoNotSupported" = "másodlagos videó nem támogatott";
 "noSlides" = "nincsenek fóliák";
-"followVideo" = "Videó követése";
-"seekToThisSlide" = "Ugrás ehhez a fóliához";
+"followVideo" = "Ugrás vissza";
+"seekToThisSlide" = "Ugrás ehhez";
 "matchingSlides" = "Találatok a fóliákon";
 "noRecordings" = "Nincs találat";
 "errorConnecting" = "Nem sikerült elérni a Videotoriumot";
