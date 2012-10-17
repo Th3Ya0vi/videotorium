@@ -37,7 +37,7 @@
 
 @property (strong, nonatomic) NSTimer *timer;
 
-@property (nonatomic) BOOL wasSliding;
+@property (nonatomic) BOOL isSliding;
 
 @end
 
@@ -68,6 +68,8 @@
 }
 
 - (void)moviePlayerPlaybackDidFinish:(NSNotification *)notification {
+    [self.titleBarTimer invalidate];
+    [self showBars];
     if ([notification.userInfo objectForKey:@"error"]) {
         [self.activityIndicator stopAnimating];
         [UIView animateWithDuration:0.2 animations:^{
@@ -77,10 +79,12 @@
 }
 
 - (void)moviePlayerPlaybackStateDidChange:(NSNotification *)notification {
-    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
-        [self changeFirstButtonTo:self.pauseButton];
-    } else {
-        [self changeFirstButtonTo:self.playButton];
+    if (!self.isSliding) {
+        if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
+            [self changeFirstButtonTo:self.pauseButton];
+        } else {
+            [self changeFirstButtonTo:self.playButton];
+        }        
     }
     [self.slidePlayer moviePlayerPlaybackStateDidChange];
 }
@@ -129,15 +133,16 @@
     [self.moviePlayer pause];
 }
 - (IBAction)sliderChanged:(UISlider *)sender {
-    self.wasSliding = true;
     self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration * sender.value;
 }
 
 - (IBAction)sliderTouchDown:(id)sender {
     [self.titleBarTimer invalidate];
+    self.isSliding = true;
 }
 - (IBAction)sliderTouchUp:(id)sender {
     [self scheduleTitleBarTimer];
+    self.isSliding = false;
 }
 
 
@@ -145,23 +150,31 @@
     self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
 }
 
+- (void)hideBars {
+    self.titleBarVisible = NO;
+    [UIView animateWithDuration:0.4 animations:^{
+        self.titleBar.alpha = 0;
+        self.playbackControlsBar.alpha = 0;
+    }];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+}
+
+- (void)showBars {
+    self.titleBarVisible = YES;
+    [UIView animateWithDuration:0.4 animations:^{
+        self.titleBar.alpha = 1;
+        self.playbackControlsBar.alpha = 1;
+    }];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+}
+
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender
 {
     [self.titleBarTimer invalidate];
     if (self.titleBarVisible) {
-        self.titleBarVisible = NO;
-        [UIView animateWithDuration:0.4 animations:^{
-            self.titleBar.alpha = 0;
-            self.playbackControlsBar.alpha = 0;
-        }];
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+        [self hideBars];
     } else {
-        self.titleBarVisible = YES;
-        [UIView animateWithDuration:0.4 animations:^{
-            self.titleBar.alpha = 1;
-            self.playbackControlsBar.alpha = 1;
-        }];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+        [self showBars];
         [self scheduleTitleBarTimer];
     }
 }
@@ -291,10 +304,9 @@
         int minutes = floor(self.moviePlayer.currentPlaybackTime / 60);
         int seconds = floor(self.moviePlayer.currentPlaybackTime) - minutes * 60;
         self.currentPlaybackTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
-        if (self.wasSliding) {
-            self.wasSliding = false;
-        } else {
+        if (!self.isSliding) {
             self.playbackSlider.value = self.moviePlayer.currentPlaybackTime / self.moviePlayer.duration;
+            
         }
     }
 }
