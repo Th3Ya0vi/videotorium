@@ -46,7 +46,7 @@
 @synthesize recordingID = _recordingID;
 
 - (IBAction)actionButtonPressed:(id)sender {
-    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.recordingDetails.URL] applicationActivities:nil];
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.recordingDetails.title, self.recordingDetails.URL] applicationActivities:nil];
     [avc setCompletionHandler:(UIActivityViewControllerCompletionHandler)^{
         [self scheduleTitleBarTimer];
         [self layoutViewsInOrientation:self.interfaceOrientation];
