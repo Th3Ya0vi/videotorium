@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentPlaybackTimeLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property(nonatomic) CGPoint lastScrollViewOffset;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -44,11 +45,22 @@
 @implementation VideotoriumPlayerViewControllerPhone
 @synthesize recordingID = _recordingID;
 
+- (IBAction)actionButtonPressed:(id)sender {
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.recordingDetails.URL] applicationActivities:nil];
+    [avc setCompletionHandler:(UIActivityViewControllerCompletionHandler)^{
+        [self scheduleTitleBarTimer];
+        [self layoutViewsInOrientation:self.interfaceOrientation];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    }];
+    [self.titleBarTimer invalidate];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    [self presentViewController:avc animated:YES completion:nil];
+}
+
 - (IBAction)donePressed:(id)sender {
     [self.titleBarTimer invalidate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
-    }];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -117,6 +129,11 @@
     [items removeObjectAtIndex:1]; // Remove pause button
     self.playbackControlsBar.items = items;
     [self scheduleTitleBarTimer];
+    if (![UIActivityViewController class]) {
+        items = [self.titleBar.items mutableCopy];
+        [items removeObject:self.actionButton];
+        self.titleBar.items = items;
+    }
 }
 
 - (void)changeFirstButtonTo:(UIBarButtonItem *)button {
@@ -286,6 +303,7 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self setScrollView:nil];
+    [self setActionButton:nil];
     [super viewDidUnload];
 }
 
