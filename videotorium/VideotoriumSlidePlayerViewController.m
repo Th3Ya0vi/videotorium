@@ -318,6 +318,13 @@
     [self updateSlide];
 }
 
+- (void)makeSlidesNotFollowVideo {
+    self.slidesFollowVideo = NO;
+    if ([self.delegate respondsToSelector:@selector(slidesStoppedFollowingVideo)]) {
+        [self.delegate slidesStoppedFollowingVideo];
+    }
+}
+
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
     if ([self.slides count]) {
         self.seekingInProgress = NO;
@@ -325,7 +332,7 @@
         if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
             self.userSwipedSlides = YES;
             if (indexOfCurrentSlide > 0) {
-                self.slidesFollowVideo = NO;
+                [self makeSlidesNotFollowVideo];
                 self.slideToShow = [self.slides objectAtIndex:(indexOfCurrentSlide - 1)];
                 [self updateSlide];
             } else {
@@ -342,7 +349,7 @@
         if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
             self.userSwipedSlides = YES;
             if (indexOfCurrentSlide < [self.slides count] - 1) {
-                self.slidesFollowVideo = NO;
+                [self makeSlidesNotFollowVideo];
                 self.slideToShow = [self.slides objectAtIndex:(indexOfCurrentSlide + 1)];
                 [self updateSlide];
             } else {
@@ -357,7 +364,7 @@
             }
         }
         if (sender.direction == UISwipeGestureRecognizerDirectionUp) {
-            self.slidesFollowVideo = NO;
+            [self makeSlidesNotFollowVideo];
             [self updateSlide];
         }
         if (sender.direction == UISwipeGestureRecognizerDirectionDown) {

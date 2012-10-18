@@ -8,7 +8,6 @@
 
 #import "VideotoriumPlayerViewControllerPhone.h"
 #import "VideotoriumMoviePlayerViewController.h"
-#import "VideotoriumSlidePlayerViewController.h"
 #import "VideotoriumClient.h"
 
 @interface VideotoriumPlayerViewControllerPhone ()
@@ -227,6 +226,11 @@
     }
 }
 
+- (void)slidesStoppedFollowingVideo {
+    [self.titleBarTimer invalidate];
+    [self hideBars];
+}
+
 - (void)seekToSlideWithID:(NSString *)ID
 {
     [self.slidePlayer seekToSlideWithID:ID];
@@ -317,6 +321,7 @@
                 if ([self.recordingDetails.slides count]) {
                     self.noSlides = NO;
                     self.slidePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"slidePlayer"];
+                    self.slidePlayer.delegate = self;
                     self.slidePlayer.fullscreenDisabled = YES;
                     self.slidePlayer.slides = self.recordingDetails.slides;
                     self.slidePlayer.moviePlayer = self.moviePlayer;
