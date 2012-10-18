@@ -45,6 +45,9 @@
 @implementation VideotoriumPlayerViewControllerPhone
 @synthesize recordingID = _recordingID;
 
+- (IBAction)retryButtonPressed:(id)sender {
+    self.recordingID = self.recordingID;
+}
 
 - (void)updateShowSlidesOrVideoButtonTitle {
     if (self.scrollView.contentOffset.y >= self.view.bounds.size.height) {
