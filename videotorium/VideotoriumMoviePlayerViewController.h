@@ -20,6 +20,7 @@
 @property(nonatomic, readonly) NSTimeInterval duration;
 @property(nonatomic, readonly) MPMovieLoadState loadState;
 @property(nonatomic, readonly) MPMoviePlaybackState playbackState;
+@property(nonatomic, readonly) MPMovieMediaTypeMask movieMediaTypes;
 
 - (void)prepareToPlay;
 - (void)play;

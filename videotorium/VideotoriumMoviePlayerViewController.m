@@ -88,6 +88,11 @@
     return self.moviePlayerController.playbackState;
 }
 
+- (MPMovieMediaTypeMask)movieMediaTypes
+{
+    return self.moviePlayerController.movieMediaTypes;
+}
+
 
 - (void)prepareToPlay
 {

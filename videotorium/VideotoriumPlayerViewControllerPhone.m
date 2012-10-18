@@ -205,12 +205,14 @@
 }
 
 - (void)hideBars {
-    self.titleBarVisible = NO;
-    [UIView animateWithDuration:0.4 animations:^{
-        self.titleBar.alpha = 0;
-        self.playbackControlsBar.alpha = 0;
-    }];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    if (self.moviePlayer.movieMediaTypes & MPMovieMediaTypeMaskVideo) { // don't hide bars for audio only streams
+        self.titleBarVisible = NO;
+        [UIView animateWithDuration:0.4 animations:^{
+            self.titleBar.alpha = 0;
+            self.playbackControlsBar.alpha = 0;
+        }];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    }
 }
 
 - (void)showBars {
