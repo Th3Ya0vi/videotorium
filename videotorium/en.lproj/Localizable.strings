@@ -11,7 +11,7 @@
 "secondaryVideoNotSupported" = "secondary video is not supported";
 "noSlides" = "no slides";
 "followVideo" = "Jump back";
-"seekToThisSlide" = "Jump to this slide";
+"seekToThisSlide" = "Jump here";
 "matchingSlides" = "Matching slides";
 "noRecordings" = "No recordings found";
 "errorConnecting" = "Error connecting to Videotorium";
