@@ -58,6 +58,7 @@
 }
 
 - (IBAction)donePressed:(id)sender {
+    [self.moviePlayer stop];
     [self.titleBarTimer invalidate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
