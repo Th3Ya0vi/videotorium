@@ -71,7 +71,7 @@
 }
 
 - (IBAction)actionButtonPressed:(id)sender {
-    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.recordingDetails.title, self.recordingDetails.URL] applicationActivities:nil];
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.recordingDetails.title, self.recordingDetails.URL, self.recordingDetails.indexPicture] applicationActivities:nil];
     [avc setCompletionHandler:(UIActivityViewControllerCompletionHandler)^{
         [self scheduleTitleBarTimer];
         [self layoutViewsInOrientation:self.interfaceOrientation];
@@ -240,11 +240,6 @@
     }
 }
 
-- (void)setRecordingID:(NSString *)recordingID
-{
-    [self setRecordingID:recordingID autoplay:YES];
-}
-
 - (void)layoutViewsInOrientation:(UIInterfaceOrientation)interfaceOrientation {
     NSMutableArray *titleBarItems = [self.titleBar.items mutableCopy];
     [titleBarItems removeObject:self.showSlidesOrVideoButton];
@@ -270,6 +265,12 @@
         self.moviePlayerView.frame = self.view.bounds;
     }
     self.titleBar.items = titleBarItems;
+}
+
+
+- (void)setRecordingID:(NSString *)recordingID
+{
+    [self setRecordingID:recordingID autoplay:YES];
 }
 
 - (void)setRecordingID:(NSString *)recordingID autoplay:(BOOL)shouldAutoplay
@@ -301,6 +302,13 @@
         VideotoriumClient *client = [[VideotoriumClient alloc] init];
         NSError *error;
         VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID error:&error];
+        dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture", NULL);
+        dispatch_async(getIndexPictureQueue, ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:recordingDetails.indexPictureURL];
+            if (imageData) {
+	            recordingDetails.indexPicture = [UIImage imageWithData:imageData];
+            };
+        });
         dispatch_async(dispatch_get_main_queue(), ^{
             // If the recordingID was changed meanwhile, this recording is not needed anymore
             if (![recordingID isEqualToString:_recordingID]) return;
