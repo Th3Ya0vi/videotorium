@@ -378,6 +378,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xcV-5R-Mog"/>
+                                    <barButtonItem title="Slides" width="60" id="MBm-N5-qHc">
+                                        <connections>
+                                            <action selector="showSlidesOrVideoButtonPressed:" destination="duf-CU-ThZ" id="NXZ-6X-sm3"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="action" id="qwJ-pd-B1T">
                                         <connections>
                                             <action selector="actionButtonPressed:" destination="duf-CU-ThZ" id="z6Q-I4-AYJ"/>
@@ -454,6 +459,7 @@
                         <outlet property="playbackSlider" destination="M9k-YT-LFG" id="lF3-nH-Glo"/>
                         <outlet property="retryButton" destination="vke-vE-f7P" id="BZE-0W-fqP"/>
                         <outlet property="scrollView" destination="485-cs-0KY" id="dpk-eN-blv"/>
+                        <outlet property="showSlidesOrVideoButton" destination="MBm-N5-qHc" id="C9L-cI-Nq9"/>
                         <outlet property="slideContainerView" destination="S8e-Ca-1I1" id="dWD-ih-QaY"/>
                         <outlet property="titleBar" destination="YlR-hu-PGc" id="JD9-Hm-yqs"/>
                     </connections>
@@ -733,6 +739,7 @@
                 <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="showSlidesOrVideoButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="slideContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleBar" candidateClass="UIToolbar"/>
             </relationships>
@@ -749,8 +756,6 @@
         <class className="VideotoriumRecordingInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideotoriumRecordingInfoViewController.h"/>
             <relationships>
-                <relationship kind="action" name="doneButtonPressed:"/>
-                <relationship kind="action" name="openInSafari:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="openInSafariBarButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="openInSafariButton" candidateClass="UIButton"/>

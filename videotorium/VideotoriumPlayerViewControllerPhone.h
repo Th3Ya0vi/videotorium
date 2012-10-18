@@ -10,6 +10,6 @@
 #import "VideotoriumPlayerViewController.h"
 #import "VideotoriumRecordingInfoViewController.h"
 
-@interface VideotoriumPlayerViewControllerPhone : UIViewController <VideotoriumPlayerViewController, VideotoriumRecordingInfoViewDelegate>
+@interface VideotoriumPlayerViewControllerPhone : UIViewController <VideotoriumPlayerViewController, VideotoriumRecordingInfoViewDelegate, UIScrollViewDelegate>
 
 @end

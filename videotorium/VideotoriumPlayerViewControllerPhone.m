@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property(nonatomic) CGPoint lastScrollViewOffset;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *showSlidesOrVideoButton;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -44,6 +45,31 @@
 
 @implementation VideotoriumPlayerViewControllerPhone
 @synthesize recordingID = _recordingID;
+
+
+- (void)updateShowSlidesOrVideoButtonTitle {
+    if (self.scrollView.contentOffset.y >= self.view.bounds.size.height) {
+        self.showSlidesOrVideoButton.title = NSLocalizedString(@"showVideo", nil);
+    } else {
+        self.showSlidesOrVideoButton.title = NSLocalizedString(@"showSlides", nil);
+    }
+}
+
+- (IBAction)showSlidesOrVideoButtonPressed:(id)sender {
+    if (self.scrollView.contentOffset.y >= self.view.bounds.size.height) {
+        [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    } else {
+        [self.scrollView setContentOffset:CGPointMake(0, self.view.bounds.size.height) animated:YES];        
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self updateShowSlidesOrVideoButtonTitle];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self updateShowSlidesOrVideoButtonTitle];
+}
 
 - (IBAction)actionButtonPressed:(id)sender {
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.recordingDetails.title, self.recordingDetails.URL] applicationActivities:nil];
@@ -127,14 +153,18 @@
     UIImage *image = [UIImage imageNamed:@"thumb.png"];
     [self.playbackSlider setThumbImage:image forState:UIControlStateNormal];
     NSMutableArray *items = [self.playbackControlsBar.items mutableCopy];
-    [items removeObjectAtIndex:1]; // Remove pause button
+    [items removeObject:self.pauseButton];
     self.playbackControlsBar.items = items;
     [self scheduleTitleBarTimer];
+    items = [self.titleBar.items mutableCopy];
+    [items removeObject:self.showSlidesOrVideoButton];
+    self.showSlidesOrVideoButton.title = NSLocalizedString(@"showSlides", nil);
     if (![UIActivityViewController class]) {
-        items = [self.titleBar.items mutableCopy];
         [items removeObject:self.actionButton];
-        self.titleBar.items = items;
     }
+    self.titleBar.items = items;
+    
+    self.scrollView.delegate = self;
 }
 
 - (void)changeFirstButtonTo:(UIBarButtonItem *)button {
@@ -208,8 +238,11 @@
 }
 
 - (void)layoutViewsInOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    NSMutableArray *titleBarItems = [self.titleBar.items mutableCopy];
+    [titleBarItems removeObject:self.showSlidesOrVideoButton];
     if ([self.recordingDetails.slides count]) {
         if (UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
+            [titleBarItems insertObject:self.showSlidesOrVideoButton atIndex:2];
             self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height * 2);
             self.scrollView.scrollEnabled = YES;
             self.moviePlayerView.frame = self.view.bounds;
@@ -228,6 +261,7 @@
         self.scrollView.scrollEnabled = NO;
         self.moviePlayerView.frame = self.view.bounds;
     }
+    self.titleBar.items = titleBarItems;
 }
 
 - (void)setRecordingID:(NSString *)recordingID autoplay:(BOOL)shouldAutoplay
@@ -303,8 +337,6 @@
 - (void)viewDidUnload
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self setScrollView:nil];
-    [self setActionButton:nil];
     [super viewDidUnload];
 }
 
