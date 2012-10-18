@@ -20,5 +20,6 @@
 @property (nonatomic, strong) NSString *dateString;
 @property (nonatomic, strong) NSString *durationString;
 @property (nonatomic, strong) NSString *descriptionText;
-
+@property (nonatomic, strong) NSURL *indexPictureURL;
+@property (nonatomic, strong) UIImage *indexPicture;
 @end

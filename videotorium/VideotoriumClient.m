@@ -102,7 +102,9 @@
         streamURLString = [streamURLString stringByReplacingOccurrencesOfString:@"stream.videotorium.hu:1935/" withString:@"stream.videotorium.hu/"];
     }
     details.streamURL = [NSURL URLWithString:streamURLString];
-
+    NSString *indexPictureURLString = [VideotoriumClient substringOf:details.response matching:@"<meta property=\"og:image\" *content=\"([^\"]*)\""];
+    details.indexPictureURL = [NSURL URLWithString:indexPictureURLString];
+	
     NSString *secondaryStreamsString = [VideotoriumClient substringOf:details.response matching:@"media_secondaryStreams *= *'([^']*)'"];
     if (secondaryStreamsString) {
         NSData *secondaryStreamsData = [secondaryStreamsString dataUsingEncoding:NSUTF8StringEncoding];

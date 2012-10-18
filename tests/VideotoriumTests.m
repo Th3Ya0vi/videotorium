@@ -63,6 +63,7 @@
     STAssertEqualObjects(recording.durationString, @"59p 46mp", nil);
     STAssertEqualObjects(recording.URL, [NSURL URLWithString:@"http://videotorium.hu/hu/recordings/details/2487"], nil);
     STAssertEquals([recording.descriptionText length], (NSUInteger)693, nil);
+    STAssertEqualObjects(recording.indexPictureURL, [NSURL URLWithString:@"http://static.videotorium.hu/files/recordings/487/2487/indexpics/400x250/2487_2483_20.jpg"], nil);
 }
 
 - (void)testCreatingSlide
