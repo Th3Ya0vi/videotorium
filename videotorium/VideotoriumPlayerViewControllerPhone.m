@@ -74,7 +74,11 @@
 }
 
 - (IBAction)actionButtonPressed:(id)sender {
-    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.recordingDetails.title, self.recordingDetails.URL, self.recordingDetails.indexPicture] applicationActivities:nil];
+    NSMutableArray *activityItems = [NSMutableArray arrayWithArray:@[self.recordingDetails.title, self.recordingDetails.URL]];
+    if (self.recordingDetails.indexPicture) {
+        [activityItems addObject:self.recordingDetails.indexPicture];
+    }
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     [avc setCompletionHandler:(UIActivityViewControllerCompletionHandler)^{
         [self scheduleTitleBarTimer];
         [self layoutViewsInOrientation:self.interfaceOrientation];
@@ -312,6 +316,7 @@
 	            recordingDetails.indexPicture = [UIImage imageWithData:imageData];
             };
         });
+        dispatch_release(getIndexPictureQueue);
         dispatch_async(dispatch_get_main_queue(), ^{
             // If the recordingID was changed meanwhile, this recording is not needed anymore
             if (![recordingID isEqualToString:_recordingID]) return;

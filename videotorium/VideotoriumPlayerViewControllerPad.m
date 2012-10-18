@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *introductoryTextLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithNoSlides;
 @property (weak, nonatomic) IBOutlet UIView *viewForVideoWithSlides;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 
 @property (strong, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @property (weak, nonatomic) UIPopoverController *splitViewPopoverController;
@@ -37,12 +38,27 @@
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 
 @property (weak, nonatomic) UIPopoverController *infoPopoverController;
+@property (strong, nonatomic) UIPopoverController *actionPopover;
 
 @end
 
 @implementation VideotoriumPlayerViewControllerPad
 
 @synthesize recordingID = _recordingID;
+
+- (IBAction)actionButtonPressed:(UIBarButtonItem *)sender {
+    if (self.actionPopover.popoverVisible) {
+        [self.actionPopover dismissPopoverAnimated:YES];
+    } else {
+        NSMutableArray *activityItems = [NSMutableArray arrayWithArray:@[self.recordingDetails.title, self.recordingDetails.URL]];
+        if (self.recordingDetails.indexPicture) {
+            [activityItems addObject:self.recordingDetails.indexPicture];
+        }
+        UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        self.actionPopover = [[UIPopoverController alloc] initWithContentViewController:avc];
+        [self.actionPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -126,6 +142,12 @@
     } else {
         self.introductoryTextLabel.text = NSLocalizedString(@"introductoryTextPortrait", nil);
     }
+    
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    if (![UIActivityViewController class]) {
+        [toolbarItems removeObject:self.actionButton];
+    }
+    self.toolbar.items = toolbarItems;
 }
 
 - (void)seekToSlideWithID:(NSString *)ID
@@ -133,6 +155,7 @@
     if (self.slidePlayer) {
         [self.slidePlayer seekToSlideWithID:ID];
         [self.splitViewPopoverController dismissPopoverAnimated:YES];
+        [self.actionPopover dismissPopoverAnimated:YES];
     } else {
         [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:0.5];
     }
@@ -165,6 +188,7 @@
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
     [self.infoPopoverController dismissPopoverAnimated:YES];
+    [self.actionPopover dismissPopoverAnimated:YES];
     
     [UIView animateWithDuration:0.2 animations:^{
         self.introductoryTextContainerView.alpha = 0;
@@ -183,6 +207,14 @@
         VideotoriumClient *client = [[VideotoriumClient alloc] init];
         NSError *error;
         VideotoriumRecordingDetails *recordingDetails = [client detailsWithID:recordingID error:&error];
+        dispatch_queue_t getIndexPictureQueue = dispatch_queue_create("get index picture", NULL);
+        dispatch_async(getIndexPictureQueue, ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:recordingDetails.indexPictureURL];
+            if (imageData) {
+	            recordingDetails.indexPicture = [UIImage imageWithData:imageData];
+            };
+        });
+        dispatch_release(getIndexPictureQueue);
         dispatch_async(dispatch_get_main_queue(), ^{
             // If the recordingID was changed meanwhile, this recording is not needed anymore
             if (![recordingID isEqualToString:_recordingID]) return;
@@ -283,6 +315,7 @@
         destination.recording = self.recordingDetails;
         destination.infoPopoverController = self.infoPopoverController;
         destination.delegate = self;
+        [self.actionPopover dismissPopoverAnimated:YES];
     }
 }
 
