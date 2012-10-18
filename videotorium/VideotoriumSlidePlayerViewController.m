@@ -121,7 +121,7 @@
 - (void)seekToSlideWithID:(NSString *)ID
 {
     if (self.moviePlayer.loadState == MPMovieLoadStateUnknown) {
-        [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:1];
+        [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:0.5];
     } else {
         [self.slides enumerateObjectsUsingBlock:^(VideotoriumSlide *slide, NSUInteger idx, BOOL *stop) {
             if ([slide.ID isEqualToString:ID]) {

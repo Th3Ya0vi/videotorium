@@ -130,8 +130,12 @@
 
 - (void)seekToSlideWithID:(NSString *)ID
 {
-    [self.slidePlayer seekToSlideWithID:ID];
-    [self.splitViewPopoverController dismissPopoverAnimated:YES];
+    if (self.slidePlayer) {
+        [self.slidePlayer seekToSlideWithID:ID];
+        [self.splitViewPopoverController dismissPopoverAnimated:YES];
+    } else {
+        [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:0.5];
+    }
 }
 
 - (void)setRecordingID:(NSString *)recordingID

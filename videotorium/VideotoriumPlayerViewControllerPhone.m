@@ -233,7 +233,11 @@
 
 - (void)seekToSlideWithID:(NSString *)ID
 {
-    [self.slidePlayer seekToSlideWithID:ID];
+    if (self.slidePlayer) {
+        [self.slidePlayer seekToSlideWithID:ID];
+    } else {
+        [self performSelector:@selector(seekToSlideWithID:) withObject:ID afterDelay:0.5];
+    }
 }
 
 - (void)setRecordingID:(NSString *)recordingID
