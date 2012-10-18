@@ -26,6 +26,8 @@
 @property(nonatomic) CGPoint lastScrollViewOffset;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *showSlidesOrVideoButton;
+@property (weak, nonatomic) IBOutlet UIImageView *radioImageView;
+@property (weak, nonatomic) IBOutlet UILabel *radioTitleLabel;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -109,6 +111,15 @@
                          animations:^{
                              self.moviePlayerView.alpha = 1;
                          }];
+        if ((self.moviePlayer.movieMediaTypes & MPMovieMediaTypeMaskVideo) == 0) {
+            self.radioImageView.image = self.recordingDetails.indexPicture;
+            self.radioTitleLabel.text = self.recordingDetails.title;
+            [UIView animateWithDuration:0.5 animations:^{
+                self.radioImageView.alpha = 1;
+                self.radioTitleLabel.alpha = 1;
+            }];
+        }
+
     }
 }
 
@@ -301,7 +312,9 @@
     }
     [self.activityIndicator startAnimating];
     self.recordingDetails = nil;
-        
+    self.radioImageView.alpha = 0;
+    self.radioTitleLabel.alpha = 0;
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:recordingID forKey:@"lastRecordingID"];
     [defaults synchronize];
