@@ -36,7 +36,7 @@
 @property (nonatomic, strong) NSTimer *titleBarTimer;
 @property (nonatomic) BOOL noSlides;
 
-@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) NSTimer *updateSliderTimer;
 
 @property (nonatomic) BOOL isSliding;
 
@@ -309,16 +309,16 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+    self.updateSliderTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self.timer invalidate];
+    [self.updateSliderTimer invalidate];
 }
 
 - (void)updateSlider {
-    if (self.moviePlayer && (self.moviePlayer.duration > 0)) {
+    if (self.moviePlayer && (self.moviePlayer.duration > 0) && !isnan(self.moviePlayer.currentPlaybackTime)) {
         int minutes = floor(self.moviePlayer.currentPlaybackTime / 60);
         int seconds = floor(self.moviePlayer.currentPlaybackTime) - minutes * 60;
         self.currentPlaybackTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
