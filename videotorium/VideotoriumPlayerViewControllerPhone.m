@@ -35,7 +35,7 @@
 @property (nonatomic, strong) VideotoriumRecordingDetails *recordingDetails;
 
 @property (nonatomic) BOOL titleBarVisible;
-@property (nonatomic, strong) NSTimer *titleBarTimer;
+@property (nonatomic, strong) NSTimer *hideToolbarsTimer;
 @property (nonatomic) BOOL noSlides;
 
 @property (strong, nonatomic) NSTimer *updateSliderTimer;
@@ -86,14 +86,14 @@
         [self layoutViewsInOrientation:self.interfaceOrientation];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     }];
-    [self.titleBarTimer invalidate];
+    [self.hideToolbarsTimer invalidate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [self presentViewController:avc animated:YES completion:nil];
 }
 
 - (IBAction)donePressed:(id)sender {
     [self.moviePlayer stop];
-    [self.titleBarTimer invalidate];
+    [self.hideToolbarsTimer invalidate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -118,13 +118,16 @@
                 self.radioImageView.alpha = 1;
                 self.radioTitleLabel.alpha = 1;
             }];
+        } else {
+            [self.hideToolbarsTimer invalidate];
+            [self hideBars];
         }
 
     }
 }
 
 - (void)moviePlayerPlaybackDidFinish:(NSNotification *)notification {
-    [self.titleBarTimer invalidate];
+    [self.hideToolbarsTimer invalidate];
     [self showBars];
     if ([notification.userInfo objectForKey:@"error"]) {
         [self.activityIndicator stopAnimating];
@@ -202,7 +205,7 @@
 }
 
 - (IBAction)sliderTouchDown:(id)sender {
-    [self.titleBarTimer invalidate];
+    [self.hideToolbarsTimer invalidate];
     self.isSliding = true;
 }
 - (IBAction)sliderTouchUp:(id)sender {
@@ -212,7 +215,7 @@
 
 
 - (void)scheduleTitleBarTimer {
-    self.titleBarTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
+    self.hideToolbarsTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(handleTapGesture:) userInfo:nil repeats:NO];
 }
 
 - (void)hideBars {
@@ -237,7 +240,7 @@
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender
 {
-    [self.titleBarTimer invalidate];
+    [self.hideToolbarsTimer invalidate];
     if (self.titleBarVisible) {
         [self hideBars];
     } else {
@@ -247,7 +250,7 @@
 }
 
 - (void)slidesStoppedFollowingVideo {
-    [self.titleBarTimer invalidate];
+    [self.hideToolbarsTimer invalidate];
     [self hideBars];
 }
 
@@ -413,7 +416,7 @@
         VideotoriumRecordingInfoViewController *destination = segue.destinationViewController;
         destination.recording = self.recordingDetails;
         destination.delegate = self;
-        [self.titleBarTimer invalidate];
+        [self.hideToolbarsTimer invalidate];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     }
 }
