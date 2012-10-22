@@ -10,6 +10,10 @@
 #import "VideotoriumMoviePlayerViewController.h"
 #import "VideotoriumClient.h"
 
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <MediaPlayer/MPMediaItem.h>
+
 @interface VideotoriumPlayerViewControllerPhone ()
 
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
@@ -371,6 +375,19 @@
                     self.noSlides = YES;
                 }
                 [self layoutViewsInOrientation:self.interfaceOrientation];
+                AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+                NSError *setCategoryError = nil;
+                BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+                if (!success) { NSLog(@"%@", setCategoryError); }
+                [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
+                [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+                MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+                NSDictionary *songInfo = @{
+    		        MPMediaItemPropertyTitle: recordingDetails.title,
+	        	    MPMediaItemPropertyArtist: recordingDetails.presenter,
+                    MPMediaItemPropertyArtwork: [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"videotorium-albumart"]]
+                };
+                center.nowPlayingInfo = songInfo;
             }
         });
     });
@@ -434,6 +451,28 @@
     [self scheduleTitleBarTimer];
     [self layoutViewsInOrientation:self.interfaceOrientation];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    if (event.subtype == UIEventSubtypeRemoteControlPlay) {
+        [self.moviePlayer play];
+    }
+    if (event.subtype == UIEventSubtypeRemoteControlPause) {
+        [self.moviePlayer pause];
+    }
+    if (event.subtype == UIEventSubtypeRemoteControlTogglePlayPause) {
+        if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
+	        [self.moviePlayer pause];
+        } else {
+            [self.moviePlayer play];
+        }
+    }
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 @end

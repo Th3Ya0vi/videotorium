@@ -21,9 +21,11 @@
 		2D88B9FE1574F8AC00B938FF /* VideotoriumRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */; };
 		2D94239F15D0E049004C91A9 /* app-icon@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D94239E15D0E049004C91A9 /* app-icon@2x~iphone.png */; };
 		2D9423A215D0E04C004C91A9 /* app-icon~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9423A115D0E04C004C91A9 /* app-icon~iphone.png */; };
+		2D9FFA71163562E700D2DDB8 /* videotorium-albumart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9FFA70163562E700D2DDB8 /* videotorium-albumart.png */; };
 		2DA15CBA15CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */; };
 		2DA8FF8C15D0E074006A117D /* app-icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8FF8B15D0E074006A117D /* app-icon@2x~ipad.png */; };
 		2DA8FF8F15D0E077006A117D /* app-icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA8FF8E15D0E077006A117D /* app-icon~ipad.png */; };
+		2DAE23BF16305BC1004A23D1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D54C3E6157DF557004783CA /* AVFoundation.framework */; };
 		2DB449A115AE99EC00594FFF /* videotorium-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4499F15AE99EC00594FFF /* videotorium-gradient.png */; };
 		2DB449A215AE99EC00594FFF /* videotorium-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DB449A015AE99EC00594FFF /* videotorium-gradient@2x.png */; };
 		2DB8B68C1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB8B68B1578B718001A44D5 /* VideotoriumRecordingInfoViewController.m */; };
@@ -99,6 +101,7 @@
 		2D88B9FD1574F8AC00B938FF /* VideotoriumRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumRecording.m; sourceTree = "<group>"; };
 		2D94239E15D0E049004C91A9 /* app-icon@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon@2x~iphone.png"; sourceTree = "<group>"; };
 		2D9423A115D0E04C004C91A9 /* app-icon~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon~iphone.png"; sourceTree = "<group>"; };
+		2D9FFA70163562E700D2DDB8 /* videotorium-albumart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videotorium-albumart.png"; sourceTree = "<group>"; };
 		2DA15CB815CFD86F0032C28F /* VideotoriumSlidePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideotoriumSlidePlayerViewController.h; sourceTree = "<group>"; };
 		2DA15CB915CFD86F0032C28F /* VideotoriumSlidePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideotoriumSlidePlayerViewController.m; sourceTree = "<group>"; };
 		2DA8FF8B15D0E074006A117D /* app-icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon@2x~ipad.png"; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DAE23BF16305BC1004A23D1 /* AVFoundation.framework in Frameworks */,
 				2DF97E1315AC35C4006CA6A2 /* QuartzCore.framework in Frameworks */,
 				2DC6F8B0154E962200CDDA80 /* MediaPlayer.framework in Frameworks */,
 				2DEB06B91549703200AD0805 /* UIKit.framework in Frameworks */,
@@ -339,6 +343,7 @@
 		2DFBB7911580E11400C770EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2D9FFA70163562E700D2DDB8 /* videotorium-albumart.png */,
 				2D2CF873162EB7C100224CFB /* thumb@2x.png */,
 				2D2CF874162EB7C100224CFB /* thumb.png */,
 				2DEC7C521611DDFF0069DDB9 /* Default-568h@2x.png */,
@@ -452,6 +457,7 @@
 				2DEC7C531611DDFF0069DDB9 /* Default-568h@2x.png in Resources */,
 				2D2CF875162EB7C100224CFB /* thumb@2x.png in Resources */,
 				2D2CF876162EB7C100224CFB /* thumb.png in Resources */,
+				2D9FFA71163562E700D2DDB8 /* videotorium-albumart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
