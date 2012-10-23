@@ -173,6 +173,7 @@
     
     self.titleLabel.text = @"";
     self.infoButton.enabled = NO;
+    self.actionButton.enabled = NO;
     self.retryButton.alpha = 0;
     if (self.moviePlayer != nil) {
         [self.moviePlayer stop];
@@ -235,6 +236,7 @@
                 self.moviePlayer.shouldAutoplay = shouldAutoplay;
                 [self.moviePlayer prepareToPlay];
                 self.infoButton.enabled = YES;
+                self.actionButton.enabled = YES;
                 if ([self.recordingDetails.slides count]) {
                     self.moviePlayerView.frame = self.viewForVideoWithSlides.frame;
                     self.slidePlayer = [self.storyboard instantiateViewControllerWithIdentifier:@"slidePlayer"];
