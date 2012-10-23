@@ -126,11 +126,7 @@
                 self.radioImageView.alpha = 1;
                 self.radioTitleLabel.alpha = 1;
             }];
-        } else {
-            [self.hideToolbarsTimer invalidate];
-            [self hideBars];
         }
-
     }
 }
 
@@ -213,10 +209,12 @@
 }
 
 - (IBAction)sliderTouchDown:(id)sender {
+    NSLog(@"sliderTouchDown");
     [self.hideToolbarsTimer invalidate];
     self.isSliding = true;
 }
 - (IBAction)sliderTouchUp:(id)sender {
+    NSLog(@"sliderTouchUp");
     [self scheduleTitleBarTimer];
     self.isSliding = false;
 }
