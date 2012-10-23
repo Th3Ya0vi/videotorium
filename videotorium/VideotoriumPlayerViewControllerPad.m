@@ -60,6 +60,7 @@
             [activityItems addObject:self.recordingDetails.indexPicture];
         }
         UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypePrint];
         self.actionPopover = [[UIPopoverController alloc] initWithContentViewController:avc];
         [self.actionPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
