@@ -92,9 +92,11 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.tabBarController.selectedIndex = [defaults integerForKey:kLastSelectedTab];
     NSString *lastRecordingID = [defaults stringForKey:kLastRecordingID];
+    NSTimeInterval lastRecordingPosition = [defaults floatForKey:kLastRecordingPosition];
     if (lastRecordingID) {
         id <VideotoriumPlayerViewController> playerViewController = [self playerViewController];
         [playerViewController setRecordingID:lastRecordingID autoplay:NO];
+        [playerViewController seekToPosition:@(lastRecordingPosition)];
     }
 
 #endif

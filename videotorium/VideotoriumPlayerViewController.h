@@ -9,6 +9,7 @@
 //#define SCREENSHOTMODE
 
 #define kLastRecordingID @"lastRecordingID"
+#define kLastRecordingPosition @"lastRecordingPosition"
 
 #import <Foundation/Foundation.h>
 
@@ -19,6 +20,7 @@
 - (void)setRecordingID:(NSString *)recordingID autoplay:(BOOL)shouldAutoplay;
 
 - (void)seekToSlideWithID:(NSString *)ID;
+- (void)seekToPosition:(NSNumber *)position;
 
 
 @end

@@ -155,6 +155,15 @@
     }
 }
 
+- (void)seekToPosition:(NSNumber *)position
+{
+    if (self.moviePlayer.loadState == MPMovieLoadStateUnknown) {
+        [self performSelector:@selector(seekToPosition:) withObject:position afterDelay:0.5];
+    } else {
+        self.moviePlayer.currentPlaybackTime = [position floatValue];
+    }
+}
+
 - (void)setRecordingID:(NSString *)recordingID
 {
     [self setRecordingID:recordingID autoplay:YES];

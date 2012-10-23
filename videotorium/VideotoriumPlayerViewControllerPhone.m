@@ -271,6 +271,15 @@
     }
 }
 
+- (void)seekToPosition:(NSNumber *)position
+{
+    if (self.moviePlayer.loadState == MPMovieLoadStateUnknown) {
+        [self performSelector:@selector(seekToPosition:) withObject:position afterDelay:0.5];
+    } else {
+        self.moviePlayer.currentPlaybackTime = [position floatValue];
+    }
+}
+
 - (void)layoutViewsInOrientation:(UIInterfaceOrientation)interfaceOrientation {
     NSMutableArray *titleBarItems = [self.titleBar.items mutableCopy];
     [titleBarItems removeObject:self.showSlidesOrVideoButton];
@@ -417,6 +426,9 @@
 
 - (void)updateSlider {
     if (self.moviePlayer && (self.moviePlayer.duration > 0) && !isnan(self.moviePlayer.currentPlaybackTime)) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setFloat:self.moviePlayer.currentPlaybackTime forKey:kLastRecordingPosition];
+
         int minutes = floor(self.moviePlayer.currentPlaybackTime / 60);
         int seconds = floor(self.moviePlayer.currentPlaybackTime) - minutes * 60;
         self.currentPlaybackTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
