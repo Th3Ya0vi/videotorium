@@ -32,6 +32,9 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *showSlidesOrVideoButton;
 @property (weak, nonatomic) IBOutlet UIImageView *radioImageView;
 @property (weak, nonatomic) IBOutlet UILabel *radioTitleLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *airplayBarButton;
+@property (weak, nonatomic) IBOutlet UIView *airplayBarButtonView;
+@property (strong, nonatomic) MPVolumeView *volumeView;
 
 @property (nonatomic, strong) VideotoriumMoviePlayerViewController *moviePlayer;
 @property (nonatomic, strong) VideotoriumSlidePlayerViewController *slidePlayer;
@@ -189,6 +192,10 @@
     self.titleBar.items = items;
     
     self.scrollView.delegate = self;
+    
+    self.volumeView = [[MPVolumeView alloc] initWithFrame:self.airplayBarButtonView.bounds];
+    [self.volumeView setShowsVolumeSlider:NO];
+    [self.airplayBarButtonView addSubview:self.volumeView];
 }
 
 - (void)changeFirstButtonTo:(UIBarButtonItem *)button {
@@ -209,12 +216,10 @@
 }
 
 - (IBAction)sliderTouchDown:(id)sender {
-    NSLog(@"sliderTouchDown");
     [self.hideToolbarsTimer invalidate];
     self.isSliding = true;
 }
 - (IBAction)sliderTouchUp:(id)sender {
-    NSLog(@"sliderTouchUp");
     [self scheduleTitleBarTimer];
     self.isSliding = false;
 }
@@ -283,7 +288,7 @@
     [titleBarItems removeObject:self.showSlidesOrVideoButton];
     if ([self.recordingDetails.slides count]) {
         if (UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
-            [titleBarItems insertObject:self.showSlidesOrVideoButton atIndex:2];
+            [titleBarItems insertObject:self.showSlidesOrVideoButton atIndex:3];
             self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height * 2);
             self.scrollView.scrollEnabled = YES;
             self.moviePlayerView.frame = self.view.bounds;
@@ -409,6 +414,8 @@
 - (void)viewDidUnload
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setAirplayBarButton:nil];
+    [self setAirplayBarButtonView:nil];
     [super viewDidUnload];
 }
 
