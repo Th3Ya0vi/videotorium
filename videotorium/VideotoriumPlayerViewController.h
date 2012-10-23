@@ -8,6 +8,7 @@
 
 //#define SCREENSHOTMODE
 
+#define kLastRecordingID @"lastRecordingID"
 
 #import <Foundation/Foundation.h>
 

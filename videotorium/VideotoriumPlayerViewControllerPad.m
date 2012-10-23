@@ -19,8 +19,6 @@
 
 @interface VideotoriumPlayerViewControllerPad ()
 
-#define kLastRecordingID @"lastRecordingID"
-
 @property (weak, nonatomic) IBOutlet UIView *moviePlayerView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -126,16 +124,6 @@
     self.retryButton.alpha = 0;
     self.introductoryTextContainerView.alpha = 0;
 
-#ifndef SCREENSHOTMODE
-    if (!self.recordingID) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastRecordingID = [defaults stringForKey:kLastRecordingID];
-        if (lastRecordingID) {
-            [self setRecordingID:lastRecordingID autoplay:NO];
-        }
-    }
-#endif
-
 #ifdef SCREENSHOTMODE
     self.introductoryTextContainerView = nil;
     self.titleLabel.text = @"";
@@ -206,7 +194,7 @@
     }];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:recordingID forKey:@"lastRecordingID"];
+    [defaults setObject:recordingID forKey:kLastRecordingID];
     [defaults synchronize];
     
     dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);

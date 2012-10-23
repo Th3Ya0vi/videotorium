@@ -91,6 +91,12 @@
     self.tabBarController.delegate = self;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.tabBarController.selectedIndex = [defaults integerForKey:kLastSelectedTab];
+    NSString *lastRecordingID = [defaults stringForKey:kLastRecordingID];
+    if (lastRecordingID) {
+        id <VideotoriumPlayerViewController> playerViewController = [self playerViewController];
+        [playerViewController setRecordingID:lastRecordingID autoplay:NO];
+    }
+
 #endif
     
     self.noRecordingsFoundLabel.text = NSLocalizedString(@"noRecordings", nil);
@@ -187,9 +193,7 @@
 {
     id <VideotoriumPlayerViewController> playerViewController = [self playerViewController];
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
-    if (![playerViewController.recordingID isEqualToString:recording.ID]) {
-        playerViewController.recordingID = recording.ID;
-    }
+    playerViewController.recordingID = recording.ID;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

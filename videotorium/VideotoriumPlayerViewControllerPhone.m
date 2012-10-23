@@ -101,6 +101,9 @@
     [self.hideToolbarsTimer invalidate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:kLastRecordingID];
+    [defaults synchronize];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -324,7 +327,7 @@
     self.radioTitleLabel.alpha = 0;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:recordingID forKey:@"lastRecordingID"];
+    [defaults setObject:recordingID forKey:kLastRecordingID];
     [defaults synchronize];
     
     dispatch_queue_t getDetailsQueue = dispatch_queue_create("get details queue", NULL);

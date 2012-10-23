@@ -224,9 +224,7 @@
     id <VideotoriumPlayerViewController> playerViewController = [self playerViewController];
     
     VideotoriumRecording *recording = [self.recordings objectAtIndex:indexPath.row];
-    if (![playerViewController.recordingID isEqualToString:recording.ID]) {
-        playerViewController.recordingID = recording.ID;
-    }
+    playerViewController.recordingID = recording.ID;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
