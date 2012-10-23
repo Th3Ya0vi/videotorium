@@ -12,6 +12,11 @@
 #import "VideotoriumSlidePlayerViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <MediaPlayer/MPMediaItem.h>
+
+
 @interface VideotoriumPlayerViewControllerPad ()
 
 #define kLastRecordingID @"lastRecordingID"
@@ -248,6 +253,20 @@
                 } else {
                     self.moviePlayerView.frame = self.viewForVideoWithNoSlides.frame;
                 }
+                AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+                NSError *setCategoryError = nil;
+                BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+                if (!success) { NSLog(@"%@", setCategoryError); }
+                [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
+                [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+                MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+                NSDictionary *songInfo = @{
+                    MPMediaItemPropertyTitle: recordingDetails.title,
+                    MPMediaItemPropertyArtist: recordingDetails.presenter,
+                    MPMediaItemPropertyArtwork: [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"videotorium-albumart"]]
+                };
+                center.nowPlayingInfo = songInfo;
+
             }
         });
     });
@@ -351,6 +370,27 @@
     self.splitViewBarButtonItem = nil;
 }
 
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    if (event.subtype == UIEventSubtypeRemoteControlPlay) {
+        [self.moviePlayer play];
+    }
+    if (event.subtype == UIEventSubtypeRemoteControlPause) {
+        [self.moviePlayer pause];
+    }
+    if (event.subtype == UIEventSubtypeRemoteControlTogglePlayPause) {
+        if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
+	        [self.moviePlayer pause];
+        } else {
+            [self.moviePlayer play];
+        }
+    }
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
 
 
 @end
