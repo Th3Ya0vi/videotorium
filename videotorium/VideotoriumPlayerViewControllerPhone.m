@@ -375,6 +375,7 @@
                     self.noSlides = YES;
                 }
                 [self layoutViewsInOrientation:self.interfaceOrientation];
+                [self updateShowSlidesOrVideoButtonTitle];
                 AVAudioSession *audioSession = [AVAudioSession sharedInstance];
                 NSError *setCategoryError = nil;
                 BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
