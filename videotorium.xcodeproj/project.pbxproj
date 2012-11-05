@@ -125,7 +125,7 @@
 		2DD60202154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VideotoriumClientDataSourceUsingSynchronousRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2DD60203154E579000907702 /* VideotoriumClientDataSourceUsingSynchronousRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VideotoriumClientDataSourceUsingSynchronousRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DD732D31577C5B100D94E1B /* videotorium.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = videotorium.entitlements; sourceTree = "<group>"; };
-		2DEB06B41549703200AD0805 /* videotorium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videotorium.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DEB06B41549703200AD0805 /* Videotorium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Videotorium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEB06B81549703200AD0805 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2DEB06BA1549703200AD0805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2DEB06BC1549703200AD0805 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -217,7 +217,7 @@
 		2DEB06B51549703200AD0805 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DEB06B41549703200AD0805 /* videotorium.app */,
+				2DEB06B41549703200AD0805 /* Videotorium.app */,
 				2DEB06CF1549703200AD0805 /* tests.octest */,
 			);
 			name = Products;
@@ -382,7 +382,7 @@
 			);
 			name = videotorium;
 			productName = videotorium;
-			productReference = 2DEB06B41549703200AD0805 /* videotorium.app */;
+			productReference = 2DEB06B41549703200AD0805 /* Videotorium.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2DEB06CE1549703200AD0805 /* tests */ = {
@@ -600,6 +600,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -623,6 +624,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -638,7 +640,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
 				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Videotorium;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -651,7 +653,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "videotorium/videotorium-Prefix.pch";
 				INFOPLIST_FILE = "videotorium/videotorium-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Videotorium;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
